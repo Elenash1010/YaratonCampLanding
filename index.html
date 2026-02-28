@@ -31,8 +31,8 @@
       --line2: rgba(11,15,20,.16);
 
       /* Smaller, harder shadows */
-      --shadow: 0 10px 26px rgba(11,15,20,.10);
-      --shadow2: 0 14px 36px rgba(11,15,20,.12);
+      --shadow: 0 8px 18px rgba(11,15,20,.08);
+      --shadow2: 0 14px 28px rgba(11,15,20,.12);
 
       /* radius caps */
       --radius: 10px;         /* cards */
@@ -42,8 +42,8 @@
       --ring: 0 0 0 4px rgba(56,105,172,.18);
 
       /* PRIMARY */
-      --primary:#0DBEFF;
-      --primary2:#33C9FF;
+      --primary:#0071E3;
+      --primary2:#4FA3FF;
       --ink:#fff;
 
       --leaf:#2DBD7E;
@@ -68,29 +68,13 @@
       font-family:"PT Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
       color:var(--text);
       background:
-        radial-gradient(900px 520px at 12% 6%, rgba(45,189,126,.08), transparent 55%),
-        radial-gradient(900px 520px at 88% 8%, rgba(56,105,172,.10), transparent 58%),
-        radial-gradient(900px 520px at 50% 115%, rgba(255,209,102,.08), transparent 60%),
+        url("1591.png") center top / 100% auto repeat-y,
         #fff;
       overflow-x:hidden;
       line-height:1.5;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
-    body:before{
-      content:"";
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      z-index:0;
-      opacity:.6;
-      background-image:
-        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000'><defs><linearGradient id='g1' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%239edbff' stop-opacity='1'/><stop offset='1' stop-color='%236bb6ff' stop-opacity='1'/></linearGradient><linearGradient id='g2' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23c8f0ff' stop-opacity='1'/><stop offset='1' stop-color='%237fc7ff' stop-opacity='1'/></linearGradient><linearGradient id='g3' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23b2e8ff' stop-opacity='.9'/><stop offset='1' stop-color='%235aa8ff' stop-opacity='.9'/></linearGradient></defs><path d='M-50 700 C 250 520, 700 460, 1100 560 C 1300 610, 1480 700, 1700 860' fill='none' stroke='url(%23g1)' stroke-width='80' stroke-linecap='round' opacity='.55'/><path d='M-80 820 C 200 640, 720 600, 1150 690 C 1380 740, 1540 820, 1700 980' fill='none' stroke='url(%23g2)' stroke-width='120' stroke-linecap='round' opacity='.45'/><path d='M-40 600 C 260 470, 680 420, 1040 500 C 1280 560, 1500 660, 1700 780' fill='none' stroke='url(%23g3)' stroke-width='34' stroke-linecap='round' opacity='.4'/><path d='M180 520 C 520 360, 920 320, 1260 380' fill='none' stroke='%239ad1ff' stroke-width='3' opacity='.4'/><path d='M140 570 C 520 410, 900 380, 1280 440' fill='none' stroke='%23a7dcff' stroke-width='3' opacity='.35'/><path d='M220 640 C 560 520, 960 500, 1320 560' fill='none' stroke='%238ec8ff' stroke-width='2' opacity='.35'/></svg>");
-      background-repeat:no-repeat;
-      background-size: 140% auto;
-      background-position: 58% 55%;
-    }
-    body > *{position:relative; z-index:1}
 
     a{color:inherit}
     img{max-width:100%;display:block}
@@ -125,12 +109,27 @@
     .brand-title strong{
       color:#0633A6;
     }
-    h1{font-size:clamp(28px, 3.9vw, 44px); line-height:1.1}
+    h1{font-size:clamp(28px, 3.6vw, 42px); line-height:1.18}
     h2{font-size:clamp(24px, 3.2vw, 38px); line-height:1.12}
     h3{font-size:18px; line-height:1.2}
     p{margin:0 0 12px; color:var(--muted)}
     .lead{font-size:clamp(15px, 1.5vw, 18px); color:rgba(11,15,20,.70)}
     .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+
+    /* Reduce heavy weights for a cleaner, Apple-like tone */
+    .btn,
+    .kicker,
+    .perk,
+    .pill,
+    .badge,
+    .tab,
+    .row strong,
+    .team-point strong,
+    .doc strong,
+    .who strong,
+    .citem strong{
+      font-weight:600;
+    }
 
     .kicker{
       display:inline-flex; align-items:center; gap:10px;
@@ -174,16 +173,16 @@
     .btn-primary{
       color:var(--ink);
       background: linear-gradient(180deg, var(--primary2), var(--primary));
-      box-shadow: 0 10px 22px rgba(56,105,172,.22);
+      box-shadow: var(--shadow2);
     }
-    .btn-primary:hover{transform: translateY(-2px); box-shadow: 0 14px 30px rgba(56,105,172,.26)}
+    .btn-primary:hover{transform: translateY(-2px); box-shadow: var(--shadow2)}
     .btn-primary:active{transform: translateY(0) scale(.99)}
     .btn-secondary{
       background: rgba(255,255,255,.92);
       border-color: rgba(11,15,20,.16);
-      box-shadow: 0 8px 18px rgba(11,15,20,.08);
+      box-shadow: var(--shadow);
     }
-    .btn-secondary:hover{transform: translateY(-2px); box-shadow: 0 12px 26px rgba(11,15,20,.10)}
+    .btn-secondary:hover{transform: translateY(-2px); box-shadow: var(--shadow)}
     .btn-ghost{
       background:transparent;
       border-color: rgba(11,15,20,.20);
@@ -197,13 +196,7 @@
       padding: clamp(34px, 4vw, 64px) 0;
       position:relative;
     }
-    .section:before{
-      content:"";
-      position:absolute;
-      left:0; right:0; top:0;
-      height:1px;
-      background: linear-gradient(90deg, transparent, rgba(11,15,20,.10), transparent);
-    }
+    .section:before{display:none}
     .section.no-line:before{display:none}
 
     .subhead{
@@ -481,11 +474,11 @@
     /* =========================
       HERO
     ========================== */
-    .hero{padding: clamp(22px, 4.2vw, 58px) 0 10px}
+    .hero{padding: clamp(48px, 6.5vw, 90px) 0 10px}
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: clamp(18px, 3vw, 30px);
+      grid-template-columns: 1.08fr .92fr;
+      gap: clamp(12px, 2vw, 20px);
       align-items:stretch;
     }
     .hero-left{padding-top: 10px}
@@ -493,8 +486,8 @@
     .hero-brand-line{
       display:block;
       margin-top:14px;
-      font-size:2.4em;
-      letter-spacing:.16em;
+      font-size:1.6em;
+      letter-spacing:.06em;
       white-space:nowrap;
     }
     .hero-tags{
@@ -520,6 +513,14 @@
       background: linear-gradient(180deg, var(--leaf), #7CE7BE);
     }
     .hero-actions{display:flex; flex-wrap:wrap; gap:12px; margin: 18px 0 16px}
+    .btn-link{
+      color: var(--primary);
+      font-weight:600;
+      text-decoration:none;
+      padding: 12px 6px;
+      border-radius: var(--btnRadius);
+    }
+    .btn-link:hover{text-decoration:underline}
     .hero-perks{
       display:grid;
       grid-template-columns: repeat(3, minmax(0, max-content));
@@ -1185,16 +1186,16 @@
 
     footer{
       padding: 34px 0;
-      border-top: 1px solid rgba(13,190,255,.35);
-      background: #0DBEFF;
-      color: #ffffff;
+      border-top: 1px solid rgba(11,15,20,.12);
+      background: rgba(248,250,253,.96);
+      color: var(--text);
     }
     footer h3,
     footer p,
     footer .brand-title strong,
     footer .brand-title span,
     footer .copyright{
-      color:#ffffff;
+      color: var(--text);
     }
     /* Force requested headings to blue even inside colored sections */
     #team .team-point strong,
@@ -1214,10 +1215,10 @@
     .f-links{display:grid; gap:8px}
     .f-links a{
       text-decoration:none;
-      font-weight:600;
-      border:1px solid rgba(255,255,255,.35);
-      background: rgba(255,255,255,.08);
-      color:#ffffff;
+      font-weight:500;
+      border:1px solid rgba(11,15,20,.08);
+      background: rgba(255,255,255,.70);
+      color: rgba(11,15,20,.72);
       padding: 10px 12px;
       border-radius: var(--radius);
       display:flex;
@@ -1225,7 +1226,7 @@
       justify-content:space-between;
       gap:10px;
       transition: transform var(--fast), box-shadow var(--fast);
-      box-shadow: 0 8px 18px rgba(11,15,20,.08);
+      box-shadow: none;
     }
     .f-links a:hover{transform: translateY(-2px); box-shadow: 0 12px 26px rgba(11,15,20,.10)}
     .copyright{margin-top: 16px; font-size:12px; font-weight:400; color:rgba(11,15,20,.52)}
@@ -1315,8 +1316,7 @@
       .form-row{grid-template-columns: 1fr}
       .footer-grid{grid-template-columns: 1fr}
       .hero-left h1{max-width:none}
-      .hero-perks,
-      .hero-tags{grid-template-columns: repeat(2, minmax(0, max-content))}
+      .hero-perks{grid-template-columns: repeat(2, minmax(0, max-content))}
       #shifts .scroller{grid-auto-columns: minmax(300px, 300px)}
       #shifts .scroller > .shift{min-height: 590px}
       .tile{min-height: 160px}
@@ -1328,8 +1328,7 @@
       .docs-grid{grid-template-columns: 1fr}
       .gallery .tile{grid-column: span 12}
       .hero-banner{min-height: 270px}
-      .hero-perks,
-      .hero-tags{grid-template-columns: 1fr}
+      .hero-perks{grid-template-columns: 1fr}
       #shifts .scroller{grid-auto-columns: minmax(86vw, 86vw)}
       #shifts .scroller > .shift{min-height: 560px}
       .mobile-actions{grid-template-columns: 1fr}
@@ -1433,17 +1432,12 @@
                 </svg>
                 Оставить заявку
               </a>
-              <a class="btn btn-secondary" href="#shifts" aria-label="Перейти к сменам и ценам">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-                Смены и цены
-              </a>
+              <a class="btn-link" href="#shifts" aria-label="Перейти к сменам и ценам">Смены и цены →</a>
             </div>
           </div>
 
           <div class="hero-banner">
-            <img src="zdorovaa-sem-a-smeetsa-hero.jpg" alt="Счастливая семья в лагере" loading="eager" decoding="async" />
+            <img src="hUfOFLuaK8U-hero.jpg" alt="Счастливая семья в лагере" loading="eager" decoding="async" />
           </div>
         </div><!-- /hero-grid -->
       </div>
