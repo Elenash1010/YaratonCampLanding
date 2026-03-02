@@ -183,6 +183,15 @@
       box-shadow: var(--shadow);
     }
     .btn-secondary:hover{transform: translateY(-2px); box-shadow: var(--shadow)}
+    .btn-soft{
+      background: rgba(0,113,227,.10);
+      border-color: rgba(0,113,227,.28);
+      color: #0633A6;
+      box-shadow: var(--shadow);
+    }
+    .btn-soft:hover{
+      background: rgba(0,113,227,.16);
+    }
     .btn-ghost{
       background:transparent;
       border-color: rgba(11,15,20,.20);
@@ -207,6 +216,28 @@
       margin-bottom: 22px;
     }
     .subhead p{margin:0; max-width: 70ch}
+    .closable{
+      position:relative;
+    }
+    .close-section{
+      position:absolute;
+      right: 0;
+      top: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius);
+      border:1px solid rgba(11,15,20,.14);
+      background: rgba(255,255,255,.92);
+      color: #0633A6;
+      font-size:22px;
+      font-weight:700;
+      line-height:1;
+      display:grid;
+      place-items:center;
+      cursor:pointer;
+    }
+    .close-section:hover{background:#fff}
+    .is-hidden{display:none !important}
 
     /* =========================
       CARDS (radius <= 10, harder shadow)
@@ -480,6 +511,12 @@
       grid-template-columns: 1.08fr .92fr;
       gap: clamp(12px, 2vw, 20px);
       align-items:stretch;
+    }
+    .resort-grid{
+      display:grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: clamp(12px, 2vw, 20px);
+      align-items:center;
     }
     .hero-left{padding-top: 10px}
     .hero-left h1{max-width:24ch; margin-bottom:14px}
@@ -1131,6 +1168,7 @@
     .hint{font-size:12px; font-weight:400; color:rgba(11,15,20,.56); margin-top: 6px}
     .privacy{font-size:12px; font-weight:400; color:rgba(11,15,20,.52); margin: 2px 0 0}
     .privacy a{color:rgba(11,15,20,.84)}
+    .ya-form-note{font-size:10px; color:rgba(11,15,20,.42); margin: 6px 0 0}
 
     /* Contact section: match panel heights by increasing form vertical spacing */
     #contacts .panel{height:100%}
@@ -1248,6 +1286,7 @@
       z-index: 90;
     }
     .modal[aria-hidden="false"]{display:flex}
+    .modal:target{display:flex}
     .modal .box{
       width:min(980px, 100%);
       min-height: 440px;
@@ -1294,6 +1333,60 @@
       transition: transform var(--fast), box-shadow var(--fast);
     }
     .modal .close:hover{transform: translateY(-2px); box-shadow: 0 14px 30px rgba(0,0,0,.26)}
+    .shift-modal .box{
+      background:#fff;
+      border:1px solid rgba(11,15,20,.12);
+    }
+    .shift-modal .topbar{
+      position:static;
+      padding:14px 14px 0;
+    }
+    .shift-modal .tag{
+      background: rgba(11,15,20,.06);
+      border:1px solid rgba(11,15,20,.12);
+      color: rgba(11,15,20,.82);
+      backdrop-filter:none;
+      -webkit-backdrop-filter:none;
+    }
+    .shift-modal .content{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+      padding: 16px 14px 18px;
+      align-items:start;
+    }
+    .shift-modal img{
+      width:100%;
+      border-radius: var(--radius);
+      border:1px solid rgba(11,15,20,.10);
+      box-shadow: var(--shadow);
+    }
+
+    /* =========================
+      CARD CONSISTENCY (single style)
+    ========================== */
+    .card,
+    .row,
+    .doc,
+    .team-left,
+    .team-point,
+    .team-collage,
+    .sticky-note,
+    .citem,
+    .note-icon,
+    .row-icon,
+    .collage-photo,
+    .card-media{
+      border-color: rgba(11,15,20,.12);
+      box-shadow: var(--shadow);
+    }
+    .card:hover,
+    .row:hover,
+    .team-point:hover,
+    .collage-photo:hover,
+    details:hover{
+      box-shadow: var(--shadow);
+    }
 
     /* =========================
       RESPONSIVE
@@ -1322,6 +1415,7 @@
       .footer-grid{grid-template-columns: 1fr}
       .hero-left h1{max-width:none}
       .hero-perks{grid-template-columns: repeat(2, minmax(0, max-content))}
+      .shift-modal .content{grid-template-columns: 1fr}
       #shifts .scroller{grid-auto-columns: minmax(300px, 300px)}
       #shifts .scroller > .shift{min-height: 590px}
       .tile{min-height: 160px}
@@ -1445,6 +1539,37 @@
             <img src="hUfOFLuaK8U-hero.jpg" alt="Счастливая семья в лагере" loading="eager" decoding="async" />
           </div>
         </div><!-- /hero-grid -->
+      </div>
+    </section>
+
+    <!-- ========================= RESORT CTA ========================= -->
+    <section class="section no-line" aria-label="О семейном курорте Яратон">
+      <div class="container" style="text-align:center;">
+        <a class="btn btn-soft" href="#about-resort" aria-label="О семейном курорте Яратон">О семейном курорте Яратон</a>
+      </div>
+    </section>
+
+    <!-- ========================= RESORT PAGE ========================= -->
+    <section id="about-resort" class="section closable is-hidden" aria-label="О семейном курорте Яратон">
+      <button class="close-section" type="button" aria-label="Закрыть экран" data-close="#about-resort">×</button>
+      <div class="container">
+        <div class="subhead">
+          <div>
+            <h2>О семейном курорте Яратон</h2>
+            <p>Планы развития и реконструкции комплекса.</p>
+          </div>
+        </div>
+        <div class="resort-grid">
+          <div>
+            <img src="zdorovaa-sem-a-smeetsa-hero.jpg" alt="Семейный курорт Яратон" style="width:100%; border-radius: var(--radius); box-shadow: var(--shadow);" />
+          </div>
+          <div>
+            <p>
+              К следующему году планируется переоборудование базы детского лагеря в полноценный семейный курорт,
+              где круглый год можно будет оздоравливаться, отдыхать и наслаждаться единением с природой всей семьей.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1633,7 +1758,7 @@
                   <li>связь/отчёты родителям</li>
                 </ul>
                 <div class="shift-actions">
-                  <a class="btn btn-secondary" href="#gallery">Подробнее</a>
+                  <button class="btn btn-secondary js-shift-details" type="button" aria-label="Подробнее о смене" onclick="openShiftModal();">Подробнее</button>
                   <a class="btn btn-primary" href="#contacts">Оставить заявку</a>
                 </div>
               </article>
@@ -1951,7 +2076,7 @@
                 </ul>
               </div>
               <div class="program-actions">
-                <a class="btn btn-secondary" href="#shifts">Подробнее</a>
+                <a class="btn btn-secondary" href="#programs">Подробнее</a>
                 <a class="btn btn-primary" href="#contacts">Записаться</a>
               </div>
             </article>
@@ -2129,12 +2254,7 @@
                 <strong>Медсопровождение на локации</strong>
                 <p>Осмотр при заезде и понятный алгоритм при недомогании.</p>
               </div>
-              <span class="row-icon" aria-hidden="true" title="Здоровье">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <circle cx="12" cy="12" r="8"/>
-                  <path d="M12 8v8M8 12h8"/>
-                </svg>
-              </span>
+              <span class="row-icon" aria-hidden="true" title="Здоровье">🩺</span>
             </div>
 
             <div class="row">
@@ -2142,11 +2262,7 @@
                 <strong>Безопасность и контроль территории</strong>
                 <p>Контроль доступа и правила перемещений, вожатые рядом.</p>
               </div>
-              <span class="row-icon" aria-hidden="true" title="Безопасность">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 3l7 3v6c0 4.4-3 7.9-7 9-4-1.1-7-4.6-7-9V6l7-3z"/>
-                </svg>
-              </span>
+              <span class="row-icon" aria-hidden="true" title="Безопасность">🛡️</span>
             </div>
 
             <div class="row">
@@ -2154,13 +2270,7 @@
                 <strong>Вожатые и педсостав</strong>
                 <p>Опытная команда, мягкая адаптация, поддержка 24/7.</p>
               </div>
-              <span class="row-icon" aria-hidden="true" title="Команда">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <circle cx="9" cy="10" r="3"/>
-                  <circle cx="15" cy="10" r="3"/>
-                  <path d="M3 19c0-2.5 3-4 6-4s6 1.5 6 4"/>
-                </svg>
-              </span>
+              <span class="row-icon" aria-hidden="true" title="Команда">👥</span>
             </div>
 
             <div class="row">
@@ -2168,9 +2278,7 @@
                 <strong>Связь с родителями</strong>
                 <p>Фотоотчёты, время для звонков, быстрый контакт с администрацией.</p>
               </div>
-              <span class="row-icon" aria-hidden="true" title="Связь">
-                <img src="2Монтажная область 4.svg" alt="" />
-              </span>
+              <span class="row-icon" aria-hidden="true" title="Связь">💬</span>
             </div>
 
             <div class="row">
@@ -2178,12 +2286,7 @@
                 <strong>Оплата и возврат</strong>
                 <p>Договор и прозрачные правила возврата по условиям.</p>
               </div>
-              <span class="row-icon" aria-hidden="true" title="Условия">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M7 3h7l4 4v14H7z"/>
-                  <path d="M9 12h6M9 16h6"/>
-                </svg>
-              </span>
+              <span class="row-icon" aria-hidden="true" title="Условия">📄</span>
             </div>
 
             <div class="row">
@@ -2191,12 +2294,7 @@
                 <strong>Документы и требования</strong>
                 <p>Список справок и памятка — скачайте в один клик ниже.</p>
               </div>
-              <span class="row-icon" aria-hidden="true" title="Документы">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M8 4h8v16H8z"/>
-                  <path d="M10 8h4M10 12h4M10 16h4"/>
-                </svg>
-              </span>
+              <span class="row-icon" aria-hidden="true" title="Документы">📋</span>
             </div>
           </div>
 
@@ -2207,28 +2305,10 @@
               Для новичков — мягкая адаптация и поддержка.
             </p>
             <div class="note-icons" aria-label="Ключевые пункты">
-              <span class="note-icon" aria-hidden="true" title="Отчёты">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <rect x="4" y="7" width="16" height="10" rx="2"/>
-                  <circle cx="12" cy="12" r="3"/>
-                </svg>
-              </span>
-              <span class="note-icon" aria-hidden="true" title="Режим">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <circle cx="12" cy="12" r="8"/>
-                  <path d="M12 9v4l3 2"/>
-                </svg>
-              </span>
-              <span class="note-icon" aria-hidden="true" title="Поддержка">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M4 14c2-2 4-2 6 0 2-2 4-2 6 0 2-2 4-2 6 0"/>
-                </svg>
-              </span>
-              <span class="note-icon" aria-hidden="true" title="Педагогика">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M3 9l9-4 9 4-9 4-9-4z"/>
-                </svg>
-              </span>
+              <span class="note-icon" aria-hidden="true" title="Отчёты">📸</span>
+              <span class="note-icon" aria-hidden="true" title="Режим">⏰</span>
+              <span class="note-icon" aria-hidden="true" title="Поддержка">🤝</span>
+              <span class="note-icon" aria-hidden="true" title="Педагогика">🎓</span>
             </div>
             <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
               <a class="btn btn-primary" href="#contacts">Задать вопрос</a>
@@ -2553,40 +2633,16 @@
             <h3>Оставить заявку</h3>
             <p style="margin:6px 0 0">Заполните поля — мы перезвоним/напишем и подберём смену.</p>
 
-            <form id="leadForm">
-              <div class="field">
-                <label for="name">Имя родителя</label>
-                <input id="name" name="name" type="text" autocomplete="name" placeholder="Например, Анна" required />
-              </div>
-
-              <div class="form-row">
-                <div class="field">
-                  <label for="phone">Телефон</label>
-                  <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required />
-                </div>
-                <div class="field">
-                  <label for="age">Возраст ребёнка</label>
-                  <select id="age" name="age" required>
-                    <option value="" selected disabled>Выберите</option>
-                    <option>7</option><option>8</option><option>9</option><option>10</option>
-                    <option>11</option><option>12</option><option>13</option><option>14</option>
-                    <option>15</option><option>16</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="field">
-                <label for="comment">Комментарий</label>
-                <textarea id="comment" name="comment" placeholder="Какая смена интересует? Есть ли особенности питания/здоровья?"></textarea>
-              </div>
-
-              <button class="btn btn-primary" type="submit" aria-label="Отправить заявку">Отправить заявку</button>
-
-              <p class="hint">Ответим в течение рабочего дня.</p>
-              <p class="privacy">
-                Нажимая «Отправить», вы соглашаетесь с <a href="#docs">политикой конфиденциальности</a>.
-              </p>
-            </form>
+            <script src="https://forms.yandex.ru/_static/embed.js"></script>
+            <iframe
+              src="https://forms.yandex.ru/u/69a314ca1f1eb53aaf2f0223?iframe=1"
+              frameborder="0"
+              name="ya-form-69a314ca1f1eb53aaf2f0223"
+              width="100%"
+              style="max-width:100%; height:540px; border:0; display:block;"
+            ></iframe>
+            <p class="hint">Ответим в течение рабочего дня.</p>
+            <p class="privacy">Нажимая «Отправить», вы соглашаетесь с политикой конфиденциальности.</p>
           </div>
         </div>
       </div>
@@ -2675,6 +2731,28 @@
         <div class="topbar">
           <div class="tag" id="modalTag" aria-live="polite">Фото</div>
           <button class="close" id="closeModal" type="button" aria-label="Закрыть просмотр">Закрыть ✕</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHIFT DETAILS MODAL -->
+    <div class="modal shift-modal" id="shiftModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Подробности смены">
+      <div class="box">
+        <div class="topbar">
+          <div class="tag">Подробности смены</div>
+          <button class="close" id="closeShiftModal" type="button" aria-label="Закрыть окно" onclick="closeShiftModal();">Закрыть ✕</button>
+        </div>
+        <div class="content">
+          <div>
+            <p>
+              Эта смена открывает сезон. Мы приготовили для вас что-то действительно необыкновенное:
+              новые программы, новые активности, новые вожатые, новое меню и новые, комфортные уютные номера.
+              Кроме того вас ждёт программа оздоровления: массажи, душ Шарко, физиопроцедуры — всё это по запросу.
+            </p>
+          </div>
+          <div>
+            <img src="hUfOFLuaK8U-hero.jpg" alt="Молодые вожатые" />
+          </div>
         </div>
       </div>
     </div>
@@ -2776,21 +2854,6 @@
 
     window.addEventListener('resize', () => requestAnimationFrame(updateAllScrollerHints), { passive:true });
 
-    /* Form UX (demo) */
-    const form = document.getElementById('leadForm');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const btn = form.querySelector('button[type="submit"]');
-      const old = btn.textContent;
-      btn.disabled = true;
-      btn.textContent = 'Заявка отправлена ✔';
-      setTimeout(() => {
-        btn.disabled = false;
-        btn.textContent = old;
-        form.reset();
-      }, 1400);
-    });
-
     /* Gallery modal */
     const modal = document.getElementById('photoModal');
     const modalTag = document.getElementById('modalTag');
@@ -2817,12 +2880,57 @@
     openFirstPhoto.addEventListener('click', () => openModal('Фото и атмосфера'));
     closeBtn.addEventListener('click', closeModal);
     modal.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
+    const shiftModal = document.getElementById('shiftModal');
+    const closeShiftModalBtn = document.getElementById('closeShiftModal');
+    function openShiftModal(){
+      if(!shiftModal) return;
+      shiftModal.style.display = 'flex';
+      shiftModal.setAttribute('aria-hidden', 'false');
+    }
+    function closeShiftModalFn(){
+      if(!shiftModal) return;
+      shiftModal.style.display = 'none';
+      shiftModal.setAttribute('aria-hidden', 'true');
+    }
+    window.openShiftModal = openShiftModal;
+    window.closeShiftModal = closeShiftModalFn;
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('.js-shift-details');
+      if(!btn) return;
+      e.preventDefault();
+      openShiftModal();
+    });
+    if(closeShiftModalBtn){
+      closeShiftModalBtn.addEventListener('click', closeShiftModalFn);
+    }
+    if(shiftModal){
+      shiftModal.addEventListener('click', (e) => {
+        if(e.target === shiftModal) closeShiftModalFn();
+      });
+    }
 
     document.addEventListener('keydown', (e) => {
       if(e.key === 'Escape'){
         setMenu(false);
         closeModal();
+        closeShiftModalFn();
       }
+    });
+
+    /* Close section (resort block) */
+    const resortSection = document.getElementById('about-resort');
+    document.querySelectorAll('[data-close]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const sel = btn.getAttribute('data-close');
+        const el = document.querySelector(sel);
+        if(el) el.classList.add('is-hidden');
+      });
+    });
+    const resortLinks = Array.from(document.querySelectorAll('a[href="#about-resort"]'));
+    resortLinks.forEach(a => {
+      a.addEventListener('click', () => {
+        if(resortSection) resortSection.classList.remove('is-hidden');
+      });
     });
 
     document.getElementById('year').textContent = new Date().getFullYear();
