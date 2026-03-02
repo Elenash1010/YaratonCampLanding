@@ -1628,14 +1628,14 @@
         </div>
 
         <div class="tabs" role="tablist" aria-label="Переключатель сезонов">
-          <button class="tab" role="tab" aria-selected="true" aria-controls="season-spring" id="tab-spring">Весна</button>
-          <button class="tab" role="tab" aria-selected="false" aria-controls="season-summer" id="tab-summer">Лето</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="season-spring" id="tab-spring">Весна</button>
+          <button class="tab" role="tab" aria-selected="true" aria-controls="season-summer" id="tab-summer">Лето</button>
           <button class="tab" role="tab" aria-selected="false" aria-controls="season-autumn" id="tab-autumn">Осень</button>
           <button class="tab" role="tab" aria-selected="false" aria-controls="season-winter" id="tab-winter">Зима</button>
         </div>
 
         <!-- Весна -->
-        <div id="season-spring" role="tabpanel" aria-labelledby="tab-spring">
+        <div id="season-spring" role="tabpanel" aria-labelledby="tab-spring" hidden>
           <div class="scroller-wrap" data-scroller-wrap>
             <button class="scroll-btn scroll-prev" type="button" aria-label="Прокрутить влево" data-scroll="prev">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1729,7 +1729,7 @@
         </div>
 
         <!-- Лето (5 смен) -->
-        <div id="season-summer" role="tabpanel" aria-labelledby="tab-summer" hidden>
+        <div id="season-summer" role="tabpanel" aria-labelledby="tab-summer">
           <div class="scroller-wrap" data-scroller-wrap>
             <button class="scroll-btn scroll-prev" type="button" aria-label="Прокрутить влево" data-scroll="prev">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1758,7 +1758,7 @@
                   <li>связь/отчёты родителям</li>
                 </ul>
                 <div class="shift-actions">
-                  <button class="btn btn-secondary js-shift-details" type="button" aria-label="Подробнее о смене" onclick="openShiftModal();">Подробнее</button>
+                  <a class="btn btn-secondary js-shift-details" href="#shiftModal" aria-label="Подробнее о смене">Подробнее</a>
                   <a class="btn btn-primary" href="#contacts">Оставить заявку</a>
                 </div>
               </article>
@@ -2740,7 +2740,7 @@
       <div class="box">
         <div class="topbar">
           <div class="tag">Подробности смены</div>
-          <button class="close" id="closeShiftModal" type="button" aria-label="Закрыть окно" onclick="closeShiftModal();">Закрыть ✕</button>
+          <a class="close" id="closeShiftModal" href="#" aria-label="Закрыть окно">Закрыть ✕</a>
         </div>
         <div class="content">
           <div>
@@ -2769,6 +2769,7 @@
     /* Mobile burger toggle */
     const burger = document.getElementById('burger');
     const mobilePanel = document.getElementById('mobilePanel');
+    const brandLink = document.querySelector('header .brand');
 
     function setMenu(open){
       burger.setAttribute('aria-expanded', String(open));
@@ -2781,6 +2782,14 @@
       const isOpen = burger.getAttribute('aria-expanded') === 'true';
       setMenu(!isOpen);
     });
+
+    if(brandLink){
+      brandLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        setMenu(false);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
 
     mobilePanel.addEventListener('click', (e) => {
       const a = e.target.closest('a');
