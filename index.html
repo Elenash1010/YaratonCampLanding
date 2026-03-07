@@ -24,8 +24,8 @@
       --paper:#FFFFFF;
       --glass: rgba(255,255,255,.78);
 
-      --text:#0B0F14;
-      --muted:#55646F;
+      --text:#000000;
+      --muted:#000000;
 
       --line: rgba(11,15,20,.12);
       --line2: rgba(11,15,20,.16);
@@ -67,9 +67,7 @@
       margin:0;
       font-family:"PT Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
       color:var(--text);
-      background:
-        url("1591-compressed.jpg") center top / 100% auto repeat-y,
-        #fff;
+      background:#fff;
       overflow-x:hidden;
       line-height:1.5;
       -webkit-font-smoothing: antialiased;
@@ -97,7 +95,7 @@
       font-weight:400; /* regular */
       letter-spacing:-.02em;
       margin:0 0 10px;
-      color: #0633A6; /* headings color */
+      color: #000000; /* headings color */
     }
     h1,h2,h3, h4, h5, h6,
     .row strong,
@@ -107,7 +105,10 @@
     .learn strong,
     .team-point strong,
     .brand-title strong{
-      color:#0633A6;
+      color:#000000;
+    }
+    body, p, span, li, a, label, input, textarea, select, strong{
+      color:#000000;
     }
     h1{font-size:clamp(28px, 3.6vw, 42px); line-height:1.18}
     h2{font-size:clamp(24px, 3.2vw, 38px); line-height:1.12}
@@ -171,7 +172,7 @@
     }
     .btn svg{width:18px;height:18px}
     .btn-primary{
-      color:var(--ink);
+      color:#fff;
       background: linear-gradient(180deg, var(--primary2), var(--primary));
       box-shadow: var(--shadow2);
     }
@@ -216,6 +217,23 @@
       margin-bottom: 22px;
     }
     .subhead p{margin:0; max-width: 70ch}
+    .nowrap{white-space:nowrap}
+    #final-cta .subhead{
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      flex-direction:column;
+      gap:18px;
+    }
+    #final-cta .subhead > div{
+      max-width: 70ch;
+      width:100%;
+      margin:0 auto;
+    }
+    #final-cta .subhead > div:last-child{
+      display:flex;
+      justify-content:center;
+    }
     .closable{
       position:relative;
     }
@@ -442,6 +460,9 @@
       padding:10px 12px;
       border-radius: var(--chipRadius);
       transition: background var(--fast), transform var(--fast);
+    }
+    nav.desktop a.btn-primary{
+      color:#fff;
     }
     nav.desktop a:hover{
       background: rgba(255,255,255,.94);
@@ -882,11 +903,15 @@
     ========================== */
     .parents-grid{
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
+      grid-template-columns: 1fr;
       gap:14px;
       align-items:start;
     }
-    .rows{display:grid; gap:10px}
+    .rows{
+      display:grid;
+      gap:10px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
     .row{
       display:flex;
       align-items:flex-start;
@@ -927,8 +952,8 @@
         radial-gradient(240px 180px at 20% 25%, rgba(255,255,255,.76), transparent 60%),
         radial-gradient(240px 180px at 80% 30%, rgba(255,209,102,.10), transparent 65%),
         linear-gradient(180deg, rgba(56,105,172,.06), rgba(45,189,126,.05));
-      position:sticky;
-      top: 92px;
+      position:relative;
+      top:auto;
       overflow:hidden;
     }
     .note-icons{display:flex; flex-wrap:wrap; gap:12px; margin-top: 10px}
@@ -1272,6 +1297,25 @@
       box-shadow: none;
     }
     .f-links a:hover{transform: translateY(-2px); box-shadow: 0 12px 26px rgba(11,15,20,.10)}
+    .t-sociallinks__wrapper{
+      display:flex;
+      gap:10px;
+      padding:0;
+      margin:0;
+      list-style:none;
+      align-items:center;
+    }
+    .t-sociallinks__item a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:40px !important;
+      height:40px !important;
+    }
+    .t-sociallinks__svg{
+      width:40px !important;
+      height:40px !important;
+    }
     .copyright{margin-top: 16px; font-size:12px; font-weight:400; color:rgba(11,15,20,.52)}
 
     /* MODAL */
@@ -1398,6 +1442,7 @@
       .gallery .tile{grid-column: span 6}
       .route-grid{grid-template-columns: 1fr}
       .parents-grid{grid-template-columns: 1fr}
+      .rows{grid-template-columns: 1fr}
       .team-grid{grid-template-columns: 1fr}
       .sticky-note{position:relative; top:auto}
       .footer-grid{grid-template-columns: 1fr 1fr}
@@ -1507,7 +1552,7 @@
         <div class="hero-grid">
           <div class="hero-left">
             <h1>Яркое лето, новые друзья<br>и безопасность на курорте<br><span class="hero-brand-line">ЯРАТОН</span></h1>
-            <p class="lead">
+            <p class="lead is-hidden">
               Оздоровительная программа, природа вокруг, заботливые вожатые и много активностей:
               ребёнок отдыхает, развивается и возвращается счастливым.
             </p>
@@ -1617,7 +1662,7 @@
         <div class="subhead">
           <div>
             <h2>Смены и цены</h2>
-            <p>Свайп-лента с “snap” — листайте карточки влево-вправо.</p>
+            <p>Каждая смена — это отдельная история, новые знакомства и насыщенная программа.<br>Выберите даты, которые подходят именно вам, а обо всём остальном мы уже позаботились.</p>
           </div>
           <a class="btn btn-ghost" href="#docs" aria-label="Перейти к документам">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -2039,7 +2084,6 @@
         </div>
 
         <p class="hint" style="margin-top:14px">
-          *Цены и даты — пример. Замените на актуальные данные лагеря.
         </p>
       </div>
     </section>
@@ -2050,7 +2094,7 @@
         <div class="subhead">
           <div>
             <h2>Программы</h2>
-            <p>Свайп влево-вправо, как в блоке “Смены”.</p>
+            <p>Наши программы помогают раскрывать таланты, учиться новому и получать яркие впечатления. Это время для экспериментов, идей и настоящих открытий.</p>
           </div>
         </div>
 
@@ -2304,6 +2348,7 @@
               Держим связь, публикуем отчёты и соблюдаем режим дня.
               Для новичков — мягкая адаптация и поддержка.
             </p>
+            <p style="margin:0 0 10px">Остались вопросы? Свяжитесь с нами.</p>
             <div class="note-icons" aria-label="Ключевые пункты">
               <span class="note-icon" aria-hidden="true" title="Отчёты">📸</span>
               <span class="note-icon" aria-hidden="true" title="Режим">⏰</span>
@@ -2325,7 +2370,7 @@
         <div class="subhead">
           <div>
             <h2>Скачать памятку / документы</h2>
-            <p>Ссылки-заглушки: замените <span class="mono">href</span> на реальные PDF/страницы.</p>
+            <p>Подготовили для вас все необходимые материалы перед поездкой в лагерь.<br>Здесь вы найдёте памятку для родителей, список необходимых вещей и документы для оформления. Скачайте файлы и подготовьтесь к смене заранее.</p>
           </div>
         </div>
 
@@ -2529,7 +2574,7 @@
         <div class="subhead">
           <div>
             <h2>Фото и атмосфера</h2>
-            <p>Плитки-заглушки: замените на реальные фото через <span class="mono">background-image</span>.</p>
+            <p>Улыбки, дружба, творчество и приключения — именно так проходят наши смены.<br>Посмотрите фотографии и почувствуйте атмосферу лагеря.</p>
           </div>
           <button class="btn btn-secondary" id="openFirstPhoto" type="button" aria-label="Открыть просмотр фото">Смотреть крупнее</button>
         </div>
@@ -2595,7 +2640,7 @@
                 <div class="ic" aria-hidden="true">☎</div>
                 <div>
                   <strong>Телефон</strong>
-                  <a href="tel:+79990000000" aria-label="Позвонить">+7 (999) 000-00-00</a>
+                  <a href="tel:+73412240555" aria-label="Позвонить">8 3412 240 555</a>
                   <span>ежедневно 9:00–19:00</span>
                 </div>
               </div>
@@ -2603,7 +2648,7 @@
               <div class="citem">
                 <div class="ic" aria-hidden="true">💬</div>
                 <div>
-                  <strong>WhatsApp / Telegram</strong>
+                  <strong>E-mail:</strong>
                   <a href="#" aria-label="Открыть чат">@camp_support</a>
                   <span>ответим в течение рабочего дня</span>
                 </div>
@@ -2612,9 +2657,9 @@
               <div class="citem">
                 <div class="ic" aria-hidden="true">📍</div>
                 <div>
-                  <strong>Адрес</strong>
-                  <a href="#route" aria-label="Перейти к разделу как добраться">г. ___, ул. ___, дом ___</a>
-                  <span>ориентир: лесопарк / база отдыха</span>
+                  <strong>Адрес офиса продаж:</strong>
+                  <span style="font-size:16px">г. Ижевск, ул. Ленина, 132, санаторий "Сосновый"</span>
+                  <span style="font-size:16px">1 этаж, кабинет №102.</span>
                 </div>
               </div>
 
@@ -2622,8 +2667,7 @@
                 <div class="ic" aria-hidden="true">🕘</div>
                 <div>
                   <strong>Режим работы офиса</strong>
-                  <span>Пн–Пт: 10:00–18:00</span>
-                  <span>Сб–Вс: по заявкам</span>
+                  <span style="font-size:16px">по будням 8:00 - 17:00, обед с 12:00 до 13:00</span>
                 </div>
               </div>
             </div>
@@ -2643,6 +2687,23 @@
             ></iframe>
             <p class="hint">Ответим в течение рабочего дня.</p>
             <p class="privacy">Нажимая «Отправить», вы соглашаетесь с политикой конфиденциальности.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= FINAL CTA ========================= -->
+    <section id="final-cta" class="section" aria-label="Финальный призыв к действию">
+      <div class="container">
+        <div class="subhead">
+          <div>
+            <h2>Подарите ребёнку лето,<br>которое он запомнит</h2>
+            <p>Яркие смены, новые навыки и настоящие друзья — всё это ждёт в нашем лагере.</p>
+            <p><span class="nowrap">Количество мест в каждой смене ограничено, поэтому рекомендуем бронировать заранее.</span></p>
+            <p style="margin-top:12px">Забронируйте место уже сейчас и станьте частью нашей команды!</p>
+          </div>
+          <div>
+            <a class="btn btn-primary" href="#contacts" aria-label="Забронировать смену">Забронировать смену</a>
           </div>
         </div>
       </div>
@@ -2671,10 +2732,8 @@
           <div class="card">
             <div class="card-media" aria-label="Фото: как добраться (плейсхолдер)"></div>
             <h3>Адрес и ориентиры</h3>
-            <p style="margin:6px 0 0">г. ___, ул. ___, дом ___ (ориентир: лесопарк / база отдыха).</p>
+            <p style="margin:6px 0 0"><strong>Местоположение:</strong> 36-ой км Якшур-Бодьинского тракта, д. Карашур. Курорт "ЯРАТОН"</p>
             <ul class="incl" style="margin-top:10px">
-              <li><strong>На авто:</strong> по трассе ___, съезд на ___, далее 5–7 минут по указателям.</li>
-              <li><strong>На автобусе:</strong> маршрут №___ до остановки «___», затем 10–15 минут пешком.</li>
               <li><strong>Трансфер:</strong> возможен в дни заезда/выезда (по записи).</li>
             </ul>
             <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
@@ -2699,7 +2758,8 @@
               </div>
             </a>
             <p style="margin-top:8px">Оздоровительный отдых, доброжелательная команда и насыщенная программа для детей 7–16 лет.</p>
-            <div class="copyright">© <span id="year"></span> Лагерь. Все права защищены.</div>
+            <div class="copyright">Указанные на сайте цены не являются публичной офертой (ст.435 ГК РФ). Стоимость и возможность предоставления услуг необходимо уточнять в кассах. Политика обработки и защиты персональных данных</div>
+            <div class="copyright">© 2026 Курорт Яратон. Все права защищены.</div>
           </div>
 
           <div>
@@ -2715,10 +2775,33 @@
           <div>
             <h3 style="margin-bottom:10px">Контакты и соцсети</h3>
             <div class="f-links">
-              <a href="tel:+79990000000">+7 (999) 000-00-00 <span aria-hidden="true">☎</span></a>
-              <a href="#" aria-label="Открыть Telegram">Telegram <span aria-hidden="true">↗</span></a>
-              <a href="#" aria-label="Открыть VK">VK <span aria-hidden="true">↗</span></a>
+              <a href="tel:+73412240555">8 3412 240 555 <span aria-hidden="true">☎</span></a>
               <a href="#route">Как добраться <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="t-sociallinks" style="margin-top:10px;">
+              <ul role="list" class="t-sociallinks__wrapper" aria-label="Соц. сети">
+                <li class="t-sociallinks__item t-sociallinks__item_vk">
+                  <a href="https://vk.com/berez_roscha18" target="_blank" rel="nofollow noopener" aria-label="Сообщество ВК" title="Сообщество ВК" style="width: 64px; height: 64px;">
+                    <svg class="t-sociallinks__svg" role="presentation" width="64px" height="64px" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M50 100c27.614 0 50-22.386 50-50S77.614 0 50 0 0 22.386 0 50s22.386 50 50 50ZM25 34c.406 19.488 10.15 31.2 27.233 31.2h.968V54.05c6.278.625 11.024 5.216 12.93 11.15H75c-2.436-8.87-8.838-13.773-12.836-15.647C66.162 47.242 71.783 41.62 73.126 34h-8.058c-1.749 6.184-6.932 11.805-11.867 12.336V34h-8.057v21.611C40.147 54.362 33.838 48.304 33.556 34H25Z" fill="#26c4eb"></path>
+                    </svg>
+                  </a>
+                </li>
+                <li class="t-sociallinks__item t-sociallinks__item_telegram">
+                  <a href="https://t.me/berez_roscha18" target="_blank" rel="nofollow noopener" aria-label="Телеграм канал" title="Телеграм канал" style="width: 64px; height: 64px;">
+                    <svg class="t-sociallinks__svg" role="presentation" width="64px" height="64px" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M50 100c27.614 0 50-22.386 50-50S77.614 0 50 0 0 22.386 0 50s22.386 50 50 50Zm21.977-68.056c.386-4.38-4.24-2.576-4.24-2.576-3.415 1.414-6.937 2.85-10.497 4.302-11.04 4.503-22.444 9.155-32.159 13.734-5.268 1.932-2.184 3.864-2.184 3.864l8.351 2.577c3.855 1.16 5.91-.129 5.91-.129l17.988-12.238c6.424-4.38 4.882-.773 3.34.773l-13.49 12.882c-2.056 1.804-1.028 3.35-.129 4.123 2.55 2.249 8.82 6.364 11.557 8.16.712.467 1.185.778 1.292.858.642.515 4.111 2.834 6.424 2.319 2.313-.516 2.57-3.479 2.57-3.479l3.083-20.226c.462-3.511.993-6.886 1.417-9.582.4-2.546.705-4.485.767-5.362Z" fill="#26c4eb"></path>
+                    </svg>
+                  </a>
+                </li>
+                <li class="t-sociallinks__item t-sociallinks__item_maxmessenger">
+                  <a href="https://max.ru/join/SAfRDqeNY6JJRtkCYXj1Y2rQfxuI_kEO99bpoB8yolE" target="_blank" rel="nofollow noopener" aria-label="Канал" title="Канал" style="width: 64px; height: 64px;">
+                    <svg class="t-sociallinks__svg" role="presentation" width="64px" height="64px" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24C0 10.7452 10.7452 0 24 0ZM24.2314 12.5C17.8663 12.5 12.4942 17.4255 12.4941 23.9727C12.4941 26.714 13.0015 28.6059 13.4482 30.3047C13.8233 31.6836 14.1543 32.9467 14.1543 34.4414C14.3143 36.4326 17.9823 35.2685 19.1406 33.7793C20.9718 35.1031 22.0251 35.4346 24.292 35.4346C30.5586 35.4011 35.6151 30.2999 35.5938 24.0332C35.5937 17.6682 30.602 12.5 24.2314 12.5ZM24.3857 18.1592V18.165C27.5981 18.349 30.0709 21.0719 29.9453 24.2871C29.7296 27.4955 26.9854 29.9406 23.7734 29.7861C22.768 29.7055 21.8016 29.3614 20.9717 28.7881C20.4699 29.2899 19.6648 29.9402 19.3447 29.8633C18.6774 29.6868 17.8938 26.2951 18.335 23.5098C18.87 20.1452 21.2859 17.9993 24.3857 18.1592Z" fill="#26c4eb"></path>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
