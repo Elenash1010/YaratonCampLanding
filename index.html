@@ -266,7 +266,7 @@
       background: var(--glass);
       border:1px solid rgba(11,15,20,.12);
       border-radius: var(--radius);
-      padding: 14px;
+      padding: 16px;
       box-shadow: 0 10px 24px rgba(11,15,20,.10);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
@@ -636,7 +636,7 @@
       -webkit-backdrop-filter: blur(14px);
       display:flex;
       align-items:flex-end;
-      padding: 14px;
+      padding: 128px;
     }
     .banner-caption{
       display:flex;
@@ -851,13 +851,39 @@
       border:1px solid rgba(11,15,20,.12);
       background: rgba(255,255,255,.94);
       box-shadow: var(--shadow2);
-      padding: 14px;
+      padding: 128px;
       overflow:hidden;
+      aspect-ratio: 1 / 1;
     }
+    .team-collage .hint{display:none}
     .collage-grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
+      position:relative;
+      height: 100%;
+    }
+    .team-collage .collage-photo{
+      position:absolute;
+      box-shadow: 0 12px 26px rgba(11,15,20,.14);
+    }
+    .team-collage .collage-photo.collage-a{
+      top:0;
+      left:12%;
+      width: 86%;
+      height: 56%;
+      z-index:3;
+    }
+    .team-collage .collage-photo.collage-b{
+      top:38%;
+      left:0;
+      width: 46%;
+      height: 44%;
+      z-index:2;
+    }
+    .team-collage .collage-photo.collage-c{
+      top:58%;
+      left:30%;
+      width: 70%;
+      height: 40%;
+      z-index:1;
     }
     .collage-photo{
       border-radius: var(--radius);
@@ -1391,10 +1417,12 @@
     .shift-modal .box{
       background:#fff;
       border:1px solid rgba(11,15,20,.12);
+      padding:64px;
+      box-sizing:border-box;
     }
     .shift-modal .topbar{
       position:static;
-      padding:14px 14px 0;
+      padding:0 0 16px;
     }
     .shift-modal .tag{
       background: rgba(11,15,20,.06);
@@ -1403,18 +1431,56 @@
       backdrop-filter:none;
       -webkit-backdrop-filter:none;
     }
+    .shift-modal .box{
+      max-height: 85vh;
+      overflow: hidden;
+      display:flex;
+      flex-direction:column;
+    }
     .shift-modal .content{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      padding: 0;
+      overflow:auto;
+      font-size:16px;
+      line-height:1.5;
+    }
+    .shift-modal .shift-top{
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:end;
+    }
+    .shift-modal .shift-left p{margin:0}
+    .shift-modal .shift-lists{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
       gap:16px;
-      padding: 16px 14px 18px;
-      align-items:start;
+      margin-top:10px;
+    }
+    .shift-modal .shift-lists h4{margin:0 0 6px}
+    .shift-modal .shift-right{display:flex; align-items:flex-end}
+    .shift-modal .shift-placeholder{
+      width:100%;
+      min-height:260px;
+      border-radius: var(--radius);
+      border:1px solid rgba(11,15,20,.12);
+      background:
+        radial-gradient(220px 160px at 25% 25%, rgba(255,255,255,.70), transparent 60%),
+        radial-gradient(280px 200px at 75% 30%, rgba(56,105,172,.22), transparent 62%),
+        radial-gradient(280px 200px at 55% 92%, rgba(45,189,126,.16), transparent 62%),
+        radial-gradient(240px 190px at 25% 85%, rgba(255,209,102,.14), transparent 62%),
+        linear-gradient(135deg, rgba(45,189,126,.52), rgba(56,105,172,.30) 55%, rgba(255,91,77,.10));
+      box-shadow: var(--shadow);
     }
     .shift-modal img{
       width:100%;
+      height:auto;
       border-radius: var(--radius);
       border:1px solid rgba(11,15,20,.10);
       box-shadow: var(--shadow);
+      display:block;
     }
 
     /* =========================
@@ -1476,6 +1542,10 @@
       .hero-tags .kicker{width:100%; justify-content:flex-start}
       .final-cta-text{white-space:normal}
       .final-cta-break{display:block}
+      #shifts .subhead{flex-direction:column; align-items:flex-start}
+      #shifts .subhead .btn{align-self:flex-start; margin-top:10px}
+      #team .subhead{flex-direction:column; align-items:flex-start}
+      #team .subhead .btn{align-self:flex-start; margin-top:10px}
       .shift-modal .content{grid-template-columns: 1fr}
       #shifts .scroller{grid-auto-columns: minmax(300px, 300px)}
       #shifts .scroller > .shift{min-height: 590px}
@@ -1493,7 +1563,8 @@
       #shifts .scroller{grid-auto-columns: minmax(86vw, 86vw)}
       #shifts .scroller > .shift{min-height: 560px}
       .mobile-actions{grid-template-columns: 1fr}
-      .collage-grid{grid-template-columns: 1fr}
+      .collage-grid{height:auto; display:grid; grid-template-columns: 1fr; gap:12px}
+      .team-collage .collage-photo{position:relative; width:100%; height:160px; left:auto; top:auto}
       .collage-photo{min-height: 140px}
     }
 
@@ -1685,7 +1756,7 @@
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M12 3v10m0 0l4-4m-4 4l-4-4M5 17v3h14v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            Скачать памятку
+            Скачать презентацию
           </a>
         </div>
 
@@ -1725,7 +1796,7 @@
                   <li>фотоотчёты родителям</li>
                 </ul>
                 <div class="shift-actions">
-                  <a class="btn btn-secondary" href="#programs">Подробнее</a>
+                  <a class="btn btn-secondary js-shift-details" href="#!" data-modal="shiftModal2" aria-label="Подробнее о смене Экспедиция: природа и навыки">Подробнее</a>
                   <a class="btn btn-primary" href="#contacts">Оставить заявку</a>
                 </div>
               </article>
@@ -1820,7 +1891,7 @@
                   <li>связь/отчёты родителям</li>
                 </ul>
                 <div class="shift-actions">
-                  <a class="btn btn-secondary js-shift-details" href="#shiftModal" aria-label="Подробнее о смене">Подробнее</a>
+                  <a class="btn btn-secondary js-shift-details" href="#!" data-modal="shiftModal" aria-label="Подробнее о смене">Подробнее</a>
                   <a class="btn btn-primary" href="#contacts">Оставить заявку</a>
                 </div>
               </article>
@@ -1847,7 +1918,7 @@
                   <li>вечера у костра (по правилам)</li>
                 </ul>
                 <div class="shift-actions">
-                  <a class="btn btn-secondary" href="#programs">Подробнее</a>
+                  <a class="btn btn-secondary js-shift-details" href="#!" data-modal="shiftModal2" aria-label="Подробнее о смене Экспедиция: природа и навыки">Подробнее</a>
                   <a class="btn btn-primary" href="#contacts">Оставить заявку</a>
                 </div>
               </article>
@@ -1874,7 +1945,7 @@
                   <li>финальный спектакль</li>
                 </ul>
                 <div class="shift-actions">
-                  <a class="btn btn-secondary" href="#reviews">Подробнее</a>
+                  <a class="btn btn-secondary js-shift-details" href="#!" data-modal="shiftModal3" aria-label="Подробнее о смене Творчество + сцена">Подробнее</a>
                   <a class="btn btn-primary" href="#contacts">Оставить заявку</a>
                 </div>
               </article>
@@ -1901,7 +1972,7 @@
                   <li>награждение и кубки</li>
                 </ul>
                 <div class="shift-actions">
-                  <a class="btn btn-secondary" href="#parents">Подробнее</a>
+                  <a class="btn btn-secondary js-shift-details" href="#!" data-modal="shiftModal4" aria-label="Подробнее о смене Большой спорт-турнир">Подробнее</a>
                   <a class="btn btn-primary" href="#contacts">Оставить заявку</a>
                 </div>
               </article>
@@ -1928,7 +1999,7 @@
                   <li>показ работ</li>
                 </ul>
                 <div class="shift-actions">
-                  <a class="btn btn-secondary" href="#gallery">Подробнее</a>
+                  <a class="btn btn-secondary js-shift-details" href="#!" data-modal="shiftModal5" aria-label="Подробнее о смене Медиа-студия лагеря">Подробнее</a>
                   <a class="btn btn-primary" href="#contacts">Оставить заявку</a>
                 </div>
               </article>
@@ -2137,7 +2208,7 @@
                 </ul>
               </div>
               <div class="program-actions">
-                <a class="btn btn-secondary" href="#programs">Подробнее</a>
+                <a class="btn btn-secondary js-program-details" href="#!" data-modal="programModal1" aria-label="Подробнее о программе Спорт и активность">Подробнее</a>
                 <a class="btn btn-primary" href="#contacts">Записаться</a>
               </div>
             </article>
@@ -2158,7 +2229,7 @@
                 </ul>
               </div>
               <div class="program-actions">
-                <a class="btn btn-secondary" href="#gallery">Подробнее</a>
+                <a class="btn btn-secondary js-program-details" href="#!" data-modal="programModal2" aria-label="Подробнее о программе Творчество и сцена">Подробнее</a>
                 <a class="btn btn-primary" href="#contacts">Записаться</a>
               </div>
             </article>
@@ -2179,7 +2250,7 @@
                 </ul>
               </div>
               <div class="program-actions">
-                <a class="btn btn-secondary" href="#route">Подробнее</a>
+                <a class="btn btn-secondary js-program-details" href="#!" data-modal="programModal3" aria-label="Подробнее о программе Экология и природа">Подробнее</a>
                 <a class="btn btn-primary" href="#contacts">Записаться</a>
               </div>
             </article>
@@ -2200,7 +2271,7 @@
                 </ul>
               </div>
               <div class="program-actions">
-                <a class="btn btn-secondary" href="#reviews">Подробнее</a>
+                <a class="btn btn-secondary js-program-details" href="#!" data-modal="programModal4" aria-label="Подробнее о программе Медиа и коммуникации">Подробнее</a>
                 <a class="btn btn-primary" href="#contacts">Записаться</a>
               </div>
             </article>
@@ -2285,10 +2356,9 @@
           <!-- Right: collage 2x2 -->
           <aside class="team-collage" aria-label="Коллаж из 4 фотографий (плейсхолдеры)">
             <div class="collage-grid">
-              <div class="collage-photo" data-label="Педагог" role="img" aria-label="Фото педагога (плейсхолдер)"></div>
-              <div class="collage-photo" data-label="Вожатый" role="img" aria-label="Фото вожатого (плейсхолдер)"></div>
-              <div class="collage-photo" data-label="Команда" role="img" aria-label="Фото команды (плейсхолдер)"></div>
-              <div class="collage-photo" data-label="Отряд" role="img" aria-label="Фото отряда (плейсхолдер)"></div>
+              <div class="collage-photo collage-a" data-label="Команда" role="img" aria-label="Фото команды (плейсхолдер)"></div>
+              <div class="collage-photo collage-b" data-label="Вожатые" role="img" aria-label="Фото вожатых (плейсхолдер)"></div>
+              <div class="collage-photo collage-c" data-label="Отряд" role="img" aria-label="Фото отряда (плейсхолдер)"></div>
             </div>
             <p class="hint" style="margin:12px 0 0">
               *Замените плейсхолдеры на реальные фото через <span class="mono">background-image</span>.
@@ -2593,7 +2663,7 @@
             <h2>Фото и атмосфера</h2>
             <p>Улыбки, дружба, творчество и приключения — именно так проходят наши смены.<br>Посмотрите фотографии и почувствуйте атмосферу лагеря.</p>
           </div>
-          <button class="btn btn-secondary" id="openFirstPhoto" type="button" aria-label="Открыть просмотр фото">Смотреть крупнее</button>
+          <button class="btn btn-secondary is-hidden" id="openFirstPhoto" type="button" aria-label="Открыть просмотр фото">Смотреть крупнее</button>
         </div>
 
         <div class="gallery" aria-label="Галерея">
@@ -2864,19 +2934,500 @@
     <div class="modal shift-modal" id="shiftModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Подробности смены">
       <div class="box">
         <div class="topbar">
-          <div class="tag">Подробности смены</div>
+          <div class="tag">Первая смена · Открытие сезона</div>
           <a class="close" id="closeShiftModal" href="#" aria-label="Закрыть окно">Закрыть ✕</a>
         </div>
-        <div class="content">
-          <div>
-            <p>
-              Эта смена открывает сезон. Мы приготовили для вас что-то действительно необыкновенное:
-              новые программы, новые активности, новые вожатые, новое меню и новые, комфортные уютные номера.
-              Кроме того вас ждёт программа оздоровления: массажи, душ Шарко, физиопроцедуры — всё это по запросу.
-            </p>
+          <div class="content">
+            <div class="shift-top">
+              <div class="shift-left">
+              <p>
+                Первая смена — это старт лагерного лета и особенная атмосфера начала сезона.
+                Здесь всё начинается: новые знакомства, первые командные игры, открытия программ и традиций лагеря.
+                Участники быстро становятся частью дружной команды и погружаются в насыщенную лагерную жизнь.
+              </p>
+              </div>
+              <div class="shift-right">
+                <img src="hUfOFLuaK8U-hero.jpg" alt="Фото смены: открытие сезона" />
+              </div>
+            </div>
+            <div style="margin-top:64px">
+              <h4 style="margin:0 0 6px">Что делает смену особенной</h4>
+              <ul class="incl" style="margin:0">
+                <li>торжественное открытие лагерного сезона</li>
+                <li>много командных игр и знакомств</li>
+                <li>активная программа, помогающая быстро влиться в атмосферу лагеря</li>
+                <li>формирование первых традиций лета</li>
+              </ul>
+            </div>
+            <div class="shift-lists">
+              <div>
+                <h4>Что входит в стоимость</h4>
+                <ul class="incl" style="margin:0">
+                  <li>проживание на территории лагеря (14 дней)</li>
+                  <li>4–5-разовое питание</li>
+                  <li>участие во всех программах и мастер-классах</li>
+                  <li>спортивные и творческие активности</li>
+                  <li>работа наставников и педагогов</li>
+                  <li>вечерние мероприятия и шоу</li>
+                </ul>
+              </div>
+              <div>
+                <h4>Дополнительно можно выбрать</h4>
+                <ul class="incl" style="margin:0">
+                  <li>выездные экскурсии</li>
+                  <li>дополнительные мастер-классы</li>
+                  <li>спортивные активности</li>
+                  <li>фирменный мерч лагеря</li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <div>
-            <img src="hUfOFLuaK8U-hero.jpg" alt="Молодые вожатые" />
+      </div>
+    </div>
+
+    <!-- SHIFT DETAILS MODAL 2 -->
+    <div class="modal shift-modal" id="shiftModal2" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Подробности смены: Экспедиция">
+      <div class="box">
+        <div class="topbar">
+          <div class="tag">Вторая смена · Творчество и самовыражение</div>
+          <a class="close" id="closeShiftModal2" href="#" aria-label="Закрыть окно">Закрыть ✕</a>
+        </div>
+        <div class="content">
+          <div class="shift-top">
+            <div class="shift-left">
+              <h3 style="margin:0 0 6px">Вторая смена</h3>
+              <h4 style="margin:0 0 10px">Творчество и самовыражение</h4>
+              <p>
+                Эта смена посвящена творчеству, идеям и самовыражению.
+                Участники пробуют себя в разных форматах — от искусства и медиа до сценических выступлений.
+                Каждый день наполнен мастер-классами, экспериментами и возможностью проявить свои таланты.
+              </p>
+            </div>
+            <div class="shift-right">
+              <div class="shift-placeholder" aria-label="Фото смены: заглушка"></div>
+            </div>
+          </div>
+          <div style="margin-top:64px">
+            <h4 style="margin:0 0 6px">Что делает смену особенной</h4>
+            <ul class="incl" style="margin:0">
+              <li>творческие мастер-классы</li>
+              <li>работа над проектами и выступлениями</li>
+              <li>атмосфера поддержки и вдохновения</li>
+              <li>финальное творческое шоу смены</li>
+            </ul>
+          </div>
+          <div class="shift-lists">
+            <div>
+              <h4>Что входит в стоимость</h4>
+              <ul class="incl" style="margin:0">
+                <li>проживание (14 дней)</li>
+                <li>питание</li>
+                <li>участие во всех программах</li>
+                <li>творческие и спортивные активности</li>
+                <li>вечерние мероприятия</li>
+                <li>работа наставников</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Дополнительно</h4>
+              <ul class="incl" style="margin:0">
+                <li>расширенные мастер-классы</li>
+                <li>индивидуальные занятия</li>
+                <li>экскурсии</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHIFT DETAILS MODAL 3 -->
+    <div class="modal shift-modal" id="shiftModal3" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Подробности смены: 3 смена">
+      <div class="box">
+        <div class="topbar">
+          <div class="tag">Вторая смена · Творчество и самовыражение</div>
+          <a class="close" id="closeShiftModal3" href="#" aria-label="Закрыть окно">Закрыть ✕</a>
+        </div>
+        <div class="content">
+          <div class="shift-top">
+            <div class="shift-left">
+              <h3 style="margin:0 0 6px">Вторая смена</h3>
+              <h4 style="margin:0 0 10px">Творчество и самовыражение</h4>
+              <p>
+                Эта смена посвящена творчеству, идеям и самовыражению.
+                Участники пробуют себя в разных форматах — от искусства и медиа до сценических выступлений.
+                Каждый день наполнен мастер-классами, экспериментами и возможностью проявить свои таланты.
+              </p>
+            </div>
+            <div class="shift-right">
+              <div class="shift-placeholder" aria-label="Фото смены: заглушка"></div>
+            </div>
+          </div>
+          <div style="margin-top:64px">
+            <h4 style="margin:0 0 6px">Что делает смену особенной</h4>
+            <ul class="incl" style="margin:0">
+              <li>творческие мастер-классы</li>
+              <li>работа над проектами и выступлениями</li>
+              <li>атмосфера поддержки и вдохновения</li>
+              <li>финальное творческое шоу смены</li>
+            </ul>
+          </div>
+          <div class="shift-lists">
+            <div>
+              <h4>Что входит в стоимость</h4>
+              <ul class="incl" style="margin:0">
+                <li>проживание (14 дней)</li>
+                <li>питание</li>
+                <li>участие во всех программах</li>
+                <li>творческие и спортивные активности</li>
+                <li>вечерние мероприятия</li>
+                <li>работа наставников</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Дополнительно</h4>
+              <ul class="incl" style="margin:0">
+                <li>расширенные мастер-классы</li>
+                <li>индивидуальные занятия</li>
+                <li>экскурсии</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHIFT DETAILS MODAL 4 -->
+    <div class="modal shift-modal" id="shiftModal4" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Подробности смены: 4 смена">
+      <div class="box">
+        <div class="topbar">
+          <div class="tag">Вторая смена · Творчество и самовыражение</div>
+          <a class="close" id="closeShiftModal4" href="#" aria-label="Закрыть окно">Закрыть ✕</a>
+        </div>
+        <div class="content">
+          <div class="shift-top">
+            <div class="shift-left">
+              <h3 style="margin:0 0 6px">Вторая смена</h3>
+              <h4 style="margin:0 0 10px">Творчество и самовыражение</h4>
+              <p>
+                Эта смена посвящена творчеству, идеям и самовыражению.
+                Участники пробуют себя в разных форматах — от искусства и медиа до сценических выступлений.
+                Каждый день наполнен мастер-классами, экспериментами и возможностью проявить свои таланты.
+              </p>
+            </div>
+            <div class="shift-right">
+              <div class="shift-placeholder" aria-label="Фото смены: заглушка"></div>
+            </div>
+          </div>
+          <div style="margin-top:64px">
+            <h4 style="margin:0 0 6px">Что делает смену особенной</h4>
+            <ul class="incl" style="margin:0">
+              <li>творческие мастер-классы</li>
+              <li>работа над проектами и выступлениями</li>
+              <li>атмосфера поддержки и вдохновения</li>
+              <li>финальное творческое шоу смены</li>
+            </ul>
+          </div>
+          <div class="shift-lists">
+            <div>
+              <h4>Что входит в стоимость</h4>
+              <ul class="incl" style="margin:0">
+                <li>проживание (14 дней)</li>
+                <li>питание</li>
+                <li>участие во всех программах</li>
+                <li>творческие и спортивные активности</li>
+                <li>вечерние мероприятия</li>
+                <li>работа наставников</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Дополнительно</h4>
+              <ul class="incl" style="margin:0">
+                <li>расширенные мастер-классы</li>
+                <li>индивидуальные занятия</li>
+                <li>экскурсии</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHIFT DETAILS MODAL 5 -->
+    <div class="modal shift-modal" id="shiftModal5" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Подробности смены: 5 смена">
+      <div class="box">
+        <div class="topbar">
+          <div class="tag">Вторая смена · Творчество и самовыражение</div>
+          <a class="close" id="closeShiftModal5" href="#" aria-label="Закрыть окно">Закрыть ✕</a>
+        </div>
+        <div class="content">
+          <div class="shift-top">
+            <div class="shift-left">
+              <h3 style="margin:0 0 6px">Вторая смена</h3>
+              <h4 style="margin:0 0 10px">Творчество и самовыражение</h4>
+              <p>
+                Эта смена посвящена творчеству, идеям и самовыражению.
+                Участники пробуют себя в разных форматах — от искусства и медиа до сценических выступлений.
+                Каждый день наполнен мастер-классами, экспериментами и возможностью проявить свои таланты.
+              </p>
+            </div>
+            <div class="shift-right">
+              <div class="shift-placeholder" aria-label="Фото смены: заглушка"></div>
+            </div>
+          </div>
+          <div style="margin-top:64px">
+            <h4 style="margin:0 0 6px">Что делает смену особенной</h4>
+            <ul class="incl" style="margin:0">
+              <li>творческие мастер-классы</li>
+              <li>работа над проектами и выступлениями</li>
+              <li>атмосфера поддержки и вдохновения</li>
+              <li>финальное творческое шоу смены</li>
+            </ul>
+          </div>
+          <div class="shift-lists">
+            <div>
+              <h4>Что входит в стоимость</h4>
+              <ul class="incl" style="margin:0">
+                <li>проживание (14 дней)</li>
+                <li>питание</li>
+                <li>участие во всех программах</li>
+                <li>творческие и спортивные активности</li>
+                <li>вечерние мероприятия</li>
+                <li>работа наставников</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Дополнительно</h4>
+              <ul class="incl" style="margin:0">
+                <li>расширенные мастер-классы</li>
+                <li>индивидуальные занятия</li>
+                <li>экскурсии</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROGRAM MODAL 1 -->
+    <div class="modal shift-modal" id="programModal1" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Подробности программы">
+      <div class="box">
+        <div class="topbar">
+          <div class="tag">Программа · Подробности</div>
+          <a class="close" id="closeProgramModal1" href="#" aria-label="Закрыть окно">Закрыть ✕</a>
+        </div>
+        <div class="content">
+          <div class="shift-top">
+            <div class="shift-left">
+              <h3 style="margin:0 0 6px">Вторая смена</h3>
+              <h4 style="margin:0 0 10px">Творчество и самовыражение</h4>
+              <p>
+                Эта смена посвящена творчеству, идеям и самовыражению.
+                Участники пробуют себя в разных форматах — от искусства и медиа до сценических выступлений.
+                Каждый день наполнен мастер-классами, экспериментами и возможностью проявить свои таланты.
+              </p>
+            </div>
+            <div class="shift-right">
+              <div class="shift-placeholder" aria-label="Фото программы: заглушка"></div>
+            </div>
+          </div>
+          <div style="margin-top:64px">
+            <h4 style="margin:0 0 6px">Что делает смену особенной</h4>
+            <ul class="incl" style="margin:0">
+              <li>творческие мастер-классы</li>
+              <li>работа над проектами и выступлениями</li>
+              <li>атмосфера поддержки и вдохновения</li>
+              <li>финальное творческое шоу смены</li>
+            </ul>
+          </div>
+          <div class="shift-lists">
+            <div>
+              <h4>Что входит в стоимость</h4>
+              <ul class="incl" style="margin:0">
+                <li>проживание (14 дней)</li>
+                <li>питание</li>
+                <li>участие во всех программах</li>
+                <li>творческие и спортивные активности</li>
+                <li>вечерние мероприятия</li>
+                <li>работа наставников</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Дополнительно</h4>
+              <ul class="incl" style="margin:0">
+                <li>расширенные мастер-классы</li>
+                <li>индивидуальные занятия</li>
+                <li>экскурсии</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROGRAM MODAL 2 -->
+    <div class="modal shift-modal" id="programModal2" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Подробности программы">
+      <div class="box">
+        <div class="topbar">
+          <div class="tag">Программа · Подробности</div>
+          <a class="close" id="closeProgramModal2" href="#" aria-label="Закрыть окно">Закрыть ✕</a>
+        </div>
+        <div class="content">
+          <div class="shift-top">
+            <div class="shift-left">
+              <h3 style="margin:0 0 6px">Вторая смена</h3>
+              <h4 style="margin:0 0 10px">Творчество и самовыражение</h4>
+              <p>
+                Эта смена посвящена творчеству, идеям и самовыражению.
+                Участники пробуют себя в разных форматах — от искусства и медиа до сценических выступлений.
+                Каждый день наполнен мастер-классами, экспериментами и возможностью проявить свои таланты.
+              </p>
+            </div>
+            <div class="shift-right">
+              <div class="shift-placeholder" aria-label="Фото программы: заглушка"></div>
+            </div>
+          </div>
+          <div style="margin-top:64px">
+            <h4 style="margin:0 0 6px">Что делает смену особенной</h4>
+            <ul class="incl" style="margin:0">
+              <li>творческие мастер-классы</li>
+              <li>работа над проектами и выступлениями</li>
+              <li>атмосфера поддержки и вдохновения</li>
+              <li>финальное творческое шоу смены</li>
+            </ul>
+          </div>
+          <div class="shift-lists">
+            <div>
+              <h4>Что входит в стоимость</h4>
+              <ul class="incl" style="margin:0">
+                <li>проживание (14 дней)</li>
+                <li>питание</li>
+                <li>участие во всех программах</li>
+                <li>творческие и спортивные активности</li>
+                <li>вечерние мероприятия</li>
+                <li>работа наставников</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Дополнительно</h4>
+              <ul class="incl" style="margin:0">
+                <li>расширенные мастер-классы</li>
+                <li>индивидуальные занятия</li>
+                <li>экскурсии</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROGRAM MODAL 3 -->
+    <div class="modal shift-modal" id="programModal3" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Подробности программы">
+      <div class="box">
+        <div class="topbar">
+          <div class="tag">Программа · Подробности</div>
+          <a class="close" id="closeProgramModal3" href="#" aria-label="Закрыть окно">Закрыть ✕</a>
+        </div>
+        <div class="content">
+          <div class="shift-top">
+            <div class="shift-left">
+              <h3 style="margin:0 0 6px">Вторая смена</h3>
+              <h4 style="margin:0 0 10px">Творчество и самовыражение</h4>
+              <p>
+                Эта смена посвящена творчеству, идеям и самовыражению.
+                Участники пробуют себя в разных форматах — от искусства и медиа до сценических выступлений.
+                Каждый день наполнен мастер-классами, экспериментами и возможностью проявить свои таланты.
+              </p>
+            </div>
+            <div class="shift-right">
+              <div class="shift-placeholder" aria-label="Фото программы: заглушка"></div>
+            </div>
+          </div>
+          <div style="margin-top:64px">
+            <h4 style="margin:0 0 6px">Что делает смену особенной</h4>
+            <ul class="incl" style="margin:0">
+              <li>творческие мастер-классы</li>
+              <li>работа над проектами и выступлениями</li>
+              <li>атмосфера поддержки и вдохновения</li>
+              <li>финальное творческое шоу смены</li>
+            </ul>
+          </div>
+          <div class="shift-lists">
+            <div>
+              <h4>Что входит в стоимость</h4>
+              <ul class="incl" style="margin:0">
+                <li>проживание (14 дней)</li>
+                <li>питание</li>
+                <li>участие во всех программах</li>
+                <li>творческие и спортивные активности</li>
+                <li>вечерние мероприятия</li>
+                <li>работа наставников</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Дополнительно</h4>
+              <ul class="incl" style="margin:0">
+                <li>расширенные мастер-классы</li>
+                <li>индивидуальные занятия</li>
+                <li>экскурсии</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROGRAM MODAL 4 -->
+    <div class="modal shift-modal" id="programModal4" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Подробности программы">
+      <div class="box">
+        <div class="topbar">
+          <div class="tag">Программа · Подробности</div>
+          <a class="close" id="closeProgramModal4" href="#" aria-label="Закрыть окно">Закрыть ✕</a>
+        </div>
+        <div class="content">
+          <div class="shift-top">
+            <div class="shift-left">
+              <h3 style="margin:0 0 6px">Вторая смена</h3>
+              <h4 style="margin:0 0 10px">Творчество и самовыражение</h4>
+              <p>
+                Эта смена посвящена творчеству, идеям и самовыражению.
+                Участники пробуют себя в разных форматах — от искусства и медиа до сценических выступлений.
+                Каждый день наполнен мастер-классами, экспериментами и возможностью проявить свои таланты.
+              </p>
+            </div>
+            <div class="shift-right">
+              <div class="shift-placeholder" aria-label="Фото программы: заглушка"></div>
+            </div>
+          </div>
+          <div style="margin-top:64px">
+            <h4 style="margin:0 0 6px">Что делает смену особенной</h4>
+            <ul class="incl" style="margin:0">
+              <li>творческие мастер-классы</li>
+              <li>работа над проектами и выступлениями</li>
+              <li>атмосфера поддержки и вдохновения</li>
+              <li>финальное творческое шоу смены</li>
+            </ul>
+          </div>
+          <div class="shift-lists">
+            <div>
+              <h4>Что входит в стоимость</h4>
+              <ul class="incl" style="margin:0">
+                <li>проживание (14 дней)</li>
+                <li>питание</li>
+                <li>участие во всех программах</li>
+                <li>творческие и спортивные активности</li>
+                <li>вечерние мероприятия</li>
+                <li>работа наставников</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Дополнительно</h4>
+              <ul class="incl" style="margin:0">
+                <li>расширенные мастер-классы</li>
+                <li>индивидуальные занятия</li>
+                <li>экскурсии</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -3044,31 +3595,130 @@
     closeBtn.addEventListener('click', closeModal);
     modal.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
     const shiftModal = document.getElementById('shiftModal');
+    const shiftModal2 = document.getElementById('shiftModal2');
+    const shiftModal3 = document.getElementById('shiftModal3');
+    const shiftModal4 = document.getElementById('shiftModal4');
+    const shiftModal5 = document.getElementById('shiftModal5');
+    const programModal1 = document.getElementById('programModal1');
+    const programModal2 = document.getElementById('programModal2');
+    const programModal3 = document.getElementById('programModal3');
+    const programModal4 = document.getElementById('programModal4');
     const closeShiftModalBtn = document.getElementById('closeShiftModal');
-    function openShiftModal(){
-      if(!shiftModal) return;
-      shiftModal.style.display = 'flex';
-      shiftModal.setAttribute('aria-hidden', 'false');
+    const closeShiftModalBtn2 = document.getElementById('closeShiftModal2');
+    const closeShiftModalBtn3 = document.getElementById('closeShiftModal3');
+    const closeShiftModalBtn4 = document.getElementById('closeShiftModal4');
+    const closeShiftModalBtn5 = document.getElementById('closeShiftModal5');
+    const closeProgramModalBtn1 = document.getElementById('closeProgramModal1');
+    const closeProgramModalBtn2 = document.getElementById('closeProgramModal2');
+    const closeProgramModalBtn3 = document.getElementById('closeProgramModal3');
+    const closeProgramModalBtn4 = document.getElementById('closeProgramModal4');
+
+    function openModalById(id){
+      const el = document.getElementById(id);
+      if(!el) return;
+      el.style.display = 'flex';
+      el.setAttribute('aria-hidden', 'false');
     }
-    function closeShiftModalFn(){
-      if(!shiftModal) return;
-      shiftModal.style.display = 'none';
-      shiftModal.setAttribute('aria-hidden', 'true');
+    function closeModalById(id){
+      const el = document.getElementById(id);
+      if(!el) return;
+      el.style.display = 'none';
+      el.setAttribute('aria-hidden', 'true');
     }
-    window.openShiftModal = openShiftModal;
-    window.closeShiftModal = closeShiftModalFn;
+    function closeShiftModalFn(){ closeModalById('shiftModal'); }
+    function closeShiftModalFn2(){ closeModalById('shiftModal2'); }
+    function closeShiftModalFn3(){ closeModalById('shiftModal3'); }
+    function closeShiftModalFn4(){ closeModalById('shiftModal4'); }
+    function closeShiftModalFn5(){ closeModalById('shiftModal5'); }
+    function closeProgramModalFn1(){ closeModalById('programModal1'); }
+    function closeProgramModalFn2(){ closeModalById('programModal2'); }
+    function closeProgramModalFn3(){ closeModalById('programModal3'); }
+    function closeProgramModalFn4(){ closeModalById('programModal4'); }
+
     document.addEventListener('click', (e) => {
       const btn = e.target.closest('.js-shift-details');
       if(!btn) return;
       e.preventDefault();
-      openShiftModal();
+      const targetId = btn.getAttribute('data-modal');
+      if(targetId) openModalById(targetId);
+    });
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('.js-program-details');
+      if(!btn) return;
+      e.preventDefault();
+      const targetId = btn.getAttribute('data-modal');
+      if(targetId) openModalById(targetId);
     });
     if(closeShiftModalBtn){
       closeShiftModalBtn.addEventListener('click', closeShiftModalFn);
     }
+    if(closeShiftModalBtn2){
+      closeShiftModalBtn2.addEventListener('click', closeShiftModalFn2);
+    }
+    if(closeShiftModalBtn3){
+      closeShiftModalBtn3.addEventListener('click', closeShiftModalFn3);
+    }
+    if(closeShiftModalBtn4){
+      closeShiftModalBtn4.addEventListener('click', closeShiftModalFn4);
+    }
+    if(closeShiftModalBtn5){
+      closeShiftModalBtn5.addEventListener('click', closeShiftModalFn5);
+    }
+    if(closeProgramModalBtn1){
+      closeProgramModalBtn1.addEventListener('click', closeProgramModalFn1);
+    }
+    if(closeProgramModalBtn2){
+      closeProgramModalBtn2.addEventListener('click', closeProgramModalFn2);
+    }
+    if(closeProgramModalBtn3){
+      closeProgramModalBtn3.addEventListener('click', closeProgramModalFn3);
+    }
+    if(closeProgramModalBtn4){
+      closeProgramModalBtn4.addEventListener('click', closeProgramModalFn4);
+    }
     if(shiftModal){
       shiftModal.addEventListener('click', (e) => {
         if(e.target === shiftModal) closeShiftModalFn();
+      });
+    }
+    if(shiftModal2){
+      shiftModal2.addEventListener('click', (e) => {
+        if(e.target === shiftModal2) closeShiftModalFn2();
+      });
+    }
+    if(shiftModal3){
+      shiftModal3.addEventListener('click', (e) => {
+        if(e.target === shiftModal3) closeShiftModalFn3();
+      });
+    }
+    if(shiftModal4){
+      shiftModal4.addEventListener('click', (e) => {
+        if(e.target === shiftModal4) closeShiftModalFn4();
+      });
+    }
+    if(shiftModal5){
+      shiftModal5.addEventListener('click', (e) => {
+        if(e.target === shiftModal5) closeShiftModalFn5();
+      });
+    }
+    if(programModal1){
+      programModal1.addEventListener('click', (e) => {
+        if(e.target === programModal1) closeProgramModalFn1();
+      });
+    }
+    if(programModal2){
+      programModal2.addEventListener('click', (e) => {
+        if(e.target === programModal2) closeProgramModalFn2();
+      });
+    }
+    if(programModal3){
+      programModal3.addEventListener('click', (e) => {
+        if(e.target === programModal3) closeProgramModalFn3();
+      });
+    }
+    if(programModal4){
+      programModal4.addEventListener('click', (e) => {
+        if(e.target === programModal4) closeProgramModalFn4();
       });
     }
 
@@ -3105,6 +3755,14 @@
         setMenu(false);
         closeModal();
         closeShiftModalFn();
+        closeShiftModalFn2();
+        closeShiftModalFn3();
+        closeShiftModalFn4();
+        closeShiftModalFn5();
+        closeProgramModalFn1();
+        closeProgramModalFn2();
+        closeProgramModalFn3();
+        closeProgramModalFn4();
         closePaymentModal();
       }
     });
