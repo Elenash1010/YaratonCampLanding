@@ -673,6 +673,11 @@
       align-items:center;
       margin-bottom: 16px;
     }
+    #tab-spring,
+    #tab-autumn,
+    #tab-winter{
+      display:none;
+    }
     .tab{
       border:1px solid rgba(11,15,20,.14);
       background: rgba(255,255,255,.94);
@@ -1040,6 +1045,49 @@
       box-shadow: 0 8px 18px rgba(11,15,20,.08);
     }
     .doc:hover .go{transform: translateX(2px)}
+
+    .day-grid{
+      display:grid;
+      gap:14px;
+    }
+    .day-row{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    .day-card{
+      border-radius: var(--radius);
+      border:1px solid rgba(11,15,20,.12);
+      background: rgba(255,255,255,.94);
+      padding:16px;
+      box-shadow: var(--shadow);
+    }
+    .day-photo{
+      min-height: 260px;
+      border-radius: var(--radius);
+      border:1px solid rgba(11,15,20,.12);
+      background:
+        radial-gradient(220px 160px at 25% 25%, rgba(255,255,255,.70), transparent 60%),
+        radial-gradient(280px 200px at 75% 30%, rgba(56,105,172,.22), transparent 62%),
+        radial-gradient(280px 200px at 55% 92%, rgba(45,189,126,.16), transparent 62%),
+        radial-gradient(240px 190px at 25% 85%, rgba(255,209,102,.14), transparent 62%),
+        linear-gradient(135deg, rgba(45,189,126,.52), rgba(56,105,172,.30) 55%, rgba(255,91,77,.10));
+    }
+    .day-times{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:8px;
+    }
+    .day-times li{
+      font-size:16px;
+      line-height:1.45;
+    }
+    .day-times strong{
+      font-weight:700;
+    }
 
     .faq{
       display:grid;
@@ -1516,6 +1564,7 @@
       .hero-grid{grid-template-columns: 1fr}
       .hero-banner{min-height: 320px}
       .docs-grid{grid-template-columns: repeat(2,1fr)}
+      .day-row{grid-template-columns: 1fr}
       .gallery .tile{grid-column: span 6}
       .route-grid{grid-template-columns: 1fr}
       .parents-grid{grid-template-columns: 1fr}
@@ -1761,10 +1810,10 @@
         </div>
 
         <div class="tabs" role="tablist" aria-label="Переключатель сезонов">
-          <button class="tab" role="tab" aria-selected="false" aria-controls="season-spring" id="tab-spring">Весна</button>
-          <button class="tab" role="tab" aria-selected="true" aria-controls="season-summer" id="tab-summer">Лето</button>
-          <button class="tab" role="tab" aria-selected="false" aria-controls="season-autumn" id="tab-autumn">Осень</button>
-          <button class="tab" role="tab" aria-selected="false" aria-controls="season-winter" id="tab-winter">Зима</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="season-spring" id="tab-spring" hidden>Весна</button>
+          <button class="tab" role="tab" aria-selected="true" aria-controls="season-summer" id="tab-summer">Лето - 2026</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="season-autumn" id="tab-autumn" hidden>Осень</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="season-winter" id="tab-winter" hidden>Зима</button>
         </div>
 
         <!-- Весна -->
@@ -1780,7 +1829,6 @@
                   <div>
                     <h3>«Перезагрузка после школы»</h3>
                     <div class="meta">
-                      <span class="pill">7–9</span><span class="pill">11–13</span><span class="pill">14–16</span>
                       <span class="pill">24.03–06.04</span>
                     </div>
                   </div>
@@ -1796,7 +1844,7 @@
                   <li>фотоотчёты родителям</li>
                 </ul>
                 <div class="shift-actions">
-                  <a class="btn btn-secondary js-shift-details" href="#!" data-modal="shiftModal2" aria-label="Подробнее о смене Экспедиция: природа и навыки">Подробнее</a>
+                  <a class="btn btn-secondary js-shift-details" href="#!" data-modal="shiftModal2" aria-label="Подробнее о смене Выход на орбиту">Подробнее</a>
                   <a class="btn btn-primary" href="#contacts">Оставить заявку</a>
                 </div>
               </article>
@@ -1807,7 +1855,6 @@
                   <div>
                     <h3>«Творческая весна»</h3>
                     <div class="meta">
-                      <span class="pill">7–10</span><span class="pill">11–13</span>
                       <span class="pill">07.04–20.04</span>
                     </div>
                   </div>
@@ -1834,7 +1881,6 @@
                   <div>
                     <h3>«Спорт и энергия»</h3>
                     <div class="meta">
-                      <span class="pill">9–12</span><span class="pill">13–16</span>
                       <span class="pill">21.04–04.05</span>
                     </div>
                   </div>
@@ -1869,19 +1915,16 @@
             </button>
             <div class="scroller" data-scroller aria-label="Карточки смен (Лето)">
               <article class="card shift">
-                <div class="card-media" aria-label="Фото смены: Старт сезона (плейсхолдер)"></div>
+                <div class="card-media" aria-label="Фото смены: Начало большой космической экспедиции (плейсхолдер)"></div>
                 <div class="shift-top">
                   <div>
-                    <h3>«Лето: старт сезона»</h3>
-                    <div class="meta">
-                      <span class="pill">7–9</span><span class="pill">10–12</span><span class="pill">13–16</span>
-                      <span class="pill">02.06–16.06</span>
+                    <h3>«Первая смена: Начало большой космической экспедиции»</h3>
+                    <div class="meta" style="justify-content:center; margin-top:8px">
+                      <span class="pill">02.06.2026–16.06.2026</span>
                     </div>
-                  </div>
-                  <div>
-                    <div class="price">
-                      39 000 ₽</div>
-                    <div class="badge b-sky" style="margin-top:8px">14 дней</div>
+                    <p style="margin:0">Продолжительность смены: 14 дней</p>
+                    <p style="margin:0">Стоимость полной смены: 39 000 ₽</p>
+                    <p style="margin:0">Продолжительность смены для короткой смены: 19 500 ₽</p>
                   </div>
                 </div>
                 <ul class="incl">
@@ -1891,18 +1934,17 @@
                   <li>связь/отчёты родителям</li>
                 </ul>
                 <div class="shift-actions">
-                  <a class="btn btn-secondary js-shift-details" href="#!" data-modal="shiftModal" aria-label="Подробнее о смене">Подробнее</a>
+                  <a class="btn btn-secondary js-shift-details" href="#!" data-modal="shiftModal" aria-label="Подробнее о смене Первая смена: Начало большой космической экспедиции">Подробнее</a>
                   <a class="btn btn-primary" href="#contacts">Оставить заявку</a>
                 </div>
               </article>
 
               <article class="card shift">
-                <div class="card-media" aria-label="Фото смены: Экспедиция (плейсхолдер)"></div>
+                <div class="card-media" aria-label="Фото смены: Выход на орбиту (плейсхолдер)"></div>
                 <div class="shift-top">
                   <div>
-                    <h3>«Экспедиция: природа и навыки»</h3>
+                    <h3>«Выход на орбиту»</h3>
                     <div class="meta">
-                      <span class="pill">9–12</span><span class="pill">13–16</span>
                       <span class="pill">19.06–03.07</span>
                     </div>
                   </div>
@@ -1918,18 +1960,17 @@
                   <li>вечера у костра (по правилам)</li>
                 </ul>
                 <div class="shift-actions">
-                  <a class="btn btn-secondary js-shift-details" href="#!" data-modal="shiftModal2" aria-label="Подробнее о смене Экспедиция: природа и навыки">Подробнее</a>
+                  <a class="btn btn-secondary js-shift-details" href="#!" data-modal="shiftModal2" aria-label="Подробнее о смене Выход на орбиту">Подробнее</a>
                   <a class="btn btn-primary" href="#contacts">Оставить заявку</a>
                 </div>
               </article>
 
               <article class="card shift">
-                <div class="card-media" aria-label="Фото смены: Творчество + сцена (плейсхолдер)"></div>
+                <div class="card-media" aria-label="Фото смены: Глубокий космос (плейсхолдер)"></div>
                 <div class="shift-top">
                   <div>
-                    <h3>«Творчество + сцена»</h3>
+                    <h3>«Глубокий космос»</h3>
                     <div class="meta">
-                      <span class="pill">7–10</span><span class="pill">11–13</span>
                       <span class="pill">06.07–20.07</span>
                     </div>
                   </div>
@@ -1945,7 +1986,7 @@
                   <li>финальный спектакль</li>
                 </ul>
                 <div class="shift-actions">
-                  <a class="btn btn-secondary js-shift-details" href="#!" data-modal="shiftModal3" aria-label="Подробнее о смене Творчество + сцена">Подробнее</a>
+                  <a class="btn btn-secondary js-shift-details" href="#!" data-modal="shiftModal3" aria-label="Подробнее о смене Глубокий космос">Подробнее</a>
                   <a class="btn btn-primary" href="#contacts">Оставить заявку</a>
                 </div>
               </article>
@@ -1954,9 +1995,8 @@
                 <div class="card-media" aria-label="Фото смены: Спорт-турнир (плейсхолдер)"></div>
                 <div class="shift-top">
                   <div>
-                    <h3>«Большой спорт-турнир»</h3>
+                    <h3>«Новые галактики»</h3>
                     <div class="meta">
-                      <span class="pill">9–12</span><span class="pill">13–16</span>
                       <span class="pill">23.07–06.08</span>
                     </div>
                   </div>
@@ -1972,7 +2012,7 @@
                   <li>награждение и кубки</li>
                 </ul>
                 <div class="shift-actions">
-                  <a class="btn btn-secondary js-shift-details" href="#!" data-modal="shiftModal4" aria-label="Подробнее о смене Большой спорт-турнир">Подробнее</a>
+                  <a class="btn btn-secondary js-shift-details" href="#!" data-modal="shiftModal4" aria-label="Подробнее о смене Новые галактики">Подробнее</a>
                   <a class="btn btn-primary" href="#contacts">Оставить заявку</a>
                 </div>
               </article>
@@ -1983,7 +2023,6 @@
                   <div>
                     <h3>«Медиа-студия лагеря»</h3>
                     <div class="meta">
-                      <span class="pill">10–12</span><span class="pill">13–16</span>
                       <span class="pill">09.08–23.08</span>
                     </div>
                   </div>
@@ -2023,7 +2062,6 @@
                   <div>
                     <h3>«Осенний интенсив»</h3>
                     <div class="meta">
-                      <span class="pill">7–12</span><span class="pill">13–16</span>
                       <span class="pill">26.10–08.11</span>
                     </div>
                   </div>
@@ -2050,7 +2088,6 @@
                   <div>
                     <h3>«Лидерство и команда»</h3>
                     <div class="meta">
-                      <span class="pill">11–13</span><span class="pill">14–16</span>
                       <span class="pill">10.11–23.11</span>
                     </div>
                   </div>
@@ -2077,7 +2114,6 @@
                   <div>
                     <h3>«Творческий уик-энд»</h3>
                     <div class="meta">
-                      <span class="pill">7–10</span><span class="pill">11–13</span>
                       <span class="pill">24.11–01.12</span>
                     </div>
                   </div>
@@ -2117,7 +2153,6 @@
                   <div>
                     <h3>«Зимние каникулы»</h3>
                     <div class="meta">
-                      <span class="pill">7–12</span><span class="pill">13–16</span>
                       <span class="pill">02.01–12.01</span>
                     </div>
                   </div>
@@ -2144,7 +2179,6 @@
                   <div>
                     <h3>«Наука и эксперименты»</h3>
                     <div class="meta">
-                      <span class="pill">9–12</span><span class="pill">13–16</span>
                       <span class="pill">15.02–25.02</span>
                     </div>
                   </div>
@@ -2447,6 +2481,53 @@
               <a class="btn btn-secondary" href="#docs">Документы</a>
             </div>
           </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= DAY SCHEDULE ========================= -->
+    <section id="day-schedule" class="section" aria-label="Распорядок дня">
+      <div class="container">
+        <div class="subhead">
+          <div>
+            <h2>Распорядок дня</h2>
+          </div>
+        </div>
+
+        <div class="day-grid">
+          <div class="day-row">
+            <div class="day-card">
+              <ul class="day-times">
+                <li><strong>8.30</strong> – Подъем</li>
+                <li><strong>9.00</strong> - Зарядка</li>
+                <li><strong>9.15</strong> - Линейка</li>
+                <li><strong>9.30</strong> - Завтрак</li>
+                <li><strong>10.00</strong> - Утреннее мероприятие/спорт</li>
+                <li><strong>10.30</strong> - Проверка чистоты</li>
+                <li><strong>13.00</strong> – Обед</li>
+                <li><strong>14.00-16.00</strong> – Тихий час</li>
+              </ul>
+            </div>
+            <div class="day-photo" aria-label="Атмосферное фото дня (заглушка)"></div>
+          </div>
+
+          <div class="day-row">
+            <div class="day-photo" aria-label="Атмосферное фото вечера (заглушка)"></div>
+            <div class="day-card">
+              <ul class="day-times">
+                <li><strong>16.15</strong> - Полдник</li>
+                <li><strong>17.00</strong> – Вечернее мероприятие</li>
+                <li><strong>19.00</strong> – Ужин</li>
+                <li><strong>19.30</strong> – Фильм/дискотека (младшие)</li>
+                <li><strong>21.00</strong> – Поздник</li>
+                <li><strong>21.15</strong> – Дискотека (старшие)</li>
+                <li><strong>21.15</strong> – Огонек (младшие)</li>
+                <li><strong>22.00</strong> – Отбой (младшие)</li>
+                <li><strong>22.15</strong> - Огонек (старшие)</li>
+                <li><strong>23.00</strong> – Отбой (старшие)</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -2986,21 +3067,20 @@
     </div>
 
     <!-- SHIFT DETAILS MODAL 2 -->
-    <div class="modal shift-modal" id="shiftModal2" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Подробности смены: Экспедиция">
+    <div class="modal shift-modal" id="shiftModal2" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Подробности смены: Выход на орбиту">
       <div class="box">
         <div class="topbar">
-          <div class="tag">Вторая смена · Творчество и самовыражение</div>
+          <div class="tag">Вторая смена: Выход на орбиту</div>
           <a class="close" id="closeShiftModal2" href="#" aria-label="Закрыть окно">Закрыть ✕</a>
         </div>
         <div class="content">
           <div class="shift-top">
             <div class="shift-left">
-              <h3 style="margin:0 0 6px">Вторая смена</h3>
-              <h4 style="margin:0 0 10px">Творчество и самовыражение</h4>
               <p>
-                Эта смена посвящена творчеству, идеям и самовыражению.
-                Участники пробуют себя в разных форматах — от искусства и медиа до сценических выступлений.
-                Каждый день наполнен мастер-классами, экспериментами и возможностью проявить свои таланты.
+                Темп растёт, программа становится насыщеннее.
+                Команды уже сформированы, начинается настоящее движение и первые серьёзные "миссии".
+                Ребята быстрее включаются в процесс, глубже погружаются в активности и находят настоящих друзей,
+                с которыми хочется проживать каждую минуту лагерной жизни.
               </p>
             </div>
             <div class="shift-right">
@@ -3045,18 +3125,21 @@
     <div class="modal shift-modal" id="shiftModal3" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Подробности смены: 3 смена">
       <div class="box">
         <div class="topbar">
-          <div class="tag">Вторая смена · Творчество и самовыражение</div>
+          <div class="tag">Третья смена: Глубокий космос</div>
           <a class="close" id="closeShiftModal3" href="#" aria-label="Закрыть окно">Закрыть ✕</a>
         </div>
         <div class="content">
           <div class="shift-top">
             <div class="shift-left">
-              <h3 style="margin:0 0 6px">Вторая смена</h3>
-              <h4 style="margin:0 0 10px">Творчество и самовыражение</h4>
               <p>
-                Эта смена посвящена творчеству, идеям и самовыражению.
-                Участники пробуют себя в разных форматах — от искусства и медиа до сценических выступлений.
-                Каждый день наполнен мастер-классами, экспериментами и возможностью проявить свои таланты.
+                Самая динамичная смена лагеря, где всё происходит на максимуме.
+                Дни становятся насыщеннее, активности — ярче, а события — масштабнее.
+                Здесь много движения, командных вызовов и настоящих приключений, которые проживаются вместе.
+              </p>
+              <p>
+                В этой смене открываются дополнительные программы для старших участников — SMM и Школа моделей.
+                Это возможность попробовать себя в новых направлениях, поработать над реальными навыками
+                и стать частью отдельных профильных команд.
               </p>
             </div>
             <div class="shift-right">
@@ -3101,18 +3184,20 @@
     <div class="modal shift-modal" id="shiftModal4" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Подробности смены: 4 смена">
       <div class="box">
         <div class="topbar">
-          <div class="tag">Вторая смена · Творчество и самовыражение</div>
+          <div class="tag">Четвертая смена: Новые галактики</div>
           <a class="close" id="closeShiftModal4" href="#" aria-label="Закрыть окно">Закрыть ✕</a>
         </div>
         <div class="content">
           <div class="shift-top">
             <div class="shift-left">
-              <h3 style="margin:0 0 6px">Вторая смена</h3>
-              <h4 style="margin:0 0 10px">Творчество и самовыражение</h4>
               <p>
-                Эта смена посвящена творчеству, идеям и самовыражению.
-                Участники пробуют себя в разных форматах — от искусства и медиа до сценических выступлений.
-                Каждый день наполнен мастер-классами, экспериментами и возможностью проявить свои таланты.
+                Смена, в которой участники выходят за рамки привычного и пробуют больше.
+                Дни становятся осмысленнее: больше самостоятельности, больше командной работы и возможностей проявить себя.
+                Ребята не просто участвуют в активностях, а создают, исследуют и открывают для себя новые направления.
+              </p>
+              <p>
+                В этой смене для старших участников доступны дополнительные программы — SMM и медийные классы,
+                где можно глубже погрузиться в современные навыки, поработать над проектами и попробовать себя в новых ролях.
               </p>
             </div>
             <div class="shift-right">
