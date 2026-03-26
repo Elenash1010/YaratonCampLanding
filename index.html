@@ -421,7 +421,7 @@
       padding: 12px 0;
     }
     .brand{
-      display:flex; align-items:center; gap:12px;
+      display:flex; align-items:center; gap:0;
       text-decoration:none;
       min-width: 220px;
     }
@@ -432,6 +432,13 @@
         linear-gradient(135deg, rgba(45,189,126,.95), rgba(56,105,172,.72));
       box-shadow: 0 10px 22px rgba(11,15,20,.12);
       position:relative; overflow:hidden;
+    }
+    .logo-image{
+      width:180px;
+      height:64px;
+      object-fit:contain;
+      display:block;
+      flex:0 0 auto;
     }
     .brand-title{display:flex; flex-direction:column; line-height:1.05}
     .brand-title strong{
@@ -722,6 +729,49 @@
       justify-content:space-between;
       gap:12px;
     }
+    #shifts .shift-top > div:first-child{
+      width:100%;
+    }
+    #shifts .shift-top h3{
+      margin:0 0 14px;
+      min-height: 84px;
+      font-weight: 600;
+      color: var(--primary);
+      line-height: 1.12;
+    }
+    .shift-pricing{
+      margin:0;
+      padding:0;
+      text-align:left;
+      display:flex;
+      flex-direction:column;
+    }
+    .shift-pricing-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin:0 0 10px;
+      min-height: 40px;
+    }
+    .shift-pricing-row p{
+      margin:0;
+      padding:0;
+      text-indent:0;
+      font-weight:700;
+    }
+    .shift-pricing p{
+      margin:0;
+      padding:0;
+      text-indent:0;
+    }
+    .shift-pricing > p{
+      min-height: 30px;
+    }
+    .shift-pricing-sep{
+      height:28px;
+      flex:0 0 auto;
+    }
     .meta{display:flex; flex-wrap:wrap; gap:8px; margin-top: 8px; align-items:center}
     .pill{
       font-size:12px;
@@ -810,33 +860,59 @@
       padding: 16px;
     }
     .team-points{
-      display:grid;
+      display:flex;
+      flex-wrap:wrap;
       gap:10px;
-      margin-top: 12px;
+      margin-top: 14px;
+    }
+    #team .team-points .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      justify-content:flex-start;
+      width:auto;
+      max-width:100%;
+      padding:8px 11px;
+      border-radius: var(--radius);
+      border:1px solid rgba(11,15,20,.12);
+      background: rgba(255,255,255,.92);
+      font-weight:700;
+      font-size:12px;
+      color:rgba(11,15,20,.68);
+      box-shadow: 0 8px 18px rgba(11,15,20,.08);
+      white-space:nowrap;
+    }
+    #team .team-points .kdot{
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      display:inline-block;
+      background: linear-gradient(180deg, var(--leaf), #7CE7BE);
+      flex:0 0 auto;
     }
     .team-point{
       display:flex;
-      gap:12px;
-      align-items:flex-start;
-      padding: 12px;
-      border-radius: var(--radius);
+      gap:10px;
+      align-items:center;
+      padding: 10px 12px;
+      border-radius: var(--chipRadius);
       border:1px solid rgba(11,15,20,.10);
       background: rgba(255,255,255,.94);
-      box-shadow: 0 8px 18px rgba(11,15,20,.08);
+      box-shadow: 0 8px 18px rgba(11,15,20,.06);
       transition: transform var(--fast), box-shadow var(--fast);
     }
     .team-point:hover{transform: translateY(-2px); box-shadow: 0 12px 26px rgba(11,15,20,.10)}
     .team-point .ic{
-      width:44px;height:44px;border-radius: var(--radius);
+      width:28px;height:28px;border-radius: 999px;
       display:grid;place-items:center;
-      border:1px solid rgba(11,15,20,.10);
-      background: rgba(255,255,255,.96);
-      box-shadow: 0 8px 18px rgba(11,15,20,.08);
+      border:1px solid rgba(11,15,20,.08);
+      background: rgba(255,255,255,.98);
+      box-shadow: none;
       flex:0 0 auto;
     }
     .team-point .ic svg{
-      width:20px;
-      height:20px;
+      width:16px;
+      height:16px;
       stroke: rgba(11,15,20,.72);
       stroke-width:1.8;
       fill:none;
@@ -849,7 +925,12 @@
       font-weight:500;
       color: var(--primary);
       font-size:14px;
-      margin-bottom:4px;
+      margin-bottom:2px;
+    }
+    .team-point p{
+      margin:0;
+      font-size:13px;
+      line-height:1.35;
     }
     .team-collage{
       border-radius: var(--radius);
@@ -1095,6 +1176,48 @@
     }
     .day-copy p{
       margin:0 0 12px;
+      font-size:16px;
+      line-height:1.5;
+    }
+    .medical-grid{
+      display:grid;
+      gap:16px;
+    }
+    .medical-gallery{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .medical-photo{
+      min-height:220px;
+      border-radius: var(--radius);
+      border:1px solid rgba(11,15,20,.12);
+      background:
+        radial-gradient(220px 160px at 25% 25%, rgba(255,255,255,.70), transparent 60%),
+        radial-gradient(280px 200px at 75% 30%, rgba(56,105,172,.22), transparent 62%),
+        radial-gradient(280px 200px at 55% 92%, rgba(45,189,126,.16), transparent 62%),
+        radial-gradient(240px 190px at 25% 85%, rgba(255,209,102,.14), transparent 62%),
+        linear-gradient(135deg, rgba(45,189,126,.52), rgba(56,105,172,.30) 55%, rgba(255,91,77,.10));
+    }
+    .medical-copy{
+      border-radius: var(--radius);
+      border:1px solid rgba(11,15,20,.12);
+      background: rgba(255,255,255,.94);
+      padding:16px;
+      box-shadow: var(--shadow);
+    }
+    .medical-copy p{
+      margin:0 0 12px;
+      font-size:16px;
+      line-height:1.55;
+    }
+    .medical-list{
+      margin:0 0 14px;
+      padding-left:20px;
+      display:grid;
+      gap:8px;
+    }
+    .medical-list li{
       font-size:16px;
       line-height:1.5;
     }
@@ -1575,11 +1698,13 @@
       .hero-banner{min-height: 320px}
       .docs-grid{grid-template-columns: repeat(2,1fr)}
       .day-row{grid-template-columns: 1fr}
+      .medical-gallery{grid-template-columns: 1fr}
       .gallery .tile{grid-column: span 6}
       .route-grid{grid-template-columns: 1fr}
       .parents-grid{grid-template-columns: 1fr}
       .rows{grid-template-columns: 1fr}
       .team-grid{grid-template-columns: 1fr}
+      .team-points{display:flex; flex-wrap:wrap}
       .sticky-note{position:relative; top:auto}
       .footer-grid{grid-template-columns: 1fr 1fr}
       .scroll-prev{left:6px}
@@ -1619,6 +1744,7 @@
       .hero-banner{min-height: 270px}
       .hero-perks{grid-template-columns: 1fr}
       .hero-tags{grid-template-columns: 1fr}
+      .team-points{display:flex; flex-wrap:wrap}
       #shifts .scroller{grid-auto-columns: minmax(86vw, 86vw)}
       #shifts .scroller > .shift{min-height: 560px}
       .mobile-actions{grid-template-columns: 1fr}
@@ -1639,11 +1765,7 @@
     <div class="container">
       <div class="nav">
         <a class="brand" href="#top" aria-label="На главную">
-          <div class="logo" aria-hidden="true"></div>
-          <div class="brand-title">
-            <strong>ЯРАТОН</strong>
-            <span>любовь с первого взгляда</span>
-          </div>
+          <img class="logo-image" src="SVG/777Монтажная область 32 копия 6.svg" alt="Логотип Яратон" />
         </a>
 
         <nav class="desktop" aria-label="Основная навигация">
@@ -1771,7 +1893,7 @@
         <div class="subhead">
           <div>
             <h2>Коротко о лагере</h2>
-            <p>Уютная территория, насыщенная программа и понятные правила — чтобы детям было весело, а родителям спокойно.</p>
+            <p>Уютная безопасная территория, насыщенная программа и понятные правила — чтобы детям было весело, а родителям спокойно.</p>
           </div>
         </div>
 
@@ -1784,7 +1906,7 @@
 
           <article class="card">
             <div class="card-media" aria-label="Фото: творческие кружки (плейсхолдер)"></div>
-            <h3>Творческие кружки</h3>
+            <h3>Творчество и развитие</h3>
             <p>Сцена, творческие мастерские, игры и квесты помогают ребёнку открывать в себе новые таланты.</p>
           </article>
 
@@ -1809,21 +1931,23 @@
         <div class="subhead">
           <div>
             <h2>Смены и цены</h2>
-            <p>Каждая смена — это отдельная история, новые знакомства и насыщенная программа.<br>Выберите даты, которые подходят именно вам, а обо всём остальном мы уже позаботились.</p>
+            <div class="tabs" role="tablist" aria-label="Переключатель сезонов" style="margin:14px 0 18px;">
+              <button class="tab" role="tab" aria-selected="false" aria-controls="season-spring" id="tab-spring" hidden>Весна</button>
+              <button class="tab" role="tab" aria-selected="true" aria-controls="season-summer" id="tab-summer">Лето - 2026</button>
+              <button class="tab" role="tab" aria-selected="false" aria-controls="season-autumn" id="tab-autumn" hidden>Осень</button>
+              <button class="tab" role="tab" aria-selected="false" aria-controls="season-winter" id="tab-winter" hidden>Зима</button>
+            </div>
+            <p>Каждое лето в нашем лагере — это новая история. Мы создаём уникальную программу и сюжет, который объединяет все смены и делает сезон по-настоящему особенным.</p>
+            <p>Что ждёт вас в этом году? Пусть это останется небольшой интригой — хотя, возможно, вы уже догадываетесь 😉 Одно можем сказать точно: это будет ярко, насыщенно и незабываемо.</p>
+            <p>Для тех, кто едет впервые, мы предусмотрели короткие 7-дневные смены — чтобы мягко адаптироваться и познакомиться с лагерем. Но будьте готовы: уезжать не захочется.</p>
+            <p hidden>А для старших участников в 3-й и 4-й сменах мы подготовили особенное — новые программы, которые откроют ещё больше возможностей и впечатлений.</p>
+            <a class="btn btn-ghost" href="#docs" aria-label="Перейти к документам" style="margin-top:14px;">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3v10m0 0l4-4m-4 4l-4-4M5 17v3h14v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Скачать презентацию
+            </a>
           </div>
-          <a class="btn btn-ghost" href="#docs" aria-label="Перейти к документам">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M12 3v10m0 0l4-4m-4 4l-4-4M5 17v3h14v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Скачать презентацию
-          </a>
-        </div>
-
-        <div class="tabs" role="tablist" aria-label="Переключатель сезонов">
-          <button class="tab" role="tab" aria-selected="false" aria-controls="season-spring" id="tab-spring" hidden>Весна</button>
-          <button class="tab" role="tab" aria-selected="true" aria-controls="season-summer" id="tab-summer">Лето - 2026</button>
-          <button class="tab" role="tab" aria-selected="false" aria-controls="season-autumn" id="tab-autumn" hidden>Осень</button>
-          <button class="tab" role="tab" aria-selected="false" aria-controls="season-winter" id="tab-winter" hidden>Зима</button>
         </div>
 
         <!-- Весна -->
@@ -1929,20 +2053,27 @@
                 <div class="shift-top">
                   <div>
                     <h3>«Первая смена: Начало большой космической экспедиции»</h3>
-                    <div class="meta" style="justify-content:center; margin-top:8px">
-                      <span class="pill">02.06.2026–16.06.2026</span>
+                    <div class="shift-pricing">
+                      <div class="shift-pricing-row">
+                        <p>Полная смена:</p>
+                        <div class="meta" style="justify-content:flex-end; margin:0;">
+                          <span class="pill">02.06.2026–16.06.2026</span>
+                        </div>
+                      </div>
+                      <p>Продолжительность: 14 дней</p>
+                      <p>Стоимость: 39000 рублей</p>
+                      <div class="shift-pricing-sep"></div>
+                      <div class="shift-pricing-row">
+                        <p>Короткая смена:</p>
+                        <div class="meta" style="justify-content:flex-end; margin:0;">
+                          <span class="pill">02.06.2026 - 09.06.2026</span>
+                        </div>
+                      </div>
+                      <p>Продолжительность: 7 дней</p>
+                      <p>Стоимость: 19500 рублей</p>
                     </div>
-                    <p style="margin:0">Продолжительность смены: 14 дней</p>
-                    <p style="margin:0">Стоимость полной смены: 39 000 ₽</p>
-                    <p style="margin:0">Продолжительность смены для короткой смены: 19 500 ₽</p>
                   </div>
                 </div>
-                <ul class="incl">
-                  <li>кружки + спорт</li>
-                  <li>водные активности по регламенту</li>
-                  <li>фестивали и концерты</li>
-                  <li>связь/отчёты родителям</li>
-                </ul>
                 <div class="shift-actions">
                   <a class="btn btn-secondary js-shift-details" href="#!" data-modal="shiftModal" aria-label="Подробнее о смене Первая смена: Начало большой космической экспедиции">Подробнее</a>
                   <a class="btn btn-primary" href="#contacts">Оставить заявку</a>
@@ -1953,24 +2084,30 @@
                 <div class="card-media" aria-label="Фото смены: Выход на орбиту (плейсхолдер)"></div>
                 <div class="shift-top">
                   <div>
-                    <h3>«Выход на орбиту»</h3>
-                    <div class="meta">
-                      <span class="pill">19.06–03.07</span>
+                    <h3>«Вторая смена: Выход на орбиту»</h3>
+                    <div class="shift-pricing">
+                      <div class="shift-pricing-row">
+                        <p>Полная смена:</p>
+                        <div class="meta" style="justify-content:flex-end; margin:0;">
+                          <span class="pill">19.06.2026–03.07.2026</span>
+                        </div>
+                      </div>
+                      <p>Продолжительность: 14 дней</p>
+                      <p>Стоимость: 43000 рублей</p>
+                      <div class="shift-pricing-sep"></div>
+                      <div class="shift-pricing-row">
+                        <p>Короткая смена:</p>
+                        <div class="meta" style="justify-content:flex-end; margin:0;">
+                          <span class="pill">19.06.2026–26.06.2026</span>
+                        </div>
+                      </div>
+                      <p>Продолжительность: 7 дней</p>
+                      <p>Стоимость: 21500 рублей</p>
                     </div>
                   </div>
-                  <div>
-                    <div class="price">43 000 ₽</div>
-                    <div class="badge b-leaf" style="margin-top:8px">14 дней</div>
-                  </div>
                 </div>
-                <ul class="incl">
-                  <li>ориентирование (база)</li>
-                  <li>эко-лаборатория</li>
-                  <li>командные миссии</li>
-                  <li>вечера у костра (по правилам)</li>
-                </ul>
                 <div class="shift-actions">
-                  <a class="btn btn-secondary js-shift-details" href="#!" data-modal="shiftModal2" aria-label="Подробнее о смене Выход на орбиту">Подробнее</a>
+                  <a class="btn btn-secondary js-shift-details" href="#!" data-modal="shiftModal2" aria-label="Подробнее о смене Вторая смена: Выход на орбиту">Подробнее</a>
                   <a class="btn btn-primary" href="#contacts">Оставить заявку</a>
                 </div>
               </article>
@@ -1979,24 +2116,30 @@
                 <div class="card-media" aria-label="Фото смены: Глубокий космос (плейсхолдер)"></div>
                 <div class="shift-top">
                   <div>
-                    <h3>«Глубокий космос»</h3>
-                    <div class="meta">
-                      <span class="pill">06.07–20.07</span>
+                    <h3>«Третья смена: Глубокий космос»</h3>
+                    <div class="shift-pricing">
+                      <div class="shift-pricing-row">
+                        <p>Полная смена:</p>
+                        <div class="meta" style="justify-content:flex-end; margin:0;">
+                          <span class="pill">06.07.2026–20.07.2026</span>
+                        </div>
+                      </div>
+                      <p>Продолжительность: 14 дней</p>
+                      <p>Стоимость: 43000 рублей</p>
+                      <div class="shift-pricing-sep"></div>
+                      <div class="shift-pricing-row">
+                        <p>Короткая смена:</p>
+                        <div class="meta" style="justify-content:flex-end; margin:0;">
+                          <span class="pill">06.07.2026–13.07.2026</span>
+                        </div>
+                      </div>
+                      <p>Продолжительность: 7 дней</p>
+                      <p>Стоимость: 21500 рублей</p>
                     </div>
                   </div>
-                  <div>
-                    <div class="price">от 43 000 ₽</div>
-                    <div class="badge b-vio" style="margin-top:8px">14 дней</div>
-                  </div>
                 </div>
-                <ul class="incl">
-                  <li>театр, танцы, постановки</li>
-                  <li>медиа: съёмка/монтаж</li>
-                  <li>шоу и квесты</li>
-                  <li>финальный спектакль</li>
-                </ul>
                 <div class="shift-actions">
-                  <a class="btn btn-secondary js-shift-details" href="#!" data-modal="shiftModal3" aria-label="Подробнее о смене Глубокий космос">Подробнее</a>
+                  <a class="btn btn-secondary js-shift-details" href="#!" data-modal="shiftModal3" aria-label="Подробнее о смене Третья смена: Глубокий космос">Подробнее</a>
                   <a class="btn btn-primary" href="#contacts">Оставить заявку</a>
                 </div>
               </article>
@@ -2005,24 +2148,30 @@
                 <div class="card-media" aria-label="Фото смены: Спорт-турнир (плейсхолдер)"></div>
                 <div class="shift-top">
                   <div>
-                    <h3>«Новые галактики»</h3>
-                    <div class="meta">
-                      <span class="pill">23.07–06.08</span>
+                    <h3>«Четвертая смена: Новые галактики»</h3>
+                    <div class="shift-pricing">
+                      <div class="shift-pricing-row">
+                        <p>Полная смена:</p>
+                        <div class="meta" style="justify-content:flex-end; margin:0;">
+                          <span class="pill">23.07.2026–06.08.2026</span>
+                        </div>
+                      </div>
+                      <p>Продолжительность: 14 дней</p>
+                      <p>Стоимость: 43000 рублей</p>
+                      <div class="shift-pricing-sep"></div>
+                      <div class="shift-pricing-row">
+                        <p>Короткая смена:</p>
+                        <div class="meta" style="justify-content:flex-end; margin:0;">
+                          <span class="pill">23.07.2026–30.07.2026</span>
+                        </div>
+                      </div>
+                      <p>Продолжительность: 7 дней</p>
+                      <p>Стоимость: 21500 рублей</p>
                     </div>
                   </div>
-                  <div>
-                    <div class="price">43 000 ₽</div>
-                    <div class="badge b-leaf" style="margin-top:8px">21 день</div>
-                  </div>
                 </div>
-                <ul class="incl">
-                  <li>эстафеты и турниры</li>
-                  <li>игры на сплочение</li>
-                  <li>здоровый режим</li>
-                  <li>награждение и кубки</li>
-                </ul>
                 <div class="shift-actions">
-                  <a class="btn btn-secondary js-shift-details" href="#!" data-modal="shiftModal4" aria-label="Подробнее о смене Новые галактики">Подробнее</a>
+                  <a class="btn btn-secondary js-shift-details" href="#!" data-modal="shiftModal4" aria-label="Подробнее о смене Четвертая смена: Новые галактики">Подробнее</a>
                   <a class="btn btn-primary" href="#contacts">Оставить заявку</a>
                 </div>
               </article>
@@ -2031,24 +2180,30 @@
                 <div class="card-media" aria-label="Фото смены: Медиа-студия (плейсхолдер)"></div>
                 <div class="shift-top">
                   <div>
-                    <h3>«Медиа-студия лагеря»</h3>
-                    <div class="meta">
-                      <span class="pill">09.08–23.08</span>
+                    <h3>«Пятая смена: Миссия: возвращение»</h3>
+                    <div class="shift-pricing">
+                      <div class="shift-pricing-row">
+                        <p>Полная смена:</p>
+                        <div class="meta" style="justify-content:flex-end; margin:0;">
+                          <span class="pill">09.08.2026–23.08.2026</span>
+                        </div>
+                      </div>
+                      <p>Продолжительность: 14 дней</p>
+                      <p>Стоимость: 39000 рублей</p>
+                      <div class="shift-pricing-sep"></div>
+                      <div class="shift-pricing-row">
+                        <p>Короткая смена:</p>
+                        <div class="meta" style="justify-content:flex-end; margin:0;">
+                          <span class="pill">09.08.2026–16.08.2026</span>
+                        </div>
+                      </div>
+                      <p>Продолжительность: 7 дней</p>
+                      <p>Стоимость: 19500 рублей</p>
                     </div>
                   </div>
-                  <div>
-                    <div class="price">от 39 000 ₽</div>
-                    <div class="badge b-sky" style="margin-top:8px">14 дней</div>
-                  </div>
                 </div>
-                <ul class="incl">
-                  <li>фото/видео-проекты</li>
-                  <li>интервью и репортажи</li>
-                  <li>монтаж (база)</li>
-                  <li>показ работ</li>
-                </ul>
                 <div class="shift-actions">
-                  <a class="btn btn-secondary js-shift-details" href="#!" data-modal="shiftModal5" aria-label="Подробнее о смене Медиа-студия лагеря">Подробнее</a>
+                  <a class="btn btn-secondary js-shift-details" href="#!" data-modal="shiftModal5" aria-label="Подробнее о смене Пятая смена: Миссия: возвращение">Подробнее</a>
                   <a class="btn btn-primary" href="#contacts">Оставить заявку</a>
                 </div>
               </article>
@@ -2226,7 +2381,7 @@
         <div class="subhead">
           <div>
             <h2>Программы</h2>
-            <p>Наши программы помогают раскрывать таланты, учиться новому и получать яркие впечатления. Это время для экспериментов, идей и настоящих открытий.</p>
+            <p>Специальные программы для участников 12–16 лет, которые проходят в рамках третьей и четвёртой смен (06.07–20.07 и 23.07–06.08). Для каждого направления формируются отдельные отряды — это даёт возможность погрузиться в программу, не выпадая из общей жизни лагеря, событий и командной атмосферы.</p>
           </div>
         </div>
 
@@ -2260,7 +2415,7 @@
             <article class="card program">
               <div class="card-media" aria-label="Фото программы: творчество (плейсхолдер)"></div>
               <div class="top">
-                <h3>Контент-вселенная: блогинг</h3>
+                <h3>Контент-вселенная: ты в эфире</h3>
                 <span class="badge b-vio">арт</span>
               </div>
               <p>14 дней съёмок, челленджей и командных проектов: от первых роликов до собственной премьеры.</p>
@@ -2302,20 +2457,21 @@
             <article class="card program">
               <div class="card-media" aria-label="Фото программы: медиа (плейсхолдер)"></div>
               <div class="top">
-                <h3>Медиа и коммуникации</h3>
+                <h3>Я - ЗВЕЗДА. Школа моделей и самопрезентации</h3>
                 <span class="badge b-sky">медиа</span>
               </div>
-              <p>Фото/видео, сторителлинг, проекты — и полезная цифровая грамотность.</p>
+              <p>Уверенность, стиль и умение себя подать. За 14 дней — от зажатости к свободе перед камерой и на сцене.</p>
               <div class="learn">
-                <strong>Чему научим</strong>
+                <strong>Что будет в программе</strong>
                 <ul>
-                  <li>создавать идею и сценарий</li>
-                  <li>снимать и монтировать (база)</li>
-                  <li>договариваться и сотрудничать</li>
+                  <li>дефиле и пластика</li>
+                  <li>фотосессии</li>
+                  <li>работа со стилем</li>
+                  <li>уверенность и подача</li>
                 </ul>
               </div>
               <div class="program-actions">
-                <a class="btn btn-secondary js-program-details" href="#!" data-modal="programModal4" aria-label="Подробнее о программе Медиа и коммуникации">Подробнее</a>
+                <a class="btn btn-secondary js-program-details" href="#!" data-modal="programModal4" aria-label="Подробнее о программе Я — ЗВЕЗДА. Школа моделей">Подробнее</a>
                 <a class="btn btn-primary" href="#contacts">Записаться</a>
               </div>
             </article>
@@ -2342,53 +2498,26 @@
         <div class="team-grid">
           <!-- Left: text -->
           <div class="team-left">
-            <h3 style="margin-bottom:6px">Команда, которой доверяют</h3>
+            <h3 style="margin-bottom:6px">Наша команда</h3>
             <p style="margin:0 0 10px">
-              Наши педагоги — специалисты с большим стажем и опытом работы с детьми разных возрастов.
-              Они выстраивают программу так, чтобы ребёнку было интересно и безопасно — и чтобы каждый чувствовал поддержку.
+              Наши педагоги — опытные специалисты, которые умеют находить подход к детям разного возраста.
+              В основе их работы — современные методики, дисциплина без давления и уважительное общение.
+              Именно это помогает ребёнку чувствовать себя спокойно, уверенно и с интересом включаться в лагерную жизнь.
+              Благодаря вниманию и опыту педагогов адаптация проходит мягко и естественно — даже для тех, кто приезжает впервые.
+            </p>
+            <p style="margin:0 0 10px">
+              Вожатые — энергичные, внимательные и по-настоящему вовлечённые. Их девиз — лидерство, дружелюбие и умение «зажечь» отряд.
+              Перед началом сезона они проходят лицензированную школу вожатых, где учатся выстраивать сильную командную атмосферу и работать с детьми.
             </p>
             <p style="margin:0">
-              Вожатые — молодые, задорные и внимательные. Перед сезоном они проходят «школу вожатых»,
-              тренируют навыки коммуникации, первой помощи и работу с ситуациями в отряде.
+              В основе подготовки — безопасность, этика и работа в команде.
+              Поэтому в лагере нет «потерянных» детей: каждый ребёнок находится во внимании, вовлечён в активности и чувствует себя частью команды.
             </p>
 
             <div class="team-points" aria-label="Ключевые преимущества команды">
-              <div class="team-point">
-                <div class="ic" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M3 9l9-4 9 4-9 4-9-4z"/>
-                    <path d="M7 13v4c0 1 10 1 10 0v-4"/>
-                  </svg>
-                </div>
-                <div>
-                  <strong>Педагоги с опытом</strong>
-                  <p style="margin:0">Методики, дисциплина без давления и уважительное общение.</p>
-                </div>
-              </div>
-
-              <div class="team-point">
-                <div class="ic" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12 3c2 3 1 5-1 7 3-1 5 1 5 4a4 4 0 1 1-8 0c0-2 1-3 2-4"/>
-                  </svg>
-                </div>
-                <div>
-                  <strong>Вожатые с энергией</strong>
-                  <p style="margin:0">Лидерство, дружелюбие и умение “зажечь” отряд.</p>
-                </div>
-              </div>
-
-              <div class="team-point">
-                <div class="ic" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M9 3h4a2 2 0 0 1 2 2v2h2a2 2 0 0 1 0 4h-2v2a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2H5a2 2 0 0 1 0-4h2V5a2 2 0 0 1 2-2z"/>
-                  </svg>
-                </div>
-                <div>
-                  <strong>Школа вожатых</strong>
-                  <p style="margin:0">Подготовка до смен: безопасность, этика, работа в команде.</p>
-                </div>
-              </div>
+              <span class="kicker"><span class="kdot" aria-hidden="true"></span>Педагоги с опытом</span>
+              <span class="kicker"><span class="kdot" aria-hidden="true"></span>Энергичные вожатые</span>
+              <span class="kicker"><span class="kdot" aria-hidden="true"></span>Лицензированная школа вожатых</span>
             </div>
 
             <div class="team-cta">
@@ -2408,6 +2537,38 @@
               *Замените плейсхолдеры на реальные фото через <span class="mono">background-image</span>.
             </p>
           </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= MEDICAL SERVICES ========================= -->
+    <section id="medical-services" class="section" aria-label="Дополнительные медицинские услуги">
+      <div class="container">
+        <div class="subhead">
+          <div>
+            <h2>Дополнительные медицинские услуги</h2>
+          </div>
+        </div>
+
+        <div class="medical-grid">
+          <div class="medical-gallery" aria-label="Фотографии медицинских услуг">
+            <div class="medical-photo" role="img" aria-label="Фото медицинских услуг 1 (заглушка)"></div>
+            <div class="medical-photo" role="img" aria-label="Фото медицинских услуг 2 (заглушка)"></div>
+            <div class="medical-photo" role="img" aria-label="Фото медицинских услуг 3 (заглушка)"></div>
+          </div>
+
+          <div class="medical-copy">
+            <p>На всё лето в ЯРАТОНЕ доступны дополнительные медицинские услуги.</p>
+            <p>В них входят:</p>
+            <ul class="medical-list">
+              <li>Биоптрон - 160 рублей/процедура (1600 руб/10 шт)</li>
+              <li>Кислородный коктейль - 80 рублей/процедура (800 руб/10 шт)</li>
+              <li>Вибрационный массаж стоп - 160 рублей/процедура (1600 руб/10 шт)</li>
+              <li>Вибрационный массаж глаз - 160 рублей/процедура (1600 руб/10 шт)</li>
+              <li>Комплекс оздоровительных процедур (биоптрон, коктейль, вибрационный массаж стоп и глаз) - 450 рублей/1 комплекс (4500 руб/10 шт)</li>
+            </ul>
+            <p>Оплатить можно в кассе санатория-профилактория "Сосновый", при покупке путёвки или, если путёвка уже куплена, то там же в кассе.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -2965,11 +3126,7 @@
         <div class="footer-grid">
           <div>
             <a class="brand" href="#top" aria-label="На главную" style="min-width:auto">
-              <div class="logo" aria-hidden="true"></div>
-              <div class="brand-title">
-                <strong>ЯРАТОН</strong>
-                <span>любовь с первого взгляда</span>
-              </div>
+              <img class="logo-image" src="SVG/777Монтажная область 32 копия 6.svg" alt="Логотип Яратон" />
             </a>
             <p style="margin-top:8px">Оздоровительный отдых, доброжелательная команда и насыщенная программа для детей 7–16 лет.</p>
             <div class="copyright">Указанные на сайте цены не являются публичной офертой (ст.435 ГК РФ). Стоимость и возможность предоставления услуг необходимо уточнять в кассах. Политика обработки и защиты персональных данных</div>
@@ -3263,18 +3420,22 @@
     <div class="modal shift-modal" id="shiftModal5" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Подробности смены: 5 смена">
       <div class="box">
         <div class="topbar">
-          <div class="tag">Вторая смена · Творчество и самовыражение</div>
+          <div class="tag">Пятая смена · Миссия: возвращение</div>
           <a class="close" id="closeShiftModal5" href="#" aria-label="Закрыть окно">Закрыть ✕</a>
         </div>
         <div class="content">
           <div class="shift-top">
             <div class="shift-left">
-              <h3 style="margin:0 0 6px">Вторая смена</h3>
-              <h4 style="margin:0 0 10px">Творчество и самовыражение</h4>
+              <h3 style="margin:0 0 6px">Пятая смена</h3>
+              <h4 style="margin:0 0 10px">Миссия: возвращение</h4>
               <p>
-                Эта смена посвящена творчеству, идеям и самовыражению.
-                Участники пробуют себя в разных форматах — от искусства и медиа до сценических выступлений.
-                Каждый день наполнен мастер-классами, экспериментами и возможностью проявить свои таланты.
+                Финальная смена лагерного лета — время самых сильных эмоций и ярких событий.
+                Здесь собирается всё лучшее: дружба, впечатления, большие мероприятия и ощущение, что это лето стало по-настоящему особенным.
+                Это смена, из которой не хочется уезжать.
+              </p>
+              <p>
+                Участники подводят итоги, проживают последние дни максимально насыщенно и увозят с собой воспоминания,
+                к которым хочется возвращаться снова.
               </p>
             </div>
             <div class="shift-right">
@@ -3284,30 +3445,32 @@
           <div style="margin-top:64px">
             <h4 style="margin:0 0 6px">Что делает смену особенной</h4>
             <ul class="incl" style="margin:0">
-              <li>творческие мастер-классы</li>
-              <li>работа над проектами и выступлениями</li>
-              <li>атмосфера поддержки и вдохновения</li>
-              <li>финальное творческое шоу смены</li>
+              <li>финальные мероприятия и самые масштабные события сезона</li>
+              <li>концерты, шоу и фестиваль лагеря</li>
+              <li>тёплая атмосфера и сильное чувство команды</li>
+              <li>подведение итогов и яркое завершение смены</li>
+              <li>максимум эмоций и впечатлений</li>
             </ul>
           </div>
           <div class="shift-lists">
             <div>
               <h4>Что входит в стоимость</h4>
               <ul class="incl" style="margin:0">
-                <li>проживание (14 дней)</li>
-                <li>питание</li>
-                <li>участие во всех программах</li>
+                <li>проживание на территории лагеря (14 дней)</li>
+                <li>4–5-разовое питание</li>
+                <li>участие во всех программах лагеря</li>
                 <li>творческие и спортивные активности</li>
-                <li>вечерние мероприятия</li>
-                <li>работа наставников</li>
+                <li>работа наставников и педагогов</li>
+                <li>вечерние мероприятия и финальные шоу</li>
               </ul>
             </div>
             <div>
-              <h4>Дополнительно</h4>
+              <h4>Дополнительно можно выбрать</h4>
               <ul class="incl" style="margin:0">
-                <li>расширенные мастер-классы</li>
-                <li>индивидуальные занятия</li>
-                <li>экскурсии</li>
+                <li>выездные экскурсии</li>
+                <li>дополнительные активности</li>
+                <li>тематические мастер-классы</li>
+                <li>фирменный мерч лагеря</li>
               </ul>
             </div>
           </div>
@@ -3493,18 +3656,17 @@
     <div class="modal shift-modal" id="programModal4" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Подробности программы">
       <div class="box">
         <div class="topbar">
-          <div class="tag">Программа · Подробности</div>
+          <div class="tag">Я - ЗВЕЗДА. Школа моделей и самопрезентации</div>
           <a class="close" id="closeProgramModal4" href="#" aria-label="Закрыть окно">Закрыть ✕</a>
         </div>
         <div class="content">
           <div class="shift-top">
             <div class="shift-left">
-              <h3 style="margin:0 0 6px">Вторая смена</h3>
-              <h4 style="margin:0 0 10px">Творчество и самовыражение</h4>
+              <h3 style="margin:0 0 6px">Я - ЗВЕЗДА. Школа моделей и самопрезентации</h3>
               <p>
-                Эта смена посвящена творчеству, идеям и самовыражению.
-                Участники пробуют себя в разных форматах — от искусства и медиа до сценических выступлений.
-                Каждый день наполнен мастер-классами, экспериментами и возможностью проявить свои таланты.
+                Динамичная и вдохновляющая программа для подростков, которые хотят раскрыться, почувствовать уверенность
+                и научиться свободно и красиво себя подавать — в жизни, перед камерой и на сцене.
+                Здесь не учат «быть моделью» — здесь помогают найти свой стиль, убрать зажимы и научиться управлять впечатлением.
               </p>
             </div>
             <div class="shift-right">
@@ -3514,30 +3676,36 @@
           <div style="margin-top:64px">
             <h4 style="margin:0 0 6px">Что делает смену особенной</h4>
             <ul class="incl" style="margin:0">
-              <li>творческие мастер-классы</li>
-              <li>работа над проектами и выступлениями</li>
-              <li>атмосфера поддержки и вдохновения</li>
-              <li>финальное творческое шоу смены</li>
+              <li>сюжет смены: каждый участник проходит путь от скованности к уверенности и свободной подаче</li>
+              <li>работа не только с внешностью, но и с внутренним состоянием — осанкой, движением, эмоцией</li>
+              <li>много практики: дефиле, пластика, позирование, работа перед камерой</li>
+              <li>создание собственного образа — стиль, настроение, подача</li>
+              <li>финальное fashion-шоу и съёмка как итог всей смены</li>
             </ul>
           </div>
           <div class="shift-lists">
             <div>
-              <h4>Что входит в стоимость</h4>
+              <h4>Что будет в программе</h4>
               <ul class="incl" style="margin:0">
-                <li>проживание (14 дней)</li>
-                <li>питание</li>
-                <li>участие во всех программах</li>
-                <li>творческие и спортивные активности</li>
-                <li>вечерние мероприятия</li>
-                <li>работа наставников</li>
+                <li>основы самопрезентации и уверенного поведения</li>
+                <li>дефиле, пластика и работа с телом</li>
+                <li>позирование и фотосессии</li>
+                <li>работа с эмоцией и выражением лица</li>
+                <li>основы стиля и понимание своего образа</li>
+                <li>работа перед камерой (фото и видео)</li>
+                <li>творческие, спортивные и вечерние лагерные активности</li>
               </ul>
             </div>
             <div>
-              <h4>Дополнительно</h4>
+              <h4>Что получает ребёнок</h4>
               <ul class="incl" style="margin:0">
-                <li>расширенные мастер-классы</li>
-                <li>индивидуальные занятия</li>
-                <li>экскурсии</li>
+                <li>уверенность и раскрепощённость</li>
+                <li>красивая осанка и пластика</li>
+                <li>навык самопрезентации в любой ситуации</li>
+                <li>понимание своего стиля и образа</li>
+                <li>опыт съёмок и выступления</li>
+                <li>новых друзей и комфортное общение</li>
+                <li>яркие впечатления от полноценной лагерной смены</li>
               </ul>
             </div>
           </div>
