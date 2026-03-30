@@ -15,9 +15,9 @@
       - Buttons color #3869AC
       - All radiuses <= 10
       - Shadows smaller & harder
-      Fonts: PT Sans (text) + Raleway Regular (headings)
+      Fonts: Montserrat
     ========================== */
-    @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Raleway:wght@400;500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
     :root{
       --bg:#FFFFFF;
@@ -45,6 +45,7 @@
       --primary:#0071E3;
       --primary2:#4FA3FF;
       --ink:#fff;
+      --heading:#233B59;
 
       --leaf:#2DBD7E;
       --sky:#3D8BFF;
@@ -65,7 +66,7 @@
     }
     body{
       margin:0;
-      font-family:"PT Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+      font-family:"Montserrat", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
       color:var(--text);
       background:#fff;
       overflow-x:hidden;
@@ -91,7 +92,7 @@
       TYPOGRAPHY
     ========================== */
     h1,h2,h3{
-      font-family:"Raleway","PT Sans",system-ui,sans-serif;
+      font-family:"Montserrat", system-ui, sans-serif;
       font-weight:400; /* regular */
       letter-spacing:-.02em;
       margin:0 0 10px;
@@ -110,9 +111,10 @@
     body, p, span, li, a, label, input, textarea, select, strong{
       color:#000000;
     }
-    h1{font-size:clamp(28px, 3.6vw, 42px); line-height:1.18}
-    h2{font-size:clamp(24px, 3.2vw, 38px); line-height:1.12}
+    h1{font-size:clamp(28px, 3.6vw, 42px); line-height:1.18; color:var(--heading)}
+    h2{font-size:clamp(24px, 3.2vw, 38px); line-height:1.12; font-weight:600; color:var(--heading)}
     h3{font-size:18px; line-height:1.2}
+    h3{font-weight:600}
     p{margin:0 0 12px; color:var(--muted)}
     .lead{font-size:clamp(15px, 1.5vw, 18px); color:rgba(11,15,20,.70)}
     .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
@@ -145,8 +147,10 @@
       box-shadow: 0 8px 18px rgba(11,15,20,.08);
     }
     .kdot{
-      width:10px;height:10px;border-radius:999px;
-      background: linear-gradient(180deg, var(--sun), #FFE9AA);
+      width:auto;
+      height:auto;
+      border-radius:0;
+      background:none;
     }
 
     /* =========================
@@ -173,7 +177,7 @@
     .btn svg{width:18px;height:18px}
     .btn-primary{
       color:#fff;
-      background: linear-gradient(180deg, var(--primary2), var(--primary));
+      background: linear-gradient(180deg, #FF1D25, #C1272D);
       box-shadow: var(--shadow2);
     }
     .btn-primary:hover{transform: translateY(-2px); box-shadow: var(--shadow2)}
@@ -185,13 +189,13 @@
     }
     .btn-secondary:hover{transform: translateY(-2px); box-shadow: var(--shadow)}
     .btn-soft{
-      background: rgba(0,113,227,.10);
-      border-color: rgba(0,113,227,.28);
-      color: #0633A6;
+      background: rgba(255,0,0,.10);
+      border-color: rgba(255,0,0,.24);
+      color: #C40000;
       box-shadow: var(--shadow);
     }
     .btn-soft:hover{
-      background: rgba(0,113,227,.16);
+      background: rgba(255,0,0,.16);
     }
     .btn-ghost{
       background:transparent;
@@ -311,6 +315,22 @@
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
     }
+    .shift-media-tag{
+      position:absolute;
+      top:10px;
+      left:10px;
+      display:inline-flex;
+      align-items:center;
+      padding:6px 10px;
+      border-radius: var(--chipRadius);
+      background: #FBE9E9;
+      border:1px solid rgba(255,0,0,.16);
+      color: var(--heading);
+      font-weight:700;
+      font-size:12px;
+      z-index:1;
+      box-shadow: 0 8px 18px rgba(255,0,0,.10);
+    }
 
     .badge{
       display:inline-flex;
@@ -340,7 +360,7 @@
       display:grid;
       grid-auto-flow: column;
       grid-auto-columns: minmax(280px, 1fr);
-      gap:14px;
+      gap:10px;
       overflow:auto;
       padding-bottom: 10px;
       scroll-snap-type: x mandatory;
@@ -423,7 +443,8 @@
     .brand{
       display:flex; align-items:center; gap:0;
       text-decoration:none;
-      min-width: 220px;
+      min-width: 200px;
+      flex:0 0 auto;
     }
     .logo{
       width:42px;height:42px;border-radius: var(--radius);
@@ -434,15 +455,19 @@
       position:relative; overflow:hidden;
     }
     .logo-image{
-      width:180px;
-      height:64px;
+      width:188px;
+      height:68px;
       object-fit:contain;
       display:block;
       flex:0 0 auto;
     }
+    nav.desktop{
+      flex:1 1 auto;
+      min-width:0;
+    }
     .brand-title{display:flex; flex-direction:column; line-height:1.05}
     .brand-title strong{
-      font-family:"Raleway";
+      font-family:"Montserrat";
       font-weight:500;
       font-size:14px;
       letter-spacing:-.01em;
@@ -458,20 +483,24 @@
       list-style:none;
       padding:0;margin:0;
       display:flex;
-      gap:6px;
+      gap:2px;
       align-items:center;
+      justify-content:flex-end;
+      flex-wrap:nowrap;
     }
     nav.desktop a{
       text-decoration:none;
       font-weight:700;
-      font-size:13px;
+      font-size:12px;
       color:rgba(11,15,20,.72);
-      padding:10px 12px;
+      padding:8px 9px;
       border-radius: var(--chipRadius);
       transition: background var(--fast), transform var(--fast);
+      white-space:nowrap;
     }
     nav.desktop a.btn-primary{
       color:#fff;
+      padding:10px 16px;
     }
     nav.desktop a:hover{
       background: rgba(255,255,255,.94);
@@ -576,8 +605,21 @@
       white-space:nowrap;
     }
     .hero-tags .kdot{
-      width:10px;height:10px;border-radius:999px; display:inline-block;
-      background: linear-gradient(180deg, var(--leaf), #7CE7BE);
+      width:auto;
+      height:auto;
+      border-radius:0;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background:none !important;
+      color:#FF0000;
+      font-size:13px;
+      line-height:1;
+      font-weight:700;
+      flex:0 0 auto;
+    }
+    .hero-tags .kdot::before{
+      content:"☀";
     }
     .hero-actions{display:flex; flex-wrap:wrap; gap:12px; margin: 18px 0 16px}
     .btn-link{
@@ -607,8 +649,21 @@
       white-space:nowrap;
     }
     .perk i{
-      width:10px;height:10px;border-radius:999px; display:inline-block;
-      background: linear-gradient(180deg, var(--leaf), #7CE7BE);
+      width:auto;
+      height:auto;
+      border-radius:0;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background:none;
+      color:#FF0000;
+      font-size:13px;
+      line-height:1;
+      font-style:normal;
+      flex:0 0 auto;
+    }
+    .perk i::before{
+      content:"☀";
     }
 
     .hero-banner{
@@ -653,7 +708,7 @@
       width:100%;
     }
     .banner-caption strong{
-      font-family:"Raleway";
+      font-family:"Montserrat";
       font-weight:500;
       color: rgba(255,255,255,.95);
       font-size: 14px;
@@ -690,7 +745,7 @@
       background: rgba(255,255,255,.94);
       border-radius: var(--btnRadius);
       padding:10px 12px;
-      font-family:"Raleway";
+      font-family:"Montserrat";
       font-weight:500;
       font-size: 13px;
       cursor:pointer;
@@ -700,10 +755,11 @@
     }
     .tab:hover{transform: translateY(-1px); box-shadow: 0 12px 26px rgba(11,15,20,.10)}
     .tab[aria-selected="true"]{
-      border-color: rgba(56,105,172,.34);
-      background: linear-gradient(180deg, rgba(75,127,208,.18), rgba(56,105,172,.08));
-      box-shadow: 0 12px 26px rgba(56,105,172,.18);
-      color: rgba(11,15,20,.84);
+      border-color: rgba(255,0,0,.16);
+      background: #FBE9E9;
+      box-shadow: 0 12px 26px rgba(255,0,0,.10);
+      color: var(--heading);
+      font-weight: 700;
     }
 
     .shift{
@@ -731,13 +787,17 @@
     }
     #shifts .shift-top > div:first-child{
       width:100%;
+      display:block;
+      text-align:left;
+      align-self:flex-start;
     }
     #shifts .shift-top h3{
-      margin:0 0 14px;
-      min-height: 84px;
+      margin:0 0 8px;
+      min-height: 72px;
       font-weight: 600;
-      color: var(--primary);
+      color: var(--heading);
       line-height: 1.12;
+      text-align: left;
     }
     .shift-pricing{
       margin:0;
@@ -780,12 +840,12 @@
       border-radius: var(--chipRadius);
       border:1px solid rgba(96,166,128,.34);
       background: rgba(173,223,191,.26);
-      color:rgba(45,90,60,.88);
+      color:var(--heading);
       box-shadow: 0 8px 18px rgba(11,15,20,.06);
       white-space: nowrap;
     }
     .price{
-      font-family:"Raleway";
+      font-family:"Montserrat";
       font-weight:500;
       font-size: 16px;
       margin: 2px 0 0;
@@ -800,13 +860,23 @@
     .shift .badge{
       border:1px solid rgba(96,166,128,.34);
       background: rgba(173,223,191,.26);
-      color:rgba(45,90,60,.88);
+      color:var(--heading);
       white-space: nowrap;
       margin-top: 12px !important;
     }
     .incl{margin:0; padding-left: 18px; color: rgba(11,15,20,.66)}
     .incl li{margin:6px 0}
-    .shift-actions{margin-top:auto; display:flex; gap:10px; flex-wrap:wrap}
+    .shift-actions{
+      margin-top:auto;
+      display:flex;
+      gap:8px;
+      flex-wrap:nowrap;
+    }
+    .shift-actions .btn{
+      font-size:12px;
+      padding:10px 14px;
+      white-space:nowrap;
+    }
 
     /* =========================
       PROGRAMS (SWIPE)
@@ -835,8 +905,8 @@
       display:block;
       margin-bottom: 6px;
       font-size:13px;
-      font-family:"Raleway";
-      font-weight:500;
+      font-family:"Montserrat";
+      font-weight:700;
       color: rgba(11,15,20,.86);
     }
     .learn ul{margin:0; padding-left: 18px; color: rgba(11,15,20,.66)}
@@ -883,12 +953,21 @@
       white-space:nowrap;
     }
     #team .team-points .kdot{
-      width:10px;
-      height:10px;
-      border-radius:999px;
-      display:inline-block;
-      background: linear-gradient(180deg, var(--leaf), #7CE7BE);
+      width:auto;
+      height:auto;
+      border-radius:0;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background:none;
+      color:#FF0000;
+      font-size:13px;
+      line-height:1;
+      font-weight:700;
       flex:0 0 auto;
+    }
+    #team .team-points .kdot::before{
+      content:"❤";
     }
     .team-point{
       display:flex;
@@ -921,9 +1000,9 @@
     }
     .team-point strong{
       display:block;
-      font-family:"Raleway";
+      font-family:"Montserrat";
       font-weight:500;
-      color: var(--primary);
+      color: var(--heading);
       font-size:14px;
       margin-bottom:2px;
     }
@@ -1040,7 +1119,7 @@
       box-shadow: 0 8px 18px rgba(11,15,20,.08);
     }
     .row:hover{transform: translateY(-2px); box-shadow: 0 12px 26px rgba(11,15,20,.10)}
-    .row strong{font-family:"Raleway"; font-weight:500; font-size:14px; color: var(--primary)}
+    .row strong{font-family:"Montserrat"; font-weight:500; font-size:14px; color: var(--heading)}
     .row p{margin:6px 0 0; font-size:13px}
     .row-icon{
       width:34px;height:34px;
@@ -1084,7 +1163,7 @@
 
     .docs-grid{
       display:grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap:14px;
     }
     .doc{
@@ -1105,7 +1184,7 @@
       box-shadow: var(--shadow);
       border-color: rgba(56,105,172,.28);
     }
-    .doc .left{display:flex; gap:12px; align-items:flex-start}
+    .doc .left{display:flex; gap:12px; align-items:flex-start; min-width:0; flex:1 1 auto}
     .doc .ic{
       width:46px;height:46px;border-radius: var(--radius);
       display:grid; place-items:center;
@@ -1114,8 +1193,8 @@
       flex:0 0 auto;
       box-shadow: 0 8px 18px rgba(11,15,20,.08);
     }
-    .doc strong{display:block; font-family:"Raleway"; font-weight:500; font-size:14px; color: var(--primary)}
-    .doc span{display:block; margin-top:4px; font-size:12px; font-weight:700; color:rgba(11,15,20,.56)}
+    .doc strong{display:block; font-family:"Montserrat"; font-weight:500; font-size:14px; color: var(--heading); white-space:nowrap}
+    .doc span{display:block; margin-top:4px; font-size:12px; font-weight:700; color:rgba(11,15,20,.56); white-space:nowrap}
     .doc .go{
       width:38px;height:38px;border-radius: var(--radius);
       display:grid;place-items:center;
@@ -1213,12 +1292,24 @@
     }
     .medical-list{
       margin:0 0 14px;
-      padding-left:20px;
+      padding-left:0;
+      list-style:none;
       display:grid;
       gap:8px;
     }
     .medical-list li{
+      position:relative;
+      padding-left:20px;
       font-size:16px;
+      line-height:1.5;
+    }
+    .medical-list li::before{
+      content:"✦";
+      position:absolute;
+      left:0;
+      top:0;
+      color:#FF0000;
+      font-size:14px;
       line-height:1.5;
     }
 
@@ -1247,7 +1338,7 @@
       gap:12px;
       font-weight:500;
       color:rgba(11,15,20,.86);
-      font-family:"Raleway";
+      font-family:"Montserrat";
     }
     summary::-webkit-details-marker{display:none}
     .plus{
@@ -1278,13 +1369,21 @@
       gap:12px;
       margin-bottom: 10px;
     }
-    .who strong{display:block; font-family:"Raleway"; font-weight:500; color: var(--primary)}
+    .who strong{display:block; font-family:"Montserrat"; font-weight:500; color: var(--heading)}
     .who span{display:block; margin-top:2px; font-size:12px; font-weight:700; color:rgba(11,15,20,.56)}
     .stars{display:inline-flex; gap:4px; align-items:center}
     .star{
-      width:14px;height:14px;
-      background: conic-gradient(from 0deg, var(--primary), var(--primary2));
-      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      width:auto;
+      height:auto;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      color:#FF0000;
+      font-size:14px;
+      line-height:1;
+    }
+    .star::before{
+      content:"❤";
     }
     .quote{color:rgba(11,15,20,.70)}
     .reviews-rating{
@@ -1374,7 +1473,7 @@
       flex:0 0 auto;
       box-shadow: 0 8px 18px rgba(11,15,20,.08);
     }
-    .citem strong{display:block; font-family:inherit; font-weight:400; font-size:13px; color: var(--primary)}
+    .citem strong{display:block; font-family:inherit; font-weight:400; font-size:13px; color: var(--heading)}
     .citem a{font-weight:400; text-decoration:none}
     .citem a:hover{text-decoration:underline}
     .citem span{display:block; margin-top:2px; font-size:12px; font-weight:400; color:rgba(11,15,20,.56)}
@@ -1579,7 +1678,7 @@
       border:1px solid rgba(255,255,255,.26);
       color: rgba(255,255,255,.92);
       font-weight:500;
-      font-family:"Raleway";
+      font-family:"Montserrat";
       font-size: 12px;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
@@ -1765,7 +1864,7 @@
     <div class="container">
       <div class="nav">
         <a class="brand" href="#top" aria-label="На главную">
-          <img class="logo-image" src="SVG/777Монтажная область 32 копия 6.svg" alt="Логотип Яратон" />
+          <img class="logo-image" src="SVG/77777Монтажная область 40.svg" alt="Логотип Яратон" />
         </a>
 
         <nav class="desktop" aria-label="Основная навигация">
@@ -1775,6 +1874,7 @@
             <li><a href="#programs">Программы</a></li>
             <li><a href="#team">Команда</a></li>
             <li><a href="#parents">Родителям</a></li>
+            <li><a href="#medical-services">Мед.услуги</a></li>
             <li><a href="#docs">Документы</a></li>
             <li><a href="#faq">Частые вопросы</a></li>
             <li><a href="#contacts">Контакты</a></li>
@@ -1797,6 +1897,7 @@
               <li><a href="#programs">Программы</a></li>
               <li><a href="#team">Педагоги и вожатые</a></li>
               <li><a href="#parents">Для родителей</a></li>
+              <li><a href="#medical-services">Мед.услуги</a></li>
               <li><a href="#docs">Документы</a></li>
               <li><a href="#faq">Частые вопросы</a></li>
               <li><a href="#reviews">Отзывы</a></li>
@@ -1840,12 +1941,9 @@
 
             <div class="hero-actions">
               <a class="btn btn-primary" href="#contacts" aria-label="Перейти к форме заявки">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M7 12h10M12 7v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
                 Оставить заявку
               </a>
-              <a class="btn-link" href="#shifts" aria-label="Перейти к сменам и ценам">Смены и цены →</a>
+              <a class="btn-link" href="#shifts" aria-label="Перейти к сменам и ценам" style="color:#FF0000;">Смены и цены →</a>
             </div>
           </div>
 
@@ -1939,9 +2037,11 @@
             </div>
             <p>Каждое лето в нашем лагере — это новая история. Мы создаём уникальную программу и сюжет, который объединяет все смены и делает сезон по-настоящему особенным.</p>
             <p>Что ждёт вас в этом году? Пусть это останется небольшой интригой — хотя, возможно, вы уже догадываетесь 😉 Одно можем сказать точно: это будет ярко, насыщенно и незабываемо.</p>
-            <p>Для тех, кто едет впервые, мы предусмотрели короткие 7-дневные смены — чтобы мягко адаптироваться и познакомиться с лагерем. Но будьте готовы: уезжать не захочется.</p>
+            <p><strong>Для тех, кто едет впервые</strong>, мы предусмотрели <strong>короткие 7-дневные смены</strong> — чтобы мягко адаптироваться и познакомиться с лагерем. Но будьте готовы: уезжать не захочется.</p>
             <p hidden>А для старших участников в 3-й и 4-й сменах мы подготовили особенное — новые программы, которые откроют ещё больше возможностей и впечатлений.</p>
-            <a class="btn btn-ghost" href="#docs" aria-label="Перейти к документам" style="margin-top:14px;">
+          </div>
+          <div>
+            <a class="btn btn-ghost" href="Яратон_презентация.pdf" download="Яратон_презентация.pdf" aria-label="Скачать презентацию">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M12 3v10m0 0l4-4m-4 4l-4-4M5 17v3h14v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -2049,10 +2149,10 @@
             </button>
             <div class="scroller" data-scroller aria-label="Карточки смен (Лето)">
               <article class="card shift">
-                <div class="card-media" aria-label="Фото смены: Начало большой космической экспедиции (плейсхолдер)"></div>
+                <div class="card-media" aria-label="Фото смены: Начало большой космической экспедиции (плейсхолдер)"><span class="shift-media-tag">Первая смена</span></div>
                 <div class="shift-top">
                   <div>
-                    <h3>«Первая смена: Начало большой космической экспедиции»</h3>
+                    <h3>Начало большой космической экспедиции</h3>
                     <div class="shift-pricing">
                       <div class="shift-pricing-row">
                         <p>Полная смена:</p>
@@ -2060,8 +2160,8 @@
                           <span class="pill">02.06.2026–16.06.2026</span>
                         </div>
                       </div>
-                      <p>Продолжительность: 14 дней</p>
-                      <p>Стоимость: 39000 рублей</p>
+                      <p>Продолжительность: <strong>14 дней</strong></p>
+                      <p>Стоимость: <strong>39000 рублей</strong></p>
                       <div class="shift-pricing-sep"></div>
                       <div class="shift-pricing-row">
                         <p>Короткая смена:</p>
@@ -2069,8 +2169,8 @@
                           <span class="pill">02.06.2026 - 09.06.2026</span>
                         </div>
                       </div>
-                      <p>Продолжительность: 7 дней</p>
-                      <p>Стоимость: 19500 рублей</p>
+                      <p>Продолжительность: <strong>7 дней</strong></p>
+                      <p>Стоимость: <strong>19500 рублей</strong></p>
                     </div>
                   </div>
                 </div>
@@ -2081,10 +2181,10 @@
               </article>
 
               <article class="card shift">
-                <div class="card-media" aria-label="Фото смены: Выход на орбиту (плейсхолдер)"></div>
+                <div class="card-media" aria-label="Фото смены: Выход на орбиту (плейсхолдер)"><span class="shift-media-tag">Вторая смена</span></div>
                 <div class="shift-top">
                   <div>
-                    <h3>«Вторая смена: Выход на орбиту»</h3>
+                    <h3>Выход на орбиту</h3>
                     <div class="shift-pricing">
                       <div class="shift-pricing-row">
                         <p>Полная смена:</p>
@@ -2092,8 +2192,8 @@
                           <span class="pill">19.06.2026–03.07.2026</span>
                         </div>
                       </div>
-                      <p>Продолжительность: 14 дней</p>
-                      <p>Стоимость: 43000 рублей</p>
+                      <p>Продолжительность: <strong>14 дней</strong></p>
+                      <p>Стоимость: <strong>43000 рублей</strong></p>
                       <div class="shift-pricing-sep"></div>
                       <div class="shift-pricing-row">
                         <p>Короткая смена:</p>
@@ -2101,8 +2201,8 @@
                           <span class="pill">19.06.2026–26.06.2026</span>
                         </div>
                       </div>
-                      <p>Продолжительность: 7 дней</p>
-                      <p>Стоимость: 21500 рублей</p>
+                      <p>Продолжительность: <strong>7 дней</strong></p>
+                      <p>Стоимость: <strong>21500 рублей</strong></p>
                     </div>
                   </div>
                 </div>
@@ -2113,10 +2213,10 @@
               </article>
 
               <article class="card shift">
-                <div class="card-media" aria-label="Фото смены: Глубокий космос (плейсхолдер)"></div>
+                <div class="card-media" aria-label="Фото смены: Глубокий космос (плейсхолдер)"><span class="shift-media-tag">Третья смена</span></div>
                 <div class="shift-top">
                   <div>
-                    <h3>«Третья смена: Глубокий космос»</h3>
+                    <h3>Глубокий космос</h3>
                     <div class="shift-pricing">
                       <div class="shift-pricing-row">
                         <p>Полная смена:</p>
@@ -2124,8 +2224,8 @@
                           <span class="pill">06.07.2026–20.07.2026</span>
                         </div>
                       </div>
-                      <p>Продолжительность: 14 дней</p>
-                      <p>Стоимость: 43000 рублей</p>
+                      <p>Продолжительность: <strong>14 дней</strong></p>
+                      <p>Стоимость: <strong>43000 рублей</strong></p>
                       <div class="shift-pricing-sep"></div>
                       <div class="shift-pricing-row">
                         <p>Короткая смена:</p>
@@ -2133,8 +2233,8 @@
                           <span class="pill">06.07.2026–13.07.2026</span>
                         </div>
                       </div>
-                      <p>Продолжительность: 7 дней</p>
-                      <p>Стоимость: 21500 рублей</p>
+                      <p>Продолжительность: <strong>7 дней</strong></p>
+                      <p>Стоимость: <strong>21500 рублей</strong></p>
                     </div>
                   </div>
                 </div>
@@ -2145,10 +2245,10 @@
               </article>
 
               <article class="card shift">
-                <div class="card-media" aria-label="Фото смены: Спорт-турнир (плейсхолдер)"></div>
+                <div class="card-media" aria-label="Фото смены: Спорт-турнир (плейсхолдер)"><span class="shift-media-tag">Четвертая смена</span></div>
                 <div class="shift-top">
                   <div>
-                    <h3>«Четвертая смена: Новые галактики»</h3>
+                    <h3>Новые галактики</h3>
                     <div class="shift-pricing">
                       <div class="shift-pricing-row">
                         <p>Полная смена:</p>
@@ -2156,8 +2256,8 @@
                           <span class="pill">23.07.2026–06.08.2026</span>
                         </div>
                       </div>
-                      <p>Продолжительность: 14 дней</p>
-                      <p>Стоимость: 43000 рублей</p>
+                      <p>Продолжительность: <strong>14 дней</strong></p>
+                      <p>Стоимость: <strong>43000 рублей</strong></p>
                       <div class="shift-pricing-sep"></div>
                       <div class="shift-pricing-row">
                         <p>Короткая смена:</p>
@@ -2165,8 +2265,8 @@
                           <span class="pill">23.07.2026–30.07.2026</span>
                         </div>
                       </div>
-                      <p>Продолжительность: 7 дней</p>
-                      <p>Стоимость: 21500 рублей</p>
+                      <p>Продолжительность: <strong>7 дней</strong></p>
+                      <p>Стоимость: <strong>21500 рублей</strong></p>
                     </div>
                   </div>
                 </div>
@@ -2177,10 +2277,10 @@
               </article>
 
               <article class="card shift">
-                <div class="card-media" aria-label="Фото смены: Медиа-студия (плейсхолдер)"></div>
+                <div class="card-media" aria-label="Фото смены: Медиа-студия (плейсхолдер)"><span class="shift-media-tag">Пятая смена</span></div>
                 <div class="shift-top">
                   <div>
-                    <h3>«Пятая смена: Миссия: возвращение»</h3>
+                    <h3>Миссия: возвращение</h3>
                     <div class="shift-pricing">
                       <div class="shift-pricing-row">
                         <p>Полная смена:</p>
@@ -2188,8 +2288,8 @@
                           <span class="pill">09.08.2026–23.08.2026</span>
                         </div>
                       </div>
-                      <p>Продолжительность: 14 дней</p>
-                      <p>Стоимость: 39000 рублей</p>
+                      <p>Продолжительность: <strong>14 дней</strong></p>
+                      <p>Стоимость: <strong>39000 рублей</strong></p>
                       <div class="shift-pricing-sep"></div>
                       <div class="shift-pricing-row">
                         <p>Короткая смена:</p>
@@ -2197,8 +2297,8 @@
                           <span class="pill">09.08.2026–16.08.2026</span>
                         </div>
                       </div>
-                      <p>Продолжительность: 7 дней</p>
-                      <p>Стоимость: 19500 рублей</p>
+                      <p>Продолжительность: <strong>7 дней</strong></p>
+                      <p>Стоимость: <strong>19500 рублей</strong></p>
                     </div>
                   </div>
                 </div>
@@ -2416,7 +2516,6 @@
               <div class="card-media" aria-label="Фото программы: творчество (плейсхолдер)"></div>
               <div class="top">
                 <h3>Контент-вселенная: ты в эфире</h3>
-                <span class="badge b-vio">арт</span>
               </div>
               <p>14 дней съёмок, челленджей и командных проектов: от первых роликов до собственной премьеры.</p>
               <div class="learn">
@@ -2457,8 +2556,7 @@
             <article class="card program">
               <div class="card-media" aria-label="Фото программы: медиа (плейсхолдер)"></div>
               <div class="top">
-                <h3>Я - ЗВЕЗДА. Школа моделей и самопрезентации</h3>
-                <span class="badge b-sky">медиа</span>
+                <h3>Я - Звезда. Школа моделей и самопрезентации</h3>
               </div>
               <p>Уверенность, стиль и умение себя подать. За 14 дней — от зажатости к свободе перед камерой и на сцене.</p>
               <div class="learn">
@@ -2561,11 +2659,11 @@
             <p>На всё лето в ЯРАТОНЕ доступны дополнительные медицинские услуги.</p>
             <p>В них входят:</p>
             <ul class="medical-list">
-              <li>Биоптрон - 160 рублей/процедура (1600 руб/10 шт)</li>
-              <li>Кислородный коктейль - 80 рублей/процедура (800 руб/10 шт)</li>
-              <li>Вибрационный массаж стоп - 160 рублей/процедура (1600 руб/10 шт)</li>
-              <li>Вибрационный массаж глаз - 160 рублей/процедура (1600 руб/10 шт)</li>
-              <li>Комплекс оздоровительных процедур (биоптрон, коктейль, вибрационный массаж стоп и глаз) - 450 рублей/1 комплекс (4500 руб/10 шт)</li>
+              <li><strong>Биоптрон</strong> - 160 рублей/процедура (1600 руб/10 шт)</li>
+              <li><strong>Кислородный коктейль</strong> - 80 рублей/процедура (800 руб/10 шт)</li>
+              <li><strong>Вибрационный массаж стоп</strong> - 160 рублей/процедура (1600 руб/10 шт)</li>
+              <li><strong>Вибрационный массаж глаз</strong> - 160 рублей/процедура (1600 руб/10 шт)</li>
+              <li><strong>Комплекс оздоровительных процедур</strong> (биоптрон, коктейль, вибрационный массаж стоп и глаз) - 450 рублей/1 комплекс (4500 руб/10 шт)</li>
             </ul>
             <p>Оплатить можно в кассе санатория-профилактория "Сосновый", при покупке путёвки или, если путёвка уже куплена, то там же в кассе.</p>
           </div>
@@ -2714,6 +2812,70 @@
       </div>
     </section>
 
+    <!-- ========================= FAQ ========================= -->
+    <section id="faq" class="section" aria-label="FAQ">
+      <div class="container">
+        <div class="subhead">
+          <div>
+            <h2>Часто возникающие вопросы</h2>
+            <p>Ответы на самые частые вопросы родителей.</p>
+          </div>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>Какие документы нужно подготовить перед заездом? <span class="plus" aria-hidden="true"></span></summary>
+            <div class="answer">Чтобы всё прошло быстро и спокойно, пожалуйста, заранее подготовьте необходимые медицинские документы:<br><br>— медицинская справка для ребёнка (форма №079/у)<br>— справка об отсутствии контакта с инфекционными больными<br>— копия сертификата о прививках<br>— копия СНИЛС<br><br>Что взять с собой на регистрацию:<br>— заполненную путёвку с печатью<br>— договор об условиях организованного отдыха<br>— копию медицинского полиса ребёнка<br>— паспорт родителя<br>— копию свидетельства о рождении или паспорта ребёнка</div>
+          </details>
+
+          <details>
+            <summary>Есть ли ограничения по здоровью для участия в смене? <span class="plus" aria-hidden="true"></span></summary>
+            <div class="answer">Некоторые ограничения действительно есть — они зависят от состояния здоровья ребёнка и общих медицинских рекомендаций.<br><br>Пожалуйста, заранее сообщите нам об особенностях здоровья ребёнка — это поможет нам правильно подготовиться, создать комфортные условия и обеспечить ему безопасный и полноценный отдых.</div>
+          </details>
+
+          <details>
+            <summary>Что делать, если ребёнок заболел на смене? <span class="plus" aria-hidden="true"></span></summary>
+            <div class="answer">Если ребёнок почувствует недомогание, его сразу осмотрит медицинский работник лагеря. Мы обязательно свяжемся с родителями и расскажем о состоянии ребёнка.<br><br>При необходимости ребёнка временно изолируют, чтобы обеспечить ему комфорт и безопасность, а дальнейшие действия будут согласованы с вами и проведены в соответствии с медицинскими рекомендациями и регламентом лагеря.</div>
+          </details>
+
+          <details>
+            <summary>Можно ли заехать позже или уехать раньше? <span class="plus" aria-hidden="true"></span></summary>
+            <div class="answer">Да, такая возможность обычно есть — мы понимаем, что планы могут меняться.<br><br>Главное — заранее предупредить администрацию, чтобы мы всё корректно организовали и подготовили необходимые документы для выезда или передачи ребёнка сопровождающему.</div>
+          </details>
+
+          <details>
+            <summary>Как осуществляется распределение детей по комнатам и по отрядам? <span class="plus" aria-hidden="true"></span></summary>
+            <div class="answer">Мальчиков расселяют с мальчиками, девочек — с девочками. Учитывается и возраст детей, чтобы им было комфортно и интересно проводить свободное время. Ну и, конечно же, учитываются пожелания самих детей.</div>
+          </details>
+
+          <details>
+            <summary>Как ребёнок может быть на связи с родителями и можно ли его навещать? <span class="plus" aria-hidden="true"></span></summary>
+            <div class="answer">Мы не забираем телефоны у детей, поэтому вы можете оставаться на связи — переписываться в мессенджерах и созваниваться в удобное время. При этом мы мягко помогаем детям не отвлекаться на гаджеты, чтобы они полноценно участвовали в программе и общении со сверстниками.<br><br>Вы также можете приехать к ребёнку, начиная с третьего дня смены — это помогает детям мягко пройти адаптацию и полностью включиться в лагерную жизнь в первые дни.<br><br>Часы посещения:<br>с 10:00 до 13:00<br>с 16:00 до 19:00<br><br>В период с 14:00 до 16:00 (тихий час), а также после 19:00 посещения не проводятся — в это время дети отдыхают или участвуют в вечерней программе.<br><br>В экстренных ситуациях вы всегда можете связаться с администрацией лагеря — мы на связи и готовы оперативно помочь.</div>
+          </details>
+
+          <details>
+            <summary>Как проходит оплата и возможен ли возврат? <span class="plus" aria-hidden="true"></span></summary>
+            <div class="answer">Оплата производится на основании договора — в нём зафиксированы все условия и порядок оплаты.<br><br>Если планы меняются, возврат возможен в соответствии с условиями, прописанными в договоре и правилах лагеря. Мы всегда готовы помочь разобраться и ответить на ваши вопросы.</div>
+          </details>
+
+          <details>
+            <summary>Что лучше взять с собой на смену? <span class="plus" aria-hidden="true"></span></summary>
+            <div class="answer">Скачайте чек-лист «Что взять с собой». Рекомендуем подписать вещи и предусмотреть одежду по погоде.</div>
+          </details>
+
+          <details>
+            <summary>Что можно привозить ребёнку в качестве гостинца, а что привозить не рекомендуется? <span class="plus" aria-hidden="true"></span></summary>
+            <div class="answer">Мы внимательно относимся к здоровью детей, поэтому просим соблюдать простые правила при передаче продуктов в лагерь.<br><br><strong>Что не рекомендуется привозить</strong><br><br>В лагере уже предусмотрено полноценное и сбалансированное питание. Дополнительно просим не привозить:<br><br>— продукты, требующие хранения в холодильнике<br>— домашнюю еду и блюда без заводской упаковки<br>— фастфуд, снеки и газированные напитки<br>— мясные, молочные и рыбные продукты<br>— ягоды, арбузы и дыни<br>— консервы, соусы и десерты с кремом<br>— напитки и соки в больших упаковках<br><br><strong>Что можно взять с собой</strong><br><br>Небольшой набор перекусов, который легко хранить:<br><br>— свежие фрукты (до 500 г, предварительно вымытые)<br>— бутилированная вода<br>— соки в маленькой индивидуальной упаковке<br>— орехи и сухофрукты (до 50 г)<br>— печенье, вафли или пряники (до 100 г, в упаковке)<br><br><strong>Важно</strong><br><br>Мы оставляем за собой право ограничить хранение любых продуктов, если это необходимо для безопасности и комфорта детей.</div>
+          </details>
+
+          <details>
+            <summary>Можно ли приехать на экскурсию перед покупкой? <span class="plus" aria-hidden="true"></span></summary>
+            <div class="answer">Да, по предварительной записи. Оставьте заявку — согласуем время и формат визита.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <!-- ========================= DOCS ========================= -->
     <section id="docs" class="section" aria-label="Скачать памятку и документы">
       <div class="container">
@@ -2736,18 +2898,18 @@
             <div class="go" aria-hidden="true">→</div>
           </a>
 
-          <a class="doc" href="#" download aria-label="Скачать: Перечень документов (PDF)">
+          <a class="doc" href="Яратон_памятка для родителей лето-202612.pdf" download="Яратон_памятка для родителей лето-202612.pdf" aria-label="Скачать: Памятка для родителей (PDF)">
             <div class="left">
               <div class="ic" aria-hidden="true">✅</div>
               <div>
-                <strong>Перечень документов (PDF)</strong>
-                <span>справки · согласия · требования</span>
+                <strong>Памятка для родителей (PDF)</strong>
+                <span>собрали советы для подготовки к поездке в лагерь в один документ</span>
               </div>
             </div>
             <div class="go" aria-hidden="true">→</div>
           </a>
 
-          <a class="doc" href="#" download aria-label="Скачать: Что взять с собой (PDF)">
+          <a class="doc" href="#" download aria-label="Скачать: Что взять с собой (PDF)" hidden style="display:none">
             <div class="left">
               <div class="ic" aria-hidden="true">🎒</div>
               <div>
@@ -2758,7 +2920,7 @@
             <div class="go" aria-hidden="true">→</div>
           </a>
 
-          <a class="doc" href="#" aria-label="Открыть: Политика конфиденциальности">
+          <a class="doc" href="#" aria-label="Открыть: Политика конфиденциальности" hidden style="display:none">
             <div class="left">
               <div class="ic" aria-hidden="true">🛡️</div>
               <div>
@@ -2768,60 +2930,6 @@
             </div>
             <div class="go" aria-hidden="true">→</div>
           </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================= FAQ ========================= -->
-    <section id="faq" class="section" aria-label="FAQ">
-      <div class="container">
-        <div class="subhead">
-          <div>
-            <h2>Часто возникающие вопросы</h2>
-            <p>Ответы на самые частые вопросы родителей.</p>
-          </div>
-        </div>
-
-        <div class="faq">
-          <details>
-            <summary>Какие справки и меддокументы нужны? <span class="plus" aria-hidden="true"></span></summary>
-            <div class="answer">Обычно нужна справка установленного образца, сведения о прививках и согласия. Точный список — в «Перечне документов» (PDF).</div>
-          </details>
-
-          <details>
-            <summary>Есть ли противопоказания для заезда? <span class="plus" aria-hidden="true"></span></summary>
-            <div class="answer">Да. Ограничения зависят от состояния здоровья. Рекомендуем заранее сообщить об особенностях ребёнка.</div>
-          </details>
-
-          <details>
-            <summary>Что делать, если ребёнок заболел на смене? <span class="plus" aria-hidden="true"></span></summary>
-            <div class="answer">Осмотр медработником, связь с родителями, при необходимости — изоляция и дальнейшие действия по регламенту.</div>
-          </details>
-
-          <details>
-            <summary>Можно ли заехать позже или уехать раньше? <span class="plus" aria-hidden="true"></span></summary>
-            <div class="answer">Обычно да, по согласованию. Важно заранее предупредить и оформить документы на выезд/сопровождение.</div>
-          </details>
-
-          <details>
-            <summary>Как ребёнок связывается с родителями? <span class="plus" aria-hidden="true"></span></summary>
-            <div class="answer">Есть время для звонков и родительский чат/канал с фотоотчётами. В экстренных случаях — контакт администрации.</div>
-          </details>
-
-          <details>
-            <summary>Как проходит оплата и возможен ли возврат? <span class="plus" aria-hidden="true"></span></summary>
-            <div class="answer">Оплата по договору. Возврат возможен по условиям, указанным в документе «Договор и правила».</div>
-          </details>
-
-          <details>
-            <summary>Что лучше взять с собой на смену? <span class="plus" aria-hidden="true"></span></summary>
-            <div class="answer">Скачайте чек-лист «Что взять с собой». Рекомендуем подписать вещи и предусмотреть одежду по погоде.</div>
-          </details>
-
-          <details>
-            <summary>Можно ли приехать на экскурсию перед покупкой? <span class="plus" aria-hidden="true"></span></summary>
-            <div class="answer">Да, по предварительной записи. Оставьте заявку — согласуем время и формат визита.</div>
-          </details>
         </div>
       </div>
     </section>
@@ -3126,7 +3234,7 @@
         <div class="footer-grid">
           <div>
             <a class="brand" href="#top" aria-label="На главную" style="min-width:auto">
-              <img class="logo-image" src="SVG/777Монтажная область 32 копия 6.svg" alt="Логотип Яратон" />
+              <img class="logo-image" src="SVG/77777Монтажная область 40.svg" alt="Логотип Яратон" />
             </a>
             <p style="margin-top:8px">Оздоровительный отдых, доброжелательная команда и насыщенная программа для детей 7–16 лет.</p>
             <div class="copyright">Указанные на сайте цены не являются публичной офертой (ст.435 ГК РФ). Стоимость и возможность предоставления услуг необходимо уточнять в кассах. Политика обработки и защиты персональных данных</div>
@@ -3656,13 +3764,13 @@
     <div class="modal shift-modal" id="programModal4" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Подробности программы">
       <div class="box">
         <div class="topbar">
-          <div class="tag">Я - ЗВЕЗДА. Школа моделей и самопрезентации</div>
+          <div class="tag">Я - Звезда. Школа моделей и самопрезентации</div>
           <a class="close" id="closeProgramModal4" href="#" aria-label="Закрыть окно">Закрыть ✕</a>
         </div>
         <div class="content">
           <div class="shift-top">
             <div class="shift-left">
-              <h3 style="margin:0 0 6px">Я - ЗВЕЗДА. Школа моделей и самопрезентации</h3>
+              <h3 style="margin:0 0 6px">Я - Звезда. Школа моделей и самопрезентации</h3>
               <p>
                 Динамичная и вдохновляющая программа для подростков, которые хотят раскрыться, почувствовать уверенность
                 и научиться свободно и красиво себя подавать — в жизни, перед камерой и на сцене.
