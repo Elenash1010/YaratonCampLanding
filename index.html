@@ -142,7 +142,7 @@
       background:rgba(255,255,255,.86);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      font-weight:700;
+      font-weight:600;
       color:rgba(11,15,20,.72);
       box-shadow: 0 8px 18px rgba(11,15,20,.08);
     }
@@ -183,25 +183,37 @@
     .btn-primary:hover{transform: translateY(-2px); box-shadow: var(--shadow2)}
     .btn-primary:active{transform: translateY(0) scale(.99)}
     .btn-secondary{
-      background: rgba(255,255,255,.92);
-      border-color: rgba(11,15,20,.16);
+      background: #EEF4FF;
+      border-color: #C4D5EC;
+      color:#233B59;
       box-shadow: var(--shadow);
     }
-    .btn-secondary:hover{transform: translateY(-2px); box-shadow: var(--shadow)}
+    .btn-secondary:hover{
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+      background:#E6F0FF;
+      border-color:#B8CCE6;
+    }
     .btn-soft{
-      background: rgba(255,0,0,.10);
-      border-color: rgba(255,0,0,.24);
-      color: #C40000;
+      background: #E3F4BF;
+      border-color: #C7E985;
+      color: #233B59;
       box-shadow: var(--shadow);
     }
     .btn-soft:hover{
-      background: rgba(255,0,0,.16);
+      background: #D9EEAF;
     }
     .btn-ghost{
-      background:transparent;
-      border-color: rgba(11,15,20,.20);
+      background:#E3F4BF;
+      border-color:#C7E985;
+      color:#233B59;
     }
-    .btn-ghost:hover{transform: translateY(-2px); box-shadow: 0 12px 26px rgba(11,15,20,.10)}
+    .btn-ghost:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px rgba(186,255,41,.14);
+      background:#D9EEAF;
+      border-color:#B8D972;
+    }
 
     /* =========================
       SECTIONS
@@ -323,13 +335,13 @@
       align-items:center;
       padding:6px 10px;
       border-radius: var(--chipRadius);
-      background: #FBE9E9;
-      border:1px solid rgba(255,0,0,.16);
-      color: var(--heading);
+      background: #E3F4BF;
+      border:1px solid #C7E985;
+      color: #233B59;
       font-weight:700;
       font-size:12px;
       z-index:1;
-      box-shadow: 0 8px 18px rgba(255,0,0,.10);
+      box-shadow: 0 8px 18px rgba(186,255,41,.14);
     }
 
     .badge{
@@ -492,7 +504,7 @@
       text-decoration:none;
       font-weight:700;
       font-size:12px;
-      color:rgba(11,15,20,.72);
+      color:#233B59;
       padding:8px 9px;
       border-radius: var(--chipRadius);
       transition: background var(--fast), transform var(--fast);
@@ -547,7 +559,7 @@
       border-radius: var(--radius);
       text-decoration:none;
       font-weight:700;
-      color:rgba(11,15,20,.74);
+      color:#233B59;
       border:1px solid rgba(11,15,20,.10);
       background: rgba(255,255,255,.92);
       transition: transform var(--fast), box-shadow var(--fast);
@@ -583,8 +595,10 @@
       display:block;
       margin-top:14px;
       font-size:1.6em;
-      letter-spacing:.06em;
+      letter-spacing:0.327em;
       white-space:nowrap;
+      color:#C1272D;
+      font-weight:700;
     }
     .hero-tags{
       display:grid;
@@ -755,10 +769,10 @@
     }
     .tab:hover{transform: translateY(-1px); box-shadow: 0 12px 26px rgba(11,15,20,.10)}
     .tab[aria-selected="true"]{
-      border-color: rgba(255,0,0,.16);
-      background: #FBE9E9;
-      box-shadow: 0 12px 26px rgba(255,0,0,.10);
-      color: var(--heading);
+      border-color: #C7E985;
+      background: #E3F4BF;
+      box-shadow: 0 12px 26px rgba(186,255,41,.14);
+      color: #233B59;
       font-weight: 700;
     }
 
@@ -767,6 +781,11 @@
       flex-direction:column;
       gap: 12px;
       min-height: 100%;
+    }
+    #shifts .shift.card{
+      background:#fff;
+      border:1px solid #D6DEE8;
+      box-shadow: 0 8px 20px rgba(35,59,89,.08);
     }
     #shifts .scroller{
       grid-auto-columns: minmax(320px, 320px);
@@ -794,24 +813,25 @@
     #shifts .shift-top h3{
       margin:0 0 8px;
       min-height: 72px;
-      font-weight: 600;
-      color: var(--heading);
+      font-weight: 700;
+      color: #233B59;
       line-height: 1.12;
       text-align: left;
     }
     .shift-pricing{
-      margin:0;
+      margin:2px 0 0;
       padding:0;
       text-align:left;
       display:flex;
       flex-direction:column;
+      gap:3px;
     }
     .shift-pricing-row{
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:12px;
-      margin:0 0 10px;
+      margin:0 0 8px;
       min-height: 40px;
     }
     .shift-pricing-row p{
@@ -819,17 +839,23 @@
       padding:0;
       text-indent:0;
       font-weight:700;
+      color:#233B59;
     }
     .shift-pricing p{
       margin:0;
       padding:0;
       text-indent:0;
+      color:#5E6F86;
     }
     .shift-pricing > p{
       min-height: 30px;
     }
+    #shifts .shift-pricing p strong{
+      color:#233B59;
+      font-weight:700;
+    }
     .shift-pricing-sep{
-      height:28px;
+      height:18px;
       flex:0 0 auto;
     }
     .meta{display:flex; flex-wrap:wrap; gap:8px; margin-top: 8px; align-items:center}
@@ -838,9 +864,9 @@
       font-weight:700;
       padding:6px 10px;
       border-radius: var(--chipRadius);
-      border:1px solid rgba(96,166,128,.34);
-      background: rgba(173,223,191,.26);
-      color:var(--heading);
+      border:1px solid #C4D5EC;
+      background: #EEF4FF;
+      color:#233B59;
       box-shadow: 0 8px 18px rgba(11,15,20,.06);
       white-space: nowrap;
     }
@@ -873,9 +899,16 @@
       flex-wrap:nowrap;
     }
     .shift-actions .btn{
-      font-size:12px;
-      padding:10px 14px;
+      font-size:13px;
+      padding:10px 12px;
       white-space:nowrap;
+      flex:1 1 0;
+      justify-content:center;
+    }
+    #shifts .shift-actions .btn-secondary{
+      background:#EEF4FF;
+      border-color:#C4D5EC;
+      color:#233B59;
     }
 
     /* =========================
@@ -887,6 +920,19 @@
       gap: 10px;
       min-height: 100%;
     }
+    #programs .program.card{
+      background:#fff;
+      border:1px solid #D6DEE8;
+      box-shadow: 0 8px 20px rgba(35,59,89,.08);
+    }
+    #programs .program .card-media{
+      border-color:#C9D8EA;
+      box-shadow: 0 8px 18px rgba(35,59,89,.08);
+      background:
+        radial-gradient(180px 120px at 18% 25%, rgba(255,255,255,.76), transparent 60%),
+        radial-gradient(260px 170px at 82% 28%, rgba(98,144,195,.28), transparent 62%),
+        linear-gradient(135deg, rgba(255,255,255,.95), rgba(229,239,252,.92));
+    }
     .program .top{
       display:flex;
       align-items:flex-start;
@@ -894,12 +940,25 @@
       gap:12px;
       margin-bottom: 2px;
     }
+    #programs .program h3{
+      margin:0;
+      font-weight:700;
+      color:#233B59;
+      line-height:1.2;
+    }
+    #programs .program p{
+      color:#5E6F86;
+    }
     .learn{
       margin-top: 8px;
       border-radius: var(--radius);
       border:1px dashed rgba(11,15,20,.22);
       background: rgba(255,255,255,.92);
       padding: 10px 12px;
+    }
+    #programs .learn{
+      border:1px dashed #C8D6E9;
+      background:#fff;
     }
     .learn strong{
       display:block;
@@ -909,9 +968,31 @@
       font-weight:700;
       color: rgba(11,15,20,.86);
     }
+    #programs .learn strong{
+      color:#233B59;
+      font-weight:700;
+    }
+    #programs .learn ul{
+      color:#5E6F86;
+    }
     .learn ul{margin:0; padding-left: 18px; color: rgba(11,15,20,.66)}
     .learn li{margin:6px 0}
     .program-actions{margin-top:auto; display:flex; gap:10px; flex-wrap:wrap}
+    #programs .program-actions{
+      flex-wrap:nowrap;
+      align-items:center;
+    }
+    #programs .program-actions .btn{
+      white-space:nowrap;
+      font-size:13px;
+      padding:10px 14px;
+    }
+    #programs .program-actions .btn-secondary{
+      background:#EEF4FF;
+      border-color:#C4D5EC;
+      color:#233B59;
+      font-weight:700;
+    }
 
     /* =========================
       NEW: TEAM (Педагоги и вожатые) — collage 2x2 on right
@@ -1119,7 +1200,7 @@
       box-shadow: 0 8px 18px rgba(11,15,20,.08);
     }
     .row:hover{transform: translateY(-2px); box-shadow: 0 12px 26px rgba(11,15,20,.10)}
-    .row strong{font-family:"Montserrat"; font-weight:500; font-size:14px; color: var(--heading)}
+    .row strong{font-family:"Montserrat"; font-weight:700; font-size:14px; color: var(--heading)}
     .row p{margin:6px 0 0; font-size:13px}
     .row-icon{
       width:34px;height:34px;
@@ -1193,16 +1274,17 @@
       flex:0 0 auto;
       box-shadow: 0 8px 18px rgba(11,15,20,.08);
     }
-    .doc strong{display:block; font-family:"Montserrat"; font-weight:500; font-size:14px; color: var(--heading); white-space:nowrap}
+    .doc strong{display:block; font-family:"Montserrat"; font-weight:700; font-size:14px; color: var(--heading); white-space:nowrap}
     .doc span{display:block; margin-top:4px; font-size:12px; font-weight:700; color:rgba(11,15,20,.56); white-space:nowrap}
     .doc .go{
       width:38px;height:38px;border-radius: var(--radius);
       display:grid;place-items:center;
-      border:1px solid rgba(11,15,20,.14);
-      background: rgba(255,255,255,.92);
+      border:1px solid #C7E985;
+      background:#E3F4BF;
+      color:#233B59;
       transition: transform var(--fast);
       flex:0 0 auto;
-      box-shadow: 0 8px 18px rgba(11,15,20,.08);
+      box-shadow: 0 8px 18px rgba(186,255,41,.14);
     }
     .doc:hover .go{transform: translateX(2px)}
 
@@ -1473,7 +1555,7 @@
       flex:0 0 auto;
       box-shadow: 0 8px 18px rgba(11,15,20,.08);
     }
-    .citem strong{display:block; font-family:inherit; font-weight:400; font-size:13px; color: var(--heading)}
+    .citem strong{display:block; font-family:inherit; font-weight:700; font-size:13px; color: var(--heading)}
     .citem a{font-weight:400; text-decoration:none}
     .citem a:hover{text-decoration:underline}
     .citem span{display:block; margin-top:2px; font-size:12px; font-weight:400; color:rgba(11,15,20,.56)}
@@ -1582,14 +1664,14 @@
     footer .copyright{
       color: var(--text);
     }
-    /* Force requested headings to blue even inside colored sections */
+    /* Force requested headings color inside colored sections */
     #team .team-point strong,
     #parents .row strong,
     #reviews .who strong,
     #contacts .citem strong,
     #contacts h3,
     #route h3{
-      color:#0633A6;
+      color:#233B59;
     }
     .footer-grid{
       display:grid;
@@ -1674,14 +1756,13 @@
       gap:10px;
       padding:10px 12px;
       border-radius: var(--radius);
-      background: rgba(255,255,255,.16);
-      border:1px solid rgba(255,255,255,.26);
-      color: rgba(255,255,255,.92);
-      font-weight:500;
+      background:#E3F4BF;
+      border:1px solid #C7E985;
+      color:#233B59;
+      font-weight:700;
       font-family:"Montserrat";
       font-size: 12px;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 8px 18px rgba(186,255,41,.14);
     }
     .modal .close{
       border:1px solid rgba(255,255,255,.26);
@@ -1943,7 +2024,7 @@
               <a class="btn btn-primary" href="#contacts" aria-label="Перейти к форме заявки">
                 Оставить заявку
               </a>
-              <a class="btn-link" href="#shifts" aria-label="Перейти к сменам и ценам" style="color:#FF0000;">Смены и цены →</a>
+              <a class="btn-link" href="#shifts" aria-label="Перейти к сменам и ценам" style="color:#C1272D;">Смены и цены →</a>
             </div>
           </div>
 
@@ -2620,7 +2701,7 @@
 
             <div class="team-cta">
               <a class="btn btn-primary" href="#contacts">Оставить заявку</a>
-              <a class="btn btn-ghost" href="#faq">Частые вопросы</a>
+              <a class="btn btn-secondary" href="#faq">Частые вопросы</a>
             </div>
           </div>
 
