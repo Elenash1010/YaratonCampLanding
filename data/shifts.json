@@ -1,0 +1,102 @@
+﻿[
+  {
+    "id": "shift-1",
+    "title": "Начало большой космической экспедиции",
+    "label": "Первая смена",
+    "dates": {
+      "full": "02.06.2026-16.06.2026",
+      "short": "02.06.2026-09.06.2026"
+    },
+    "duration": {
+      "full": "14 дней",
+      "short": "7 дней"
+    },
+    "price": {
+      "full": "39000 рублей",
+      "short": "19500 рублей"
+    },
+    "cardImage": "assets/images/shifts/shift-1.jpg",
+    "modalImage": "assets/images/shifts/shift-1-modal.jpg",
+    "modalId": "shiftModal"
+  },
+  {
+    "id": "shift-2",
+    "title": "Выход на орбиту",
+    "label": "Вторая смена",
+    "dates": {
+      "full": "17.06.2026-30.06.2026",
+      "short": "17.06.2026-24.06.2026"
+    },
+    "duration": {
+      "full": "14 дней",
+      "short": "7 дней"
+    },
+    "price": {
+      "full": "39000 рублей",
+      "short": "19500 рублей"
+    },
+    "cardImage": "assets/images/shifts/shift-2.jpg",
+    "modalImage": "assets/images/shifts/shift-2-modal.jpg",
+    "modalId": "shiftModal2"
+  },
+  {
+    "id": "shift-3",
+    "title": "Глубокий космос",
+    "label": "Третья смена",
+    "dates": {
+      "full": "02.07.2026-15.07.2026",
+      "short": "02.07.2026-09.07.2026"
+    },
+    "duration": {
+      "full": "14 дней",
+      "short": "7 дней"
+    },
+    "price": {
+      "full": "43000 рублей",
+      "short": "21500 рублей"
+    },
+    "cardImage": "assets/images/shifts/shift-3.jpg",
+    "modalImage": "assets/images/shifts/shift-3-modal.jpg",
+    "modalId": "shiftModal3"
+  },
+  {
+    "id": "shift-4",
+    "title": "Новые галактики",
+    "label": "Четвертая смена",
+    "dates": {
+      "full": "17.07.2026-30.07.2026",
+      "short": "17.07.2026-24.07.2026"
+    },
+    "duration": {
+      "full": "14 дней",
+      "short": "7 дней"
+    },
+    "price": {
+      "full": "43000 рублей",
+      "short": "21500 рублей"
+    },
+    "cardImage": "assets/images/shifts/shift-4.jpg",
+    "modalImage": "assets/images/shifts/shift-4-modal.jpg",
+    "modalId": "shiftModal4"
+  },
+  {
+    "id": "shift-5",
+    "title": "Миссия: возвращение",
+    "label": "Пятая смена",
+    "dates": {
+      "full": "01.08.2026-14.08.2026",
+      "short": "01.08.2026-08.08.2026"
+    },
+    "duration": {
+      "full": "14 дней",
+      "short": "7 дней"
+    },
+    "price": {
+      "full": "39000 рублей",
+      "short": "19500 рублей"
+    },
+    "cardImage": "assets/images/shifts/shift-5.jpg",
+    "modalImage": "assets/images/shifts/shift-5-modal.jpg",
+    "modalId": "shiftModal5"
+  }
+]

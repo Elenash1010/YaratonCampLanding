@@ -4,1951 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="color-scheme" content="light" />
-  <title>Детский оздоровительный лагерь</title>
-  <meta name="description" content="Лендинг детского оздоровительного лагеря: смены и цены, программы, педагоги, документы, FAQ, отзывы, фото, контакты." />
-
-  <style>
-    /* =========================
-      PREMIUM / "APPLE-LIKE" BASE (updated)
-      - White background
-      - Headings color #3869AC
-      - Buttons color #3869AC
-      - All radiuses <= 10
-      - Shadows smaller & harder
-      Fonts: Montserrat
-    ========================== */
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
-
-    :root{
-      --bg:#FFFFFF;
-      --paper:#FFFFFF;
-      --glass: rgba(255,255,255,.78);
-
-      --text:#000000;
-      --muted:#000000;
-
-      --line: rgba(11,15,20,.12);
-      --line2: rgba(11,15,20,.16);
-
-      /* Smaller, harder shadows */
-      --shadow: 0 8px 18px rgba(11,15,20,.08);
-      --shadow2: 0 14px 28px rgba(11,15,20,.12);
-
-      /* radius caps */
-      --radius: 10px;         /* cards */
-      --btnRadius: 8px;       /* buttons */
-      --chipRadius: 8px;      /* chips/badges/pills */
-
-      --ring: 0 0 0 4px rgba(56,105,172,.18);
-
-      /* PRIMARY */
-      --primary:#233B59;
-      --primary2:#6290C3;
-      --ink:#fff;
-      --heading:#233B59;
-
-      --leaf:#2DBD7E;
-      --sky:#3D8BFF;
-      --sun:#FFD166;
-      --vio:#7C5CFF;
-
-      --container: 1160px;
-
-      --ease: cubic-bezier(.2,.9,.2,1);
-      --fast: 160ms var(--ease);
-      --slow: 260ms var(--ease);
-    }
-
-    *{box-sizing:border-box}
-    html{
-      scroll-behavior:smooth;
-      scroll-padding-top: 84px;
-    }
-    body{
-      margin:0;
-      font-family:"Montserrat", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
-      color:var(--text);
-      background:#fff;
-      overflow-x:hidden;
-      line-height:1.5;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    a{color:inherit}
-    img{max-width:100%;display:block}
-    .container{
-      width:min(var(--container), calc(100% - 40px));
-      margin-inline:auto;
-    }
-
-    :focus-visible{
-      outline:none;
-      box-shadow: var(--ring);
-      border-radius: var(--btnRadius);
-    }
-
-    /* =========================
-      TYPOGRAPHY
-    ========================== */
-    h1,h2,h3{
-      font-family:"Montserrat", system-ui, sans-serif;
-      font-weight:400; /* regular */
-      letter-spacing:-.02em;
-      margin:0 0 10px;
-      color: #000000; /* headings color */
-    }
-    h1,h2,h3, h4, h5, h6,
-    .row strong,
-    .doc strong,
-    .who strong,
-    .citem strong,
-    .learn strong,
-    .team-point strong,
-    .brand-title strong{
-      color:#000000;
-    }
-    body, p, span, li, a, label, input, textarea, select, strong{
-      color:#000000;
-    }
-    h1{font-size:clamp(28px, 3.6vw, 42px); line-height:1.18; color:var(--heading)}
-    h2{font-size:clamp(24px, 3.2vw, 38px); line-height:1.12; font-weight:600; color:var(--heading)}
-    h3{font-size:18px; line-height:1.2; color:var(--heading)}
-    h3{font-weight:600}
-    p{margin:0 0 12px; color:var(--muted)}
-    .lead{font-size:clamp(15px, 1.5vw, 18px); color:rgba(11,15,20,.70)}
-    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
-
-    /* Reduce heavy weights for a cleaner, Apple-like tone */
-    .btn,
-    .kicker,
-    .perk,
-    .pill,
-    .badge,
-    .tab,
-    .row strong,
-    .team-point strong,
-    .doc strong,
-    .who strong,
-    .citem strong{
-      font-weight:600;
-    }
-
-    .kicker{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(11,15,20,.12);
-      background:rgba(255,255,255,.86);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      font-weight:600;
-      color:rgba(11,15,20,.72);
-      box-shadow: 0 8px 18px rgba(11,15,20,.08);
-    }
-    .kdot{
-      width:auto;
-      height:auto;
-      border-radius:0;
-      background:none;
-    }
-
-    /* =========================
-      BUTTONS
-    ========================== */
-    .btn{
-      appearance:none;
-      border:1px solid transparent;
-      border-radius: var(--btnRadius);
-      padding:12px 14px;
-      font-weight:700;
-      letter-spacing:.15px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      cursor:pointer;
-      text-decoration:none;
-      user-select:none;
-      transition: transform var(--fast), box-shadow var(--fast), background var(--fast), border-color var(--fast), color var(--fast), filter var(--fast);
-      white-space:nowrap;
-      will-change: transform;
-    }
-    .btn svg{width:18px;height:18px}
-    .btn-primary{
-      color:#fff;
-      background: linear-gradient(180deg, #FF1D25, #C1272D);
-      box-shadow: var(--shadow2);
-    }
-    .btn-primary:hover{transform: translateY(-2px); box-shadow: var(--shadow2)}
-    .btn-primary:active{transform: translateY(0) scale(.99)}
-    .btn-secondary{
-      background: #EEF4FF;
-      border-color: #C4D5EC;
-      color:#233B59;
-      box-shadow: var(--shadow);
-    }
-    .btn-secondary:hover{
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-      background:#E6F0FF;
-      border-color:#B8CCE6;
-    }
-    .btn-soft{
-      background: #EEF4FF;
-      border-color: #C4D5EC;
-      color: #233B59;
-      box-shadow: var(--shadow);
-    }
-    .btn-soft:hover{
-      background: #E6F0FF;
-    }
-    .btn-ghost{
-      background:#EEF4FF;
-      border-color:#C4D5EC;
-      color:#233B59;
-    }
-    .btn-ghost:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 12px 26px rgba(56,105,172,.14);
-      background:#E6F0FF;
-      border-color:#B8CCE6;
-    }
-
-    /* =========================
-      SECTIONS
-    ========================== */
-    .section{
-      padding: clamp(34px, 4vw, 64px) 0;
-      position:relative;
-    }
-    .section:before{display:none}
-    .section.no-line:before{display:none}
-
-    .subhead{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom: 22px;
-    }
-    .subhead p{margin:0; max-width: 70ch}
-    .nowrap{white-space:nowrap}
-    .final-cta-text{white-space:nowrap}
-    .final-cta-break{display:inline}
-    #final-cta .subhead{
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      flex-direction:column;
-      gap:18px;
-    }
-    #final-cta .subhead > div{
-      max-width: 70ch;
-      width:100%;
-      margin:0 auto;
-    }
-    #final-cta .subhead > div:last-child{
-      display:flex;
-      justify-content:center;
-    }
-    .closable{
-      position:relative;
-    }
-    .close-section{
-      position:absolute;
-      right: 0;
-      top: 0;
-      width: 36px;
-      height: 36px;
-      border-radius: var(--radius);
-      border:1px solid rgba(11,15,20,.14);
-      background: rgba(255,255,255,.92);
-      color: #0633A6;
-      font-size:22px;
-      font-weight:700;
-      line-height:1;
-      display:grid;
-      place-items:center;
-      cursor:pointer;
-    }
-    .close-section:hover{background:#fff}
-    .is-hidden{display:none !important}
-
-    /* =========================
-      CARDS (radius <= 10, harder shadow)
-    ========================== */
-    .card{
-      background: var(--glass);
-      border:1px solid rgba(11,15,20,.12);
-      border-radius: var(--radius);
-      padding: 16px;
-      box-shadow: 0 10px 24px rgba(11,15,20,.10);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      transition: transform var(--fast), box-shadow var(--fast), border-color var(--fast);
-      overflow:hidden;
-      transform: translateZ(0);
-      will-change: transform;
-    }
-    .card:hover{
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-      border-color: rgba(11,15,20,.18);
-    }
-
-    /* Photo placeholders */
-    .card-media{
-      height: 150px;
-      border-radius: var(--radius);
-      border:1px solid rgba(11,15,20,.12);
-      background:
-        radial-gradient(200px 140px at 25% 25%, rgba(255,255,255,.70), transparent 60%),
-        radial-gradient(260px 180px at 80% 30%, rgba(56,105,172,.20), transparent 62%),
-        radial-gradient(260px 180px at 55% 92%, rgba(45,189,126,.14), transparent 62%),
-        radial-gradient(240px 190px at 25% 85%, rgba(255,209,102,.12), transparent 62%),
-        linear-gradient(135deg, rgba(45,189,126,.52), rgba(56,105,172,.30) 55%, rgba(255,91,77,.10));
-      position:relative;
-      overflow:hidden;
-      box-shadow: 0 10px 22px rgba(11,15,20,.12);
-      margin-bottom: 12px;
-    }
-    .card-media:after{
-      content:"Фото";
-      position:absolute;
-      left:10px; bottom:10px;
-      padding:6px 10px;
-      border-radius: var(--chipRadius);
-      background: rgba(255,255,255,.16);
-      border:1px solid rgba(255,255,255,.26);
-      color: rgba(255,255,255,.95);
-      font-weight:700;
-      font-size:12px;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-    .card-media.real-photo:after{
-      display:none;
-    }
-    .shift-media-tag{
-      position:absolute;
-      bottom:10px;
-      right:10px;
-      display:inline-flex;
-      align-items:center;
-      padding:6px 10px;
-      border-radius: var(--chipRadius);
-      background: #EEF4FF;
-      border:1px solid #C4D5EC;
-      color: #233B59;
-      font-weight:700;
-      font-size:12px;
-      z-index:1;
-      box-shadow: 0 8px 18px rgba(56,105,172,.14);
-    }
-
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 10px;
-      border-radius: var(--chipRadius);
-      background: rgba(255,255,255,.84);
-      border:1px solid rgba(11,15,20,.12);
-      font-weight:700;
-      font-size:13px;
-      color:rgba(11,15,20,.70);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 8px 18px rgba(11,15,20,.08);
-    }
-    .b-leaf{background:rgba(56,105,172,.10); border-color:rgba(56,105,172,.22)}
-    .b-sky{background:rgba(56,105,172,.10); border-color:rgba(56,105,172,.22)}
-    .b-sun{background:rgba(255,209,102,.12); border-color:rgba(255,209,102,.22)}
-    .b-vio{background:rgba(124,92,255,.10); border-color:rgba(124,92,255,.22)}
-
-    /* =========================
-      SCROLL / SWIPE: horizontal scrollers
-    ========================== */
-    .scroller-wrap{ position:relative; }
-    .scroller{
-      display:grid;
-      grid-auto-flow: column;
-      grid-auto-columns: minmax(280px, 1fr);
-      gap:10px;
-      overflow:auto;
-      padding-bottom: 10px;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      overscroll-behavior-x: contain;
-      scrollbar-width: none;
-      scroll-behavior:smooth;
-      touch-action: pan-x;
-    }
-    .scroller::-webkit-scrollbar{display:none}
-    .scroller > *{scroll-snap-align: start}
-
-    .scroller-wrap:before,
-    .scroller-wrap:after{
-      content:"";
-      position:absolute;
-      top:0; bottom:10px;
-      width:46px;
-      pointer-events:none;
-      z-index:5;
-      opacity:.0;
-      transition: opacity var(--fast);
-    }
-    .scroller-wrap:before{
-      left:-2px;
-      background: linear-gradient(90deg, #fff, rgba(255,255,255,0));
-    }
-    .scroller-wrap:after{
-      right:-2px;
-      background: linear-gradient(270deg, #fff, rgba(255,255,255,0));
-    }
-    .scroller-wrap.has-left:before{opacity:1}
-    .scroller-wrap.has-right:after{opacity:1}
-
-    .scroll-btn{
-      position:absolute;
-      top:50%;
-      transform: translateY(-50%);
-      width:40px;height:40px;
-      border-radius: var(--radius);
-      border:1px solid rgba(11,15,20,.14);
-      background: rgba(255,255,255,.86);
-      box-shadow: 0 10px 24px rgba(11,15,20,.12);
-      display:grid; place-items:center;
-      cursor:pointer;
-      z-index:10;
-      transition: transform var(--fast), opacity var(--fast);
-    }
-    .scroll-btn:hover{transform: translateY(-50%) scale(1.03)}
-    .scroll-btn:active{transform: translateY(-50%) scale(.99)}
-    .scroll-btn[disabled]{opacity:.35; pointer-events:none}
-    .scroll-prev{left:-8px}
-    .scroll-next{right:-8px}
-    .scroll-btn svg{width:18px;height:18px}
-
-    /* =========================
-      HEADER / NAV / BURGER
-    ========================== */
-    header{
-      position: sticky;
-      top:0;
-      z-index: 50;
-      background: rgba(255,255,255,.76);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(11,15,20,.10);
-      transition: box-shadow var(--slow), background var(--slow);
-    }
-    header.scrolled{
-      background: rgba(255,255,255,.90);
-      box-shadow: 0 10px 24px rgba(11,15,20,.12);
-    }
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      padding: 12px 0;
-    }
-    .brand{
-      display:flex; align-items:center; gap:0;
-      text-decoration:none;
-      min-width: 200px;
-      flex:0 0 auto;
-    }
-    .logo{
-      width:42px;height:42px;border-radius: var(--radius);
-      background:
-        radial-gradient(18px 18px at 28% 30%, rgba(255,255,255,.9), transparent 60%),
-        linear-gradient(135deg, rgba(45,189,126,.95), rgba(56,105,172,.72));
-      box-shadow: 0 10px 22px rgba(11,15,20,.12);
-      position:relative; overflow:hidden;
-    }
-    .logo-image{
-      width:188px;
-      height:68px;
-      object-fit:contain;
-      display:block;
-      flex:0 0 auto;
-    }
-    nav.desktop{
-      flex:1 1 auto;
-      min-width:0;
-    }
-    .brand-title{display:flex; flex-direction:column; line-height:1.05}
-    .brand-title strong{
-      font-family:"Montserrat";
-      font-weight:500;
-      font-size:14px;
-      letter-spacing:-.01em;
-      color: var(--primary);
-    }
-    .brand-title span{
-      font-size:12px;
-      font-weight:700;
-      color:rgba(11,15,20,.58)
-    }
-
-    nav.desktop ul{
-      list-style:none;
-      padding:0;margin:0;
-      display:flex;
-      gap:2px;
-      align-items:center;
-      justify-content:flex-end;
-      flex-wrap:nowrap;
-    }
-    nav.desktop a{
-      text-decoration:none;
-      font-weight:700;
-      font-size:12px;
-      color:#233B59;
-      padding:8px 9px;
-      border-radius: var(--chipRadius);
-      transition: background var(--fast), transform var(--fast);
-      white-space:nowrap;
-    }
-    nav.desktop a.btn-primary{
-      color:#fff;
-      padding:10px 16px;
-    }
-    nav.desktop a:hover{
-      background: rgba(255,255,255,.94);
-      transform: translateY(-1px);
-    }
-
-    .burger{
-      display:none;
-      border:1px solid rgba(11,15,20,.16);
-      background: rgba(255,255,255,.92);
-      border-radius: var(--btnRadius);
-      padding:10px 12px;
-      cursor:pointer;
-      gap:10px;
-      align-items:center;
-      transition: transform var(--fast), box-shadow var(--fast);
-      box-shadow: 0 8px 18px rgba(11,15,20,.10);
-    }
-    .burger:hover{transform: translateY(-1px); box-shadow: 0 12px 26px rgba(11,15,20,.12)}
-    .burger .lines{display:grid; gap:4px}
-    .burger .lines span{
-      width:18px;height:2px;border-radius:10px;
-      background: rgba(11,15,20,.72);
-      display:block;
-    }
-    .burger .label{font-weight:700; font-size:13px; color:rgba(11,15,20,.72)}
-    .mobile-panel{display:none; padding: 10px 0 14px}
-    .mobile-panel .panel{
-      background: rgba(255,255,255,.92);
-      border:1px solid rgba(11,15,20,.12);
-      border-radius: var(--radius);
-      padding:10px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-    }
-    .mobile-panel nav ul{
-      list-style:none; padding:0;margin:0;
-      display:grid; gap:6px;
-    }
-    .mobile-panel nav a{
-      display:block;
-      padding:12px 12px;
-      border-radius: var(--radius);
-      text-decoration:none;
-      font-weight:700;
-      color:#233B59;
-      border:1px solid rgba(11,15,20,.10);
-      background: rgba(255,255,255,.92);
-      transition: transform var(--fast), box-shadow var(--fast);
-      box-shadow: 0 8px 18px rgba(11,15,20,.08);
-    }
-    .mobile-panel nav a:hover{transform: translateY(-1px); box-shadow: 0 12px 26px rgba(11,15,20,.10)}
-    .mobile-actions{
-      margin-top: 10px;
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:10px;
-    }
-
-    /* =========================
-      HERO
-    ========================== */
-    .hero{padding: clamp(48px, 6.5vw, 90px) 0 10px}
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.08fr .92fr;
-      gap: clamp(12px, 2vw, 20px);
-      align-items:stretch;
-    }
-    .resort-grid{
-      display:grid;
-      grid-template-columns: 1.08fr .92fr;
-      gap: clamp(12px, 2vw, 20px);
-      align-items:center;
-    }
-    .hero-left{padding-top: 10px}
-    .hero-left h1{max-width:24ch; margin-bottom:14px}
-    .hero-brand-line{
-      display:block;
-      margin-top:14px;
-      font-size:1.6em;
-      letter-spacing:0.327em;
-      white-space:nowrap;
-      color:#C1272D;
-      font-weight:700;
-    }
-    .hero-tags{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0, max-content));
-      gap:10px;
-      margin-top: 10px;
-    }
-    .hero-tags .kicker{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:8px 11px;
-      border-radius: var(--radius);
-      border:1px solid rgba(11,15,20,.12);
-      background: rgba(255,255,255,.92);
-      font-weight:700;
-      font-size:12px;
-      color:rgba(11,15,20,.68);
-      box-shadow: 0 8px 18px rgba(11,15,20,.08);
-      white-space:nowrap;
-    }
-    .hero-tags .kdot{
-      width:auto;
-      height:auto;
-      border-radius:0;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      background:none !important;
-      color:#FF0000;
-      font-size:13px;
-      line-height:1;
-      font-weight:700;
-      flex:0 0 auto;
-    }
-    .hero-tags .kdot::before{
-      content:"☀";
-    }
-    .hero-actions{display:flex; flex-wrap:wrap; gap:12px; margin: 18px 0 16px}
-    .btn-link{
-      color: var(--primary);
-      font-weight:600;
-      text-decoration:none;
-      padding: 12px 6px;
-      border-radius: var(--btnRadius);
-    }
-    .btn-link:hover{text-decoration:underline}
-    .hero-perks{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0, max-content));
-      gap:10px;
-      margin-top: 4px;
-    }
-    .perk{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:10px 12px;
-      border-radius: var(--radius);
-      border:1px solid rgba(11,15,20,.12);
-      background: rgba(255,255,255,.92);
-      font-weight:700;
-      font-size:12px;
-      color:rgba(11,15,20,.68);
-      box-shadow: 0 8px 18px rgba(11,15,20,.08);
-      white-space:nowrap;
-    }
-    .perk i{
-      width:auto;
-      height:auto;
-      border-radius:0;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      background:none;
-      color:#FF0000;
-      font-size:13px;
-      line-height:1;
-      font-style:normal;
-      flex:0 0 auto;
-    }
-    .perk i::before{
-      content:"☀";
-    }
-
-    .hero-banner{
-      border-radius: var(--radius);
-      position:relative;
-      overflow:hidden;
-      min-height: 380px;
-      box-shadow: var(--shadow2);
-      border: 1px solid rgba(11,15,20,.10);
-      background:
-        radial-gradient(260px 180px at 22% 18%, rgba(255,255,255,.62), transparent 62%),
-        radial-gradient(340px 240px at 82% 28%, rgba(56,105,172,.20), transparent 65%),
-        radial-gradient(320px 240px at 55% 88%, rgba(45,189,126,.12), transparent 65%),
-        radial-gradient(280px 220px at 20% 80%, rgba(255,209,102,.10), transparent 62%),
-        linear-gradient(135deg, rgba(45,189,126,.60), rgba(56,105,172,.36) 55%, rgba(255,91,77,.10));
-      transform: translateZ(0);
-    }
-    .hero-banner img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center;
-      display:block;
-    }
-    .banner-glass{
-      position:absolute;
-      inset: 14px;
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.14);
-      border: 1px solid rgba(255,255,255,.26);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      display:flex;
-      align-items:flex-end;
-      padding: 128px;
-    }
-    .banner-caption{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:14px;
-      width:100%;
-    }
-    .banner-caption strong{
-      font-family:"Montserrat";
-      font-weight:500;
-      color: rgba(255,255,255,.95);
-      font-size: 14px;
-    }
-    .banner-caption span{
-      display:block;
-      margin-top: 6px;
-      color: rgba(255,255,255,.78);
-      font-weight:700;
-      font-size: 12px;
-    }
-
-    /* =========================
-      GRIDS
-    ========================== */
-    .grid-4{display:grid; grid-template-columns: repeat(4, 1fr); gap:14px}
-    .grid-2{display:grid; grid-template-columns: repeat(2, 1fr); gap:14px}
-
-    /* =========================
-      TABS
-    ========================== */
-    .tabs{
-      display:flex; gap:10px; flex-wrap:wrap;
-      align-items:center;
-      margin-bottom: 16px;
-    }
-    #tab-spring,
-    #tab-autumn,
-    #tab-winter{
-      display:none;
-    }
-    .tab{
-      border:1px solid rgba(11,15,20,.14);
-      background: rgba(255,255,255,.94);
-      border-radius: var(--btnRadius);
-      padding:10px 12px;
-      font-family:"Montserrat";
-      font-weight:500;
-      font-size: 13px;
-      cursor:pointer;
-      transition: transform var(--fast), box-shadow var(--fast), background var(--fast), border-color var(--fast);
-      box-shadow: 0 8px 18px rgba(11,15,20,.08);
-      color: rgba(11,15,20,.78);
-    }
-    .tab:hover{transform: translateY(-1px); box-shadow: 0 12px 26px rgba(11,15,20,.10)}
-    .tab[aria-selected="true"]{
-      border-color: #C4D5EC;
-      background: #EEF4FF;
-      box-shadow: 0 12px 26px rgba(56,105,172,.14);
-      color: #233B59;
-      font-weight: 700;
-    }
-
-    .shift{
-      display:flex;
-      flex-direction:column;
-      gap: 12px;
-      min-height: 100%;
-    }
-    #shifts .shift.card{
-      background:#fff;
-      border:1px solid #D6DEE8;
-      box-shadow: 0 8px 20px rgba(35,59,89,.08);
-    }
-    #shifts .scroller{
-      grid-auto-columns: minmax(320px, 320px);
-      align-items: stretch;
-    }
-    #shifts .scroller > .shift{
-      height: 100%;
-      min-height: 620px;
-    }
-    #shifts .shift .card-media{
-      height: 190px;
-    }
-    .shift-top{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:12px;
-    }
-    #shifts .shift-top > div:first-child{
-      width:100%;
-      display:block;
-      text-align:left;
-      align-self:flex-start;
-    }
-    #shifts .shift-top h3{
-      margin:0 0 8px;
-      min-height: 72px;
-      font-weight: 700;
-      color: #233B59;
-      line-height: 1.12;
-      text-align: left;
-    }
-    .shift-pricing{
-      margin:2px 0 0;
-      padding:0;
-      text-align:left;
-      display:flex;
-      flex-direction:column;
-      gap:3px;
-    }
-    .shift-pricing-row{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      margin:0 0 8px;
-      min-height: 40px;
-    }
-    .shift-pricing-row p{
-      margin:0;
-      padding:0;
-      text-indent:0;
-      font-weight:700;
-      color:#233B59;
-    }
-    .shift-pricing p{
-      margin:0;
-      padding:0;
-      text-indent:0;
-      color:#5E6F86;
-    }
-    .shift-pricing > p{
-      min-height: 30px;
-    }
-    #shifts .shift-pricing p strong{
-      color:#233B59;
-      font-weight:700;
-    }
-    .shift-pricing-sep{
-      height:18px;
-      flex:0 0 auto;
-    }
-    .meta{display:flex; flex-wrap:wrap; gap:8px; margin-top: 8px; align-items:center}
-    .pill{
-      font-size:12px;
-      font-weight:700;
-      padding:6px 10px;
-      border-radius: var(--chipRadius);
-      border:1px solid #C4D5EC;
-      background: #EEF4FF;
-      color:#233B59;
-      box-shadow: 0 8px 18px rgba(11,15,20,.06);
-      white-space: nowrap;
-    }
-    .price{
-      font-family:"Montserrat";
-      font-weight:500;
-      font-size: 16px;
-      margin: 2px 0 0;
-      color: var(--text);
-      white-space: nowrap;
-    }
-    .shift-top > div:last-child{
-      display:flex;
-      flex-direction:column;
-      align-items:flex-end;
-    }
-    .shift .badge{
-      border:1px solid #C4D5EC;
-      background: #EEF4FF;
-      color:var(--heading);
-      white-space: nowrap;
-      margin-top: 12px !important;
-    }
-    .incl{margin:0; padding-left: 18px; color: rgba(11,15,20,.66)}
-    .incl li{margin:6px 0}
-    .shift-actions{
-      margin-top:auto;
-      display:flex;
-      gap:8px;
-      flex-wrap:nowrap;
-    }
-    .shift-actions .btn{
-      font-size:13px;
-      padding:10px 12px;
-      white-space:nowrap;
-      flex:1 1 0;
-      justify-content:center;
-    }
-    #shifts .shift-actions .btn-secondary{
-      background:#EEF4FF;
-      border-color:#C4D5EC;
-      color:#233B59;
-    }
-
-    /* =========================
-      PROGRAMS (SWIPE)
-    ========================== */
-    .program{
-      display:flex;
-      flex-direction:column;
-      gap: 10px;
-      min-height: 100%;
-    }
-    #programs .program.card{
-      background:#fff;
-      border:1px solid #D6DEE8;
-      box-shadow: 0 8px 20px rgba(35,59,89,.08);
-    }
-    #programs .program .card-media{
-      border-color:#C9D8EA;
-      box-shadow: 0 8px 18px rgba(35,59,89,.08);
-      background:
-        radial-gradient(180px 120px at 18% 25%, rgba(255,255,255,.76), transparent 60%),
-        radial-gradient(260px 170px at 82% 28%, rgba(98,144,195,.28), transparent 62%),
-        linear-gradient(135deg, rgba(255,255,255,.95), rgba(229,239,252,.92));
-    }
-    .program .top{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom: 2px;
-    }
-    #programs .program h3{
-      margin:0;
-      font-weight:700;
-      color:#233B59;
-      line-height:1.2;
-    }
-    #programs .program p{
-      color:#5E6F86;
-    }
-    #programs .program.program-split .program-intro{
-      display:block;
-    }
-    #programs .program.program-split .program-intro .card-media{
-      width:100%;
-      margin-bottom:10px;
-      aspect-ratio: 16 / 9;
-      min-height:300px;
-    }
-    #programs .program.program-split .program-intro p{
-      margin:0;
-      color:#233B59;
-      font-weight:500;
-    }
-    #programs .program.program-split .learn{
-      margin-top:4px;
-    }
-    #programs .program.program-split .program-actions{
-      margin-top:4px;
-    }
-    .learn{
-      margin-top: 8px;
-      border-radius: var(--radius);
-      border:1px dashed rgba(11,15,20,.22);
-      background: rgba(255,255,255,.92);
-      padding: 10px 12px;
-    }
-    #programs .learn{
-      border:1px dashed #C8D6E9;
-      background:#fff;
-    }
-    .learn strong{
-      display:block;
-      margin-bottom: 6px;
-      font-size:13px;
-      font-family:"Montserrat";
-      font-weight:700;
-      color: rgba(11,15,20,.86);
-    }
-    #programs .learn strong{
-      color:#233B59;
-      font-weight:700;
-    }
-    #programs .learn ul{
-      color:#5E6F86;
-    }
-    .learn ul{margin:0; padding-left: 18px; color: rgba(11,15,20,.66)}
-    .learn li{margin:6px 0}
-    .program-actions{margin-top:auto; display:flex; gap:10px; flex-wrap:wrap}
-    #programs .program-actions{
-      flex-wrap:nowrap;
-      align-items:center;
-    }
-    #programs .program-actions .btn{
-      white-space:nowrap;
-      font-size:13px;
-      padding:10px 14px;
-    }
-    #programs .program-actions .btn-secondary{
-      background:#EEF4FF;
-      border-color:#C4D5EC;
-      color:#233B59;
-      font-weight:700;
-    }
-
-    /* =========================
-      NEW: TEAM (Педагоги и вожатые) — collage 2x2 on right
-    ========================== */
-    .team-grid{
-      display:grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap:14px;
-      align-items:stretch;
-      width:100%;
-    }
-    .team-left{
-      border-radius: var(--radius);
-      border:1px solid rgba(11,15,20,.12);
-      background: rgba(255,255,255,.94);
-      box-shadow: var(--shadow);
-      padding: 16px;
-      min-width:0;
-    }
-    .team-points{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top: 14px;
-    }
-    #team .team-points .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      justify-content:flex-start;
-      width:auto;
-      max-width:100%;
-      padding:8px 11px;
-      border-radius: var(--radius);
-      border:1px solid rgba(11,15,20,.12);
-      background: rgba(255,255,255,.92);
-      font-weight:700;
-      font-size:12px;
-      color:rgba(11,15,20,.68);
-      box-shadow: 0 8px 18px rgba(11,15,20,.08);
-      white-space:nowrap;
-    }
-    #team .team-points .kdot{
-      width:auto;
-      height:auto;
-      border-radius:0;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      background:none;
-      color:#FF0000;
-      font-size:13px;
-      line-height:1;
-      font-weight:700;
-      flex:0 0 auto;
-    }
-    #team .team-points .kdot::before{
-      content:"❤";
-    }
-    .team-point{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      padding: 10px 12px;
-      border-radius: var(--chipRadius);
-      border:1px solid rgba(11,15,20,.10);
-      background: rgba(255,255,255,.94);
-      box-shadow: 0 8px 18px rgba(11,15,20,.06);
-      transition: transform var(--fast), box-shadow var(--fast);
-    }
-    .team-point:hover{transform: translateY(-2px); box-shadow: 0 12px 26px rgba(11,15,20,.10)}
-    .team-point .ic{
-      width:28px;height:28px;border-radius: 999px;
-      display:grid;place-items:center;
-      border:1px solid rgba(11,15,20,.08);
-      background: rgba(255,255,255,.98);
-      box-shadow: none;
-      flex:0 0 auto;
-    }
-    .team-point .ic svg{
-      width:16px;
-      height:16px;
-      stroke: rgba(11,15,20,.72);
-      stroke-width:1.8;
-      fill:none;
-      stroke-linecap:round;
-      stroke-linejoin:round;
-    }
-    .team-point strong{
-      display:block;
-      font-family:"Montserrat";
-      font-weight:500;
-      color: var(--heading);
-      font-size:14px;
-      margin-bottom:2px;
-    }
-    .team-point p{
-      margin:0;
-      font-size:13px;
-      line-height:1.35;
-    }
-    .team-collage{
-      border-radius: var(--radius);
-      border:1px solid rgba(11,15,20,.12);
-      background: rgba(255,255,255,.94);
-      box-shadow: var(--shadow2);
-      padding: 20px;
-      overflow:hidden;
-      aspect-ratio: 1 / 1;
-      position: relative;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      min-width:0;
-      max-width:100%;
-      box-sizing:border-box;
-    }
-    .team-collage .team-photo{
-      width:100%;
-      height:100%;
-      border-radius: var(--radius);
-      border:1px solid rgba(11,15,20,.10);
-      background: #fff url('фото/Frame 47.png') center / contain no-repeat;
-      box-shadow: 0 10px 22px rgba(11,15,20,.10);
-      max-width:100%;
-    }
-    .team-cta{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top: 14px;
-    }
-
-    /* =========================
-      PARENTS / DOCS / FAQ / REVIEWS / GALLERY / CONTACT / ROUTE / FOOTER
-    ========================== */
-    .parents-grid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:14px;
-      align-items:start;
-    }
-    .rows{
-      display:grid;
-      gap:10px;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    .row{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:12px;
-      padding: 14px 14px;
-      border-radius: var(--radius);
-      border:1px solid rgba(11,15,20,.12);
-      background: rgba(255,255,255,.94);
-      transition: transform var(--fast), box-shadow var(--fast);
-      box-shadow: 0 8px 18px rgba(11,15,20,.08);
-    }
-    .row:hover{transform: translateY(-2px); box-shadow: 0 12px 26px rgba(11,15,20,.10)}
-    .row strong{font-family:"Montserrat"; font-weight:700; font-size:14px; color: var(--heading)}
-    .row p{margin:6px 0 0; font-size:13px}
-    .row-icon{
-      width:34px;height:34px;
-      border-radius: var(--radius);
-      border:1px solid rgba(11,15,20,.14);
-      background: rgba(255,255,255,.92);
-      display:grid; place-items:center;
-      flex:0 0 auto;
-      font-size:16px;
-      box-shadow: 0 8px 18px rgba(11,15,20,.08);
-    }
-    .row-icon img{
-      width:18px;
-      height:18px;
-      display:block;
-    }
-
-    .sticky-note{
-      border-radius: var(--radius);
-      border:1px solid rgba(11,15,20,.12);
-      padding: 16px;
-      box-shadow: var(--shadow);
-      background:
-        radial-gradient(240px 180px at 20% 25%, rgba(255,255,255,.76), transparent 60%),
-        radial-gradient(240px 180px at 80% 30%, rgba(255,209,102,.10), transparent 65%),
-        linear-gradient(180deg, rgba(56,105,172,.06), rgba(45,189,126,.05));
-      position:relative;
-      top:auto;
-      overflow:hidden;
-    }
-    .note-icons{display:flex; flex-wrap:wrap; gap:12px; margin-top: 10px}
-    .note-icon{
-      width:34px;height:34px;
-      border-radius: var(--radius);
-      border:1px solid rgba(11,15,20,.14);
-      background: rgba(255,255,255,.92);
-      display:grid; place-items:center;
-      font-size:16px;
-      box-shadow: 0 8px 18px rgba(11,15,20,.08);
-    }
-
-    .docs-grid{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap:14px;
-    }
-    .doc{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding: 14px;
-      border-radius: var(--radius);
-      border:1px solid rgba(11,15,20,.12);
-      background: rgba(255,255,255,.94);
-      box-shadow: 0 10px 24px rgba(11,15,20,.10);
-      text-decoration:none;
-      transition: transform var(--fast), box-shadow var(--fast), border-color var(--fast);
-    }
-    .doc:hover{
-      transform: translateY(-3px);
-      box-shadow: var(--shadow);
-      border-color: rgba(56,105,172,.28);
-    }
-    .doc .left{display:flex; gap:12px; align-items:flex-start; min-width:0; flex:1 1 auto}
-    .doc .ic{
-      width:46px;height:46px;border-radius: var(--radius);
-      display:grid; place-items:center;
-      border:1px solid rgba(11,15,20,.10);
-      background: rgba(255,255,255,.96);
-      flex:0 0 auto;
-      box-shadow: 0 8px 18px rgba(11,15,20,.08);
-    }
-    .doc strong{display:block; font-family:"Montserrat"; font-weight:700; font-size:14px; color: var(--heading); white-space:nowrap}
-    .doc span{display:block; margin-top:4px; font-size:12px; font-weight:700; color:rgba(11,15,20,.56); white-space:nowrap}
-    .doc .go{
-      width:38px;height:38px;border-radius: var(--radius);
-      display:grid;place-items:center;
-      border:1px solid #C4D5EC;
-      background:#EEF4FF;
-      color:#233B59;
-      transition: transform var(--fast);
-      flex:0 0 auto;
-      box-shadow: 0 8px 18px rgba(56,105,172,.14);
-    }
-    .doc:hover .go{transform: translateX(2px)}
-
-    .day-grid{
-      display:grid;
-      gap:14px;
-    }
-    .day-row{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-      align-items:stretch;
-    }
-    .day-card{
-      border-radius: var(--radius);
-      border:1px solid rgba(11,15,20,.12);
-      background: rgba(255,255,255,.94);
-      padding:16px;
-      box-shadow: var(--shadow);
-    }
-    .day-photo{
-      min-height: 260px;
-      border-radius: var(--radius);
-      border:1px solid rgba(11,15,20,.12);
-      background:
-        radial-gradient(220px 160px at 25% 25%, rgba(255,255,255,.70), transparent 60%),
-        radial-gradient(280px 200px at 75% 30%, rgba(56,105,172,.22), transparent 62%),
-        radial-gradient(280px 200px at 55% 92%, rgba(45,189,126,.16), transparent 62%),
-        radial-gradient(240px 190px at 25% 85%, rgba(255,209,102,.14), transparent 62%),
-        linear-gradient(135deg, rgba(45,189,126,.52), rgba(56,105,172,.30) 55%, rgba(255,91,77,.10));
-    }
-    .day-times{
-      margin:0;
-      padding:0;
-      list-style:none;
-      display:grid;
-      gap:8px;
-    }
-    .day-times li{
-      font-size:16px;
-      line-height:1.45;
-    }
-    .day-times strong{
-      font-weight:700;
-    }
-    .day-copy h3{
-      margin:0 0 14px;
-      font-size:28px;
-      line-height:1.15;
-    }
-    .day-copy p{
-      margin:0 0 12px;
-      font-size:16px;
-      line-height:1.5;
-    }
-    .medical-grid{
-      display:grid;
-      gap:16px;
-    }
-    .medical-gallery{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-    }
-    .medical-photo{
-      min-height:220px;
-      border-radius: var(--radius);
-      border:1px solid rgba(11,15,20,.12);
-      background:
-        radial-gradient(220px 160px at 25% 25%, rgba(255,255,255,.70), transparent 60%),
-        radial-gradient(280px 200px at 75% 30%, rgba(56,105,172,.22), transparent 62%),
-        radial-gradient(280px 200px at 55% 92%, rgba(45,189,126,.16), transparent 62%),
-        radial-gradient(240px 190px at 25% 85%, rgba(255,209,102,.14), transparent 62%),
-        linear-gradient(135deg, rgba(45,189,126,.52), rgba(56,105,172,.30) 55%, rgba(255,91,77,.10));
-    }
-    .medical-copy{
-      border-radius: var(--radius);
-      border:1px solid rgba(11,15,20,.12);
-      background: rgba(255,255,255,.94);
-      padding:16px;
-      box-shadow: var(--shadow);
-    }
-    .medical-copy p{
-      margin:0 0 12px;
-      font-size:16px;
-      line-height:1.55;
-    }
-    .medical-list{
-      margin:0 0 14px;
-      padding-left:0;
-      list-style:none;
-      display:grid;
-      gap:8px;
-    }
-    .medical-list li{
-      position:relative;
-      padding-left:20px;
-      font-size:16px;
-      line-height:1.5;
-    }
-    .medical-list li::before{
-      content:"✦";
-      position:absolute;
-      left:0;
-      top:0;
-      color:#FF0000;
-      font-size:14px;
-      line-height:1.5;
-    }
-
-    .faq{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-      align-items:start;
-    }
-    details{
-      border-radius: var(--radius);
-      border:1px solid rgba(11,15,20,.12);
-      background: rgba(255,255,255,.94);
-      box-shadow: 0 10px 24px rgba(11,15,20,.10);
-      padding: 12px 14px;
-      transition: transform var(--fast), box-shadow var(--fast);
-      overflow:hidden;
-    }
-    details:hover{transform: translateY(-2px); box-shadow: var(--shadow)}
-    summary{
-      cursor:pointer;
-      list-style:none;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      font-weight:500;
-      color:rgba(11,15,20,.86);
-      font-family:"Montserrat";
-    }
-    summary::-webkit-details-marker{display:none}
-    .plus{
-      width:34px;height:34px;border-radius: var(--radius);
-      display:grid;place-items:center;
-      border:1px solid rgba(11,15,20,.14);
-      background: rgba(255,255,255,.92);
-      position:relative;
-      flex:0 0 auto;
-      transition: transform var(--fast);
-      box-shadow: 0 8px 18px rgba(11,15,20,.08);
-    }
-    .plus:before,.plus:after{
-      content:"";
-      position:absolute;
-      width:14px;height:2px;border-radius:2px;
-      background: rgba(11,15,20,.64);
-    }
-    .plus:after{transform: rotate(90deg)}
-    details[open] .plus{transform: rotate(180deg)}
-    details[open] .plus:after{opacity:0}
-    .answer{padding: 8px 0 2px; color:rgba(11,15,20,.66)}
-
-    .review-top{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom: 10px;
-    }
-    .who strong{display:block; font-family:"Montserrat"; font-weight:500; color: var(--heading)}
-    .who span{display:block; margin-top:2px; font-size:12px; font-weight:700; color:rgba(11,15,20,.56)}
-    .stars{display:inline-flex; gap:4px; align-items:center}
-    .star{
-      width:auto;
-      height:auto;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      color:#FF0000;
-      font-size:14px;
-      line-height:1;
-    }
-    .star::before{
-      content:"❤";
-    }
-    .quote{color:rgba(11,15,20,.70)}
-    .reviews-rating{
-      margin-top:8px;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      font-weight:700;
-      color:rgba(11,15,20,.74);
-    }
-
-    .gallery{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap:14px;
-    }
-    .tile{
-      grid-column: span 4;
-      border-radius: var(--radius);
-      min-height: 180px;
-      position:relative;
-      overflow:hidden;
-      border: 1px solid rgba(11,15,20,.10);
-      box-shadow: var(--shadow2);
-      background:
-        radial-gradient(180px 130px at 20% 30%, rgba(255,255,255,.72), transparent 60%),
-        radial-gradient(260px 180px at 80% 30%, rgba(56,105,172,.20), transparent 62%),
-        radial-gradient(260px 180px at 50% 90%, rgba(45,189,126,.14), transparent 62%),
-        radial-gradient(240px 190px at 25% 85%, rgba(255,209,102,.12), transparent 62%),
-        linear-gradient(135deg, rgba(45,189,126,.52), rgba(56,105,172,.30) 55%, rgba(255,91,77,.10));
-      transition: transform var(--fast), box-shadow var(--fast), filter var(--fast);
-      cursor:pointer;
-      transform: translateZ(0);
-      will-change: transform;
-    }
-    .tile:hover{
-      transform: translateY(-4px) scale(1.01);
-      box-shadow: var(--shadow);
-      filter: saturate(1.03);
-    }
-    .overlay{position:absolute; inset:0; background: linear-gradient(180deg, transparent 52%, rgba(0,0,0,.34))}
-    .tile .label{
-      position:absolute;
-      left:12px; right:12px; bottom:12px;
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-      color: rgba(255,255,255,.92);
-      font-weight:700;
-      font-size:13px;
-      letter-spacing:.15px;
-    }
-    .tile .label > span:first-child{display:none}
-    .tile .label{justify-content:flex-end}
-    .zoom{
-      width:36px;height:36px;border-radius: var(--radius);
-      display:grid;place-items:center;
-      background: rgba(255,255,255,.16);
-      border: 1px solid rgba(255,255,255,.26);
-      transition: transform var(--fast);
-    }
-    .tile:hover .zoom{transform: scale(1.05)}
-
-    .contact-grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-      align-items:stretch;
-    }
-    .panel{
-      border-radius: var(--radius);
-      border:1px solid rgba(11,15,20,.12);
-      background: rgba(255,255,255,.94);
-      box-shadow: var(--shadow);
-      padding: 16px;
-    }
-    .contact-list{display:grid; gap:10px; margin-top: 12px}
-    .citem{
-      display:flex; gap:12px; align-items:flex-start;
-      padding: 12px;
-      border-radius: var(--radius);
-      border:1px solid rgba(11,15,20,.10);
-      background: rgba(255,255,255,.94);
-      box-shadow: 0 8px 18px rgba(11,15,20,.08);
-    }
-    .citem .ic{
-      width:44px;height:44px;border-radius: var(--radius);
-      display:grid;place-items:center;
-      border:1px solid rgba(11,15,20,.10);
-      background: rgba(255,255,255,.96);
-      flex:0 0 auto;
-      box-shadow: 0 8px 18px rgba(11,15,20,.08);
-    }
-    .citem strong{display:block; font-family:inherit; font-weight:700; font-size:13px; color: var(--heading)}
-    .citem a{font-weight:400; text-decoration:none}
-    .citem a:hover{text-decoration:underline}
-    .citem span{display:block; margin-top:2px; font-size:12px; font-weight:400; color:rgba(11,15,20,.56)}
-
-    form{display:grid; gap:10px; margin-top: 12px}
-    .field{display:grid; gap:6px}
-    label{font-weight:400; font-size:13px; font-family:inherit; color:rgba(11,15,20,.82)}
-    input, textarea, select{
-      width:100%;
-      border-radius: var(--radius);
-      border:1px solid rgba(11,15,20,.18);
-      background: rgba(255,255,255,.96);
-      padding: 12px 12px;
-      font: inherit;
-      color: var(--text);
-      transition: border-color var(--fast), box-shadow var(--fast), background var(--fast);
-    }
-    textarea{min-height: 110px; resize: vertical}
-    input:focus, textarea:focus, select:focus{
-      outline:none;
-      border-color: rgba(56,105,172,.42);
-      box-shadow: var(--ring);
-      background: #fff;
-    }
-    .form-row{display:grid; grid-template-columns: 1fr 1fr; gap:10px}
-    .hint{font-size:12px; font-weight:400; color:rgba(11,15,20,.56); margin-top: 6px}
-    .privacy{font-size:12px; font-weight:400; color:rgba(11,15,20,.52); margin: 2px 0 0}
-    .privacy a{color:rgba(11,15,20,.84)}
-    .ya-form-note{font-size:10px; color:rgba(11,15,20,.42); margin: 6px 0 0}
-
-    /* Contact section: match panel heights by increasing form vertical spacing */
-    #contacts .panel{height:100%}
-    #contacts form{gap:14px; margin-top:14px}
-    #contacts .field{gap:8px}
-    #contacts .form-row{gap:14px}
-    #contacts input,
-    #contacts textarea,
-    #contacts select{
-      padding:14px 12px;
-      line-height:1.4;
-    }
-    #contacts .panel{padding:12px}
-    #contacts .contact-list{gap:6px; margin-top:8px}
-    #contacts .citem{padding:8px; gap:8px}
-    #contacts .citem .ic{width:36px; height:36px}
-    #contacts h3{margin-bottom:6px}
-    #contacts .panel > p{margin-top:4px}
-    #contacts .hint{margin-top:6px}
-    #contacts .privacy{margin-top:2px}
-
-    .route-grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:14px;
-      align-items:stretch;
-    }
-    .map{
-      border-radius: var(--radius);
-      border:1px solid rgba(11,15,20,.10);
-      box-shadow: var(--shadow2);
-      position:relative;
-      overflow:hidden;
-      min-height: 340px;
-      background:
-        radial-gradient(260px 180px at 25% 25%, rgba(255,255,255,.72), transparent 62%),
-        radial-gradient(320px 220px at 75% 35%, rgba(56,105,172,.20), transparent 66%),
-        radial-gradient(320px 240px at 55% 85%, rgba(45,189,126,.14), transparent 66%),
-        radial-gradient(240px 200px at 20% 80%, rgba(255,209,102,.12), transparent 66%),
-        linear-gradient(135deg, rgba(11,15,20,.54), rgba(56,105,172,.24) 55%, rgba(255,91,77,.10));
-    }
-    .map iframe{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      border:0;
-    }
-    .pin{
-      position:absolute;
-      left: 54%; top: 46%;
-      width: 50px; height: 50px;
-      border-radius: var(--radius);
-      display:grid; place-items:center;
-      background: rgba(255,255,255,.18);
-      border:1px solid rgba(255,255,255,.26);
-      transform: translate(-50%,-50%);
-      box-shadow: 0 14px 30px rgba(0,0,0,.20);
-    }
-    .pin:after{
-      content:"";
-      width:12px;height:12px;border-radius:999px;
-      background: rgba(255,255,255,.92);
-      box-shadow: 0 0 0 10px rgba(255,255,255,.10);
-    }
-
-    footer{
-      padding: 34px 0;
-      border-top: 1px solid rgba(11,15,20,.12);
-      background: rgba(248,250,253,.96);
-      color: var(--text);
-    }
-    footer h3,
-    footer p,
-    footer .brand-title strong,
-    footer .brand-title span,
-    footer .copyright{
-      color: var(--text);
-    }
-    /* Force requested headings color inside colored sections */
-    #team .team-point strong,
-    #parents .row strong,
-    #reviews .who strong,
-    #contacts .citem strong,
-    #contacts h3,
-    #route h3{
-      color:#233B59;
-    }
-    .footer-grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr 1fr;
-      gap:14px;
-      align-items:start;
-    }
-    .f-links{display:grid; gap:8px}
-    .f-links a{
-      text-decoration:none;
-      font-weight:500;
-      border:1px solid rgba(11,15,20,.08);
-      background: rgba(255,255,255,.70);
-      color: rgba(11,15,20,.72);
-      padding: 10px 12px;
-      border-radius: var(--radius);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      transition: transform var(--fast), box-shadow var(--fast);
-      box-shadow: none;
-    }
-    .f-links a:hover{transform: translateY(-2px); box-shadow: 0 12px 26px rgba(11,15,20,.10)}
-    .t-sociallinks__wrapper{
-      display:flex;
-      gap:10px;
-      padding:0;
-      margin:0;
-      list-style:none;
-      align-items:center;
-    }
-    .t-sociallinks__item a{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:40px !important;
-      height:40px !important;
-    }
-    .t-sociallinks__svg{
-      width:40px !important;
-      height:40px !important;
-    }
-    .t-sociallinks__svg path{
-      fill:#3869ac !important;
-    }
-    .copyright{margin-top: 16px; font-size:12px; font-weight:400; color:rgba(11,15,20,.52)}
-
-    /* MODAL */
-    .modal{
-      position:fixed;
-      inset:0;
-      background: rgba(0,0,0,.56);
-      display:none !important;
-      align-items:center;
-      justify-content:center;
-      padding: 22px;
-      z-index: 90;
-    }
-    body:not([data-modal-open="1"]) .modal{display:none !important}
-    .modal.is-open{display:flex !important}
-    /* Disable auto-open by URL hash to prevent accidental overlays */
-    .modal:target{display:none}
-    .modal .box{
-      width:min(980px, 100%);
-      min-height: 440px;
-      border-radius: var(--radius);
-      border:1px solid rgba(255,255,255,.26);
-      box-shadow: 0 20px 60px rgba(0,0,0,.32);
-      overflow:hidden;
-      position:relative;
-      background:
-        radial-gradient(260px 180px at 25% 25%, rgba(255,255,255,.70), transparent 62%),
-        radial-gradient(340px 220px at 75% 35%, rgba(56,105,172,.24), transparent 66%),
-        radial-gradient(340px 240px at 55% 85%, rgba(45,189,126,.18), transparent 66%),
-        radial-gradient(240px 200px at 20% 80%, rgba(255,209,102,.16), transparent 66%),
-        linear-gradient(135deg, rgba(45,189,126,.56), rgba(56,105,172,.36) 55%, rgba(255,91,77,.14));
-    }
-    .modal .topbar{
-      position:absolute;
-      left:12px; right:12px; top:12px;
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
-    }
-    .modal .tag{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 12px;
-      border-radius: var(--radius);
-      background:#EEF4FF;
-      border:1px solid #C4D5EC;
-      color:#233B59;
-      font-weight:700;
-      font-family:"Montserrat";
-      font-size: 12px;
-      box-shadow: 0 12px 26px rgba(56,105,172,.14);
-    }
-    .modal .close{
-      border:1px solid rgba(255,255,255,.26);
-      background: rgba(255,255,255,.14);
-      color: rgba(255,255,255,.92);
-      border-radius: var(--btnRadius);
-      padding:10px 12px;
-      font-weight:700;
-      cursor:pointer;
-      transition: transform var(--fast), box-shadow var(--fast);
-    }
-    .modal .close:hover{transform: translateY(-2px); box-shadow: 0 14px 30px rgba(0,0,0,.26)}
-    #photoModal .topbar{
-      left:12px;
-      right:12px;
-      top:12px;
-      justify-content:flex-end;
-    }
-    #photoModal .box{
-      width:fit-content;
-      height:fit-content;
-      min-height:0;
-      max-width:calc(100vw - 44px);
-      max-height:88vh;
-    }
-    #photoModal .close{
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
-    .photo-modal-media{
-      position:relative;
-    }
-    .photo-modal-media img{
-      display:block;
-      width:auto;
-      height:auto;
-      max-width:min(1200px, calc(100vw - 44px));
-      max-height:min(88vh, 920px);
-      object-fit:contain;
-    }
-    .shift-modal .box{
-      background:#fff;
-      border:1px solid rgba(11,15,20,.12);
-      padding:64px;
-      box-sizing:border-box;
-    }
-    .shift-modal .topbar{
-      position:static;
-      padding:0 0 16px;
-    }
-    .shift-modal .tag{
-      background:#EEF4FF;
-      border:1px solid #C4D5EC;
-      color:#233B59;
-      font-weight:700;
-      box-shadow: 0 12px 26px rgba(56,105,172,.14);
-      backdrop-filter:none;
-      -webkit-backdrop-filter:none;
-    }
-    .shift-modal .box{
-      max-height: 85vh;
-      overflow: hidden;
-      display:flex;
-      flex-direction:column;
-    }
-    .shift-modal .content{
-      display:flex;
-      flex-direction:column;
-      gap:18px;
-      padding: 0;
-      overflow:auto;
-      font-size:16px;
-      line-height:1.5;
-    }
-    .shift-modal .shift-top{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:18px;
-      align-items:end;
-    }
-    .shift-modal .shift-left p{margin:0}
-    .shift-modal .shift-lists{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:16px;
-      margin-top:10px;
-    }
-    .shift-modal .shift-lists h4{margin:0 0 6px}
-    .shift-modal .shift-right{display:flex; align-items:flex-end}
-    .shift-modal .shift-placeholder{
-      width:100%;
-      min-height:260px;
-      border-radius: var(--radius);
-      border:1px solid rgba(11,15,20,.12);
-      background:
-        radial-gradient(220px 160px at 25% 25%, rgba(255,255,255,.70), transparent 60%),
-        radial-gradient(280px 200px at 75% 30%, rgba(56,105,172,.22), transparent 62%),
-        radial-gradient(280px 200px at 55% 92%, rgba(45,189,126,.16), transparent 62%),
-        radial-gradient(240px 190px at 25% 85%, rgba(255,209,102,.14), transparent 62%),
-        linear-gradient(135deg, rgba(45,189,126,.52), rgba(56,105,172,.30) 55%, rgba(255,91,77,.10));
-      box-shadow: var(--shadow);
-    }
-    .shift-modal img{
-      width:100%;
-      height:auto;
-      border-radius: var(--radius);
-      border:1px solid rgba(11,15,20,.10);
-      box-shadow: var(--shadow);
-      display:block;
-    }
-
-    /* =========================
-      CARD CONSISTENCY (single style)
-    ========================== */
-    .card,
-    .row,
-    .doc,
-    .team-left,
-    .team-point,
-    .team-collage,
-    .sticky-note,
-    .citem,
-    .note-icon,
-    .row-icon,
-    .collage-photo,
-    .card-media{
-      border-color: rgba(11,15,20,.12);
-      box-shadow: var(--shadow);
-    }
-    .card:hover,
-    .row:hover,
-    .team-point:hover,
-    .collage-photo:hover,
-    details:hover{
-      box-shadow: var(--shadow);
-    }
-
-    /* =========================
-      RESPONSIVE
-    ========================== */
-    @media (max-width: 1024px){
-      .hero-grid{grid-template-columns: 1fr}
-      .hero-banner{min-height: 320px}
-      .docs-grid{grid-template-columns: repeat(2,1fr)}
-      .day-row{grid-template-columns: 1fr}
-      .medical-gallery{grid-template-columns: 1fr}
-      .gallery .tile{grid-column: span 6}
-      .route-grid{grid-template-columns: 1fr}
-      .parents-grid{grid-template-columns: 1fr}
-      .rows{grid-template-columns: 1fr}
-      .team-grid{grid-template-columns: 1fr}
-      .team-points{display:flex; flex-wrap:wrap}
-      .sticky-note{position:relative; top:auto}
-      .footer-grid{grid-template-columns: 1fr 1fr}
-      .scroll-prev{left:6px}
-      .scroll-next{right:6px}
-    }
-    @media (max-width: 768px){
-      nav.desktop{display:none}
-      .burger{display:inline-flex}
-      .mobile-panel{display:block}
-      .grid-4{grid-template-columns: 1fr 1fr}
-      .grid-2{grid-template-columns: 1fr}
-      .faq{grid-template-columns: 1fr}
-      .contact-grid{grid-template-columns: 1fr}
-      .form-row{grid-template-columns: 1fr}
-      .footer-grid{grid-template-columns: 1fr}
-      .hero-left h1{max-width:none}
-      .hero-perks{grid-template-columns: repeat(2, minmax(0, max-content))}
-      .hero-tags{grid-template-columns: repeat(2, minmax(0, 1fr))}
-      .hero-tags .kicker{width:100%; justify-content:flex-start}
-      .final-cta-text{white-space:normal}
-      .final-cta-break{display:block}
-      #shifts .subhead{flex-direction:column; align-items:flex-start}
-      #shifts .subhead .btn{align-self:flex-start; margin-top:10px}
-      #team .subhead{flex-direction:column; align-items:flex-start}
-      #team .subhead .btn{align-self:flex-start; margin-top:10px}
-      .shift-modal .content{grid-template-columns: 1fr}
-      #shifts .scroller{grid-auto-columns: minmax(300px, 300px)}
-      #shifts .scroller > .shift{min-height: 590px}
-      .tile{min-height: 160px}
-      .scroll-btn{display:none}
-    }
-    @media (max-width: 420px){
-      .container{width: calc(100% - 28px)}
-      .grid-4{grid-template-columns: 1fr}
-      .docs-grid{grid-template-columns: 1fr}
-      .gallery .tile{grid-column: span 12}
-      .hero-banner{min-height: 270px}
-      .hero-perks{grid-template-columns: 1fr}
-      .hero-tags{grid-template-columns: 1fr}
-      .team-points{display:flex; flex-wrap:wrap}
-      #shifts .scroller{grid-auto-columns: minmax(86vw, 86vw)}
-      #shifts .scroller > .shift{min-height: 560px}
-      .mobile-actions{grid-template-columns: 1fr}
-      .team-collage{aspect-ratio:auto}
-      .team-collage .team-photo{min-height:220px}
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      *{transition:none !important; scroll-behavior:auto !important}
-    }
-  </style>
+  <title>Яратон - детский лагерь и семейный курорт</title>
+  <meta name="description" content="Яратон - детский лагерь и семейный курорт: смены и цены, программы, педагоги, документы, отзывы, фото и заявка на отдых." />
+  <meta property="og:title" content="Яратон - детский лагерь и семейный курорт" />
+  <meta property="og:description" content="Смены, программы, документы, отзывы и запись в лагерь Яратон." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/hero/hero-family.jpg" />
+  <link rel="icon" type="image/svg+xml" href="assets/logos/logo-yaraton.svg" />
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/layout.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+  <link rel="stylesheet" href="styles/sections.css" />
+  <link rel="stylesheet" href="styles/responsive.css" />
 </head>
 
 <body>
@@ -1957,7 +25,7 @@
     <div class="container">
       <div class="nav">
         <a class="brand" href="#top" aria-label="На главную">
-          <img class="logo-image" src="77777Монтажная область 40.svg" alt="Логотип Яратон" onerror="if(!this.dataset.try2){this.dataset.try2='1';this.src='SVG/77777Монтажная область 40.svg';}else if(!this.dataset.try3){this.dataset.try3='1';this.src='assets/logo.svg';}" />
+          <img class="logo-image" src="assets/logos/logo-yaraton.svg" alt="Логотип Яратон" />
         </a>
 
         <nav class="desktop" aria-label="Основная навигация">
@@ -2041,7 +109,7 @@
           </div>
 
           <div class="hero-banner">
-            <img src="фото/галерея/1.jpg" alt="Счастливая семья в лагере" loading="eager" decoding="async" />
+            <img src="assets/images/gallery/gallery-01.jpg" alt="Счастливая семья в лагере" loading="eager" decoding="async" />
           </div>
         </div><!-- /hero-grid -->
       </div>
@@ -2090,25 +158,25 @@
 
         <div class="grid-4">
           <article class="card">
-            <div class="card-media real-photo" aria-label="Фото: организованный досуг" style="background-image:url('фото/досуг.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"></div>
+            <div class="card-media real-photo media-cover media-leisure-main" aria-label="Фото: организованный досуг"></div>
             <h3>Организованный досуг</h3>
             <p>Каждый день — расписание с балансом активности и отдыха, без перегруза. Внимательные воспитатели и задорные вожатые.</p>
           </article>
 
           <article class="card">
-            <div class="card-media real-photo" aria-label="Фото: творчество и развитие" style="background-image:url('фото/творчество.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"></div>
+            <div class="card-media real-photo media-cover media-program-creativity" aria-label="Фото: творчество и развитие"></div>
             <h3>Творчество и развитие</h3>
             <p>Сцена, творческие мастерские, игры и квесты помогают ребёнку открывать в себе новые таланты.</p>
           </article>
 
           <article class="card">
-            <div class="card-media real-photo" aria-label="Фото: безопасность и комфорт" style="background-image:url('фото/камера.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"></div>
+            <div class="card-media real-photo media-cover media-security-camera" aria-label="Фото: безопасность и комфорт"></div>
             <h3>Безопасность и комфорт</h3>
             <p>Контроль территории, медицинское сопровождение, простые правила, внимательное и ответсвенное отношение педагогов не оставляют повода для родительских тревог.</p>
           </article>
 
           <article class="card">
-            <div class="card-media real-photo" aria-label="Фото: столовая" style="background-image:url('фото/столовая.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"></div>
+            <div class="card-media real-photo media-cover media-dining-room" aria-label="Фото: столовая"></div>
             <h3>Сбалансированное питание и комфортное проживание</h3>
             <p>Продуманное меню с элементами шведского стола, режим, проживание в уютных обновленных номерах. По согласованию с родителями учитываем особенности здоровья ребенка .</p>
           </article>
@@ -2134,7 +202,7 @@
             <p hidden>А для старших участников в 3-й и 4-й сменах мы подготовили особенное — новые программы, которые откроют ещё больше возможностей и впечатлений.</p>
           </div>
           <div>
-            <a class="btn btn-ghost" href="Яратон_презентация.pdf" download="Яратон_презентация.pdf" aria-label="Скачать презентацию">
+            <a class="btn btn-ghost" href="assets/docs/yaraton-presentation.pdf" download="yaraton-presentation.pdf" aria-label="Скачать презентацию">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M12 3v10m0 0l4-4m-4 4l-4-4M5 17v3h14v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -2242,7 +310,7 @@
             </button>
             <div class="scroller" data-scroller aria-label="Карточки смен (Лето)">
               <article class="card shift">
-                <div class="card-media real-photo" aria-label="Фото смены: Начало большой космической экспедиции" style="background-image:url('фото/1смена.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"><span class="shift-media-tag">Первая смена</span></div>
+                <div class="card-media real-photo media-cover media-shift-1" aria-label="Фото смены: Начало большой космической экспедиции"><span class="shift-media-tag">Первая смена</span></div>
                 <div class="shift-top">
                   <div>
                     <h3>Начало большой космической экспедиции</h3>
@@ -2274,7 +342,7 @@
               </article>
 
               <article class="card shift">
-                <div class="card-media real-photo" aria-label="Фото смены: Выход на орбиту" style="background-image:url('фото/2смена.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"><span class="shift-media-tag">Вторая смена</span></div>
+                <div class="card-media real-photo media-cover media-shift-2" aria-label="Фото смены: Выход на орбиту"><span class="shift-media-tag">Вторая смена</span></div>
                 <div class="shift-top">
                   <div>
                     <h3>Выход на орбиту</h3>
@@ -2306,7 +374,7 @@
               </article>
 
               <article class="card shift">
-                <div class="card-media real-photo" aria-label="Фото смены: Глубокий космос" style="background-image:url('фото/3смена.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"><span class="shift-media-tag">Третья смена</span></div>
+                <div class="card-media real-photo media-cover media-shift-3" aria-label="Фото смены: Глубокий космос"><span class="shift-media-tag">Третья смена</span></div>
                 <div class="shift-top">
                   <div>
                     <h3>Глубокий космос</h3>
@@ -2338,7 +406,7 @@
               </article>
 
               <article class="card shift">
-                <div class="card-media real-photo" aria-label="Фото смены: Спорт-турнир" style="background-image:url('фото/4смена.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"><span class="shift-media-tag">Четвертая смена</span></div>
+                <div class="card-media real-photo media-cover media-shift-4" aria-label="Фото смены: Спорт-турнир"><span class="shift-media-tag">Четвертая смена</span></div>
                 <div class="shift-top">
                   <div>
                     <h3>Новые галактики</h3>
@@ -2370,7 +438,7 @@
               </article>
 
               <article class="card shift">
-                <div class="card-media real-photo" aria-label="Фото смены: Медиа-студия" style="background-image:url('фото/5смена.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"><span class="shift-media-tag">Пятая смена</span></div>
+                <div class="card-media real-photo media-cover media-shift-5" aria-label="Фото смены: Медиа-студия"><span class="shift-media-tag">Пятая смена</span></div>
                 <div class="shift-top">
                   <div>
                     <h3>Миссия: возвращение</h3>
@@ -2610,7 +678,7 @@
                 <h3>Контент-вселенная: ты в эфире</h3>
               </div>
               <div class="program-intro">
-                <div class="card-media real-photo" aria-label="Фото программы: контент-вселенная" style="background-image:url('фото/блогер.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"></div>
+                <div class="card-media real-photo program-photo" aria-label="Фото программы: контент-вселенная"><img src="assets/images/programs/program-blogger.jpg" alt="Контент-вселенная: ты в эфире" loading="lazy" decoding="async" /></div>
                 <p>14 дней съёмок, челленджей и командных проектов: от первых роликов до собственной премьеры.</p>
               </div>
               <div class="learn">
@@ -2654,7 +722,7 @@
                 <h3>Я - Звезда. Школа моделей и самопрезентации</h3>
               </div>
               <div class="program-intro">
-                <div class="card-media real-photo" aria-label="Фото программы: Я - Звезда" style="background-image:url('фото/мдельпопап1.jpg'); background-size:cover; background-position:center 30%; background-repeat:no-repeat;"></div>
+                <div class="card-media real-photo program-photo program-photo-top" aria-label="Фото программы: Я - Звезда"><img src="assets/images/programs/program-model-card.jpg" alt="Я - Звезда. Школа моделей и самопрезентации" loading="lazy" decoding="async" /></div>
                 <p>Уверенность, стиль и умение себя подать. За 14 дней — от зажатости к свободе перед камерой и на сцене.</p>
               </div>
               <div class="learn">
@@ -2740,9 +808,9 @@
 
         <div class="medical-grid">
           <div class="medical-gallery" aria-label="Фотографии медицинских услуг">
-            <div class="medical-photo" role="img" aria-label="Фото медицинских услуг 1" style="background-image:url('фото/мед1.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"></div>
-            <div class="medical-photo" role="img" aria-label="Фото медицинских услуг 2" style="background-image:url('фото/мед2.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"></div>
-            <div class="medical-photo" role="img" aria-label="Фото медицинских услуг 3" style="background-image:url('фото/мед3.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"></div>
+            <div class="medical-photo media-cover media-medical-1" role="img" aria-label="Фото медицинских услуг 1"></div>
+            <div class="medical-photo media-cover media-medical-2" role="img" aria-label="Фото медицинских услуг 2"></div>
+            <div class="medical-photo media-cover media-medical-3" role="img" aria-label="Фото медицинских услуг 3"></div>
           </div>
 
           <div class="medical-copy">
@@ -2977,18 +1045,18 @@
         </div>
 
         <div class="docs-grid">
-          <a class="doc" href="#" download aria-label="Скачать: Договор и правила (PDF)">
+          <a class="doc" href="assets/docs/yaraton-presentation.pdf" download="yaraton-presentation.pdf" aria-label="Скачать: Презентация лагеря (PDF)">
             <div class="left">
               <div class="ic" aria-hidden="true">📄</div>
               <div>
-                <strong>Договор и правила (PDF)</strong>
-                <span>условия · порядок · ответственность</span>
+                <strong>Презентация лагеря (PDF)</strong>
+                <span>смены · программа · атмосфера</span>
               </div>
             </div>
             <div class="go" aria-hidden="true">→</div>
           </a>
 
-          <a class="doc" href="Яратон_памятка для родителей лето-202612.pdf" download="Яратон_памятка для родителей лето-202612.pdf" aria-label="Скачать: Памятка для родителей (PDF)">
+          <a class="doc" href="assets/docs/parent-guide-2026.pdf" download="parent-guide-2026.pdf" aria-label="Скачать: Памятка для родителей (PDF)">
             <div class="left">
               <div class="ic" aria-hidden="true">✅</div>
               <div>
@@ -2999,7 +1067,7 @@
             <div class="go" aria-hidden="true">→</div>
           </a>
 
-          <a class="doc" href="#" download aria-label="Скачать: Что взять с собой (PDF)" hidden style="display:none">
+          <a class="doc" href="assets/docs/parent-guide-2026.pdf" download="parent-guide-2026.pdf" aria-label="Скачать: Что взять с собой (PDF)" hidden style="display:none">
             <div class="left">
               <div class="ic" aria-hidden="true">🎒</div>
               <div>
@@ -3010,7 +1078,7 @@
             <div class="go" aria-hidden="true">→</div>
           </a>
 
-          <a class="doc" href="#" aria-label="Открыть: Политика конфиденциальности" hidden style="display:none">
+          <a class="doc" href="#contacts" aria-label="Открыть: Политика конфиденциальности" hidden style="display:none">
             <div class="left">
               <div class="ic" aria-hidden="true">🛡️</div>
               <div>
@@ -3128,39 +1196,39 @@
         </div>
 
         <div class="gallery" aria-label="Галерея">
-          <div class="tile" role="button" tabindex="0" data-full="фото/галерея/111.jpg" data-alt="Утро в лагере" aria-label="Открыть фото: Утро в лагере" style="background-image:url('фото/галерея/111_preview.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
+          <div class="tile gallery-tile-03" role="button" tabindex="0" data-full="assets/images/gallery/gallery-03.jpg" data-alt="Утро в лагере" aria-label="Открыть фото: Утро в лагере">
             <div class="overlay" aria-hidden="true"></div>
             <div class="label"><span>Утро в лагере</span><span class="zoom" aria-hidden="true">+</span></div>
           </div>
-          <div class="tile" role="button" tabindex="0" data-full="фото/галерея/222.jpg" data-alt="Спортивные игры" aria-label="Открыть фото: Спортивные игры" style="background-image:url('фото/галерея/222_preview.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
+          <div class="tile gallery-tile-04" role="button" tabindex="0" data-full="assets/images/gallery/gallery-04.jpg" data-alt="Спортивные игры" aria-label="Открыть фото: Спортивные игры">
             <div class="overlay" aria-hidden="true"></div>
             <div class="label"><span>Спортивные игры</span><span class="zoom" aria-hidden="true">+</span></div>
           </div>
-          <div class="tile" role="button" tabindex="0" data-full="фото/галерея/333.jpg" data-alt="Творческая мастерская" aria-label="Открыть фото: Творческая мастерская" style="background-image:url('фото/галерея/333_preview.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
+          <div class="tile gallery-tile-05" role="button" tabindex="0" data-full="assets/images/gallery/gallery-05.jpg" data-alt="Творческая мастерская" aria-label="Открыть фото: Творческая мастерская">
             <div class="overlay" aria-hidden="true"></div>
             <div class="label"><span>Творческая мастерская</span><span class="zoom" aria-hidden="true">+</span></div>
           </div>
-          <div class="tile" role="button" tabindex="0" data-full="фото/галерея/444.jpg" data-alt="Квесты и миссии" aria-label="Открыть фото: Квесты и миссии" style="background-image:url('фото/галерея/444_preview.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
+          <div class="tile gallery-tile-06" role="button" tabindex="0" data-full="assets/images/gallery/gallery-06.jpg" data-alt="Квесты и миссии" aria-label="Открыть фото: Квесты и миссии">
             <div class="overlay" aria-hidden="true"></div>
             <div class="label"><span>Квесты и миссии</span><span class="zoom" aria-hidden="true">+</span></div>
           </div>
-          <div class="tile" role="button" tabindex="0" data-full="фото/галерея/555.jpg" data-alt="Вечерняя сцена" aria-label="Открыть фото: Вечерняя сцена" style="background-image:url('фото/галерея/555_preview.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
+          <div class="tile gallery-tile-08" role="button" tabindex="0" data-full="assets/images/gallery/gallery-08.jpg" data-alt="Вечерняя сцена" aria-label="Открыть фото: Вечерняя сцена">
             <div class="overlay" aria-hidden="true"></div>
             <div class="label"><span>Вечерняя сцена</span><span class="zoom" aria-hidden="true">+</span></div>
           </div>
-          <div class="tile" role="button" tabindex="0" data-full="фото/галерея/666.jpg" data-alt="Прогулки на природе" aria-label="Открыть фото: Прогулки на природе" style="background-image:url('фото/галерея/666_preview.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
+          <div class="tile gallery-tile-10" role="button" tabindex="0" data-full="assets/images/gallery/gallery-10.jpg" data-alt="Прогулки на природе" aria-label="Открыть фото: Прогулки на природе">
             <div class="overlay" aria-hidden="true"></div>
             <div class="label"><span>Прогулки на природе</span><span class="zoom" aria-hidden="true">+</span></div>
           </div>
-          <div class="tile" role="button" tabindex="0" data-full="фото/галерея/777.jpg" data-alt="Дружба" aria-label="Открыть фото: Дружба" style="background-image:url('фото/галерея/777_preview.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
+          <div class="tile gallery-tile-11" role="button" tabindex="0" data-full="assets/images/gallery/gallery-11.jpg" data-alt="Дружба" aria-label="Открыть фото: Дружба">
             <div class="overlay" aria-hidden="true"></div>
             <div class="label"><span>Дружба</span><span class="zoom" aria-hidden="true">+</span></div>
           </div>
-          <div class="tile" role="button" tabindex="0" data-full="фото/галерея/888.jpg" data-alt="Питание и уют" aria-label="Открыть фото: Питание и уют" style="background-image:url('фото/галерея/888_preview.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
+          <div class="tile gallery-tile-12" role="button" tabindex="0" data-full="assets/images/gallery/gallery-12.jpg" data-alt="Питание и уют" aria-label="Открыть фото: Питание и уют">
             <div class="overlay" aria-hidden="true"></div>
             <div class="label"><span>Питание и уют</span><span class="zoom" aria-hidden="true">+</span></div>
           </div>
-          <div class="tile" role="button" tabindex="0" data-full="фото/галерея/999.jpg" data-alt="Финальный день" aria-label="Открыть фото: Финальный день" style="background-image:url('фото/галерея/999_preview.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
+          <div class="tile gallery-tile-13" role="button" tabindex="0" data-full="assets/images/gallery/gallery-13.jpg" data-alt="Финальный день" aria-label="Открыть фото: Финальный день">
             <div class="overlay" aria-hidden="true"></div>
             <div class="label"><span>Финальный день</span><span class="zoom" aria-hidden="true">+</span></div>
           </div>
@@ -3197,7 +1265,7 @@
                 <div class="ic" aria-hidden="true">💬</div>
                 <div>
                   <strong>E-mail:</strong>
-                  <a href="#" aria-label="Открыть чат">@camp_support</a>
+                  <a href="https://t.me/berez_roscha18" target="_blank" rel="noopener noreferrer" aria-label="Открыть чат">@berez_roscha18</a>
                   <span>ответим в течение рабочего дня</span>
                 </div>
               </div>
@@ -3225,14 +1293,18 @@
             <h3>Оставить заявку</h3>
             <p style="margin:6px 0 0">Заполните поля — мы перезвоним/напишем и подберём смену.</p>
 
-            <script src="https://forms.yandex.ru/_static/embed.js"></script>
-            <iframe
-              src="https://forms.yandex.ru/u/69a314ca1f1eb53aaf2f0223?iframe=1"
-              frameborder="0"
-              name="ya-form-69a314ca1f1eb53aaf2f0223"
-              width="100%"
-              style="max-width:100%; height:420px; border:0; display:block;"
-            ></iframe>
+            <div class="contact-form-embed">
+              <script src="https://forms.yandex.ru/_static/embed.js"></script>
+              <iframe
+                class="contact-form-frame"
+                src="https://forms.yandex.ru/u/69a314ca1f1eb53aaf2f0223?iframe=1"
+                frameborder="0"
+                name="ya-form-69a314ca1f1eb53aaf2f0223"
+                width="100%"
+                loading="eager"
+                title="Форма заявки в лагерь Яратон"
+              ></iframe>
+            </div>
             <p class="hint">Ответим в течение рабочего дня.</p>
             <p class="privacy">Нажимая «Отправить», вы соглашаетесь с политикой конфиденциальности.</p>
           </div>
@@ -3278,7 +1350,7 @@
           </div>
 
           <div class="card">
-            <div class="card-media real-photo" aria-label="Фото: главный корпус" style="background-image:url('фото/главный корпус.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"></div>
+            <div class="card-media real-photo media-cover media-main-building" aria-label="Фото: главный корпус"></div>
             <h3>Адрес и ориентиры</h3>
             <p style="margin:6px 0 0"><strong>Местоположение:</strong> 36-ой км Якшур-Бодьинского тракта, деревня Карашур. Курорт "ЯРАТОН"</p>
             <p style="margin-top:10px"><strong>Трансфер:</strong> возможен в дни заезда/выезда (по записи).</p>
@@ -3324,7 +1396,7 @@
         <div class="footer-grid">
           <div>
             <a class="brand" href="#top" aria-label="На главную" style="min-width:auto">
-              <img class="logo-image" src="77777Монтажная область 40.svg" alt="Логотип Яратон" onerror="if(!this.dataset.try2){this.dataset.try2='1';this.src='SVG/77777Монтажная область 40.svg';}else if(!this.dataset.try3){this.dataset.try3='1';this.src='assets/logo.svg';}" />
+              <img class="logo-image" src="assets/logos/logo-yaraton.svg" alt="Логотип Яратон" />
             </a>
             <p style="margin-top:8px">Оздоровительный отдых, доброжелательная команда и насыщенная программа для детей 7–16 лет.</p>
             <div class="copyright">Указанные на сайте цены не являются публичной офертой (ст.435 ГК РФ). Стоимость и возможность предоставления услуг необходимо уточнять в кассах. Политика обработки и защиты персональных данных</div>
@@ -3381,7 +1453,7 @@
     <div class="modal" id="photoModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Просмотр фото">
       <div class="box">
         <div class="topbar">
-          <button class="close" id="closeModal" type="button" aria-label="Закрыть просмотр">Закрыть ✕</button>
+          <button class="close" id="closeModal" type="button" data-modal-close="photoModal" aria-label="Закрыть просмотр">Закрыть ✕</button>
         </div>
         <div class="photo-modal-media">
           <img id="modalImage" src="" alt="" decoding="async" />
@@ -3394,7 +1466,7 @@
       <div class="box">
         <div class="topbar">
           <div class="tag">Первая смена · Открытие сезона</div>
-          <a class="close" id="closeShiftModal" href="#" aria-label="Закрыть окно">Закрыть ✕</a>
+          <button class="close" id="closeShiftModal" type="button" data-modal-close="shiftModal" aria-label="Закрыть окно">Закрыть ✕</button>
         </div>
           <div class="content">
             <div class="shift-top">
@@ -3406,7 +1478,7 @@
               </p>
               </div>
               <div class="shift-right">
-                <img src="фото/1сменапопап.jpg" alt="Фото смены: открытие сезона" />
+                <img src="assets/images/shifts/shift-1-modal.jpg" alt="Фото смены: открытие сезона" />
               </div>
             </div>
             <div style="margin-top:64px">
@@ -3456,7 +1528,7 @@
       <div class="box">
         <div class="topbar">
           <div class="tag">Вторая смена: Выход на орбиту</div>
-          <a class="close" id="closeShiftModal2" href="#" aria-label="Закрыть окно">Закрыть ✕</a>
+          <button class="close" id="closeShiftModal2" type="button" data-modal-close="shiftModal2" aria-label="Закрыть окно">Закрыть ✕</button>
         </div>
         <div class="content">
           <div class="shift-top">
@@ -3469,7 +1541,7 @@
               </p>
             </div>
             <div class="shift-right">
-              <img src="фото/2смена попап.jpg" alt="Фото смены: выход на орбиту" />
+              <img src="assets/images/shifts/shift-2-modal.jpg" alt="Фото смены: выход на орбиту" />
             </div>
           </div>
           <div style="margin-top:28px">
@@ -3510,7 +1582,7 @@
       <div class="box">
         <div class="topbar">
           <div class="tag">Третья смена: Глубокий космос</div>
-          <a class="close" id="closeShiftModal3" href="#" aria-label="Закрыть окно">Закрыть ✕</a>
+          <button class="close" id="closeShiftModal3" type="button" data-modal-close="shiftModal3" aria-label="Закрыть окно">Закрыть ✕</button>
         </div>
         <div class="content">
           <div class="shift-top">
@@ -3527,7 +1599,7 @@
               </p>
             </div>
             <div class="shift-right">
-              <img src="фото/3смена попап.jpg" alt="Фото смены: глубокий космос" />
+              <img src="assets/images/shifts/shift-3-modal.jpg" alt="Фото смены: глубокий космос" />
             </div>
           </div>
           <div style="margin-top:28px">
@@ -3595,7 +1667,7 @@
       <div class="box">
         <div class="topbar">
           <div class="tag">Четвертая смена: Новые галактики</div>
-          <a class="close" id="closeShiftModal4" href="#" aria-label="Закрыть окно">Закрыть ✕</a>
+          <button class="close" id="closeShiftModal4" type="button" data-modal-close="shiftModal4" aria-label="Закрыть окно">Закрыть ✕</button>
         </div>
         <div class="content">
           <div class="shift-top">
@@ -3611,7 +1683,7 @@
               </p>
             </div>
             <div class="shift-right">
-              <img src="фото/4сменапопап.jpg" alt="Фото смены: новые галактики" />
+              <img src="assets/images/shifts/shift-4-modal.jpg" alt="Фото смены: новые галактики" />
             </div>
           </div>
           <div style="margin-top:28px">
@@ -3679,7 +1751,7 @@
       <div class="box">
         <div class="topbar">
           <div class="tag">Пятая смена · Миссия: возвращение</div>
-          <a class="close" id="closeShiftModal5" href="#" aria-label="Закрыть окно">Закрыть ✕</a>
+          <button class="close" id="closeShiftModal5" type="button" data-modal-close="shiftModal5" aria-label="Закрыть окно">Закрыть ✕</button>
         </div>
         <div class="content">
           <div class="shift-top">
@@ -3697,7 +1769,7 @@
               </p>
             </div>
             <div class="shift-right">
-              <img src="фото/5смена попап.jpg" alt="Фото смены: миссия возвращение" />
+              <img src="assets/images/shifts/shift-5-modal.jpg" alt="Фото смены: миссия возвращение" />
             </div>
           </div>
           <div style="margin-top:28px">
@@ -3738,7 +1810,7 @@
       <div class="box">
         <div class="topbar">
           <div class="tag">Контент-вселенная: ты в эфире</div>
-          <a class="close" id="closeProgramModal1" href="#" aria-label="Закрыть окно">Закрыть ✕</a>
+          <button class="close" id="closeProgramModal1" type="button" data-modal-close="programModal1" aria-label="Закрыть окно">Закрыть ✕</button>
         </div>
         <div class="content">
           <div class="shift-top">
@@ -3753,7 +1825,7 @@
               </p>
             </div>
             <div class="shift-right">
-              <img src="фото/блогерпопап.jpg" alt="Фото программы: контент-вселенная" />
+              <img src="assets/images/programs/program-blogger-modal.jpg" alt="Фото программы: контент-вселенная" />
             </div>
           </div>
           <div style="margin-top:64px">
@@ -3797,7 +1869,7 @@
       <div class="box">
         <div class="topbar">
           <div class="tag">Контент-вселенная: ты в эфире</div>
-          <a class="close" id="closeProgramModal2" href="#" aria-label="Закрыть окно">Закрыть ✕</a>
+          <button class="close" id="closeProgramModal2" type="button" data-modal-close="programModal2" aria-label="Закрыть окно">Закрыть ✕</button>
         </div>
         <div class="content">
           <div class="shift-top">
@@ -3812,7 +1884,7 @@
               </p>
             </div>
             <div class="shift-right">
-              <img src="фото/блогерпопап.jpg" alt="Фото программы: контент-вселенная" />
+              <img src="assets/images/programs/program-blogger-modal.jpg" alt="Фото программы: контент-вселенная" />
             </div>
           </div>
           <div style="margin-top:64px">
@@ -3856,7 +1928,7 @@
       <div class="box">
         <div class="topbar">
           <div class="tag">Программа · Подробности</div>
-          <a class="close" id="closeProgramModal3" href="#" aria-label="Закрыть окно">Закрыть ✕</a>
+          <button class="close" id="closeProgramModal3" type="button" data-modal-close="programModal3" aria-label="Закрыть окно">Закрыть ✕</button>
         </div>
         <div class="content">
           <div class="shift-top">
@@ -3870,7 +1942,7 @@
               </p>
             </div>
             <div class="shift-right">
-              <img src="фото/модельпопап.jpg" alt="Фото программы: Я - Звезда" />
+              <img src="assets/images/programs/program-model-modal.jpg" alt="Фото программы: Я - Звезда" />
             </div>
           </div>
           <div style="margin-top:64px">
@@ -3912,7 +1984,7 @@
       <div class="box">
         <div class="topbar">
           <div class="tag">Я - Звезда. Школа моделей и самопрезентации</div>
-          <a class="close" id="closeProgramModal4" href="#" aria-label="Закрыть окно">Закрыть ✕</a>
+          <button class="close" id="closeProgramModal4" type="button" data-modal-close="programModal4" aria-label="Закрыть окно">Закрыть ✕</button>
         </div>
         <div class="content">
           <div class="shift-top">
@@ -3925,7 +1997,7 @@
               </p>
             </div>
             <div class="shift-right">
-              <img src="фото/модельпопап.jpg" alt="Фото программы: Я - Звезда" />
+              <img src="assets/images/programs/program-model-modal.jpg" alt="Фото программы: Я - Звезда" />
             </div>
           </div>
           <div style="margin-top:64px">
@@ -3973,7 +2045,7 @@
       <div class="box">
         <div class="topbar">
           <div class="tag">Пошаговая инструкция</div>
-          <button class="close" id="closePaymentModal" type="button" aria-label="Закрыть окно">Закрыть ✕</button>
+          <button class="close" id="closePaymentModal" type="button" data-modal-close="paymentModal" aria-label="Закрыть окно">Закрыть ✕</button>
         </div>
         <div class="content">
           <div>
@@ -3991,363 +2063,13 @@
             <p style="margin-top:10px">А путевку забираем в любой день до даты заезда.</p>
           </div>
           <div>
-            <img src="сбербанка.png" alt="Оплата через Сбербанк Онлайн" />
+            <img src="assets/images/misc/sberbank-online.png" alt="Оплата через Сбербанк Онлайн" />
           </div>
         </div>
       </div>
     </div>
 
   </main>
-
-  <script>
-    /* Sticky header shadow on scroll */
-    const header = document.querySelector('header');
-    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-
-    /* Mobile burger toggle */
-    const burger = document.getElementById('burger');
-    const mobilePanel = document.getElementById('mobilePanel');
-    const brandLink = document.querySelector('header .brand');
-
-    function setMenu(open){
-      burger.setAttribute('aria-expanded', String(open));
-      mobilePanel.setAttribute('aria-hidden', String(!open));
-      mobilePanel.style.display = open ? 'block' : 'none';
-    }
-    setMenu(false);
-
-    burger.addEventListener('click', () => {
-      const isOpen = burger.getAttribute('aria-expanded') === 'true';
-      setMenu(!isOpen);
-    });
-
-    if(brandLink){
-      brandLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        setMenu(false);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    }
-
-    mobilePanel.addEventListener('click', (e) => {
-      const a = e.target.closest('a');
-      if(!a) return;
-      setMenu(false);
-    });
-
-    /* Tabs: seasons */
-    const tabs = Array.from(document.querySelectorAll('.tab'));
-    const panels = {
-      spring: document.getElementById('season-spring'),
-      summer: document.getElementById('season-summer'),
-      autumn: document.getElementById('season-autumn'),
-      winter: document.getElementById('season-winter'),
-    };
-
-    function activateSeason(key){
-      tabs.forEach(t => t.setAttribute('aria-selected', 'false'));
-      document.getElementById('tab-' + key).setAttribute('aria-selected', 'true');
-      Object.entries(panels).forEach(([k, el]) => el.hidden = (k !== key));
-      requestAnimationFrame(updateAllScrollerHints);
-    }
-    tabs.forEach(tab => tab.addEventListener('click', () => activateSeason(tab.id.replace('tab-',''))));
-
-    /* Premium horizontal scrollers */
-    function updateScrollerHints(wrap){
-      const scroller = wrap.querySelector('[data-scroller]');
-      const maxScroll = scroller.scrollWidth - scroller.clientWidth;
-      const x = scroller.scrollLeft;
-
-      wrap.classList.toggle('has-left', x > 2);
-      wrap.classList.toggle('has-right', x < maxScroll - 2);
-
-      const prev = wrap.querySelector('[data-scroll="prev"]');
-      const next = wrap.querySelector('[data-scroll="next"]');
-      if(prev) prev.disabled = x <= 2;
-      if(next) next.disabled = x >= maxScroll - 2;
-    }
-    function updateAllScrollerHints(){
-      document.querySelectorAll('[data-scroller-wrap]').forEach(updateScrollerHints);
-    }
-
-    function scrollByPage(scroller, dir){
-      const gap = 14;
-      const step = scroller.clientWidth - gap;
-      scroller.scrollBy({ left: dir * step, behavior: 'smooth' });
-    }
-
-    document.querySelectorAll('[data-scroller-wrap]').forEach(wrap => {
-      const scroller = wrap.querySelector('[data-scroller]');
-      if(!scroller) return;
-
-      updateScrollerHints(wrap);
-
-      scroller.addEventListener('scroll', () => updateScrollerHints(wrap), { passive:true });
-
-      wrap.querySelectorAll('.scroll-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const dir = btn.dataset.scroll === 'next' ? 1 : -1;
-          scrollByPage(scroller, dir);
-        });
-      });
-
-      scroller.addEventListener('keydown', (e) => {
-        if(e.key === 'ArrowRight') { e.preventDefault(); scrollByPage(scroller, 1); }
-        if(e.key === 'ArrowLeft') { e.preventDefault(); scrollByPage(scroller, -1); }
-      });
-      scroller.setAttribute('tabindex', '0');
-      scroller.setAttribute('role', 'region');
-    });
-
-    window.addEventListener('resize', () => requestAnimationFrame(updateAllScrollerHints), { passive:true });
-
-    function openModalEl(el){
-      if(!el) return;
-      document.body.setAttribute('data-modal-open', '1');
-      el.classList.add('is-open');
-      el.setAttribute('aria-hidden', 'false');
-    }
-    function closeModalEl(el){
-      if(!el) return;
-      el.classList.remove('is-open');
-      el.setAttribute('aria-hidden', 'true');
-      if(!document.querySelector('.modal.is-open')){
-        document.body.removeAttribute('data-modal-open');
-      }
-    }
-
-    /* Gallery modal */
-    const modal = document.getElementById('photoModal');
-    const modalImage = document.getElementById('modalImage');
-    const closeBtn = document.getElementById('closeModal');
-    const tiles = Array.from(document.querySelectorAll('.tile'));
-    const openFirstPhoto = document.getElementById('openFirstPhoto');
-
-    function openModal(src, alt){
-      if(!src || !modalImage) return;
-      modalImage.src = src;
-      modalImage.alt = alt || 'Фото лагеря';
-      openModalEl(modal);
-      closeBtn.focus();
-    }
-    function closeModal(){
-      if(modalImage){
-        modalImage.removeAttribute('src');
-        modalImage.alt = '';
-      }
-      closeModalEl(modal);
-    }
-
-    tiles.forEach(tile => {
-      const open = () => openModal(tile.dataset.full, tile.dataset.alt || tile.getAttribute('aria-label') || 'Фото лагеря');
-      tile.addEventListener('click', open);
-      tile.addEventListener('keydown', (e) => {
-        if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
-      });
-    });
-    openFirstPhoto.addEventListener('click', () => {
-      const firstTile = tiles[0];
-      if(firstTile) openModal(firstTile.dataset.full, firstTile.dataset.alt || firstTile.getAttribute('aria-label') || 'Фото лагеря');
-    });
-    closeBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
-    const shiftModal = document.getElementById('shiftModal');
-    const shiftModal2 = document.getElementById('shiftModal2');
-    const shiftModal3 = document.getElementById('shiftModal3');
-    const shiftModal4 = document.getElementById('shiftModal4');
-    const shiftModal5 = document.getElementById('shiftModal5');
-    const programModal1 = document.getElementById('programModal1');
-    const programModal2 = document.getElementById('programModal2');
-    const programModal3 = document.getElementById('programModal3');
-    const programModal4 = document.getElementById('programModal4');
-    const closeShiftModalBtn = document.getElementById('closeShiftModal');
-    const closeShiftModalBtn2 = document.getElementById('closeShiftModal2');
-    const closeShiftModalBtn3 = document.getElementById('closeShiftModal3');
-    const closeShiftModalBtn4 = document.getElementById('closeShiftModal4');
-    const closeShiftModalBtn5 = document.getElementById('closeShiftModal5');
-    const closeProgramModalBtn1 = document.getElementById('closeProgramModal1');
-    const closeProgramModalBtn2 = document.getElementById('closeProgramModal2');
-    const closeProgramModalBtn3 = document.getElementById('closeProgramModal3');
-    const closeProgramModalBtn4 = document.getElementById('closeProgramModal4');
-
-    function openModalById(id){
-      const el = document.getElementById(id);
-      if(!el) return;
-      openModalEl(el);
-    }
-    function closeModalById(id){
-      const el = document.getElementById(id);
-      if(!el) return;
-      closeModalEl(el);
-    }
-    function closeShiftModalFn(){ closeModalById('shiftModal'); }
-    function closeShiftModalFn2(){ closeModalById('shiftModal2'); }
-    function closeShiftModalFn3(){ closeModalById('shiftModal3'); }
-    function closeShiftModalFn4(){ closeModalById('shiftModal4'); }
-    function closeShiftModalFn5(){ closeModalById('shiftModal5'); }
-    function closeProgramModalFn1(){ closeModalById('programModal1'); }
-    function closeProgramModalFn2(){ closeModalById('programModal2'); }
-    function closeProgramModalFn3(){ closeModalById('programModal3'); }
-    function closeProgramModalFn4(){ closeModalById('programModal4'); }
-
-    document.addEventListener('click', (e) => {
-      const btn = e.target.closest('.js-shift-details');
-      if(!btn) return;
-      e.preventDefault();
-      const targetId = btn.getAttribute('data-modal');
-      if(targetId) openModalById(targetId);
-    });
-    document.addEventListener('click', (e) => {
-      const btn = e.target.closest('.js-program-details');
-      if(!btn) return;
-      e.preventDefault();
-      const targetId = btn.getAttribute('data-modal');
-      if(targetId) openModalById(targetId);
-    });
-    if(closeShiftModalBtn){
-      closeShiftModalBtn.addEventListener('click', closeShiftModalFn);
-    }
-    if(closeShiftModalBtn2){
-      closeShiftModalBtn2.addEventListener('click', closeShiftModalFn2);
-    }
-    if(closeShiftModalBtn3){
-      closeShiftModalBtn3.addEventListener('click', closeShiftModalFn3);
-    }
-    if(closeShiftModalBtn4){
-      closeShiftModalBtn4.addEventListener('click', closeShiftModalFn4);
-    }
-    if(closeShiftModalBtn5){
-      closeShiftModalBtn5.addEventListener('click', closeShiftModalFn5);
-    }
-    if(closeProgramModalBtn1){
-      closeProgramModalBtn1.addEventListener('click', closeProgramModalFn1);
-    }
-    if(closeProgramModalBtn2){
-      closeProgramModalBtn2.addEventListener('click', closeProgramModalFn2);
-    }
-    if(closeProgramModalBtn3){
-      closeProgramModalBtn3.addEventListener('click', closeProgramModalFn3);
-    }
-    if(closeProgramModalBtn4){
-      closeProgramModalBtn4.addEventListener('click', closeProgramModalFn4);
-    }
-    if(shiftModal){
-      shiftModal.addEventListener('click', (e) => {
-        if(e.target === shiftModal) closeShiftModalFn();
-      });
-    }
-    if(shiftModal2){
-      shiftModal2.addEventListener('click', (e) => {
-        if(e.target === shiftModal2) closeShiftModalFn2();
-      });
-    }
-    if(shiftModal3){
-      shiftModal3.addEventListener('click', (e) => {
-        if(e.target === shiftModal3) closeShiftModalFn3();
-      });
-    }
-    if(shiftModal4){
-      shiftModal4.addEventListener('click', (e) => {
-        if(e.target === shiftModal4) closeShiftModalFn4();
-      });
-    }
-    if(shiftModal5){
-      shiftModal5.addEventListener('click', (e) => {
-        if(e.target === shiftModal5) closeShiftModalFn5();
-      });
-    }
-    if(programModal1){
-      programModal1.addEventListener('click', (e) => {
-        if(e.target === programModal1) closeProgramModalFn1();
-      });
-    }
-    if(programModal2){
-      programModal2.addEventListener('click', (e) => {
-        if(e.target === programModal2) closeProgramModalFn2();
-      });
-    }
-    if(programModal3){
-      programModal3.addEventListener('click', (e) => {
-        if(e.target === programModal3) closeProgramModalFn3();
-      });
-    }
-    if(programModal4){
-      programModal4.addEventListener('click', (e) => {
-        if(e.target === programModal4) closeProgramModalFn4();
-      });
-    }
-
-    /* Payment instructions modal */
-    const paymentModal = document.getElementById('paymentModal');
-    const closePaymentModalBtn = document.getElementById('closePaymentModal');
-    function openPaymentModal(){
-      if(!paymentModal) return;
-      openModalEl(paymentModal);
-    }
-    function closePaymentModal(){
-      if(!paymentModal) return;
-      closeModalEl(paymentModal);
-    }
-
-    /* Force-close any open modals on load to avoid stuck overlays */
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.modal').forEach(el => closeModalEl(el));
-      document.body.removeAttribute('data-modal-open');
-    });
-    document.addEventListener('click', (e) => {
-      const btn = e.target.closest('.js-payment-instructions');
-      if(!btn) return;
-      e.preventDefault();
-      openPaymentModal();
-    });
-    if(closePaymentModalBtn){
-      closePaymentModalBtn.addEventListener('click', closePaymentModal);
-    }
-    if(paymentModal){
-      paymentModal.addEventListener('click', (e) => {
-        if(e.target === paymentModal) closePaymentModal();
-      });
-    }
-
-    document.addEventListener('keydown', (e) => {
-      if(e.key === 'Escape'){
-        setMenu(false);
-        closeModal();
-        closeShiftModalFn();
-        closeShiftModalFn2();
-        closeShiftModalFn3();
-        closeShiftModalFn4();
-        closeShiftModalFn5();
-        closeProgramModalFn1();
-        closeProgramModalFn2();
-        closeProgramModalFn3();
-        closeProgramModalFn4();
-        closePaymentModal();
-      }
-    });
-
-    /* Close section screens */
-    document.querySelectorAll('[data-close]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const sel = btn.getAttribute('data-close');
-        const el = document.querySelector(sel);
-        if(el) el.classList.add('is-hidden');
-      });
-    });
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      const href = a.getAttribute('href');
-      if(!href || href === '#!') return;
-      const target = document.querySelector(href);
-      if(!target || !target.classList.contains('closable')) return;
-      a.addEventListener('click', () => {
-        target.classList.remove('is-hidden');
-      });
-    });
-
-    document.getElementById('year').textContent = new Date().getFullYear();
-    requestAnimationFrame(updateAllScrollerHints);
-  </script>
+  <script src="scripts/main.js" defer></script>
 </body>
 </html>

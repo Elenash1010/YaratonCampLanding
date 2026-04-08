@@ -1,0 +1,42 @@
+﻿    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+    :root{
+      --bg:#FFFFFF;
+      --paper:#FFFFFF;
+      --glass: rgba(255,255,255,.78);
+
+      --text:#000000;
+      --muted:#000000;
+
+      --line: rgba(11,15,20,.12);
+      --line2: rgba(11,15,20,.16);
+
+      /* Smaller, harder shadows */
+      --shadow: 0 8px 18px rgba(11,15,20,.08);
+      --shadow2: 0 14px 28px rgba(11,15,20,.12);
+
+      /* radius caps */
+      --radius: 10px;         /* cards */
+      --btnRadius: 8px;       /* buttons */
+      --chipRadius: 8px;      /* chips/badges/pills */
+
+      --ring: 0 0 0 4px rgba(56,105,172,.18);
+
+      /* PRIMARY */
+      --primary:#233B59;
+      --primary2:#6290C3;
+      --ink:#fff;
+      --heading:#233B59;
+
+      --leaf:#2DBD7E;
+      --sky:#3D8BFF;
+      --sun:#FFD166;
+      --vio:#7C5CFF;
+
+      --container: 1160px;
+
+      --ease: cubic-bezier(.2,.9,.2,1);
+      --fast: 160ms var(--ease);
+      --slow: 260ms var(--ease);
+    }
+

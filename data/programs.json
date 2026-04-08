@@ -1,0 +1,34 @@
+﻿[
+  {
+    "id": "program-1",
+    "title": "Спорт и активность",
+    "summary": "Командные игры, движение, заряд энергии и спортивные привычки.",
+    "cardImage": "assets/images/misc/leisure-main.jpg",
+    "modalImage": "assets/images/programs/program-blogger-modal.jpg",
+    "modalId": "programModal1"
+  },
+  {
+    "id": "program-2",
+    "title": "Контент-вселенная: ты в эфире",
+    "summary": "14 дней съемок, челленджей и командных проектов для подростков 12-16 лет.",
+    "cardImage": "assets/images/programs/program-blogger.jpg",
+    "modalImage": "assets/images/programs/program-blogger-modal.jpg",
+    "modalId": "programModal2"
+  },
+  {
+    "id": "program-3",
+    "title": "Творчество и самовыражение",
+    "summary": "Творческие мастер-классы, проекты, выступления и атмосфера поддержки.",
+    "cardImage": "assets/images/programs/program-creativity.jpg",
+    "modalImage": "assets/images/programs/program-model-modal.jpg",
+    "modalId": "programModal3"
+  },
+  {
+    "id": "program-4",
+    "title": "Я - Звезда. Школа моделей и самопрезентации",
+    "summary": "Пластика, самопрезентация, работа перед камерой и финальное fashion-шоу.",
+    "cardImage": "assets/images/programs/program-model-card.jpg",
+    "modalImage": "assets/images/programs/program-model-modal.jpg",
+    "modalId": "programModal4"
+  }
+]

@@ -1,0 +1,66 @@
+﻿    /* =========================
+      RESPONSIVE
+    ========================== */
+    @media (max-width: 1024px){
+      .hero-grid{grid-template-columns: 1fr}
+      .hero-banner{min-height: 320px}
+      .docs-grid{grid-template-columns: repeat(2,1fr)}
+      .day-row{grid-template-columns: 1fr}
+      .medical-gallery{grid-template-columns: 1fr}
+      .gallery .tile{grid-column: span 6}
+      .route-grid{grid-template-columns: 1fr}
+      .parents-grid{grid-template-columns: 1fr}
+      .rows{grid-template-columns: 1fr}
+      .team-grid{grid-template-columns: 1fr}
+      .team-points{display:flex; flex-wrap:wrap}
+      .sticky-note{position:relative; top:auto}
+      .footer-grid{grid-template-columns: 1fr 1fr}
+      .scroll-prev{left:6px}
+      .scroll-next{right:6px}
+    }
+    @media (max-width: 768px){
+      nav.desktop{display:none}
+      .burger{display:inline-flex}
+      .mobile-panel{display:block}
+      .grid-4{grid-template-columns: 1fr 1fr}
+      .grid-2{grid-template-columns: 1fr}
+      .faq{grid-template-columns: 1fr}
+      .contact-grid{grid-template-columns: 1fr}
+      .form-row{grid-template-columns: 1fr}
+      .footer-grid{grid-template-columns: 1fr}
+      .hero-left h1{max-width:none}
+      .hero-perks{grid-template-columns: repeat(2, minmax(0, max-content))}
+      .hero-tags{grid-template-columns: repeat(2, minmax(0, 1fr))}
+      .hero-tags .kicker{width:100%; justify-content:flex-start}
+      .final-cta-text{white-space:normal}
+      .final-cta-break{display:block}
+      #shifts .subhead{flex-direction:column; align-items:flex-start}
+      #shifts .subhead .btn{align-self:flex-start; margin-top:10px}
+      #team .subhead{flex-direction:column; align-items:flex-start}
+      #team .subhead .btn{align-self:flex-start; margin-top:10px}
+      .shift-modal .content{grid-template-columns: 1fr}
+      #shifts .scroller{grid-auto-columns: minmax(300px, 300px)}
+      #shifts .scroller > .shift{min-height: 590px}
+      .tile{min-height: 160px}
+      .scroll-btn{display:none}
+    }
+    @media (max-width: 420px){
+      .container{width: calc(100% - 28px)}
+      .grid-4{grid-template-columns: 1fr}
+      .docs-grid{grid-template-columns: 1fr}
+      .gallery .tile{grid-column: span 12}
+      .hero-banner{min-height: 270px}
+      .hero-perks{grid-template-columns: 1fr}
+      .hero-tags{grid-template-columns: 1fr}
+      .team-points{display:flex; flex-wrap:wrap}
+      #shifts .scroller{grid-auto-columns: minmax(86vw, 86vw)}
+      #shifts .scroller > .shift{min-height: 560px}
+      .mobile-actions{grid-template-columns: 1fr}
+      .team-collage{aspect-ratio:auto}
+      .team-collage .team-photo{min-height:220px}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none !important; scroll-behavior:auto !important}
+    }
+

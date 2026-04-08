@@ -1,0 +1,27 @@
+﻿{
+  "sections": [
+    "header",
+    "hero",
+    "about",
+    "shifts",
+    "programs",
+    "team",
+    "medical-services",
+    "parents",
+    "day-schedule",
+    "faq",
+    "docs",
+    "reviews",
+    "gallery",
+    "contacts",
+    "final-cta",
+    "route",
+    "payments",
+    "footer"
+  ],
+  "externalDependencies": [
+    "Google Fonts",
+    "Yandex Forms",
+    "Yandex Maps"
+  ]
+}
