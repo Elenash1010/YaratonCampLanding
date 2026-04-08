@@ -195,24 +195,24 @@
       border-color:#B8CCE6;
     }
     .btn-soft{
-      background: #E3F4BF;
-      border-color: #C7E985;
+      background: #EEF4FF;
+      border-color: #C4D5EC;
       color: #233B59;
       box-shadow: var(--shadow);
     }
     .btn-soft:hover{
-      background: #D9EEAF;
+      background: #E6F0FF;
     }
     .btn-ghost{
-      background:#E3F4BF;
-      border-color:#C7E985;
+      background:#EEF4FF;
+      border-color:#C4D5EC;
       color:#233B59;
     }
     .btn-ghost:hover{
       transform: translateY(-2px);
-      box-shadow: 0 12px 26px rgba(186,255,41,.14);
-      background:#D9EEAF;
-      border-color:#B8D972;
+      box-shadow: 0 12px 26px rgba(56,105,172,.14);
+      background:#E6F0FF;
+      border-color:#B8CCE6;
     }
 
     /* =========================
@@ -327,21 +327,24 @@
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
     }
+    .card-media.real-photo:after{
+      display:none;
+    }
     .shift-media-tag{
       position:absolute;
-      top:10px;
-      left:10px;
+      bottom:10px;
+      right:10px;
       display:inline-flex;
       align-items:center;
       padding:6px 10px;
       border-radius: var(--chipRadius);
-      background: #E3F4BF;
-      border:1px solid #C7E985;
+      background: #EEF4FF;
+      border:1px solid #C4D5EC;
       color: #233B59;
       font-weight:700;
       font-size:12px;
       z-index:1;
-      box-shadow: 0 8px 18px rgba(186,255,41,.14);
+      box-shadow: 0 8px 18px rgba(56,105,172,.14);
     }
 
     .badge{
@@ -359,7 +362,7 @@
       -webkit-backdrop-filter: blur(12px);
       box-shadow: 0 8px 18px rgba(11,15,20,.08);
     }
-    .b-leaf{background:rgba(45,189,126,.10); border-color:rgba(45,189,126,.22)}
+    .b-leaf{background:rgba(56,105,172,.10); border-color:rgba(56,105,172,.22)}
     .b-sky{background:rgba(56,105,172,.10); border-color:rgba(56,105,172,.22)}
     .b-sun{background:rgba(255,209,102,.12); border-color:rgba(255,209,102,.22)}
     .b-vio{background:rgba(124,92,255,.10); border-color:rgba(124,92,255,.22)}
@@ -769,9 +772,9 @@
     }
     .tab:hover{transform: translateY(-1px); box-shadow: 0 12px 26px rgba(11,15,20,.10)}
     .tab[aria-selected="true"]{
-      border-color: #C7E985;
-      background: #E3F4BF;
-      box-shadow: 0 12px 26px rgba(186,255,41,.14);
+      border-color: #C4D5EC;
+      background: #EEF4FF;
+      box-shadow: 0 12px 26px rgba(56,105,172,.14);
       color: #233B59;
       font-weight: 700;
     }
@@ -884,8 +887,8 @@
       align-items:flex-end;
     }
     .shift .badge{
-      border:1px solid rgba(96,166,128,.34);
-      background: rgba(173,223,191,.26);
+      border:1px solid #C4D5EC;
+      background: #EEF4FF;
       color:var(--heading);
       white-space: nowrap;
       margin-top: 12px !important;
@@ -949,6 +952,26 @@
     #programs .program p{
       color:#5E6F86;
     }
+    #programs .program.program-split .program-intro{
+      display:block;
+    }
+    #programs .program.program-split .program-intro .card-media{
+      width:100%;
+      margin-bottom:10px;
+      aspect-ratio: 16 / 9;
+      min-height:300px;
+    }
+    #programs .program.program-split .program-intro p{
+      margin:0;
+      color:#233B59;
+      font-weight:500;
+    }
+    #programs .program.program-split .learn{
+      margin-top:4px;
+    }
+    #programs .program.program-split .program-actions{
+      margin-top:4px;
+    }
     .learn{
       margin-top: 8px;
       border-radius: var(--radius);
@@ -999,9 +1022,10 @@
     ========================== */
     .team-grid{
       display:grid;
-      grid-template-columns: 1.05fr .95fr;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       gap:14px;
       align-items:stretch;
+      width:100%;
     }
     .team-left{
       border-radius: var(--radius);
@@ -1009,6 +1033,7 @@
       background: rgba(255,255,255,.94);
       box-shadow: var(--shadow);
       padding: 16px;
+      min-width:0;
     }
     .team-points{
       display:flex;
@@ -1097,74 +1122,25 @@
       border:1px solid rgba(11,15,20,.12);
       background: rgba(255,255,255,.94);
       box-shadow: var(--shadow2);
-      padding: 128px;
+      padding: 20px;
       overflow:hidden;
       aspect-ratio: 1 / 1;
+      position: relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-width:0;
+      max-width:100%;
+      box-sizing:border-box;
     }
-    .team-collage .hint{display:none}
-    .collage-grid{
-      position:relative;
-      height: 100%;
-    }
-    .team-collage .collage-photo{
-      position:absolute;
-      box-shadow: 0 12px 26px rgba(11,15,20,.14);
-    }
-    .team-collage .collage-photo.collage-a{
-      top:0;
-      left:12%;
-      width: 86%;
-      height: 56%;
-      z-index:3;
-    }
-    .team-collage .collage-photo.collage-b{
-      top:38%;
-      left:0;
-      width: 46%;
-      height: 44%;
-      z-index:2;
-    }
-    .team-collage .collage-photo.collage-c{
-      top:58%;
-      left:30%;
-      width: 70%;
-      height: 40%;
-      z-index:1;
-    }
-    .collage-photo{
+    .team-collage .team-photo{
+      width:100%;
+      height:100%;
       border-radius: var(--radius);
-      border:1px solid rgba(11,15,20,.12);
-      overflow:hidden;
-      position:relative;
-      min-height: 150px;
-      background:
-        radial-gradient(180px 130px at 22% 25%, rgba(255,255,255,.72), transparent 60%),
-        radial-gradient(260px 180px at 80% 30%, rgba(56,105,172,.20), transparent 62%),
-        radial-gradient(260px 180px at 55% 92%, rgba(45,189,126,.14), transparent 62%),
-        radial-gradient(240px 190px at 25% 85%, rgba(255,209,102,.12), transparent 62%),
-        linear-gradient(135deg, rgba(45,189,126,.52), rgba(56,105,172,.30) 55%, rgba(255,91,77,.10));
+      border:1px solid rgba(11,15,20,.10);
+      background: #fff url('фото/Frame 47.png') center / contain no-repeat;
       box-shadow: 0 10px 22px rgba(11,15,20,.10);
-      transform: translateZ(0);
-      transition: transform var(--fast), box-shadow var(--fast), filter var(--fast);
-    }
-    .collage-photo:hover{
-      transform: translateY(-3px);
-      box-shadow: var(--shadow);
-      filter: saturate(1.03);
-    }
-    .collage-photo:after{
-      content: attr(data-label);
-      position:absolute;
-      left:10px; bottom:10px;
-      padding:6px 10px;
-      border-radius: var(--chipRadius);
-      background: rgba(255,255,255,.16);
-      border:1px solid rgba(255,255,255,.26);
-      color: rgba(255,255,255,.95);
-      font-weight:700;
-      font-size:12px;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      max-width:100%;
     }
     .team-cta{
       display:flex;
@@ -1279,12 +1255,12 @@
     .doc .go{
       width:38px;height:38px;border-radius: var(--radius);
       display:grid;place-items:center;
-      border:1px solid #C7E985;
-      background:#E3F4BF;
+      border:1px solid #C4D5EC;
+      background:#EEF4FF;
       color:#233B59;
       transition: transform var(--fast);
       flex:0 0 auto;
-      box-shadow: 0 8px 18px rgba(186,255,41,.14);
+      box-shadow: 0 8px 18px rgba(56,105,172,.14);
     }
     .doc:hover .go{transform: translateX(2px)}
 
@@ -1516,6 +1492,8 @@
       font-size:13px;
       letter-spacing:.15px;
     }
+    .tile .label > span:first-child{display:none}
+    .tile .label{justify-content:flex-end}
     .zoom{
       width:36px;height:36px;border-radius: var(--radius);
       display:grid;place-items:center;
@@ -1715,6 +1693,9 @@
       width:40px !important;
       height:40px !important;
     }
+    .t-sociallinks__svg path{
+      fill:#3869ac !important;
+    }
     .copyright{margin-top: 16px; font-size:12px; font-weight:400; color:rgba(11,15,20,.52)}
 
     /* MODAL */
@@ -1722,14 +1703,16 @@
       position:fixed;
       inset:0;
       background: rgba(0,0,0,.56);
-      display:none;
+      display:none !important;
       align-items:center;
       justify-content:center;
       padding: 22px;
       z-index: 90;
     }
-    .modal[aria-hidden="false"]{display:flex}
-    .modal:target{display:flex}
+    body:not([data-modal-open="1"]) .modal{display:none !important}
+    .modal.is-open{display:flex !important}
+    /* Disable auto-open by URL hash to prevent accidental overlays */
+    .modal:target{display:none}
     .modal .box{
       width:min(980px, 100%);
       min-height: 440px;
@@ -1756,13 +1739,13 @@
       gap:10px;
       padding:10px 12px;
       border-radius: var(--radius);
-      background:#E3F4BF;
-      border:1px solid #C7E985;
+      background:#EEF4FF;
+      border:1px solid #C4D5EC;
       color:#233B59;
       font-weight:700;
       font-family:"Montserrat";
       font-size: 12px;
-      box-shadow: 0 12px 26px rgba(186,255,41,.14);
+      box-shadow: 0 12px 26px rgba(56,105,172,.14);
     }
     .modal .close{
       border:1px solid rgba(255,255,255,.26);
@@ -1786,11 +1769,11 @@
       padding:0 0 16px;
     }
     .shift-modal .tag{
-      background:#E3F4BF;
-      border:1px solid #C7E985;
+      background:#EEF4FF;
+      border:1px solid #C4D5EC;
       color:#233B59;
       font-weight:700;
-      box-shadow: 0 12px 26px rgba(186,255,41,.14);
+      box-shadow: 0 12px 26px rgba(56,105,172,.14);
       backdrop-filter:none;
       -webkit-backdrop-filter:none;
     }
@@ -1930,9 +1913,8 @@
       #shifts .scroller{grid-auto-columns: minmax(86vw, 86vw)}
       #shifts .scroller > .shift{min-height: 560px}
       .mobile-actions{grid-template-columns: 1fr}
-      .collage-grid{height:auto; display:grid; grid-template-columns: 1fr; gap:12px}
-      .team-collage .collage-photo{position:relative; width:100%; height:160px; left:auto; top:auto}
-      .collage-photo{min-height: 140px}
+      .team-collage{aspect-ratio:auto}
+      .team-collage .team-photo{min-height:220px}
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -2031,7 +2013,7 @@
           </div>
 
           <div class="hero-banner">
-            <img src="hUfOFLuaK8U-hero.jpg" alt="Счастливая семья в лагере" loading="eager" decoding="async" />
+            <img src="фото/галерея/1.jpg" alt="Счастливая семья в лагере" loading="eager" decoding="async" />
           </div>
         </div><!-- /hero-grid -->
       </div>
@@ -2080,25 +2062,25 @@
 
         <div class="grid-4">
           <article class="card">
-            <div class="card-media" aria-label="Фото: организованный досуг (плейсхолдер)"></div>
+            <div class="card-media real-photo" aria-label="Фото: организованный досуг" style="background-image:url('фото/досуг.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"></div>
             <h3>Организованный досуг</h3>
             <p>Каждый день — расписание с балансом активности и отдыха, без перегруза. Внимательные воспитатели и задорные вожатые.</p>
           </article>
 
           <article class="card">
-            <div class="card-media" aria-label="Фото: творческие кружки (плейсхолдер)"></div>
+            <div class="card-media real-photo" aria-label="Фото: творчество и развитие" style="background-image:url('фото/творчество.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"></div>
             <h3>Творчество и развитие</h3>
             <p>Сцена, творческие мастерские, игры и квесты помогают ребёнку открывать в себе новые таланты.</p>
           </article>
 
           <article class="card">
-            <div class="card-media" aria-label="Фото: безопасность и комфорт (плейсхолдер)"></div>
+            <div class="card-media real-photo" aria-label="Фото: безопасность и комфорт" style="background-image:url('фото/камера.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"></div>
             <h3>Безопасность и комфорт</h3>
             <p>Контроль территории, медицинское сопровождение, простые правила, внимательное и ответсвенное отношение педагогов не оставляют повода для родительских тревог.</p>
           </article>
 
           <article class="card">
-            <div class="card-media" aria-label="Фото: питание (плейсхолдер)"></div>
+            <div class="card-media real-photo" aria-label="Фото: столовая" style="background-image:url('фото/столовая.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"></div>
             <h3>Сбалансированное питание и комфортное проживание</h3>
             <p>Продуманное меню с элементами шведского стола, режим, проживание в уютных обновленных номерах. По согласованию с родителями учитываем особенности здоровья ребенка .</p>
           </article>
@@ -2232,7 +2214,7 @@
             </button>
             <div class="scroller" data-scroller aria-label="Карточки смен (Лето)">
               <article class="card shift">
-                <div class="card-media" aria-label="Фото смены: Начало большой космической экспедиции (плейсхолдер)"><span class="shift-media-tag">Первая смена</span></div>
+                <div class="card-media real-photo" aria-label="Фото смены: Начало большой космической экспедиции" style="background-image:url('фото/1смена.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"><span class="shift-media-tag">Первая смена</span></div>
                 <div class="shift-top">
                   <div>
                     <h3>Начало большой космической экспедиции</h3>
@@ -2264,7 +2246,7 @@
               </article>
 
               <article class="card shift">
-                <div class="card-media" aria-label="Фото смены: Выход на орбиту (плейсхолдер)"><span class="shift-media-tag">Вторая смена</span></div>
+                <div class="card-media real-photo" aria-label="Фото смены: Выход на орбиту" style="background-image:url('фото/2смена.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"><span class="shift-media-tag">Вторая смена</span></div>
                 <div class="shift-top">
                   <div>
                     <h3>Выход на орбиту</h3>
@@ -2296,7 +2278,7 @@
               </article>
 
               <article class="card shift">
-                <div class="card-media" aria-label="Фото смены: Глубокий космос (плейсхолдер)"><span class="shift-media-tag">Третья смена</span></div>
+                <div class="card-media real-photo" aria-label="Фото смены: Глубокий космос" style="background-image:url('фото/3смена.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"><span class="shift-media-tag">Третья смена</span></div>
                 <div class="shift-top">
                   <div>
                     <h3>Глубокий космос</h3>
@@ -2328,7 +2310,7 @@
               </article>
 
               <article class="card shift">
-                <div class="card-media" aria-label="Фото смены: Спорт-турнир (плейсхолдер)"><span class="shift-media-tag">Четвертая смена</span></div>
+                <div class="card-media real-photo" aria-label="Фото смены: Спорт-турнир" style="background-image:url('фото/4смена.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"><span class="shift-media-tag">Четвертая смена</span></div>
                 <div class="shift-top">
                   <div>
                     <h3>Новые галактики</h3>
@@ -2360,7 +2342,7 @@
               </article>
 
               <article class="card shift">
-                <div class="card-media" aria-label="Фото смены: Медиа-студия (плейсхолдер)"><span class="shift-media-tag">Пятая смена</span></div>
+                <div class="card-media real-photo" aria-label="Фото смены: Медиа-студия" style="background-image:url('фото/5смена.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"><span class="shift-media-tag">Пятая смена</span></div>
                 <div class="shift-top">
                   <div>
                     <h3>Миссия: возвращение</h3>
@@ -2595,16 +2577,19 @@
               </div>
             </article>
 
-            <article class="card program">
-              <div class="card-media" aria-label="Фото программы: творчество (плейсхолдер)"></div>
+            <article class="card program program-split">
               <div class="top">
                 <h3>Контент-вселенная: ты в эфире</h3>
               </div>
-              <p>14 дней съёмок, челленджей и командных проектов: от первых роликов до собственной премьеры.</p>
+              <div class="program-intro">
+                <div class="card-media real-photo" aria-label="Фото программы: контент-вселенная" style="background-image:url('фото/блогер.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"></div>
+                <p>14 дней съёмок, челленджей и командных проектов: от первых роликов до собственной премьеры.</p>
+              </div>
               <div class="learn">
                 <strong>Что будет в программе</strong>
                 <ul>
                   <li>съёмка, монтаж и сторителлинг</li>
+                  <li>идеи, сценарии и структура сильного контента</li>
                   <li>челленджи, тренды и работа в кадре</li>
                   <li>командный медиапроект и финальный показ</li>
                 </ul>
@@ -2636,12 +2621,14 @@
               </div>
             </article>
 
-            <article class="card program">
-              <div class="card-media" aria-label="Фото программы: медиа (плейсхолдер)"></div>
+            <article class="card program program-split">
               <div class="top">
                 <h3>Я - Звезда. Школа моделей и самопрезентации</h3>
               </div>
-              <p>Уверенность, стиль и умение себя подать. За 14 дней — от зажатости к свободе перед камерой и на сцене.</p>
+              <div class="program-intro">
+                <div class="card-media real-photo" aria-label="Фото программы: Я - Звезда" style="background-image:url('фото/мдельпопап1.jpg'); background-size:cover; background-position:center 30%; background-repeat:no-repeat;"></div>
+                <p>Уверенность, стиль и умение себя подать. За 14 дней — от зажатости к свободе перед камерой и на сцене.</p>
+              </div>
               <div class="learn">
                 <strong>Что будет в программе</strong>
                 <ul>
@@ -2707,15 +2694,8 @@
           </div>
 
           <!-- Right: collage 2x2 -->
-          <aside class="team-collage" aria-label="Коллаж из 4 фотографий (плейсхолдеры)">
-            <div class="collage-grid">
-              <div class="collage-photo collage-a" data-label="Команда" role="img" aria-label="Фото команды (плейсхолдер)"></div>
-              <div class="collage-photo collage-b" data-label="Вожатые" role="img" aria-label="Фото вожатых (плейсхолдер)"></div>
-              <div class="collage-photo collage-c" data-label="Отряд" role="img" aria-label="Фото отряда (плейсхолдер)"></div>
-            </div>
-            <p class="hint" style="margin:12px 0 0">
-              *Замените плейсхолдеры на реальные фото через <span class="mono">background-image</span>.
-            </p>
+          <aside class="team-collage" aria-label="Фотография команды">
+            <div class="team-photo" role="img" aria-label="Команда Яратон"></div>
           </aside>
         </div>
       </div>
@@ -2732,9 +2712,9 @@
 
         <div class="medical-grid">
           <div class="medical-gallery" aria-label="Фотографии медицинских услуг">
-            <div class="medical-photo" role="img" aria-label="Фото медицинских услуг 1 (заглушка)"></div>
-            <div class="medical-photo" role="img" aria-label="Фото медицинских услуг 2 (заглушка)"></div>
-            <div class="medical-photo" role="img" aria-label="Фото медицинских услуг 3 (заглушка)"></div>
+            <div class="medical-photo" role="img" aria-label="Фото медицинских услуг 1" style="background-image:url('фото/мед1.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"></div>
+            <div class="medical-photo" role="img" aria-label="Фото медицинских услуг 2" style="background-image:url('фото/мед2.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"></div>
+            <div class="medical-photo" role="img" aria-label="Фото медицинских услуг 3" style="background-image:url('фото/мед3.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"></div>
           </div>
 
           <div class="medical-copy">
@@ -3120,39 +3100,39 @@
         </div>
 
         <div class="gallery" aria-label="Галерея">
-          <div class="tile" role="button" tabindex="0" data-photo="Утро в лагере" aria-label="Открыть фото: Утро в лагере">
+          <div class="tile" role="button" tabindex="0" data-photo="Утро в лагере" aria-label="Открыть фото: Утро в лагере" style="background-image:url('фото/галерея/111.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
             <div class="overlay" aria-hidden="true"></div>
             <div class="label"><span>Утро в лагере</span><span class="zoom" aria-hidden="true">+</span></div>
           </div>
-          <div class="tile" role="button" tabindex="0" data-photo="Спортивные игры" aria-label="Открыть фото: Спортивные игры">
+          <div class="tile" role="button" tabindex="0" data-photo="Спортивные игры" aria-label="Открыть фото: Спортивные игры" style="background-image:url('фото/галерея/222.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
             <div class="overlay" aria-hidden="true"></div>
             <div class="label"><span>Спортивные игры</span><span class="zoom" aria-hidden="true">+</span></div>
           </div>
-          <div class="tile" role="button" tabindex="0" data-photo="Творческая мастерская" aria-label="Открыть фото: Творческая мастерская">
+          <div class="tile" role="button" tabindex="0" data-photo="Творческая мастерская" aria-label="Открыть фото: Творческая мастерская" style="background-image:url('фото/галерея/333.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
             <div class="overlay" aria-hidden="true"></div>
             <div class="label"><span>Творческая мастерская</span><span class="zoom" aria-hidden="true">+</span></div>
           </div>
-          <div class="tile" role="button" tabindex="0" data-photo="Квесты и миссии" aria-label="Открыть фото: Квесты и миссии">
+          <div class="tile" role="button" tabindex="0" data-photo="Квесты и миссии" aria-label="Открыть фото: Квесты и миссии" style="background-image:url('фото/галерея/444.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
             <div class="overlay" aria-hidden="true"></div>
             <div class="label"><span>Квесты и миссии</span><span class="zoom" aria-hidden="true">+</span></div>
           </div>
-          <div class="tile" role="button" tabindex="0" data-photo="Вечерняя сцена" aria-label="Открыть фото: Вечерняя сцена">
+          <div class="tile" role="button" tabindex="0" data-photo="Вечерняя сцена" aria-label="Открыть фото: Вечерняя сцена" style="background-image:url('фото/галерея/555.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
             <div class="overlay" aria-hidden="true"></div>
             <div class="label"><span>Вечерняя сцена</span><span class="zoom" aria-hidden="true">+</span></div>
           </div>
-          <div class="tile" role="button" tabindex="0" data-photo="Прогулки на природе" aria-label="Открыть фото: Прогулки на природе">
+          <div class="tile" role="button" tabindex="0" data-photo="Прогулки на природе" aria-label="Открыть фото: Прогулки на природе" style="background-image:url('фото/галерея/666.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
             <div class="overlay" aria-hidden="true"></div>
             <div class="label"><span>Прогулки на природе</span><span class="zoom" aria-hidden="true">+</span></div>
           </div>
-          <div class="tile" role="button" tabindex="0" data-photo="Дружба" aria-label="Открыть фото: Дружба">
+          <div class="tile" role="button" tabindex="0" data-photo="Дружба" aria-label="Открыть фото: Дружба" style="background-image:url('фото/галерея/777.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
             <div class="overlay" aria-hidden="true"></div>
             <div class="label"><span>Дружба</span><span class="zoom" aria-hidden="true">+</span></div>
           </div>
-          <div class="tile" role="button" tabindex="0" data-photo="Питание и уют" aria-label="Открыть фото: Питание и уют">
+          <div class="tile" role="button" tabindex="0" data-photo="Питание и уют" aria-label="Открыть фото: Питание и уют" style="background-image:url('фото/галерея/888.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
             <div class="overlay" aria-hidden="true"></div>
             <div class="label"><span>Питание и уют</span><span class="zoom" aria-hidden="true">+</span></div>
           </div>
-          <div class="tile" role="button" tabindex="0" data-photo="Финальный день" aria-label="Открыть фото: Финальный день">
+          <div class="tile" role="button" tabindex="0" data-photo="Финальный день" aria-label="Открыть фото: Финальный день" style="background-image:url('фото/галерея/999.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
             <div class="overlay" aria-hidden="true"></div>
             <div class="label"><span>Финальный день</span><span class="zoom" aria-hidden="true">+</span></div>
           </div>
@@ -3270,7 +3250,7 @@
           </div>
 
           <div class="card">
-            <div class="card-media" aria-label="Фото: как добраться (плейсхолдер)"></div>
+            <div class="card-media real-photo" aria-label="Фото: главный корпус" style="background-image:url('фото/главный корпус.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"></div>
             <h3>Адрес и ориентиры</h3>
             <p style="margin:6px 0 0"><strong>Местоположение:</strong> 36-ой км Якшур-Бодьинского тракта, деревня Карашур. Курорт "ЯРАТОН"</p>
             <p style="margin-top:10px"><strong>Трансфер:</strong> возможен в дни заезда/выезда (по записи).</p>
@@ -3396,7 +3376,7 @@
               </p>
               </div>
               <div class="shift-right">
-                <img src="hUfOFLuaK8U-hero.jpg" alt="Фото смены: открытие сезона" />
+                <img src="фото/1сменапопап.jpg" alt="Фото смены: открытие сезона" />
               </div>
             </div>
             <div style="margin-top:64px">
@@ -3459,7 +3439,7 @@
               </p>
             </div>
             <div class="shift-right">
-              <div class="shift-placeholder" aria-label="Фото смены: заглушка"></div>
+              <img src="фото/2смена попап.jpg" alt="Фото смены: выход на орбиту" />
             </div>
           </div>
           <div style="margin-top:28px">
@@ -3517,7 +3497,7 @@
               </p>
             </div>
             <div class="shift-right">
-              <div class="shift-placeholder" aria-label="Фото смены: заглушка"></div>
+              <img src="фото/3смена попап.jpg" alt="Фото смены: глубокий космос" />
             </div>
           </div>
           <div style="margin-top:28px">
@@ -3601,7 +3581,7 @@
               </p>
             </div>
             <div class="shift-right">
-              <div class="shift-placeholder" aria-label="Фото смены: заглушка"></div>
+              <img src="фото/4сменапопап.jpg" alt="Фото смены: новые галактики" />
             </div>
           </div>
           <div style="margin-top:28px">
@@ -3687,7 +3667,7 @@
               </p>
             </div>
             <div class="shift-right">
-              <div class="shift-placeholder" aria-label="Фото смены: заглушка"></div>
+              <img src="фото/5смена попап.jpg" alt="Фото смены: миссия возвращение" />
             </div>
           </div>
           <div style="margin-top:28px">
@@ -3743,7 +3723,7 @@
               </p>
             </div>
             <div class="shift-right">
-              <div class="shift-placeholder" aria-label="Фото программы: заглушка"></div>
+              <img src="фото/блогерпопап.jpg" alt="Фото программы: контент-вселенная" />
             </div>
           </div>
           <div style="margin-top:64px">
@@ -3802,7 +3782,7 @@
               </p>
             </div>
             <div class="shift-right">
-              <div class="shift-placeholder" aria-label="Фото программы: заглушка"></div>
+              <img src="фото/блогерпопап.jpg" alt="Фото программы: контент-вселенная" />
             </div>
           </div>
           <div style="margin-top:64px">
@@ -3860,7 +3840,7 @@
               </p>
             </div>
             <div class="shift-right">
-              <div class="shift-placeholder" aria-label="Фото программы: заглушка"></div>
+              <img src="фото/модельпопап.jpg" alt="Фото программы: Я - Звезда" />
             </div>
           </div>
           <div style="margin-top:64px">
@@ -3915,7 +3895,7 @@
               </p>
             </div>
             <div class="shift-right">
-              <div class="shift-placeholder" aria-label="Фото программы: заглушка"></div>
+              <img src="фото/модельпопап.jpg" alt="Фото программы: Я - Звезда" />
             </div>
           </div>
           <div style="margin-top:64px">
@@ -4093,6 +4073,21 @@
 
     window.addEventListener('resize', () => requestAnimationFrame(updateAllScrollerHints), { passive:true });
 
+    function openModalEl(el){
+      if(!el) return;
+      document.body.setAttribute('data-modal-open', '1');
+      el.classList.add('is-open');
+      el.setAttribute('aria-hidden', 'false');
+    }
+    function closeModalEl(el){
+      if(!el) return;
+      el.classList.remove('is-open');
+      el.setAttribute('aria-hidden', 'true');
+      if(!document.querySelector('.modal.is-open')){
+        document.body.removeAttribute('data-modal-open');
+      }
+    }
+
     /* Gallery modal */
     const modal = document.getElementById('photoModal');
     const modalTag = document.getElementById('modalTag');
@@ -4101,12 +4096,12 @@
     const openFirstPhoto = document.getElementById('openFirstPhoto');
 
     function openModal(label){
-      modal.setAttribute('aria-hidden', 'false');
+      openModalEl(modal);
       modalTag.textContent = label || 'Фото';
       closeBtn.focus();
     }
     function closeModal(){
-      modal.setAttribute('aria-hidden', 'true');
+      closeModalEl(modal);
     }
 
     tiles.forEach(tile => {
@@ -4141,14 +4136,12 @@
     function openModalById(id){
       const el = document.getElementById(id);
       if(!el) return;
-      el.style.display = 'flex';
-      el.setAttribute('aria-hidden', 'false');
+      openModalEl(el);
     }
     function closeModalById(id){
       const el = document.getElementById(id);
       if(!el) return;
-      el.style.display = 'none';
-      el.setAttribute('aria-hidden', 'true');
+      closeModalEl(el);
     }
     function closeShiftModalFn(){ closeModalById('shiftModal'); }
     function closeShiftModalFn2(){ closeModalById('shiftModal2'); }
@@ -4252,14 +4245,18 @@
     const closePaymentModalBtn = document.getElementById('closePaymentModal');
     function openPaymentModal(){
       if(!paymentModal) return;
-      paymentModal.style.display = 'flex';
-      paymentModal.setAttribute('aria-hidden', 'false');
+      openModalEl(paymentModal);
     }
     function closePaymentModal(){
       if(!paymentModal) return;
-      paymentModal.style.display = 'none';
-      paymentModal.setAttribute('aria-hidden', 'true');
+      closeModalEl(paymentModal);
     }
+
+    /* Force-close any open modals on load to avoid stuck overlays */
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.modal').forEach(el => closeModalEl(el));
+      document.body.removeAttribute('data-modal-open');
+    });
     document.addEventListener('click', (e) => {
       const btn = e.target.closest('.js-payment-instructions');
       if(!btn) return;
