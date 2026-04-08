@@ -1758,6 +1758,26 @@
       transition: transform var(--fast), box-shadow var(--fast);
     }
     .modal .close:hover{transform: translateY(-2px); box-shadow: 0 14px 30px rgba(0,0,0,.26)}
+    #photoModal .topbar{
+      left:12px;
+      right:12px;
+      top:12px;
+      justify-content:flex-end;
+    }
+    #photoModal .close{
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .photo-modal-media{
+      position:absolute;
+      inset:0;
+    }
+    .photo-modal-media img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
     .shift-modal .box{
       background:#fff;
       border:1px solid rgba(11,15,20,.12);
@@ -3100,39 +3120,39 @@
         </div>
 
         <div class="gallery" aria-label="Галерея">
-          <div class="tile" role="button" tabindex="0" data-photo="Утро в лагере" aria-label="Открыть фото: Утро в лагере" style="background-image:url('фото/галерея/111.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
+          <div class="tile" role="button" tabindex="0" data-full="фото/галерея/111.jpg" data-alt="Утро в лагере" aria-label="Открыть фото: Утро в лагере" style="background-image:url('фото/галерея/111_preview.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
             <div class="overlay" aria-hidden="true"></div>
             <div class="label"><span>Утро в лагере</span><span class="zoom" aria-hidden="true">+</span></div>
           </div>
-          <div class="tile" role="button" tabindex="0" data-photo="Спортивные игры" aria-label="Открыть фото: Спортивные игры" style="background-image:url('фото/галерея/222.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
+          <div class="tile" role="button" tabindex="0" data-full="фото/галерея/222.jpg" data-alt="Спортивные игры" aria-label="Открыть фото: Спортивные игры" style="background-image:url('фото/галерея/222_preview.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
             <div class="overlay" aria-hidden="true"></div>
             <div class="label"><span>Спортивные игры</span><span class="zoom" aria-hidden="true">+</span></div>
           </div>
-          <div class="tile" role="button" tabindex="0" data-photo="Творческая мастерская" aria-label="Открыть фото: Творческая мастерская" style="background-image:url('фото/галерея/333.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
+          <div class="tile" role="button" tabindex="0" data-full="фото/галерея/333.jpg" data-alt="Творческая мастерская" aria-label="Открыть фото: Творческая мастерская" style="background-image:url('фото/галерея/333_preview.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
             <div class="overlay" aria-hidden="true"></div>
             <div class="label"><span>Творческая мастерская</span><span class="zoom" aria-hidden="true">+</span></div>
           </div>
-          <div class="tile" role="button" tabindex="0" data-photo="Квесты и миссии" aria-label="Открыть фото: Квесты и миссии" style="background-image:url('фото/галерея/444.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
+          <div class="tile" role="button" tabindex="0" data-full="фото/галерея/444.jpg" data-alt="Квесты и миссии" aria-label="Открыть фото: Квесты и миссии" style="background-image:url('фото/галерея/444_preview.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
             <div class="overlay" aria-hidden="true"></div>
             <div class="label"><span>Квесты и миссии</span><span class="zoom" aria-hidden="true">+</span></div>
           </div>
-          <div class="tile" role="button" tabindex="0" data-photo="Вечерняя сцена" aria-label="Открыть фото: Вечерняя сцена" style="background-image:url('фото/галерея/555.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
+          <div class="tile" role="button" tabindex="0" data-full="фото/галерея/555.jpg" data-alt="Вечерняя сцена" aria-label="Открыть фото: Вечерняя сцена" style="background-image:url('фото/галерея/555_preview.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
             <div class="overlay" aria-hidden="true"></div>
             <div class="label"><span>Вечерняя сцена</span><span class="zoom" aria-hidden="true">+</span></div>
           </div>
-          <div class="tile" role="button" tabindex="0" data-photo="Прогулки на природе" aria-label="Открыть фото: Прогулки на природе" style="background-image:url('фото/галерея/666.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
+          <div class="tile" role="button" tabindex="0" data-full="фото/галерея/666.jpg" data-alt="Прогулки на природе" aria-label="Открыть фото: Прогулки на природе" style="background-image:url('фото/галерея/666_preview.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
             <div class="overlay" aria-hidden="true"></div>
             <div class="label"><span>Прогулки на природе</span><span class="zoom" aria-hidden="true">+</span></div>
           </div>
-          <div class="tile" role="button" tabindex="0" data-photo="Дружба" aria-label="Открыть фото: Дружба" style="background-image:url('фото/галерея/777.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
+          <div class="tile" role="button" tabindex="0" data-full="фото/галерея/777.jpg" data-alt="Дружба" aria-label="Открыть фото: Дружба" style="background-image:url('фото/галерея/777_preview.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
             <div class="overlay" aria-hidden="true"></div>
             <div class="label"><span>Дружба</span><span class="zoom" aria-hidden="true">+</span></div>
           </div>
-          <div class="tile" role="button" tabindex="0" data-photo="Питание и уют" aria-label="Открыть фото: Питание и уют" style="background-image:url('фото/галерея/888.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
+          <div class="tile" role="button" tabindex="0" data-full="фото/галерея/888.jpg" data-alt="Питание и уют" aria-label="Открыть фото: Питание и уют" style="background-image:url('фото/галерея/888_preview.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
             <div class="overlay" aria-hidden="true"></div>
             <div class="label"><span>Питание и уют</span><span class="zoom" aria-hidden="true">+</span></div>
           </div>
-          <div class="tile" role="button" tabindex="0" data-photo="Финальный день" aria-label="Открыть фото: Финальный день" style="background-image:url('фото/галерея/999.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
+          <div class="tile" role="button" tabindex="0" data-full="фото/галерея/999.jpg" data-alt="Финальный день" aria-label="Открыть фото: Финальный день" style="background-image:url('фото/галерея/999_preview.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
             <div class="overlay" aria-hidden="true"></div>
             <div class="label"><span>Финальный день</span><span class="zoom" aria-hidden="true">+</span></div>
           </div>
@@ -3353,8 +3373,10 @@
     <div class="modal" id="photoModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Просмотр фото">
       <div class="box">
         <div class="topbar">
-          <div class="tag" id="modalTag" aria-live="polite">Фото</div>
           <button class="close" id="closeModal" type="button" aria-label="Закрыть просмотр">Закрыть ✕</button>
+        </div>
+        <div class="photo-modal-media">
+          <img id="modalImage" src="" alt="" decoding="async" />
         </div>
       </div>
     </div>
@@ -4090,28 +4112,37 @@
 
     /* Gallery modal */
     const modal = document.getElementById('photoModal');
-    const modalTag = document.getElementById('modalTag');
+    const modalImage = document.getElementById('modalImage');
     const closeBtn = document.getElementById('closeModal');
     const tiles = Array.from(document.querySelectorAll('.tile'));
     const openFirstPhoto = document.getElementById('openFirstPhoto');
 
-    function openModal(label){
+    function openModal(src, alt){
+      if(!src || !modalImage) return;
+      modalImage.src = src;
+      modalImage.alt = alt || 'Фото лагеря';
       openModalEl(modal);
-      modalTag.textContent = label || 'Фото';
       closeBtn.focus();
     }
     function closeModal(){
+      if(modalImage){
+        modalImage.removeAttribute('src');
+        modalImage.alt = '';
+      }
       closeModalEl(modal);
     }
 
     tiles.forEach(tile => {
-      const open = () => openModal(tile.dataset.photo || 'Фото');
+      const open = () => openModal(tile.dataset.full, tile.dataset.alt || tile.getAttribute('aria-label') || 'Фото лагеря');
       tile.addEventListener('click', open);
       tile.addEventListener('keydown', (e) => {
         if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
       });
     });
-    openFirstPhoto.addEventListener('click', () => openModal('Фото и атмосфера'));
+    openFirstPhoto.addEventListener('click', () => {
+      const firstTile = tiles[0];
+      if(firstTile) openModal(firstTile.dataset.full, firstTile.dataset.alt || firstTile.getAttribute('aria-label') || 'Фото лагеря');
+    });
     closeBtn.addEventListener('click', closeModal);
     modal.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
     const shiftModal = document.getElementById('shiftModal');
