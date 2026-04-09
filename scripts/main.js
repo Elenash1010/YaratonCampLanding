@@ -209,6 +209,7 @@
   const closePhotoButton = document.getElementById('closeModal');
   const tiles = Array.from(document.querySelectorAll('.tile'));
   const openFirstPhoto = document.getElementById('openFirstPhoto');
+  const dayPhotoTrigger = document.querySelector('.js-open-day-photo');
 
   const openPhoto = (src, alt, trigger) => {
     if (!photoModal || !modalImage || !src) return;
@@ -244,6 +245,15 @@
         firstTile
       );
     }
+  });
+
+  dayPhotoTrigger?.addEventListener('click', (event) => {
+    event.preventDefault();
+    openPhoto(
+      dayPhotoTrigger.dataset.photoSrc,
+      dayPhotoTrigger.dataset.photoAlt || 'Как проходит наш идеальный день в ЯРАТОНЕ',
+      dayPhotoTrigger
+    );
   });
 
   photoModal?.addEventListener('modal:close', () => {
