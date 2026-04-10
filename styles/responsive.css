@@ -29,41 +29,35 @@
       .form-row{grid-template-columns: 1fr}
       .footer-grid{grid-template-columns: 1fr}
       .hero-grid{grid-template-columns: 1fr}
-      .hero-left{display:contents}
-      .hero-left h1{
-        max-width:none;
-        order:1;
-      }
-      .hero-banner{
-        order:2;
+      .hero-left h1{max-width:none}
+      .hero-banner-desktop{display:none}
+      .hero-banner-mobile{
+        display:block;
         min-height: 260px;
         margin: 2px 0 8px;
       }
       .hero-perks{
-        order:3;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap:8px;
       }
       .hero-tags{
-        order:4;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap:8px;
       }
-      .hero-actions{order:5}
       .hero-perks .perk,
       .hero-tags .kicker{
         width:100%;
         min-width:0;
         justify-content:flex-start;
         gap:7px;
-        padding:7px 9px;
-        font-size:11px;
+        padding:6px 8px;
+        font-size:10px;
         line-height:1.2;
         white-space:normal;
       }
       .hero-perks .perk i,
       .hero-tags .kdot{
-        font-size:11px;
+        font-size:10px;
       }
       .final-cta-text{white-space:normal}
       .final-cta-break{display:block}
@@ -82,7 +76,7 @@
       .grid-4{grid-template-columns: 1fr}
       .docs-grid{grid-template-columns: 1fr}
       .gallery .tile{grid-column: span 12}
-      .hero-banner{
+      .hero-banner-mobile{
         min-height: 220px;
         margin: 0 0 6px;
       }
@@ -90,9 +84,9 @@
       .hero-tags{grid-template-columns: repeat(2, minmax(0, 1fr))}
       .hero-perks .perk,
       .hero-tags .kicker{
-        padding:6px 8px;
-        font-size:10px;
-        gap:6px;
+        padding:5px 7px;
+        font-size:9px;
+        gap:5px;
       }
       .hero-brand-line{
         letter-spacing:0.18em;

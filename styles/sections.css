@@ -127,6 +127,7 @@
       object-position:center;
       display:block;
     }
+    .hero-banner-mobile{display:none}
     .banner-glass{
       position:absolute;
       inset: 14px;
