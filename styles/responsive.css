@@ -29,6 +29,17 @@
       .form-row{grid-template-columns: 1fr}
       .footer-grid{grid-template-columns: 1fr}
       .hero-grid{grid-template-columns: 1fr}
+      .hero-left{
+        display:grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap:8px;
+      }
+      .hero-left h1,
+      .hero-left .lead,
+      .hero-left .hero-banner-mobile,
+      .hero-left .hero-actions{
+        grid-column: 1 / -1;
+      }
       .hero-left h1{max-width:none}
       .hero-banner-desktop{display:none}
       .hero-banner-mobile{
@@ -36,14 +47,8 @@
         min-height: 260px;
         margin: 2px 0 8px;
       }
-      .hero-perks{
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap:8px;
-      }
-      .hero-tags{
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap:8px;
-      }
+      .hero-perks,
+      .hero-tags{display:contents}
       .hero-perks .perk,
       .hero-tags .kicker{
         width:100%;
@@ -80,8 +85,6 @@
         min-height: 220px;
         margin: 0 0 6px;
       }
-      .hero-perks{grid-template-columns: repeat(2, minmax(0, 1fr))}
-      .hero-tags{grid-template-columns: repeat(2, minmax(0, 1fr))}
       .hero-perks .perk,
       .hero-tags .kicker{
         padding:5px 7px;
