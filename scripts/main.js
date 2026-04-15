@@ -242,7 +242,6 @@
     modalImage.src = src;
     modalImage.alt = alt || 'Фото лагеря';
     openModalEl(photoModal, trigger);
-    closePhotoButton?.focus();
   };
 
   tiles.forEach((tile) => {
