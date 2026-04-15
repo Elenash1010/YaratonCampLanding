@@ -230,6 +230,7 @@
 
   const photoModal = document.getElementById('photoModal');
   const modalImage = document.getElementById('modalImage');
+  const photoModalMedia = photoModal?.querySelector('.photo-modal-media');
   const closePhotoButton = document.getElementById('closeModal');
   const tiles = Array.from(document.querySelectorAll('.tile'));
   const openFirstPhoto = document.getElementById('openFirstPhoto');
@@ -284,6 +285,12 @@
     modalImage?.removeAttribute('src');
     if (modalImage) {
       modalImage.alt = '';
+    }
+  });
+
+  photoModalMedia?.addEventListener('click', (event) => {
+    if (event.target === photoModalMedia) {
+      closeModalEl(photoModal);
     }
   });
 
