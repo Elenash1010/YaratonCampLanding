@@ -204,6 +204,7 @@
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     const href = link.getAttribute('href');
     if (!href || href === '#!') return;
+    if (href === '#day-schedule') return;
 
     const target = document.querySelector(href);
     if (!target || !target.classList.contains('closable')) return;
