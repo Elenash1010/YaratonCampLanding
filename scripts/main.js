@@ -236,6 +236,7 @@
 
   const openPhoto = (src, alt, trigger) => {
     if (!photoModal || !modalImage || !src) return;
+    document.getElementById('day-schedule')?.classList.add('is-hidden');
     modalImage.src = src;
     modalImage.alt = alt || 'Фото лагеря';
     openModalEl(photoModal, trigger);
@@ -270,8 +271,7 @@
     }
   });
 
-  dayPhotoTrigger?.addEventListener('click', (event) => {
-    event.preventDefault();
+  dayPhotoTrigger?.addEventListener('click', () => {
     openPhoto(
       dayPhotoTrigger.dataset.photoSrc,
       dayPhotoTrigger.dataset.photoAlt || 'Как проходит наш идеальный день в ЯРАТОНЕ',
