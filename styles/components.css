@@ -594,33 +594,19 @@
     }
     .modal .close:hover{transform: translateY(-2px); box-shadow: 0 14px 30px rgba(0,0,0,.26)}
     #photoModal .topbar{
-      left:12px;
-      right:12px;
-      top:12px;
-      justify-content:flex-end;
-      z-index:2;
+      display:none;
     }
     #photoModal .box{
-      width:min(100%, calc(100vw - 44px));
+      width:auto;
       min-height:0;
-      max-width:calc(100vw - 44px);
-      max-height:88vh;
+      max-width:min(1200px, calc(100vw - 44px));
+      max-height:min(88vh, 920px);
       padding:0;
       border:none;
       border-radius:0;
       box-shadow:none;
       background:none;
       overflow:visible;
-    }
-    #photoModal .close{
-      min-width:44px;
-      min-height:44px;
-      padding:0 12px;
-      border-color:rgba(255,255,255,.32);
-      background:rgba(0,0,0,.34);
-      color:#fff;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
     }
     .photo-modal-media{
       position:relative;
@@ -630,7 +616,7 @@
     }
     .photo-modal-media img{
       display:block;
-      width:100%;
+      width:auto;
       height:auto;
       max-width:min(1200px, calc(100vw - 44px));
       max-height:min(88vh, 920px);

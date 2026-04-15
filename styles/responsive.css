@@ -104,7 +104,7 @@
         padding:14px;
       }
       #photoModal .box{
-        width:min(100%, calc(100vw - 28px));
+        width:auto;
         max-width:calc(100vw - 28px);
       }
       .photo-modal-media img{
