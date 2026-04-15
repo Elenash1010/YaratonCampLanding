@@ -28,6 +28,7 @@
 
   const openModalEl = (modal, trigger = null) => {
     if (!modal) return;
+    const scrollTop = window.scrollY;
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
 
@@ -39,6 +40,11 @@
     }
 
     syncBodyState();
+    // Horizontal scrolling can be introduced by focused/opened triggers inside
+    // mobile carousels. Always pin the document back to the left edge.
+    window.scrollTo(0, scrollTop);
+    document.documentElement.scrollLeft = 0;
+    document.body.scrollLeft = 0;
     modal.dispatchEvent(new CustomEvent('modal:open'));
   };
 
@@ -62,6 +68,8 @@
       // On mobile, returning focus to a trigger inside a horizontal scroller can
       // shift the whole page sideways. Force the viewport back to the page origin.
       window.scrollTo(0, scrollTop);
+      document.documentElement.scrollLeft = 0;
+      document.body.scrollLeft = 0;
     }
 
     modal.dispatchEvent(new CustomEvent('modal:close'));
