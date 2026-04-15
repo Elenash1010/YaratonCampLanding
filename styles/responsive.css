@@ -100,6 +100,16 @@
     }
     @media (max-width: 420px){
       .container{width: calc(100% - 28px)}
+      .modal{
+        padding:14px;
+      }
+      #photoModal .box{
+        width:min(100%, calc(100vw - 28px));
+        max-width:calc(100vw - 28px);
+      }
+      .photo-modal-media img{
+        max-width:calc(100vw - 28px);
+      }
       .resort-grid{
         gap:14px;
       }

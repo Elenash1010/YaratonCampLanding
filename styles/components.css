@@ -587,8 +587,7 @@
       justify-content:flex-end;
     }
     #photoModal .box{
-      width:fit-content;
-      height:fit-content;
+      width:min(100%, calc(100vw - 44px));
       min-height:0;
       max-width:calc(100vw - 44px);
       max-height:88vh;
@@ -599,10 +598,13 @@
     }
     .photo-modal-media{
       position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
     .photo-modal-media img{
       display:block;
-      width:auto;
+      width:100%;
       height:auto;
       max-width:min(1200px, calc(100vw - 44px));
       max-height:min(88vh, 920px);
