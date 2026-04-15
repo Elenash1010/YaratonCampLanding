@@ -22,6 +22,40 @@
       nav.desktop{display:none}
       .burger{display:inline-flex}
       .mobile-panel{display:block}
+      #photoModal{
+        padding:0;
+        overflow:hidden;
+      }
+      #photoModal .box{
+        width:100vw;
+        max-width:100vw;
+        height:100vh;
+        max-height:100vh;
+        margin:0;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        overflow:hidden;
+      }
+      #photoModal .photo-modal-media{
+        width:100vw;
+        height:100vh;
+        padding:14px;
+        box-sizing:border-box;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        overflow:hidden;
+      }
+      #photoModal .photo-modal-media img{
+        display:block;
+        width:100%;
+        height:auto;
+        max-width:100%;
+        max-height:calc(100vh - 28px);
+        object-fit:contain;
+        margin:0 auto;
+      }
       .resort-grid{
         grid-template-columns: 1fr;
         gap:16px;
@@ -132,35 +166,6 @@
       .container{width: calc(100% - 28px)}
       .modal{
         padding:14px;
-      }
-      #photoModal{
-        padding:0;
-        overflow:hidden;
-      }
-      #photoModal .box{
-        width:100vw;
-        max-width:100vw;
-        height:100vh;
-        max-height:100vh;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        overflow:hidden;
-      }
-      .photo-modal-media{
-        width:100vw;
-        height:100vh;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        overflow:hidden;
-      }
-      .photo-modal-media img{
-        width:auto;
-        height:auto;
-        max-width:100vw;
-        max-height:100vh;
-        margin:0 auto;
       }
       .resort-grid{
         gap:14px;
