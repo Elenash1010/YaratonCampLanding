@@ -77,8 +77,15 @@
       scroll-behavior:smooth;
       touch-action: auto;
     }
+    .scroller-wide{
+      grid-auto-columns:minmax(300px, 1fr);
+    }
     .scroller::-webkit-scrollbar{display:none}
     .scroller > *{scroll-snap-align: start}
+
+    .container-center-text{
+      text-align:center;
+    }
 
     .scroller-wrap:before,
     .scroller-wrap:after{

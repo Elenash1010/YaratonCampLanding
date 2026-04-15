@@ -59,6 +59,9 @@
       background:#E6F0FF;
       border-color:#B8CCE6;
     }
+    .btn-header-compact{
+      padding:10px 12px;
+    }
 
 
     /* =========================
@@ -148,6 +151,9 @@
       -webkit-backdrop-filter: blur(12px);
       box-shadow: 0 8px 18px rgba(11,15,20,.08);
     }
+    .badge-top-gap{
+      margin-top:8px;
+    }
     .b-leaf{background:rgba(56,105,172,.10); border-color:rgba(56,105,172,.22)}
     .b-sky{background:rgba(56,105,172,.10); border-color:rgba(56,105,172,.22)}
     .b-sun{background:rgba(255,209,102,.12); border-color:rgba(255,209,102,.22)}
@@ -161,6 +167,9 @@
       display:flex; gap:10px; flex-wrap:wrap;
       align-items:center;
       margin-bottom: 16px;
+    }
+    .tabs-season{
+      margin:14px 0 18px;
     }
     #tab-spring,
     #tab-autumn,
@@ -272,6 +281,10 @@
       flex:0 0 auto;
     }
     .meta{display:flex; flex-wrap:wrap; gap:8px; margin-top: 8px; align-items:center}
+    .meta-inline-end{
+      justify-content:flex-end;
+      margin:0;
+    }
     .pill{
       font-size:12px;
       font-weight:700;
