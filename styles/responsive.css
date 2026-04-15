@@ -37,6 +37,7 @@
       .js-open-day-photo{
         width:100%;
         max-width:100%;
+        display:block;
         white-space:normal;
         text-align:center;
         line-height:1.3;
