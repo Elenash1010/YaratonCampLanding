@@ -544,6 +544,9 @@
       padding: 22px;
       z-index: 90;
     }
+    body[data-modal-open="1"]{
+      overflow:hidden;
+    }
     body:not([data-modal-open="1"]) .modal{display:none !important}
     .modal.is-open{display:flex !important}
     /* Disable auto-open by URL hash to prevent accidental overlays */
