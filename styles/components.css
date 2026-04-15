@@ -601,18 +601,22 @@
       min-height:0;
       max-width:min(1200px, calc(100vw - 44px));
       max-height:min(88vh, 920px);
+      display:flex;
+      align-items:center;
+      justify-content:center;
       padding:0;
       border:none;
       border-radius:0;
       box-shadow:none;
       background:none;
-      overflow:visible;
+      overflow:hidden;
     }
     .photo-modal-media{
       position:relative;
       display:flex;
       align-items:center;
       justify-content:center;
+      max-width:100%;
     }
     .photo-modal-media img{
       display:block;

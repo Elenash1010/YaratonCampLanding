@@ -92,9 +92,39 @@
       #shifts .subhead .btn{align-self:flex-start; margin-top:10px}
       #team .subhead{flex-direction:column; align-items:flex-start}
       #team .subhead .btn{align-self:flex-start; margin-top:10px}
+      .shift-modal .topbar{
+        display:grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items:start;
+        gap:12px;
+      }
+      .shift-modal .tag{
+        padding:0;
+        border:none;
+        background:none;
+        box-shadow:none;
+        font-size:22px;
+        line-height:1.2;
+      }
       .shift-modal .content{grid-template-columns: 1fr}
+      .shift-modal .shift-top{
+        display:flex;
+        flex-direction:column;
+        align-items:stretch;
+        gap:14px;
+      }
+      .shift-modal .shift-right{
+        order:-1;
+        display:block;
+      }
+      .shift-modal .shift-right img{
+        width:100%;
+      }
       #shifts .scroller{grid-auto-columns: minmax(300px, 300px)}
       #shifts .scroller > .shift{min-height: 590px}
+      .shift-media-tag{
+        display:none;
+      }
       .tile{min-height: 160px}
       .scroll-btn{display:none}
     }
@@ -104,10 +134,14 @@
         padding:14px;
       }
       #photoModal .box{
-        width:auto;
+        width:calc(100vw - 28px);
         max-width:calc(100vw - 28px);
       }
+      .photo-modal-media{
+        width:100%;
+      }
       .photo-modal-media img{
+        width:100%;
         max-width:calc(100vw - 28px);
       }
       .resort-grid{
