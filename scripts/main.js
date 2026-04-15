@@ -50,7 +50,18 @@
 
     const returnFocusId = modal.dataset.returnFocusId;
     if (returnFocusId) {
-      document.getElementById(returnFocusId)?.focus();
+      const returnFocusEl = document.getElementById(returnFocusId);
+      const scrollTop = window.scrollY;
+
+      try {
+        returnFocusEl?.focus({ preventScroll: true });
+      } catch {
+        returnFocusEl?.focus();
+      }
+
+      // On mobile, returning focus to a trigger inside a horizontal scroller can
+      // shift the whole page sideways. Force the viewport back to the page origin.
+      window.scrollTo(0, scrollTop);
     }
 
     modal.dispatchEvent(new CustomEvent('modal:close'));
