@@ -143,6 +143,29 @@
     tab.addEventListener('click', () => activateSeason(tab.id.replace('tab-', '')));
   });
 
+  document.querySelectorAll('.card.shift, .card.program').forEach((card) => {
+    const modalTrigger = card.querySelector('[data-modal]');
+    const media = card.querySelector('.card-media');
+    if (!modalTrigger || !media) return;
+
+    media.setAttribute('data-modal', modalTrigger.getAttribute('data-modal'));
+    media.setAttribute('role', 'button');
+    media.setAttribute('tabindex', '0');
+
+    const triggerLabel =
+      modalTrigger.getAttribute('aria-label') ||
+      media.getAttribute('aria-label') ||
+      'Открыть подробности';
+    media.setAttribute('aria-label', triggerLabel);
+
+    media.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        media.click();
+      }
+    });
+  });
+
   document.querySelectorAll('[data-scroller-wrap]').forEach((wrap) => {
     const scroller = wrap.querySelector('[data-scroller]');
     if (!scroller) return;

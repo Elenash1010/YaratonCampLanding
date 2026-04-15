@@ -22,6 +22,14 @@
       nav.desktop{display:none}
       .burger{display:inline-flex}
       .mobile-panel{display:block}
+      .js-open-day-photo{
+        width:100%;
+        max-width:100%;
+        white-space:normal;
+        text-align:center;
+        line-height:1.3;
+        padding:12px 16px;
+      }
       .grid-4{grid-template-columns: 1fr 1fr}
       .grid-2{grid-template-columns: 1fr}
       .faq{grid-template-columns: 1fr}
@@ -78,6 +86,10 @@
     }
     @media (max-width: 420px){
       .container{width: calc(100% - 28px)}
+      .js-open-day-photo{
+        font-size:14px;
+        padding:11px 14px;
+      }
       .grid-4{grid-template-columns: 1fr}
       .docs-grid{grid-template-columns: 1fr}
       .gallery .tile{grid-column: span 12}
