@@ -506,8 +506,8 @@
       flex:0 0 auto;
       box-shadow: 0 8px 18px rgba(11,15,20,.08);
     }
-    .doc strong{display:block; font-family:"Montserrat"; font-weight:700; font-size:14px; color: var(--heading); white-space:nowrap}
-    .doc span{display:block; margin-top:4px; font-size:12px; font-weight:700; color:rgba(11,15,20,.56); white-space:nowrap}
+    .doc strong{display:block; font-family:"Montserrat"; font-weight:700; font-size:14px; line-height:1.25; color: var(--heading)}
+    .doc span{display:block; margin-top:4px; font-size:12px; line-height:1.25; font-weight:700; color:rgba(11,15,20,.56)}
     .doc .go{
       width:38px;height:38px;border-radius: var(--radius);
       display:grid;place-items:center;
@@ -519,6 +519,13 @@
       box-shadow: 0 8px 18px rgba(56,105,172,.14);
     }
     .doc:hover .go{transform: translateX(2px)}
+
+    .privacy a{
+      color:#233B59;
+      font-weight:700;
+      text-decoration:underline;
+      text-underline-offset:3px;
+    }
 
     .day-grid{
       display:grid;
