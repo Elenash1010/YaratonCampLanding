@@ -704,6 +704,124 @@
       box-shadow: var(--shadow);
       display:block;
     }
+    .program-modal .box{
+      width:min(1040px, 100%);
+      padding:40px;
+    }
+    .program-modal .content{
+      gap:18px;
+      font-size:15px;
+      line-height:1.45;
+    }
+    .program-modal .shift-top{
+      grid-template-columns: minmax(0, 1fr) minmax(300px, .82fr);
+      gap:22px;
+      align-items:stretch;
+    }
+    .program-modal .shift-left{
+      min-width:0;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+    .program-modal .shift-left h3{
+      font-size:24px;
+      line-height:1.18;
+    }
+    .program-modal .shift-left h4{
+      color:#233B59;
+      font-size:16px;
+      line-height:1.25;
+    }
+    .program-modal .shift-right{
+      align-items:center;
+      justify-content:flex-start;
+      border:0;
+      background:none;
+      box-shadow:none;
+      overflow:visible;
+    }
+    .program-modal .shift-right img{
+      width:auto;
+      height:auto;
+      max-width:100%;
+      min-height:250px;
+      max-height:330px;
+      object-fit:contain;
+      border:0;
+      box-shadow:none;
+    }
+    .program-modal-narrow-photo .shift-top{
+      grid-template-columns: minmax(0, .92fr) minmax(320px, 1.08fr);
+      gap:12px;
+    }
+    .program-modal-narrow-photo .shift-right img{
+      transform:translateX(-56px);
+    }
+    .program-modal-feature,
+    .program-modal .shift-lists > div{
+      border-radius: var(--radius);
+      border:1px solid rgba(11,15,20,.12);
+      background: rgba(255,255,255,.94);
+      padding:16px;
+      box-shadow: var(--shadow);
+    }
+    .program-modal-feature h4,
+    .program-modal .shift-lists h4{
+      color:#233B59;
+      font-size:16px;
+      line-height:1.25;
+      margin:0 0 8px !important;
+    }
+    .program-modal .shift-lists{
+      gap:14px;
+      margin-top:0;
+    }
+    .program-modal .incl li{
+      margin:4px 0;
+    }
+    .payment-modal .box{
+      width:min(1240px, 100%);
+      padding:36px;
+    }
+    .payment-modal-topbar{
+      justify-content:flex-end;
+      padding:0 0 8px;
+    }
+    .payment-modal-content{
+      display:grid !important;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap:28px;
+      align-items:center;
+      overflow:hidden;
+      font-size:14px;
+      line-height:1.36;
+    }
+    .payment-modal-copy{
+      min-width:0;
+    }
+    .payment-modal-copy p{
+      margin:0 0 8px;
+    }
+    .payment-modal-copy ol{
+      line-height:1.34;
+    }
+    .payment-modal-copy li{
+      margin:0 0 3px;
+    }
+    .payment-modal-media{
+      min-width:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .payment-modal-media img{
+      width:100%;
+      max-width:440px;
+      max-height:54vh;
+      object-fit:contain;
+      margin:0 auto;
+    }
     .privacy-modal .box{
       width:min(980px, 100%);
     }

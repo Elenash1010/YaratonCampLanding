@@ -1880,7 +1880,7 @@
     </div>
 
     <!-- PROGRAM MODAL 1 -->
-    <div class="modal shift-modal" id="programModal1" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Подробности программы">
+    <div class="modal shift-modal program-modal" id="programModal1" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Подробности программы">
       <div class="box">
         <div class="topbar">
           <div class="tag">Контент-вселенная: ты в эфире</div>
@@ -1902,7 +1902,7 @@
               <img src="assets/images/programs/program-blogger-modal.jpg" alt="Фото программы: контент-вселенная" />
             </div>
           </div>
-          <div style="margin-top:64px">
+          <div class="program-modal-feature">
             <h4 style="margin:0 0 6px">Что делает программу особенной</h4>
             <ul class="incl" style="margin:0">
               <li>сюжет смены: каждый участник проходит путь от новичка до автора собственного контента</li>
@@ -1939,7 +1939,7 @@
     </div>
 
     <!-- PROGRAM MODAL 2 -->
-    <div class="modal shift-modal" id="programModal2" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Подробности программы">
+    <div class="modal shift-modal program-modal" id="programModal2" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Подробности программы">
       <div class="box">
         <div class="topbar">
           <div class="tag">Контент-вселенная: ты в эфире</div>
@@ -1961,7 +1961,7 @@
               <img src="assets/images/programs/program-blogger-modal.jpg" alt="Фото программы: контент-вселенная" />
             </div>
           </div>
-          <div style="margin-top:64px">
+          <div class="program-modal-feature">
             <h4 style="margin:0 0 6px">Что делает программу особенной</h4>
             <ul class="incl" style="margin:0">
               <li>сюжет смены: каждый участник проходит путь от новичка до автора собственного контента</li>
@@ -1998,7 +1998,7 @@
     </div>
 
     <!-- PROGRAM MODAL 3 -->
-    <div class="modal shift-modal" id="programModal3" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Подробности программы">
+    <div class="modal shift-modal program-modal program-modal-narrow-photo" id="programModal3" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Подробности программы">
       <div class="box">
         <div class="topbar">
           <div class="tag">Программа · Подробности</div>
@@ -2019,7 +2019,7 @@
               <img src="assets/images/programs/program-model-modal.jpg" alt="Фото программы: Я - Звезда" />
             </div>
           </div>
-          <div style="margin-top:64px">
+          <div class="program-modal-feature">
             <h4 style="margin:0 0 6px">Что делает смену особенной</h4>
             <ul class="incl" style="margin:0">
               <li>творческие мастер-классы</li>
@@ -2054,7 +2054,7 @@
     </div>
 
     <!-- PROGRAM MODAL 4 -->
-    <div class="modal shift-modal" id="programModal4" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Подробности программы">
+    <div class="modal shift-modal program-modal program-modal-narrow-photo" id="programModal4" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Подробности программы">
       <div class="box">
         <div class="topbar">
           <div class="tag">Я - Звезда. Школа моделей и самопрезентации</div>
@@ -2074,7 +2074,7 @@
               <img src="assets/images/programs/program-model-modal.jpg" alt="Фото программы: Я - Звезда" />
             </div>
           </div>
-          <div style="margin-top:64px">
+          <div class="program-modal-feature">
             <h4 style="margin:0 0 6px">Что делает смену особенной</h4>
             <ul class="incl" style="margin:0">
               <li>сюжет смены: каждый участник проходит путь от скованности к уверенности и свободной подаче</li>
@@ -2157,15 +2157,14 @@
     </div>
 
     <!-- PAYMENT INSTRUCTIONS MODAL -->
-    <div class="modal shift-modal" id="paymentModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Пошаговая инструкция оплаты">
+    <div class="modal shift-modal payment-modal" id="paymentModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Пошаговая инструкция оплаты">
       <div class="box">
-        <div class="topbar">
-          <div class="tag">Пошаговая инструкция</div>
+        <div class="topbar payment-modal-topbar">
           <button class="close" id="closePaymentModal" type="button" data-modal-close="paymentModal" aria-label="Закрыть окно">Закрыть ✕</button>
         </div>
-        <div class="content">
-          <div>
-            <p>Пошаговая инструкция при оплате через Сбербанк Онлайн</p>
+        <div class="content payment-modal-content">
+          <div class="payment-modal-copy">
+            <p><strong>Пошаговая инструкция при оплате через Сбербанк Онлайн</strong></p>
             <p>Через "Сбербанк Онлайн" можно оплатить любую путевку или услугу в "Яратоне"</p>
             <ol style="margin:10px 0 0; padding-left:18px">
               <li>Заходим в приложение "Сбербанк Онлайн" раздел "Платежи"/подраздел "Платежи по реквизитам".</li>
@@ -2178,8 +2177,8 @@
             </ol>
             <p style="margin-top:10px">А путевку забираем в любой день до даты заезда</p>
           </div>
-          <div>
-            <img src="assets/images/misc/sberbank-online.png" alt="Оплата через Сбербанк Онлайн" />
+          <div class="payment-modal-media">
+            <img src="assets/images/misc/sberbank-online.jpg" alt="Оплата через Сбербанк Онлайн" />
           </div>
         </div>
       </div>

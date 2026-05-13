@@ -134,14 +134,19 @@
       HEADER / NAV / BURGER
     ========================== */
     header{
-      position: sticky;
+      position: fixed;
       top:0;
+      left:0;
+      right:0;
       z-index: 50;
       background: rgba(255,255,255,.76);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(11,15,20,.10);
       transition: box-shadow var(--slow), background var(--slow);
+    }
+    main{
+      padding-top: 93px;
     }
     header.scrolled{
       background: rgba(255,255,255,.90);
