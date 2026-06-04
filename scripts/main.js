@@ -242,6 +242,49 @@
   document.querySelector('#route iframe')?.setAttribute('title', 'Карта проезда до лагеря Яратон');
   document.querySelector('#contacts iframe')?.setAttribute('title', 'Форма заявки на смену');
 
+  document.querySelectorAll('[data-consent-block]').forEach((block) => {
+    const checkbox = block.querySelector('input[type="checkbox"]');
+    const warning = block.querySelector('.privacy-consent-warning');
+    const contactPanel = block.closest('.panel');
+    const embeddedForm = contactPanel?.querySelector('.contact-form-embed');
+    if (!checkbox || !warning) return;
+
+    const hideConsentWarning = () => {
+      block.classList.remove('is-warning');
+      warning.hidden = true;
+      checkbox.removeAttribute('aria-invalid');
+    };
+
+    const showConsentWarning = () => {
+      block.classList.add('is-warning');
+      warning.hidden = false;
+      checkbox.setAttribute('aria-invalid', 'true');
+    };
+
+    checkbox.addEventListener('change', () => {
+      if (checkbox.checked) {
+        hideConsentWarning();
+      }
+    });
+
+    checkbox.addEventListener('invalid', (event) => {
+      event.preventDefault();
+      showConsentWarning();
+    });
+
+    embeddedForm?.addEventListener('click', () => {
+      if (!checkbox.checked) {
+        showConsentWarning();
+      }
+    });
+
+    window.addEventListener('blur', () => {
+      if (!checkbox.checked && document.activeElement === embeddedForm?.querySelector('iframe')) {
+        showConsentWarning();
+      }
+    });
+  });
+
   const year = document.getElementById('year');
   if (year) {
     year.textContent = new Date().getFullYear();
@@ -331,6 +374,21 @@
     const closeTrigger = event.target.closest('[data-modal-close]');
     if (closeTrigger) {
       event.preventDefault();
+      if (closeTrigger.matches('[data-consent-accept]')) {
+        const consentCheckbox = document.getElementById('contact-privacy-consent');
+        const consentBlock = consentCheckbox?.closest('[data-consent-block]');
+        const consentWarning = consentBlock?.querySelector('.privacy-consent-warning');
+
+        if (consentCheckbox) {
+          consentCheckbox.checked = true;
+          consentCheckbox.removeAttribute('aria-invalid');
+          consentCheckbox.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+        consentBlock?.classList.remove('is-warning');
+        if (consentWarning) {
+          consentWarning.hidden = true;
+        }
+      }
       closeModalById(closeTrigger.getAttribute('data-modal-close'));
       return;
     }
