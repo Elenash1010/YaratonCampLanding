@@ -103,16 +103,15 @@
           <ul>
             <li><a href="#about">О лагере</a></li>
             <li><a href="#shifts">Смены</a></li>
-            <li><a href="#programs">Программы</a></li>
             <li><a href="#team">Команда</a></li>
             <li><a href="#parents">Родителям</a></li>
             <li><a href="#medical-services">Мед.услуги</a></li>
             <li><a href="#docs">Документы</a></li>
             <li><a href="#faq">Частые вопросы</a></li>
             <li><a href="#contacts">Контакты</a></li>
-            <li><a class="btn btn-primary btn-header-compact" href="#contacts">Оставить заявку</a></li>
           </ul>
         </nav>
+        <a class="btn btn-primary btn-header-compact header-cta" href="#contacts">Оставить заявку</a>
 
         <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobilePanel">
           <span class="lines" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -126,7 +125,6 @@
             <ul>
               <li><a href="#about">Коротко о лагере</a></li>
               <li><a href="#shifts">Смены и цены</a></li>
-              <li><a href="#programs">Программы</a></li>
               <li><a href="#team">Педагоги и вожатые</a></li>
               <li><a href="#parents">Для родителей</a></li>
               <li><a href="#medical-services">Мед.услуги</a></li>
@@ -275,7 +273,7 @@
             <p hidden>А для старших участников в 3-й и 4-й сменах мы подготовили особенное — новые программы, которые откроют ещё больше возможностей и впечатлений</p>
           </div>
           <div>
-            <a class="btn btn-ghost" href="assets/docs/yaraton-presentation.pdf" download="yaraton-presentation.pdf" aria-label="Скачать презентацию">
+            <a class="btn btn-ghost" href="assets/docs/yaraton-presentation_summer-2026.pdf" download="yaraton-presentation_summer-2026.pdf" aria-label="Скачать презентацию">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M12 3v10m0 0l4-4m-4 4l-4-4M5 17v3h14v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -710,7 +708,7 @@
     </section>
 
     <!-- ========================= PROGRAMS (SWIPE) ========================= -->
-    <section id="programs" class="section" aria-label="Программы">
+    <section id="programs" class="section" aria-label="Программы" hidden>
       <div class="container">
         <div class="subhead">
           <div>
@@ -1124,7 +1122,7 @@
         </div>
 
         <div class="docs-grid">
-          <a class="doc" href="assets/docs/yaraton-presentation.pdf" download="yaraton-presentation.pdf" aria-label="Скачать: Презентация лагеря (PDF)">
+          <a class="doc" href="assets/docs/yaraton-presentation_summer-2026.pdf" download="yaraton-presentation_summer-2026.pdf" aria-label="Скачать: Презентация лагеря (PDF)">
             <div class="left">
               <div class="ic" aria-hidden="true">📄</div>
               <div>
@@ -1312,86 +1310,53 @@
         <div class="subhead">
           <div>
             <h2>Связаться с нами</h2>
-            <p>Оставьте заявку — ответим в течение рабочего дня и поможем выбрать смену</p>
+            <p>Свяжитесь с нами удобным для вас способом и мы поможем выбрать смену и ответим на все интересующие вас вопросы</p>
           </div>
         </div>
 
-        <div class="contact-grid">
-          <div class="panel" aria-label="Контактная информация">
+        <div class="contact-grid contact-grid-wide">
+          <div class="panel contact-panel-wide" aria-label="Контактная информация">
             <h3>Контакты</h3>
             <p style="margin:6px 0 0">Позвоните или напишите — подскажем по местам и документам</p>
 
-            <div class="contact-list">
-              <div class="citem">
-                <div class="ic" aria-hidden="true">☎</div>
-                <div>
-                  <strong>Телефон</strong>
-                  <a href="tel:+73412240555" aria-label="Позвонить">8 3412 240 555</a>
-                  <span>ежедневно 9:00–19:00</span>
+            <div class="contact-list contact-list-wide">
+              <div class="contact-column contact-column-details">
+                <div class="citem">
+                  <div class="ic" aria-hidden="true">📍</div>
+                  <div>
+                    <strong>Адрес офиса продаж:</strong>
+                    <span style="font-size:16px">г. Ижевск, ул. Ленина, 132, санаторий "Сосновый"</span>
+                    <span style="font-size:16px">1 этаж, кабинет №102.</span>
+                  </div>
+                </div>
+
+                <div class="citem">
+                  <div class="ic" aria-hidden="true">🕘</div>
+                  <div>
+                    <strong>Режим работы офиса</strong>
+                    <span style="font-size:16px">по будням 8:00 - 17:00, обед с 12:00 до 13:00</span>
+                  </div>
                 </div>
               </div>
 
-              <div class="citem">
-                <div class="ic" aria-hidden="true">💬</div>
-                <div>
-                  <strong>E-mail:</strong>
-                  <a href="mailto:info@cheberresort.ru" aria-label="Написать на email">info@cheberresort.ru</a>
-                  <span>ответим в течение рабочего дня</span>
+              <div class="contact-column contact-column-main">
+                <div class="citem">
+                  <div class="ic" aria-hidden="true">☎</div>
+                  <div>
+                    <strong>Телефон</strong>
+                    <a href="tel:+73412240555" aria-label="Позвонить">8 3412 240 555</a>
+                    <span>ежедневно 9:00–19:00</span>
+                  </div>
                 </div>
-              </div>
 
-              <div class="citem">
-                <div class="ic" aria-hidden="true">📍</div>
-                <div>
-                  <strong>Адрес офиса продаж:</strong>
-                  <span style="font-size:16px">г. Ижевск, ул. Ленина, 132, санаторий "Сосновый"</span>
-                  <span style="font-size:16px">1 этаж, кабинет №102.</span>
+                <div class="citem">
+                  <div class="ic" aria-hidden="true">💬</div>
+                  <div>
+                    <strong>E-mail:</strong>
+                    <a href="mailto:info@cheberresort.ru" aria-label="Написать на email">info@cheberresort.ru</a>
+                    <span>ответим в течение рабочего дня</span>
+                  </div>
                 </div>
-              </div>
-
-              <div class="citem">
-                <div class="ic" aria-hidden="true">🕘</div>
-                <div>
-                  <strong>Режим работы офиса</strong>
-                  <span style="font-size:16px">по будням 8:00 - 17:00, обед с 12:00 до 13:00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="panel" aria-label="Форма заявки">
-            <h3>Оставить заявку</h3>
-            <p style="margin:6px 0 0">Заполните поля — мы перезвоним/напишем и подберём смену</p>
-
-            <div class="contact-form-embed">
-              <script src="https://forms.yandex.ru/_static/embed.js"></script>
-              <iframe
-                class="contact-form-frame"
-                src="https://forms.yandex.ru/cloud/6a214314f47e737c412d5392?iframe=1"
-                frameborder="0"
-                name="ya-form-6a214314f47e737c412d5392"
-                width="100%"
-                loading="eager"
-                title="Форма заявки в лагерь Яратон"
-              ></iframe>
-            </div>
-            <p class="hint">Ответим в течение рабочего дня</p>
-            <div class="privacy privacy-consent" data-consent-block>
-              <input
-                class="privacy-consent-input"
-                id="contact-privacy-consent"
-                type="checkbox"
-                required
-                aria-describedby="contact-consent-warning"
-              >
-              <label class="privacy-consent-label" for="contact-privacy-consent">
-                Отправляя данную форму, я даю согласие на обработку моих персональных данных.
-                С условиями обработки персональных данных, изложенными на сайте yaratonresort.ru
-                (<a href="#privacy-policy" data-modal="privacyModal">Согласие на обработку персональных данных</a>) — ознакомлен и согласен.
-              </label>
-              <div class="privacy-consent-warning" id="contact-consent-warning" role="alert" hidden>
-                <span aria-hidden="true">!</span>
-                Чтобы продолжить, установите этот флажок.
               </div>
             </div>
           </div>

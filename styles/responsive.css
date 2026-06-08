@@ -18,10 +18,27 @@
       .scroll-prev{left:6px}
       .scroll-next{right:6px}
     }
-    @media (max-width: 768px){
+    @media (max-width: 1280px){
+      .nav{
+        gap:12px;
+      }
+      nav.desktop ul{
+        gap:2px;
+      }
+      nav.desktop a:not(.btn-primary){
+        font-size:12px;
+        padding:8px 4px;
+      }
+    }
+
+    @media (max-width: 1180px){
       nav.desktop{display:none}
+      .header-cta{display:none}
       .burger{display:inline-flex}
       .mobile-panel{display:block}
+    }
+
+    @media (max-width: 768px){
       .modal{
         padding:12px;
       }
@@ -91,6 +108,11 @@
       .grid-2{grid-template-columns: 1fr}
       .faq{grid-template-columns: 1fr}
       .contact-grid{grid-template-columns: 1fr}
+      .contact-list-wide{grid-template-columns: 1fr}
+      .contact-column-main{
+        justify-self:stretch;
+        width:100%;
+      }
       .form-row{grid-template-columns: 1fr}
       .footer-grid{grid-template-columns: 1fr}
       .hero-grid{grid-template-columns: 1fr}

@@ -344,6 +344,9 @@
       gap:14px;
       align-items:stretch;
     }
+    .contact-grid-wide{
+      grid-template-columns: 1fr;
+    }
     .panel{
       border-radius: var(--radius);
       border:1px solid rgba(11,15,20,.12);
@@ -352,6 +355,21 @@
       padding: 16px;
     }
     .contact-list{display:grid; gap:10px; margin-top: 12px}
+    .contact-list-wide{
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items:stretch;
+      gap:14px;
+    }
+    .contact-column{
+      display:grid;
+      gap:10px;
+    }
+    .contact-column-main{
+      width:100%;
+    }
+    .contact-panel-wide{
+      width:100%;
+    }
     .citem{
       display:flex; gap:12px; align-items:flex-start;
       padding: 12px;
