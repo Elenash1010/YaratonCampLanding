@@ -152,9 +152,13 @@
       background: rgba(255,255,255,.90);
       box-shadow: 0 10px 24px rgba(11,15,20,.12);
     }
+    header#top > .container{
+      width:min(var(--container), calc(100% - 40px));
+      margin-inline:auto;
+    }
     .nav{
       display:grid;
-      grid-template-columns:auto minmax(0, 1fr) auto;
+      grid-template-columns:200px minmax(0, 1fr) auto;
       align-items:center;
       gap:16px;
       padding: 12px 0;
@@ -184,6 +188,7 @@
       justify-self:center;
       width:100%;
       min-width:0;
+      overflow:hidden;
     }
     .brand-title{display:flex; flex-direction:column; line-height:1.05}
     .brand-title strong{
@@ -207,6 +212,7 @@
       align-items:center;
       justify-content:center;
       flex-wrap:nowrap;
+      min-width:0;
     }
     nav.desktop a{
       text-decoration:none;
