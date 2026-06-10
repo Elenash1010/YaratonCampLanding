@@ -17,6 +17,7 @@
 
     a{color:inherit}
     img{max-width:100%;display:block}
+    [hidden]{display:none !important}
     .container{
       width:min(var(--container), calc(100% - 40px));
       margin-inline:auto;
