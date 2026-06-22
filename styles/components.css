@@ -318,8 +318,14 @@
     }
     .incl{margin:0; padding-left: 18px; color: rgba(11,15,20,.66)}
     .incl li{margin:6px 0}
+    .shift-note{
+      margin: auto 0 0;
+      color: rgba(11,15,20,.56);
+      font-size:11px;
+      line-height:1.35;
+    }
     .shift-actions{
-      margin-top:auto;
+      margin-top:0;
       display:flex;
       gap:8px;
       flex-wrap:nowrap;

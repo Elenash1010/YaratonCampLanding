@@ -9,6 +9,7 @@
       .medical-gallery{grid-template-columns: 1fr}
       .gallery .tile{grid-column: span 6}
       .route-grid{grid-template-columns: 1fr}
+      .organization-info-grid{grid-template-columns: 1fr}
       .parents-grid{grid-template-columns: 1fr}
       .rows{grid-template-columns: 1fr}
       .team-grid{grid-template-columns: 1fr}

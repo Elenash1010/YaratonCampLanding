@@ -77,6 +77,23 @@
       color:#C1272D;
     }
     .btn-link:hover{text-decoration:underline}
+    .inline-arrow-link{
+      display:inline-flex;
+      align-items:center;
+      padding:0;
+      white-space:normal;
+    }
+    .about-official-note{
+      margin-top:14px !important;
+    }
+    .about-official-link{
+      color: inherit;
+      font-weight:700;
+      text-decoration:none;
+    }
+    .about-official-link:hover{
+      text-decoration:underline;
+    }
     .hero-perks{
       display:grid;
       grid-template-columns: repeat(3, minmax(0, max-content));
@@ -405,6 +422,36 @@
       margin-top: 14px;
     }
 
+    .organization-info-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap:14px;
+    }
+    .organization-info-card{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:8px;
+      min-height:100%;
+      padding:16px;
+      border-radius: var(--radius);
+      border:1px solid rgba(11,15,20,.12);
+      background: rgba(255,255,255,.94);
+      box-shadow: 0 10px 24px rgba(11,15,20,.10);
+    }
+    .organization-info-card strong{
+      font-family:"Montserrat";
+      font-weight:700;
+      font-size:16px;
+      line-height:1.25;
+      color: var(--heading);
+    }
+    .organization-info-card p{
+      margin:0;
+      font-size:14px;
+      line-height:1.55;
+    }
+
     /* =========================
       PARENTS / DOCS / FAQ / REVIEWS / GALLERY / CONTACT / ROUTE / FOOTER
     ========================== */
@@ -632,6 +679,36 @@
       color:#FF0000;
       font-size:14px;
       line-height:1.5;
+    }
+    .medical-notes{
+      margin:0 0 14px;
+      padding-left:0;
+      list-style:none;
+      color:rgba(11,15,20,.70);
+      display:grid;
+      gap:6px;
+    }
+    .medical-notes li{
+      position:relative;
+      padding-left:18px;
+      font-size:14px;
+      line-height:1.45;
+    }
+    .medical-notes li::before{
+      content:"*";
+      position:absolute;
+      left:0;
+      top:0;
+      color:#C1272D;
+      font-weight:700;
+    }
+    .medical-notes a{
+      color:#C1272D;
+      font-weight:700;
+      text-decoration:none;
+    }
+    .medical-notes a:hover{
+      text-decoration:underline;
     }
 
     .faq{
