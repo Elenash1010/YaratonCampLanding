@@ -147,9 +147,12 @@
   });
 
   brandLink?.addEventListener('click', (event) => {
-    event.preventDefault();
-    setMenu(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const href = brandLink.getAttribute('href') || '';
+    if (href.startsWith('#')) {
+      event.preventDefault();
+      setMenu(false);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   });
 
   mobilePanel?.addEventListener('click', (event) => {

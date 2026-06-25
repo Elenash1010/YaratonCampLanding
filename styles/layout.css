@@ -146,7 +146,7 @@
       transition: box-shadow var(--slow), background var(--slow);
     }
     main{
-      padding-top: 93px;
+      padding-top: 112px;
     }
     header.scrolled{
       background: rgba(255,255,255,.90);
@@ -158,15 +158,16 @@
     }
     .nav{
       display:grid;
-      grid-template-columns:200px minmax(0, 1fr) auto;
+      grid-template-columns:auto minmax(0, 720px) auto;
       align-items:center;
-      gap:16px;
+      justify-content:center;
+      column-gap:clamp(22px, 2.4vw, 34px);
       padding: 12px 0;
     }
     .brand{
       display:flex; align-items:center; gap:0;
       text-decoration:none;
-      min-width: 200px;
+      min-width: 188px;
       flex:0 0 auto;
     }
     .logo{
@@ -188,7 +189,7 @@
       justify-self:center;
       width:100%;
       min-width:0;
-      overflow:hidden;
+      overflow:visible;
     }
     .brand-title{display:flex; flex-direction:column; line-height:1.05}
     .brand-title strong{
@@ -204,14 +205,24 @@
       color:rgba(11,15,20,.58)
     }
 
-    nav.desktop ul{
+    .desktop-nav-lines{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+      width:100%;
+    }
+    nav.desktop ul,
+    .desktop-nav-row{
       list-style:none;
       padding:0;margin:0;
       display:flex;
-      gap:4px;
       align-items:center;
+      justify-content:space-between;
+      min-width:0;
+    }
+    nav.desktop li{
+      display:flex;
       justify-content:center;
-      flex-wrap:nowrap;
       min-width:0;
     }
     nav.desktop a{
@@ -223,10 +234,11 @@
       border-radius: var(--chipRadius);
       transition: background var(--fast), transform var(--fast);
       white-space:nowrap;
+      text-align:center;
     }
     nav.desktop a:not(.btn-primary){
       font-size:12.5px;
-      padding:8px 5px;
+      padding:5px 5px;
     }
     nav.desktop a.btn-primary{
       color:#fff;

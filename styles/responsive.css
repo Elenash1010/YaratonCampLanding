@@ -10,25 +10,45 @@
       .gallery .tile{grid-column: span 6}
       .route-grid{grid-template-columns: 1fr}
       .organization-info-grid{grid-template-columns: 1fr}
+      .info-feature-grid,
+      .info-feature-grid-compact,
+      .info-two-columns,
+      .info-doc-link-row,
+      .info-document-grid,
+      .leadership-grid{
+        grid-template-columns: 1fr;
+      }
+      .pedagog-grid,
+      .counselor-grid{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .mandatory-gallery{
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
       .parents-grid{grid-template-columns: 1fr}
       .rows{grid-template-columns: 1fr}
       .team-grid{grid-template-columns: 1fr}
       .team-points{display:flex; flex-wrap:wrap}
       .sticky-note{position:relative; top:auto}
-      .footer-grid{grid-template-columns: 1fr 1fr}
+      .footer-grid{grid-template-columns: 1fr}
+      .footer-logo-panel{
+        order:-1;
+        min-height:160px;
+      }
+      .footer-logo-link img{
+        max-height:180px;
+      }
       .scroll-prev{left:6px}
       .scroll-next{right:6px}
     }
     @media (max-width: 1280px){
       .nav{
-        gap:12px;
-      }
-      nav.desktop ul{
-        gap:2px;
+        grid-template-columns:auto minmax(0, 680px) auto;
+        column-gap:22px;
       }
       nav.desktop a:not(.btn-primary){
         font-size:12px;
-        padding:8px 4px;
+        padding:5px 4px;
       }
     }
 
@@ -40,6 +60,17 @@
     }
 
     @media (max-width: 768px){
+      .info-page-title h1 span{
+        white-space:normal;
+      }
+      .info-data-list div,
+      .info-mini-list div{
+        grid-template-columns: 1fr;
+        gap:6px;
+      }
+      .mandatory-gallery{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
       .modal{
         padding:12px;
       }
@@ -116,6 +147,10 @@
       }
       .form-row{grid-template-columns: 1fr}
       .footer-grid{grid-template-columns: 1fr}
+      .footer-info,
+      .footer-contacts{
+        text-align:left;
+      }
       .hero-grid{grid-template-columns: 1fr}
       .hero-left{
         display:grid;
@@ -261,6 +296,10 @@
         padding:11px 14px;
       }
       .grid-4{grid-template-columns: 1fr}
+      .pedagog-grid,
+      .counselor-grid{
+        grid-template-columns: 1fr;
+      }
       .docs-grid{grid-template-columns: 1fr}
       .gallery .tile{grid-column: span 12}
       .hero-banner-mobile{
