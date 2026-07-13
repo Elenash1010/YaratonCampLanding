@@ -612,6 +612,14 @@
     .info-document-card:hover{
       color: var(--red);
     }
+    .info-registry-links{
+      display:grid;
+      gap:8px;
+    }
+    .info-data-list .info-registry-links a{
+      text-decoration:underline;
+      text-underline-offset:3px;
+    }
     .info-status{
       color: rgba(36,36,36,.72);
       font-weight:600;

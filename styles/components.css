@@ -395,6 +395,7 @@
     .citem strong{display:block; font-family:inherit; font-weight:700; font-size:13px; color: var(--heading)}
     .citem a{font-weight:400; text-decoration:none}
     .citem a:hover{text-decoration:underline}
+    .contact-phone-list{display:grid; gap:2px}
     .citem span{display:block; margin-top:2px; font-size:12px; font-weight:400; color:rgba(11,15,20,.56)}
 
     form{display:grid; gap:10px; margin-top: 12px}
