@@ -1,4 +1,92 @@
 ﻿document.addEventListener('DOMContentLoaded', () => {
+  const escapeHtml = (value = '') => String(value)
+    .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;').replaceAll("'", '&#039;');
+
+  const renderEvents = () => {
+    const grid = document.getElementById('eventsGrid');
+    const events = Array.isArray(window.YARATON_EVENTS) ? window.YARATON_EVENTS : [];
+    if (!grid || events.length === 0) {
+      document.getElementById('events')?.setAttribute('hidden', '');
+      return;
+    }
+
+    const scheduleHtml = (days = []) => days.map((day) => `
+      <section class="event-day"><h4>${escapeHtml(day.day)}</h4>
+        ${day.note ? `<p class="event-day-note">${escapeHtml(day.note)}</p>` : ''}
+        <dl class="event-schedule">${(day.items || []).map(([time, activity]) =>
+          `<div><dt>${escapeHtml(time)}</dt><dd>${escapeHtml(activity)}</dd></div>`).join('')}</dl>
+      </section>`).join('');
+
+    const pricesHtml = (prices = {}) => `
+      <div class="event-price-wrap" tabindex="0" role="region" aria-label="Таблица стоимости — прокрутите по горизонтали при необходимости">
+        <table class="event-price-table">
+          <thead><tr>${(prices.columns || []).map((cell) => `<th scope="col">${escapeHtml(cell)}</th>`).join('')}</tr></thead>
+          <tbody>${(prices.rows || []).map((row) => `<tr>${row.map((cell, index) => index === 0 ? `<th scope="row">${escapeHtml(cell)}</th>` : `<td>${escapeHtml(cell)}</td>`).join('')}</tr>`).join('')}</tbody>
+        </table>
+      </div>${prices.note ? `<p class="event-price-note">${escapeHtml(prices.note)}</p>` : ''}`;
+
+    grid.innerHTML = events.map((event) => `
+      <article class="event-card">
+        <button class="event-card-media" type="button" data-modal="eventModal-${escapeHtml(event.id)}" aria-label="Открыть программу: ${escapeHtml(event.title)}">
+          <img src="${escapeHtml(event.image)}" alt="${escapeHtml(event.imageAlt)}" loading="lazy" decoding="async">
+        </button>
+        <span class="event-card-copy"><span class="event-card-eyebrow">${escapeHtml(event.eyebrow)}</span>
+          <span class="event-card-title"><span class="event-card-title-prefix">${escapeHtml(event.titlePrefix || 'Семейный фестиваль')}</span><strong>${escapeHtml(event.titleMain || event.title)}</strong></span>
+          <span class="event-card-details">
+            <span><span class="event-card-detail-label">Время проведения:</span> <strong>${escapeHtml(event.date)}</strong></span>
+            <span><span class="event-card-detail-label">Место проведения:</span> <strong>${escapeHtml(event.place)}</strong></span>
+          </span>
+          <span class="event-card-summary">${escapeHtml(event.summary)}</span>
+          <span class="event-card-meta">${(event.highlights || []).slice(0, 3).map((item) => `<span>${escapeHtml(item)}</span>`).join('')}</span>
+          <span class="event-card-actions">
+            <a class="btn btn-primary" href="#contacts">Участвую!</a>
+            <button class="btn btn-secondary" type="button" data-modal="eventModal-${escapeHtml(event.id)}">Программа и стоимость</button>
+          </span>
+        </span>
+      </article>`).join('');
+
+    events.forEach((event) => {
+      const modalId = `eventModal-${event.id}`;
+      const modal = document.createElement('div');
+      modal.className = 'modal shift-modal event-modal';
+      modal.id = modalId;
+      modal.setAttribute('aria-hidden', 'true');
+      modal.setAttribute('role', 'dialog');
+      modal.setAttribute('aria-modal', 'true');
+      modal.setAttribute('aria-labelledby', `eventTitle-${event.id}`);
+      modal.innerHTML = `<div class="box"><div class="topbar"><div class="event-modal-tags"><span class="tag">${escapeHtml(event.date)}</span><span class="tag">${escapeHtml(event.place)}</span></div>
+        <button class="close" type="button" data-modal-close="${escapeHtml(modalId)}" aria-label="Закрыть подробности мероприятия">Закрыть ✕</button></div>
+        <div class="content"><header class="event-modal-header">
+          <h3 id="eventTitle-${escapeHtml(event.id)}">${escapeHtml(event.title)}</h3>
+        </header>
+          <div class="event-modal-hero"><img src="${escapeHtml(event.modalImage || event.image)}" alt="${escapeHtml(event.modalImageAlt || event.imageAlt)}" decoding="async"></div>
+          <div class="event-modal-intro"><p>${escapeHtml(event.summary)}</p></div>
+          <div class="event-highlights" aria-label="Главное в программе">${(event.highlights || []).map((item) => `<span>${escapeHtml(item)}</span>`).join('')}</div>
+          <section class="event-modal-section"><h3>Главные события фестиваля</h3>
+            <div class="event-feature-details">${(event.featureDetails || []).map((feature) => `
+              <article class="event-feature-card"><h4>${escapeHtml(feature.title)}</h4>
+                ${feature.description ? `<p>${escapeHtml(feature.description)}</p>` : ''}
+                <ul>${(feature.items || []).map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
+              </article>`).join('')}
+            </div>
+          </section>
+          <section class="event-modal-section"><h3>Расписание</h3><div class="event-days">${scheduleHtml(event.schedule)}</div></section>
+          <section class="event-modal-section"><h3>Стоимость участия</h3>${pricesHtml(event.prices)}</section>
+          <div class="event-detail-columns"><section class="event-modal-section"><h3>Что входит</h3><ul>${(event.included || []).map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
+            <div class="event-meals"><h4>Питание по тарифам</h4><ul>${(event.meals || []).map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul></div>
+          </section>
+          <section class="event-modal-section"><h3>Можно оплатить дополнительно</h3><ul class="event-extras">${(event.extras || []).map((item) => `
+            <li><strong>${escapeHtml(item.title)}</strong>${(item.lines || []).map((line) => `<span>${escapeHtml(line)}</span>`).join('')}</li>`).join('')}</ul>
+          </section></div>
+          <div class="event-modal-actions"><a class="btn btn-primary" href="#contacts" data-modal-close="${escapeHtml(modalId)}" data-modal-contact>Забронировать участие</a></div>
+        </div></div>`;
+      document.body.appendChild(modal);
+    });
+  };
+
+  renderEvents();
+
   const header = document.querySelector('header');
   const burger = document.getElementById('burger');
   const mobilePanel = document.getElementById('mobilePanel');
@@ -369,6 +457,9 @@
   document.addEventListener('click', (event) => {
     const openTrigger = event.target.closest('[data-modal]');
     if (openTrigger) {
+      if (openTrigger.matches('.event-card') && window.getSelection()?.toString().trim()) {
+        return;
+      }
       event.preventDefault();
       openModalById(openTrigger.getAttribute('data-modal'), openTrigger);
       return;
@@ -393,6 +484,9 @@
         }
       }
       closeModalById(closeTrigger.getAttribute('data-modal-close'));
+      if (closeTrigger.matches('[data-modal-contact]')) {
+        document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
       return;
     }
 
@@ -404,6 +498,12 @@
   });
 
   document.addEventListener('keydown', (event) => {
+    const eventCard = event.target.closest?.('.event-card[data-modal]');
+    if (eventCard && (event.key === 'Enter' || event.key === ' ')) {
+      event.preventDefault();
+      openModalById(eventCard.getAttribute('data-modal'), eventCard);
+      return;
+    }
     if (event.key !== 'Escape') return;
     setMenu(false);
     closeAllModals();

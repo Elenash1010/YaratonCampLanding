@@ -2,6 +2,7 @@
       RESPONSIVE
     ========================== */
     @media (max-width: 1024px){
+      .event-card{grid-template-columns:minmax(300px,.62fr) minmax(0,1fr)}
       .hero-grid{grid-template-columns: 1fr}
       .hero-banner{min-height: 320px}
       .docs-grid{grid-template-columns: repeat(2,1fr)}
@@ -60,6 +61,19 @@
     }
 
     @media (max-width: 768px){
+      .event-card{grid-template-columns:1fr; gap:14px; padding:16px}
+      .event-card-media{min-height:0; height:auto; aspect-ratio:3 / 2; align-self:start}
+      .event-card-media img{min-height:0; height:100%; object-position:50% 50%}
+      .event-card-actions{display:grid; grid-template-columns:1fr 1fr}
+      .event-card-actions .btn{min-width:0; white-space:normal}
+      .event-modal .box{padding:20px 16px}
+      .event-modal .topbar{align-items:flex-start}
+      .event-modal-tags{display:grid; gap:6px}
+      .event-modal-tags .tag{white-space:normal}
+      .event-modal-hero{min-height:260px; height:52vw}
+      .event-detail-columns{grid-template-columns:1fr}
+      .event-feature-details{grid-template-columns:1fr}
+      .event-schedule > div{grid-template-columns:1fr; gap:3px}
       .info-page-title h1 span{
         white-space:normal;
       }
@@ -281,6 +295,9 @@
       .scroll-btn{display:none}
     }
     @media (max-width: 420px){
+      .event-card-media,.event-card-media img{min-height:0}
+      .event-card-actions{grid-template-columns:1fr}
+      .event-modal-hero{min-height:210px; height:58vw}
       .container{width: calc(100% - 28px)}
       .modal{
         padding:14px;

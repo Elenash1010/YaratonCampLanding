@@ -103,13 +103,14 @@
           <div class="desktop-nav-lines">
             <ul class="desktop-nav-row">
               <li><a href="#about">О лагере</a></li>
+              <li><a href="svedeniya.html">Сведения об организации</a></li>
               <li><a href="#shifts">Смены</a></li>
               <li><a href="#team">Команда</a></li>
               <li><a href="#parents">Родителям</a></li>
-              <li><a href="#medical-services">Доп.услуги</a></li>
             </ul>
             <ul class="desktop-nav-row">
-              <li><a href="svedeniya.html">Сведения об организации отдыха</a></li>
+              <li><a href="#events">Афиша</a></li>
+              <li><a href="#medical-services">Доп. услуги</a></li>
               <li><a href="#faq">Частые вопросы</a></li>
               <li><a href="#contacts">Контакты</a></li>
             </ul>
@@ -128,14 +129,15 @@
           <nav aria-label="Мобильная навигация">
             <ul>
               <li><a href="#about">Коротко о лагере</a></li>
+              <li><a href="svedeniya.html">Сведения об организации</a></li>
               <li><a href="#shifts">Смены и цены</a></li>
               <li><a href="#team">Педагоги и вожатые</a></li>
               <li><a href="#parents">Для родителей</a></li>
-              <li><a href="#medical-services">Доп.услуги</a></li>
-              <li><a href="svedeniya.html">Сведения об организации отдыха</a></li>
+              <li><a href="#events">Афиша</a></li>
+              <li><a href="#medical-services">Доп. услуги</a></li>
               <li><a href="#faq">Частые вопросы</a></li>
-              <li><a href="#gallery">Фото</a></li>
               <li><a href="#contacts">Связаться</a></li>
+              <li><a href="#gallery">Фото</a></li>
               <li><a href="#route">Как добраться</a></li>
             </ul>
           </nav>
@@ -917,7 +919,7 @@
               <li><strong>Комплекс оздоровительных процедур</strong> (биоптрон, коктейль, вибрационный массаж стоп и глаз) - 450 рублей/1 комплекс (4500 руб/10 шт)</li>
             </ul>
             <ul class="medical-notes">
-              <li>Услуги оказывает ООО «Чебер» (<a href="assets/docs/cheber-medical-license.pdf" target="_blank" rel="noopener">медицинская лицензия</a>)</li>
+              <li>Услуги оказывает ООО «Чебер» (медицинская лицензия)</li>
               <li>Услуги предоставляются только с согласия родителя/законного представителя</li>
               <li>Возможны противопоказания</li>
               <li>Стоимость не входит в путевку</li>
@@ -1230,6 +1232,19 @@
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
         </div>
+      </div>
+    </section>
+
+    <!-- ========================= EVENTS ========================= -->
+    <section id="events" class="section events-section" aria-label="Афиша">
+      <div class="container">
+        <div class="subhead">
+          <div>
+            <h2>Афиша</h2>
+            <p>Ближайшие события для всей семьи на курорте «Яратон».</p>
+          </div>
+        </div>
+        <div class="events-grid" id="eventsGrid" aria-live="polite"></div>
       </div>
     </section>
 
@@ -2251,6 +2266,7 @@
     </div>
 
   </main>
+  <script src="data/events.js" defer></script>
   <script src="scripts/main.js" defer></script>
 </body>
 </html>
