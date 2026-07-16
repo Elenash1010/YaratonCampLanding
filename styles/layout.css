@@ -133,7 +133,7 @@
     /* =========================
       HEADER / NAV / BURGER
     ========================== */
-    header{
+    header#top{
       position: fixed;
       top:0;
       left:0;
@@ -148,7 +148,7 @@
     main{
       padding-top: 112px;
     }
-    header.scrolled{
+    header#top.scrolled{
       background: rgba(255,255,255,.90);
       box-shadow: 0 10px 24px rgba(11,15,20,.12);
     }

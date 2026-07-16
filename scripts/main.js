@@ -3,6 +3,17 @@
     .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;').replaceAll("'", '&#039;');
 
+  const applyRussianTypography = (root) => {
+    const shortWords = /(^|[\s([{«„"—–-])(\u0432\u043e?|\u0431\u0435\u0437|\u0434\u043e|\u0434\u043b\u044f|\u0437\u0430|\u0438\u0437|\u043a\u043e?|\u043d\u0430|\u043d\u0430\u0434|\u043e\u0431?|\u043e\u0442|\u043f\u043e|\u043f\u043e\u0434|\u043f\u0440\u0438|\u043f\u0440\u043e|\u0441\u043e?|\u0443|\u0438|\u0430|\u043d\u043e|\u043d\u0435|\u043d\u0438)\s+(?=\S)/giu;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach((node) => {
+      node.nodeValue = node.nodeValue.replace(shortWords, '$1$2\u00A0');
+    });
+  };
+
   const renderEvents = () => {
     const grid = document.getElementById('eventsGrid');
     const events = Array.isArray(window.YARATON_EVENTS) ? window.YARATON_EVENTS : [];
@@ -57,9 +68,9 @@
       modal.setAttribute('aria-labelledby', `eventTitle-${event.id}`);
       modal.innerHTML = `<div class="box"><div class="topbar"><div class="event-modal-tags"><span class="tag">${escapeHtml(event.date)}</span><span class="tag">${escapeHtml(event.place)}</span></div>
         <button class="close" type="button" data-modal-close="${escapeHtml(modalId)}" aria-label="Закрыть подробности мероприятия">Закрыть ✕</button></div>
-        <div class="content"><header class="event-modal-header">
+        <div class="content"><div class="event-modal-header">
           <h3 id="eventTitle-${escapeHtml(event.id)}">${escapeHtml(event.title)}</h3>
-        </header>
+        </div>
           <div class="event-modal-hero"><img src="${escapeHtml(event.modalImage || event.image)}" alt="${escapeHtml(event.modalImageAlt || event.imageAlt)}" decoding="async"></div>
           <div class="event-modal-intro"><p>${escapeHtml(event.summary)}</p></div>
           <div class="event-highlights" aria-label="Главное в программе">${(event.highlights || []).map((item) => `<span>${escapeHtml(item)}</span>`).join('')}</div>
@@ -81,6 +92,7 @@
           </section></div>
           <div class="event-modal-actions"><a class="btn btn-primary" href="#contacts" data-modal-close="${escapeHtml(modalId)}" data-modal-contact>Забронировать участие</a></div>
         </div></div>`;
+      applyRussianTypography(modal);
       document.body.appendChild(modal);
     });
   };
@@ -227,7 +239,12 @@
   closeAllModals();
 
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', () => requestAnimationFrame(updateAllScrollerHints), { passive: true });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1180) {
+      setMenu(false);
+    }
+    requestAnimationFrame(updateAllScrollerHints);
+  }, { passive: true });
 
   burger?.addEventListener('click', () => {
     const isOpen = burger.getAttribute('aria-expanded') === 'true';
