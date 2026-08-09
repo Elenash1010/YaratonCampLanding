@@ -1016,7 +1016,7 @@
       display:grid !important;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       gap:28px;
-      align-items:center;
+      align-items:start;
       overflow:hidden;
       font-size:14px;
       line-height:1.36;
@@ -1036,15 +1036,22 @@
     .payment-modal-media{
       min-width:0;
       display:flex;
+      flex-direction:column;
       align-items:center;
       justify-content:center;
     }
+    .payment-modal-media-title{
+      width:100%;
+      margin:0 0 8px;
+      text-align:center;
+    }
     .payment-modal-media img{
       width:100%;
-      max-width:440px;
+      max-width:380px;
       max-height:54vh;
       object-fit:contain;
       margin:0 auto;
+      image-rendering:pixelated;
     }
     .privacy-modal .box{
       width:min(980px, 100%);
