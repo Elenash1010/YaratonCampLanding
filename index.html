@@ -274,13 +274,13 @@
             <h2>Смены и цены</h2>
             <div class="tabs tabs-season" role="tablist" aria-label="Переключатель сезонов">
               <button class="tab" role="tab" aria-selected="false" aria-controls="season-spring" id="tab-spring" hidden>Весна</button>
-              <button class="tab" role="tab" aria-selected="true" aria-controls="season-summer" id="tab-summer">Лето - 2026</button>
-              <button class="tab" role="tab" aria-selected="false" aria-controls="season-autumn" id="tab-autumn" hidden>Осень</button>
+              <button class="tab" role="tab" aria-selected="false" aria-controls="season-summer" id="tab-summer" hidden>Лето - 2026</button>
+              <button class="tab" role="tab" aria-selected="true" aria-controls="season-autumn" id="tab-autumn">Осень 2026</button>
               <button class="tab" role="tab" aria-selected="false" aria-controls="season-winter" id="tab-winter" hidden>Зима</button>
             </div>
-            <p>Каждое лето в нашем лагере — это новая история. Мы создаём уникальную программу и сюжет, который объединяет все смены и делает сезон по-настоящему особенным</p>
-            <p>Что ждёт вас в этом году? Пусть это останется небольшой интригой — хотя, возможно, вы уже догадываетесь 😉 Одно можем сказать точно: это будет ярко, насыщенно и незабываемо</p>
-            <p><strong>Для тех, кто едет впервые</strong>, мы предусмотрели <strong>короткие 7-дневные смены</strong> — чтобы мягко адаптироваться и познакомиться с лагерем. Но будьте готовы: уезжать не захочется</p>
+            <p>Осень — не&nbsp;повод ждать следующих каникул, чтобы&nbsp;отправиться за&nbsp;новыми впечатлениями.</p>
+            <p>Мы подготовили короткие программы для&nbsp;школьных классов, в&nbsp;которых даже за&nbsp;несколько часов или&nbsp;один день можно успеть удивительно много: сменить привычную обстановку, отдохнуть вместе с&nbsp;друзьями, поучаствовать в&nbsp;играх и&nbsp;мероприятиях и&nbsp;просто здорово провести время вне&nbsp;школы.</p>
+            <p>Выбирайте свой формат: <strong>5 часов яркой перезагрузки</strong> или&nbsp;<strong>целые сутки маленького приключения с&nbsp;проживанием</strong>.</p>
             <p hidden>А для старших участников в 3-й и 4-й сменах мы подготовили особенное — новые программы, которые откроют ещё больше возможностей и впечатлений</p>
           </div>
           <div>
@@ -388,7 +388,7 @@
         </div>
 
         <!-- Лето (5 смен) -->
-        <div id="season-summer" role="tabpanel" aria-labelledby="tab-summer">
+        <div id="season-summer" role="tabpanel" aria-labelledby="tab-summer" hidden>
           <div class="scroller-wrap" data-scroller-wrap>
             <button class="scroll-btn scroll-prev" type="button" aria-label="Прокрутить влево" data-scroll="prev">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -565,33 +565,44 @@
           </div>
         </div>
 
-        <!-- Осень (3 смены) -->
-        <div id="season-autumn" role="tabpanel" aria-labelledby="tab-autumn" hidden>
+        <!-- Осень (1 смена) -->
+        <div id="season-autumn" role="tabpanel" aria-labelledby="tab-autumn">
           <div class="scroller-wrap" data-scroller-wrap>
-            <button class="scroll-btn scroll-prev" type="button" aria-label="Прокрутить влево" data-scroll="prev">
+            <button class="scroll-btn scroll-prev" type="button" aria-label="Прокрутить влево" data-scroll="prev" hidden>
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <div class="scroller" data-scroller aria-label="Карточки смен (Осень)">
               <article class="card shift">
-                <div class="card-media" aria-label="Фото смены: Осенний интенсив (плейсхолдер)"></div>
+                <div class="card-media real-photo media-cover media-autumn-1" aria-label="Фото осенней смены: дети на пикнике с арбузом"><span class="shift-media-tag">Осенняя смена</span></div>
                 <div class="shift-top">
                   <div>
-                    <h3>«Осенний интенсив»</h3>
-                    <div class="meta">
-                      <span class="pill">26.10–08.11</span>
+                    <h3>Пакет школьный «МАКСИ» — 24 часа</h3>
+                    <div class="shift-pricing">
+                      <p>Продолжительность: <strong>24 часа</strong></p>
+                      <p>Стоимость: <strong>2 750 ₽ для одного ребенка</strong></p>
+
+                      <div class="shift-details-extra">
+                        <p><strong>Для группы от 20 человек:</strong><br>
+                          1 сопровождающий взрослый — <strong>бесплатно</strong><br>
+                          Второй и последующие взрослые — <strong>1 980 ₽ / человек</strong>
+                        </p>
+
+                        <p class="shift-program-heading"><strong>В программу входит:</strong></p>
+                        <ul>
+                          <li>проживание — 24 часа;</li>
+                          <li>3-разовое питание;</li>
+                          <li>оздоровительные услуги (кислородный коктейль);</li>
+                          <li>культурно-массовая программа</li>
+                        </ul>
+
+                        <p class="shift-transfer-note"><strong>Трансфер оплачивается отдельно</strong><br>
+                          Для&nbsp;группы от&nbsp;20 человек — <strong>850 ₽ / человек в&nbsp;обе стороны</strong><br>
+                          При&nbsp;группе менее&nbsp;20 человек производится доплата до&nbsp;минимального расчётного количества — 20 мест
+                        </p>
+                      </div>
                     </div>
                   </div>
-                  <div>
-                    <div class="price">от 35 900 ₽</div>
-                    <div class="badge badge-top-gap b-sun">14 дней</div>
-                  </div>
                 </div>
-                <ul class="incl">
-                  <li>спортзал + кружки</li>
-                  <li>мастер-классы</li>
-                  <li>настольные турниры</li>
-                  <li>режим и прогулки</li>
-                </ul>
                 <p class="shift-note">*Количество мест ограничено. Наличие мест уточняется у администратора</p>
                 <div class="shift-actions">
                   <a class="btn btn-secondary" href="#parents">Подробнее</a>
@@ -600,33 +611,44 @@
               </article>
 
               <article class="card shift">
-                <div class="card-media" aria-label="Фото смены: Лидерство (плейсхолдер)"></div>
+                <div class="card-media real-photo media-cover media-autumn-2" aria-label="Фото осенней смены: дети с арбузом"><span class="shift-media-tag">Осенняя смена</span></div>
                 <div class="shift-top">
                   <div>
-                    <h3>«Лидерство и команда»</h3>
-                    <div class="meta">
-                      <span class="pill">10.11–23.11</span>
+                    <h3>Пакет школьный «МИНИ» — 5 часов</h3>
+                    <div class="shift-pricing">
+                      <p>Продолжительность: <strong>5 часов</strong></p>
+                      <p>Стоимость: <strong>2 150 ₽ для одного ребёнка</strong></p>
+
+                      <div class="shift-details-extra">
+                        <p><strong>Для группы от 20 детей:</strong><br>
+                          1 сопровождающий взрослый — <strong>бесплатно</strong><br>
+                          Второй и последующие взрослые — <strong>1 480 ₽ / человек</strong>
+                        </p>
+
+                        <p class="shift-program-heading"><strong>В программу входит:</strong></p>
+                        <ul>
+                          <li>пребывание до 5 часов;</li>
+                          <li>питание (обед);</li>
+                          <li>оздоровительные услуги (кислородный коктейль);</li>
+                          <li>культурно-массовая программа</li>
+                        </ul>
+
+                        <p class="shift-transfer-note"><strong>Трансфер оплачивается отдельно</strong><br>
+                          Для&nbsp;группы от&nbsp;20 человек — <strong>850 ₽ / человек в&nbsp;обе стороны</strong><br>
+                          При&nbsp;группе менее&nbsp;20 человек производится доплата до&nbsp;минимального расчётного количества — 20 мест
+                        </p>
+                      </div>
                     </div>
                   </div>
-                  <div>
-                    <div class="price">от 36 900 ₽</div>
-                    <div class="badge badge-top-gap b-vio">14 дней</div>
-                  </div>
                 </div>
-                <ul class="incl">
-                  <li>soft skills</li>
-                  <li>публичные выступления</li>
-                  <li>игровые тренинги</li>
-                  <li>проектная ярмарка</li>
-                </ul>
                 <p class="shift-note">*Количество мест ограничено. Наличие мест уточняется у администратора</p>
                 <div class="shift-actions">
-                  <a class="btn btn-secondary" href="#faq">Подробнее</a>
+                  <a class="btn btn-secondary" href="#parents">Подробнее</a>
                   <a class="btn btn-primary" href="#contacts">Оставить заявку</a>
                 </div>
               </article>
 
-              <article class="card shift">
+              <article class="card shift" hidden>
                 <div class="card-media" aria-label="Фото смены: Творческий уик-энд (плейсхолдер)"></div>
                 <div class="shift-top">
                   <div>
@@ -653,7 +675,7 @@
                 </div>
               </article>
             </div>
-            <button class="scroll-btn scroll-next" type="button" aria-label="Прокрутить вправо" data-scroll="next">
+            <button class="scroll-btn scroll-next" type="button" aria-label="Прокрутить вправо" data-scroll="next" hidden>
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
           </div>

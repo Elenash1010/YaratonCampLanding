@@ -16,6 +16,7 @@
       margin-bottom: 22px;
     }
     .subhead p{margin:0; max-width: 70ch}
+    #shifts .subhead p + p{margin-top:14px}
     .nowrap{white-space:nowrap}
     .final-cta-text{white-space:nowrap}
     .final-cta-break{display:inline}

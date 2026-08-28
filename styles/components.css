@@ -213,12 +213,38 @@
       grid-auto-columns: minmax(320px, 320px);
       align-items: stretch;
     }
+    #season-autumn .scroller{
+      grid-auto-columns: calc((100% - 10px) / 2);
+    }
     #shifts .scroller > .shift{
       height: 100%;
       min-height: 620px;
     }
     #shifts .shift .card-media{
       height: 190px;
+    }
+    #season-autumn .shift .card-media{
+      height: 380px;
+    }
+    .shift-details-extra{
+      margin-top:24px;
+    }
+    .shift-details-extra p{
+      margin:0 0 20px;
+    }
+    .shift-details-extra ul{
+      margin:10px 0 20px;
+      padding-left:22px;
+      color:#5E6F86;
+    }
+    .shift-details-extra li{
+      margin:4px 0;
+    }
+    .shift-pricing .shift-details-extra .shift-program-heading{
+      margin-top:24px;
+    }
+    .shift-pricing .shift-details-extra .shift-transfer-note{
+      margin-bottom:28px;
     }
     .shift-top{
       display:flex;
