@@ -573,7 +573,7 @@
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <div class="scroller" data-scroller aria-label="Карточки смен (Осень)">
-              <article class="card shift">
+              <article class="card shift" data-card-modal="autumnShiftModal" tabindex="0" aria-haspopup="dialog" aria-label="Подробнее о смене Код золотой осени">
                 <div class="card-media real-photo media-cover media-autumn-3" aria-label="Фото осенней смены: дети с картой в осеннем лесу"><span class="shift-media-tag">Осенняя смена</span></div>
                 <div class="shift-top">
                   <div>
@@ -604,7 +604,7 @@
                 </div>
                 <p class="shift-note">*Количество мест ограничено. Наличие мест уточняется у администратора</p>
                 <div class="shift-actions">
-                  <a class="btn btn-secondary" href="#parents">Подробнее</a>
+                  <a class="btn btn-secondary js-shift-details" href="#!" data-modal="autumnShiftModal" aria-label="Подробнее о смене Код золотой осени">Подробнее</a>
                   <a class="btn btn-primary" href="#contacts">Оставить заявку</a>
                 </div>
               </article>
@@ -1652,6 +1652,67 @@
         </div>
       </div>
     </div>
+    <!-- AUTUMN SHIFT DETAILS MODAL -->
+    <div class="modal shift-modal" id="autumnShiftModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Подробности смены">
+      <div class="box">
+        <div class="topbar">
+          <div class="tag">Осенняя смена «Код золотой осени»</div>
+          <button class="close" id="closeAutumnShiftModal" type="button" data-modal-close="autumnShiftModal" aria-label="Закрыть окно">Закрыть ✕</button>
+        </div>
+          <div class="content">
+            <div class="shift-top">
+              <div class="shift-left">
+                <p>У каждого лагеря есть свои истории.<br>
+                  А у «Яратона» — ещё и одна большая тайна.</p>
+                <p style="margin-top:18px">Когда-то здесь нашли необычный Золотой лист — символ дружбы, смелости и настоящей команды. Но однажды он исчез. И с тех пор никто так и не смог его найти…</p>
+                <p style="margin-top:18px">Говорят, Хранитель оставил только одну подсказку:<br>
+                  — «Золотой лист нельзя найти в одиночку».<br>
+                  И, кажется, пришло время продолжить эту историю.</p>
+              </div>
+              <div class="shift-right">
+                <img src="assets/images/shifts/shift-1-modal.jpg" alt="Фото смены: открытие сезона" />
+              </div>
+            </div>
+            <div style="margin-top:64px">
+              <h3 style="margin:0 0 20px">Что делает смену особенной</h3>
+              <ul class="incl" style="margin:0">
+                <li>тематическая программа <strong>«Код золотой осени»</strong> — с заданиями, загадками и общей историей смены</li>
+                <li>много командных игр, знакомств и совместных приключений</li>
+                <li>насыщенная программа, в которой каждый день приносит новые события</li>
+                <li>творческие, спортивные и интеллектуальные активности</li>
+                <li>атмосфера настоящего лагеря даже за несколько осенних дней</li>
+                <li>новые друзья, яркие эмоции и свои маленькие традиции смены</li>
+              </ul>
+            </div>
+            <div style="margin-top:28px">
+              <h3 style="margin:0 0 20px">В стоимость включено</h3>
+              <ul class="incl" style="margin:0">
+                <li><strong>Трансфер в обе стороны</strong> — организованный проезд от города до лагеря и обратно в дни заезда и выезда</li>
+                <li><strong>Проживание на территории лагеря</strong> — среди осеннего леса, природы и свежего воздуха</li>
+                <li><strong>5-разовое питание</strong> — сбалансированное, вкусное и с учётом детских предпочтений</li>
+                <li><strong>Культурно-массовые и досуговые мероприятия</strong> — тематическая программа и новые события каждый день</li>
+                <li><strong>Спортивные и творческие активности</strong> — командные игры, мастер-классы, конкурсы и движение</li>
+                <li><strong>Работа наставников и педагогов</strong> — опытная команда, которая помогает включиться в жизнь лагеря, поддерживает и создаёт атмосферу</li>
+              </ul>
+
+              <h3 style="margin:18px 0 20px">Осень, которую захочется повторить</h3>
+              <p style="margin:0 0 10px">Несколько дней, за которые можно прожить целую лагерную историю.</p>
+              <p style="margin:0 0 10px"><strong>«Код золотой осени»</strong> — это время приключений, новых друзей, командных заданий, творчества и настоящей лагерной атмосферы среди яркого осеннего леса.</p>
+              <p style="margin:0 0 10px">Каждый день здесь становится частью большой истории, а разгадать главный код смены можно только вместе.</p>
+              <p style="margin:0 0 10px">За активное участие в жизни лагеря ребят ждут фирменный мерч и приятные бонусы. Но самое ценное они увезут с собой домой — новые знакомства, эмоции и воспоминания о каникулах, которые получились по-настоящему особенными.</p>
+              <p style="margin:0 0 10px"><strong>Счастливые воспоминания — наша работа</strong></p>
+
+              <h4 style="margin:18px 0 20px">Дополнительно</h4>
+              <p style="margin:0 0 6px">При желании можно усилить эффект отдыха:</p>
+              <p style="margin:0">
+                доступен комплекс оздоравливающих процедур или отдельные услуги на выбор
+                (подробнее — в разделе «Дополнительные оздоровительные услуги»)
+              </p>
+            </div>
+          </div>
+      </div>
+    </div>
+
     <!-- SHIFT DETAILS MODAL -->
     <div class="modal shift-modal" id="shiftModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Подробности смены">
       <div class="box">
