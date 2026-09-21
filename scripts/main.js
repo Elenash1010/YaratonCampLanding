@@ -1,18 +1,7 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const escapeHtml = (value = '') => String(value)
     .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;').replaceAll("'", '&#039;');
-
-  const applyRussianTypography = (root) => {
-    const shortWords = /(^|[\s([{«„"—–-])(\u0432\u043e?|\u0431\u0435\u0437|\u0434\u043e|\u0434\u043b\u044f|\u0437\u0430|\u0438\u0437|\u043a\u043e?|\u043d\u0430|\u043d\u0430\u0434|\u043e\u0431?|\u043e\u0442|\u043f\u043e|\u043f\u043e\u0434|\u043f\u0440\u0438|\u043f\u0440\u043e|\u0441\u043e?|\u0443|\u0438|\u0430|\u043d\u043e|\u043d\u0435|\u043d\u0438)\s+(?=\S)/giu;
-    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-    const nodes = [];
-
-    while (walker.nextNode()) nodes.push(walker.currentNode);
-    nodes.forEach((node) => {
-      node.nodeValue = node.nodeValue.replace(shortWords, '$1$2\u00A0');
-    });
-  };
 
   const renderEvents = () => {
     const grid = document.getElementById('eventsGrid');
@@ -22,79 +11,26 @@
       return;
     }
 
-    const scheduleHtml = (days = []) => days.map((day) => `
-      <section class="event-day"><h4>${escapeHtml(day.day)}</h4>
-        ${day.note ? `<p class="event-day-note">${escapeHtml(day.note)}</p>` : ''}
-        <dl class="event-schedule">${(day.items || []).map(([time, activity]) =>
-          `<div><dt>${escapeHtml(time)}</dt><dd>${escapeHtml(activity)}</dd></div>`).join('')}</dl>
-      </section>`).join('');
-
-    const pricesHtml = (prices = {}) => `
-      <div class="event-price-wrap" tabindex="0" role="region" aria-label="Таблица стоимости — прокрутите по горизонтали при необходимости">
-        <table class="event-price-table">
-          <thead><tr>${(prices.columns || []).map((cell) => `<th scope="col">${escapeHtml(cell)}</th>`).join('')}</tr></thead>
-          <tbody>${(prices.rows || []).map((row) => `<tr>${row.map((cell, index) => index === 0 ? `<th scope="row">${escapeHtml(cell)}</th>` : `<td>${escapeHtml(cell)}</td>`).join('')}</tr>`).join('')}</tbody>
-        </table>
-      </div>${prices.note ? `<p class="event-price-note">${escapeHtml(prices.note)}</p>` : ''}`;
-
     grid.innerHTML = events.map((event) => `
       <article class="event-card">
-        <button class="event-card-media" type="button" data-modal="eventModal-${escapeHtml(event.id)}" aria-label="Открыть программу: ${escapeHtml(event.title)}">
+        <div class="event-card-media">
           <img src="${escapeHtml(event.image)}" alt="${escapeHtml(event.imageAlt)}" loading="lazy" decoding="async">
-        </button>
+        </div>
         <span class="event-card-copy"><span class="event-card-eyebrow">${escapeHtml(event.eyebrow)}</span>
           <span class="event-card-title"><span class="event-card-title-prefix">${escapeHtml(event.titlePrefix || 'Семейный фестиваль')}</span><strong>${escapeHtml(event.titleMain || event.title)}</strong></span>
           <span class="event-card-details">
-            <span><span class="event-card-detail-label">Время проведения:</span> <strong>${escapeHtml(event.date)}</strong></span>
-            <span><span class="event-card-detail-label">Место проведения:</span> <strong>${escapeHtml(event.place)}</strong></span>
+            <span><span class="event-card-detail-label">Дом работает:</span> <strong>${escapeHtml(event.date)}</strong></span>
+            <span class="event-card-location"><span class="event-card-detail-label">Дом находится</span> <strong>${escapeHtml(event.place)}</strong></span>
           </span>
-          <span class="event-card-summary">${escapeHtml(event.summary)}</span>
-          <span class="event-card-meta">${(event.highlights || []).slice(0, 3).map((item) => `<span>${escapeHtml(item)}</span>`).join('')}</span>
+          <span class="event-card-summary">${escapeHtml(event.summary).replace(/^([^:]+: )(.+)$/, '$1<strong>$2</strong>')}</span>
+          <span class="event-card-meta">${(event.highlights || []).map((item) => `<span>${escapeHtml(item)}</span>`).join('')}</span>
           <span class="event-card-actions">
             <a class="btn btn-primary" href="#contacts">Участвую!</a>
-            <button class="btn btn-secondary" type="button" data-modal="eventModal-${escapeHtml(event.id)}">Программа и стоимость</button>
+            <a class="btn btn-secondary" href="${escapeHtml(event.programFile)}" download>Скачать программу</a>
           </span>
         </span>
       </article>`).join('');
 
-    events.forEach((event) => {
-      const modalId = `eventModal-${event.id}`;
-      const modal = document.createElement('div');
-      modal.className = 'modal shift-modal event-modal';
-      modal.id = modalId;
-      modal.setAttribute('aria-hidden', 'true');
-      modal.setAttribute('role', 'dialog');
-      modal.setAttribute('aria-modal', 'true');
-      modal.setAttribute('aria-labelledby', `eventTitle-${event.id}`);
-      modal.innerHTML = `<div class="box"><div class="topbar"><div class="event-modal-tags"><span class="tag">${escapeHtml(event.date)}</span><span class="tag">${escapeHtml(event.place)}</span></div>
-        <button class="close" type="button" data-modal-close="${escapeHtml(modalId)}" aria-label="Закрыть подробности мероприятия">Закрыть ✕</button></div>
-        <div class="content"><div class="event-modal-header">
-          <h3 id="eventTitle-${escapeHtml(event.id)}">${escapeHtml(event.title)}</h3>
-        </div>
-          <div class="event-modal-hero"><img src="${escapeHtml(event.modalImage || event.image)}" alt="${escapeHtml(event.modalImageAlt || event.imageAlt)}" decoding="async"></div>
-          <div class="event-modal-intro"><p>${escapeHtml(event.summary)}</p></div>
-          <div class="event-highlights" aria-label="Главное в программе">${(event.highlights || []).map((item) => `<span>${escapeHtml(item)}</span>`).join('')}</div>
-          <section class="event-modal-section"><h3>Главные события фестиваля</h3>
-            <div class="event-feature-details">${(event.featureDetails || []).map((feature) => `
-              <article class="event-feature-card"><h4>${escapeHtml(feature.title)}</h4>
-                ${feature.description ? `<p>${escapeHtml(feature.description)}</p>` : ''}
-                <ul>${(feature.items || []).map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
-              </article>`).join('')}
-            </div>
-          </section>
-          <section class="event-modal-section"><h3>Расписание</h3><div class="event-days">${scheduleHtml(event.schedule)}</div></section>
-          <section class="event-modal-section"><h3>Стоимость участия</h3>${pricesHtml(event.prices)}</section>
-          <div class="event-detail-columns"><section class="event-modal-section"><h3>Что входит</h3><ul>${(event.included || []).map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
-            <div class="event-meals"><h4>Питание по тарифам</h4><ul>${(event.meals || []).map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul></div>
-          </section>
-          <section class="event-modal-section"><h3>Можно оплатить дополнительно</h3><ul class="event-extras">${(event.extras || []).map((item) => `
-            <li><strong>${escapeHtml(item.title)}</strong>${(item.lines || []).map((line) => `<span>${escapeHtml(line)}</span>`).join('')}</li>`).join('')}</ul>
-          </section></div>
-          <div class="event-modal-actions"><a class="btn btn-primary" href="#contacts" data-modal-close="${escapeHtml(modalId)}" data-modal-contact>Забронировать участие</a></div>
-        </div></div>`;
-      applyRussianTypography(modal);
-      document.body.appendChild(modal);
-    });
   };
 
   renderEvents();
@@ -472,6 +408,12 @@
   });
 
   document.addEventListener('click', (event) => {
+    const shiftCard = event.target.closest('[data-card-modal]');
+    if (shiftCard && !event.target.closest('a, button, input, select, textarea, [data-modal]')) {
+      if (window.getSelection()?.toString().trim()) return;
+      openModalById(shiftCard.dataset.cardModal, shiftCard);
+      return;
+    }
     const openTrigger = event.target.closest('[data-modal]');
     if (openTrigger) {
       if (openTrigger.matches('.event-card') && window.getSelection()?.toString().trim()) {
@@ -515,6 +457,12 @@
   });
 
   document.addEventListener('keydown', (event) => {
+    const shiftCard = event.target.closest?.('[data-card-modal]');
+    if (shiftCard && event.target === shiftCard && (event.key === 'Enter' || event.key === ' ')) {
+      event.preventDefault();
+      openModalById(shiftCard.dataset.cardModal, shiftCard);
+      return;
+    }
     const eventCard = event.target.closest?.('.event-card[data-modal]');
     if (eventCard && (event.key === 'Enter' || event.key === ' ')) {
       event.preventDefault();

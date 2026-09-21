@@ -2,7 +2,7 @@
       RESPONSIVE
     ========================== */
     @media (max-width: 1024px){
-      .event-card{grid-template-columns:minmax(300px,.62fr) minmax(0,1fr)}
+      .event-card{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
       .hero-grid{grid-template-columns: 1fr}
       .hero-banner{min-height: 320px}
       .docs-grid{grid-template-columns: repeat(2,1fr)}
@@ -67,8 +67,8 @@
 
     @media (max-width: 768px){
       .event-card{grid-template-columns:1fr; gap:14px; padding:16px}
-      .event-card-media{min-height:0; height:auto; aspect-ratio:3 / 2; align-self:start}
-      .event-card-media img{min-height:0; height:100%; object-position:50% 50%}
+      .event-card-media{min-height:0; height:auto; aspect-ratio:auto; align-self:start}
+      .event-card-media img{min-height:0; height:auto; object-position:50% 50%}
       .event-card-actions{display:grid; grid-template-columns:1fr 1fr}
       .event-card-actions .btn{min-width:0; white-space:normal}
       .event-modal .box{padding:20px 16px}

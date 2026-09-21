@@ -208,12 +208,22 @@
       border:1px solid #D6DEE8;
       box-shadow: 0 8px 20px rgba(35,59,89,.08);
     }
+    .shift[data-card-modal]{
+      cursor:pointer;
+    }
+    .shift[data-card-modal]:focus-visible{
+      outline:3px solid #3869AC;
+      outline-offset:-3px;
+    }
     #shifts .scroller{
       grid-auto-columns: minmax(320px, 320px);
       align-items: stretch;
     }
     #season-autumn .scroller{
-      grid-auto-columns: calc((100% - 10px) / 2);
+      grid-auto-columns: minmax(0, calc((100% - 20px) / 3));
+    }
+    #season-autumn .scroll-btn:disabled{
+      display:none;
     }
     #shifts .scroller > .shift{
       height: 100%;
@@ -223,10 +233,13 @@
       height: 190px;
     }
     #season-autumn .shift .card-media{
-      height: 380px;
+      height: 260px;
     }
     .shift-details-extra{
       margin-top:24px;
+    }
+    .shift-price-nowrap{
+      white-space:nowrap;
     }
     .shift-details-extra p{
       margin:0 0 20px;
