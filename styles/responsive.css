@@ -66,7 +66,10 @@
     }
 
     @media (max-width: 768px){
-      .event-card{grid-template-columns:1fr; gap:14px; padding:16px}
+      .event-card{grid-template-columns:minmax(0,1fr); min-width:0; gap:14px; padding:16px}
+      .event-card-details{grid-template-columns:minmax(0,1fr)}
+      .event-card-details > span{min-width:0}
+      .event-card-location{white-space:normal}
       .event-card-media{min-height:0; height:auto; aspect-ratio:auto; align-self:start}
       .event-card-media img{min-height:0; height:auto; object-position:50% 50%}
       .event-card-actions{display:grid; grid-template-columns:1fr 1fr}

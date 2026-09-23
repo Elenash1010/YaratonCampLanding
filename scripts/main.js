@@ -3,6 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
     .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;').replaceAll("'", '&#039;');
 
+  // Keep Russian prepositions and conjunctions with the following word.
+  const eventText = (value = '') => escapeHtml(String(value).replace(
+    /(^|[\s])((?:и|а|но|или|в|во|на|с|со|к|ко|у|о|об|от|до|из|за|по|для|без|при|под|над|про|через)) +(?=\S)/giu,
+    '$1$2\u00a0'
+  ));
+
   const renderEvents = () => {
     const grid = document.getElementById('eventsGrid');
     const events = Array.isArray(window.YARATON_EVENTS) ? window.YARATON_EVENTS : [];
@@ -19,11 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class="event-card-copy"><span class="event-card-eyebrow">${escapeHtml(event.eyebrow)}</span>
           <span class="event-card-title"><span class="event-card-title-prefix">${escapeHtml(event.titlePrefix || 'Семейный фестиваль')}</span><strong>${escapeHtml(event.titleMain || event.title)}</strong></span>
           <span class="event-card-details">
-            <span><span class="event-card-detail-label">Дом работает:</span> <strong>${escapeHtml(event.date)}</strong></span>
-            <span class="event-card-location"><span class="event-card-detail-label">Дом находится</span> <strong>${escapeHtml(event.place)}</strong></span>
+            <span><span class="event-card-detail-label">Дом работает:</span> <strong>${eventText(event.date)}</strong></span>
+            <span class="event-card-location"><span class="event-card-detail-label">Дом находится</span> <strong>${eventText(event.place)}</strong></span>
           </span>
-          <span class="event-card-summary">${escapeHtml(event.summary).replace(/^([^:]+: )(.+)$/, '$1<strong>$2</strong>')}</span>
-          <span class="event-card-meta">${(event.highlights || []).map((item) => `<span>${escapeHtml(item)}</span>`).join('')}</span>
+          <span class="event-card-summary">${eventText(event.summary).replace(/^([^:]+: )(.+)$/, '$1<strong>$2</strong>')}</span>
+          <span class="event-card-meta">${(event.highlights || []).map((item) => `<span>${eventText(item)}</span>`).join('')}</span>
           <span class="event-card-actions">
             <a class="btn btn-primary" href="#contacts">Участвую!</a>
             <a class="btn btn-secondary" href="${escapeHtml(event.programFile)}" download>Скачать программу</a>
