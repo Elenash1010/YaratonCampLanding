@@ -236,12 +236,16 @@
         line-height:1.4;
         text-align:center;
       }
-      #season-autumn .scroll-btn{
+      #season-autumn .scroll-btn,
+      #season-autumn .scroll-btn:disabled{
         display:grid;
         top:0;
         width:44px;
         height:44px;
         transform:none;
+        color:#233B59;
+        background:#fff;
+        border-color:#C4D5EC;
       }
       #season-autumn .scroll-prev{left:0}
       #season-autumn .scroll-next{right:0}
