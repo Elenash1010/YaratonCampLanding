@@ -238,6 +238,7 @@
     .shift-details-extra{
       margin-top:24px;
     }
+    .shift-swipe-hint{display:none}
     .shift-intro-highlight,
     .shift-price-nowrap{
       white-space:nowrap;

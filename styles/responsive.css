@@ -225,6 +225,28 @@
       .final-cta-text{white-space:normal}
       .final-cta-break{display:block}
       #shifts .subhead{flex-direction:column; align-items:flex-start}
+      #season-autumn .shift-swipe-hint{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        min-height:44px;
+        margin:0 52px 14px;
+        color:var(--heading);
+        font-size:13px;
+        line-height:1.4;
+        text-align:center;
+      }
+      #season-autumn .scroll-btn{
+        display:grid;
+        top:0;
+        width:44px;
+        height:44px;
+        transform:none;
+      }
+      #season-autumn .scroll-prev{left:0}
+      #season-autumn .scroll-next{right:0}
+      #season-autumn .scroller-wrap::before,
+      #season-autumn .scroller-wrap::after{top:58px}
       #shifts .subhead > div{min-width:0; max-width:100%}
       .shift-intro-highlight,
       .shift-price-nowrap{white-space:normal}
