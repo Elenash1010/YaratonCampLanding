@@ -225,6 +225,9 @@
       .final-cta-text{white-space:normal}
       .final-cta-break{display:block}
       #shifts .subhead{flex-direction:column; align-items:flex-start}
+      #shifts .subhead > div{min-width:0; max-width:100%}
+      .shift-intro-highlight,
+      .shift-price-nowrap{white-space:normal}
       #shifts .subhead .btn{align-self:flex-start; margin-top:10px}
       #team .subhead{flex-direction:column; align-items:flex-start}
       #team .subhead .btn{align-self:flex-start; margin-top:10px}
