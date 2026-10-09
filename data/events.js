@@ -3,10 +3,10 @@ window.YARATON_EVENTS = [
   {
     id: 'season-closing-2026',
     eyebrow: 'Ближайшее мероприятие',
-    title: 'Новогодняя удмуртская локация «Дом Кизили»',
+    title: 'Новогодняя удмуртская локация Резиденция Кизили',
     titlePrefix: 'Новогодняя удмуртская локация',
-    titleMain: '«Дом Кизили»',
-    image: 'assets/images/poster/Kizili Home.jpg',
+    titleMain: 'Резиденция Кизили',
+    image: 'assets/images/poster/Cover.png',
     programFile: 'assets/images/poster/Kizili Home_prez.pdf',
     imageAlt: 'Афиша мероприятия — Kizili Home',
     modalImage: 'assets/images/poster/family-festival-season-closing-hero.png',

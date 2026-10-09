@@ -1,0 +1,13 @@
+const C={navy:'#233B59',white:'#FFFFFF',light:'#EEF4FF',red:'#FF1D25',blue:'#6290C3',muted:'#52657A'};
+const rgb=h=>({r:parseInt(h.slice(1,3),16)/255,g:parseInt(h.slice(3,5),16)/255,b:parseInt(h.slice(5,7),16)/255});
+const paint=h=>[{type:'SOLID',color:rgb(h)}];
+await Promise.all(['Regular','SemiBold','Bold'].map(style=>figma.loadFontAsync({family:'Montserrat',style})));
+const ids=[],photos=[],slides=[];
+function rect(p,x,y,w,h,color,r=0,name='Форма'){const n=figma.createRectangle();p.appendChild(n);n.name=name;n.resize(w,h);n.fills=paint(color);n.cornerRadius=r;n.x=x;n.y=y;ids.push(n.id);return n;}
+function txt(p,text,x,y,w,size=32,color=C.navy,style='Regular'){const n=figma.createText();p.appendChild(n);n.fontName={family:'Montserrat',style};n.fontSize=size;n.lineHeight={unit:'PERCENT',value:125};n.characters=text;n.fills=paint(color);n.textAutoResize='HEIGHT';n.resize(w,10);n.x=x;n.y=y;n.name=text.slice(0,65);ids.push(n.id);return n;}
+function stack(p,x,y,w,items,color=C.navy,size=32,gap=24){const f=figma.createAutoLayout();p.appendChild(f);f.name='Текстовый блок';f.layoutMode='VERTICAL';f.resize(w,10);f.primaryAxisSizingMode='AUTO';f.counterAxisSizingMode='FIXED';f.itemSpacing=gap;f.fills=[];f.x=x;f.y=y;ids.push(f.id);for(const a of items)txt(f,a,0,0,w,size,color);return f;}
+function photo(p,path,x,y,w,h,fit='FILL'){const n=rect(p,x,y,w,h,C.light,24,'Фото · '+path.split('/').pop());photos.push({id:n.id,path,fit});return n;}
+function slide(num,title,dark=false){const s=figma.createSlide();s.name=String(num).padStart(2,'0')+' · '+title;s.fills=paint(dark?C.navy:C.white);ids.push(s.id);slides.push(s);txt(s,'ЯРАТОН  /  ОСЕНЬ 2026',80,44,800,22,dark?C.white:C.muted,'SemiBold');txt(s,String(num).padStart(2,'0')+' / 10',1730,1016,120,22,dark?C.white:C.muted);return s;}
+function title(s,t,dark=false){txt(s,t,80,126,1730,66,dark?C.white:C.navy,'SemiBold');}
+function label(p,t,x,y,w=600,dark=false){txt(p,t,x,y,w,24,dark?C.white:C.red,'SemiBold');}
+function validate(){const issues=[];for(const s of slides){const all=s.findAllWithCriteria({types:['TEXT','RECTANGLE','FRAME']});for(const n of all){const a=n.absoluteBoundingBox,b=s.absoluteBoundingBox;if(a&&b&&(a.x<b.x-2||a.y<b.y-2||a.x+a.width>b.x+b.width+2||a.y+a.height>b.y+b.height+2))issues.push({slide:s.name,node:n.name,kind:'bounds'});}const texts=s.findAllWithCriteria({types:['TEXT']});for(let i=0;i<texts.length;i++)for(let j=i+1;j<texts.length;j++){const a=texts[i].absoluteBoundingBox,b=texts[j].absoluteBoundingBox;if(a&&b&&Math.min(a.x+a.width,b.x+b.width)-Math.max(a.x,b.x)>4&&Math.min(a.y+a.height,b.y+b.height)-Math.max(a.y,b.y)>4)issues.push({slide:s.name,kind:'text-overlap',nodes:[texts[i].name,texts[j].name]});}}return issues;}
