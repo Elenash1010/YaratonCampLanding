@@ -25,8 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class="event-card-copy"><span class="event-card-eyebrow">${escapeHtml(event.eyebrow)}</span>
           <span class="event-card-title"><span class="event-card-title-prefix">${escapeHtml(event.titlePrefix || 'Семейный фестиваль')}</span><strong>${escapeHtml(event.titleMain || event.title)}</strong></span>
           <span class="event-card-details">
-            <span><span class="event-card-detail-label">Дом работает:</span> <strong>${eventText(event.date)}</strong></span>
-            <span class="event-card-location"><span class="event-card-detail-label">Дом находится</span> <strong>${eventText(event.place)}</strong></span>
+            <span><span class="event-card-detail-label">Работает:</span> <strong>${eventText(event.date)}</strong></span>
+            <span class="event-card-location"><span class="event-card-detail-label">Находится</span> <strong>${eventText(event.place)}</strong></span>
           </span>
           <span class="event-card-summary">${eventText(event.summary).replace(/^([^:]+: )(.+)$/, '$1<strong>$2</strong>')}</span>
           <span class="event-card-meta">${(event.highlights || []).map((item) => `<span>${eventText(item)}</span>`).join('')}</span>
